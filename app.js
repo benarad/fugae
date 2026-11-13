@@ -698,6 +698,74 @@ function frame() {
   requestAnimationFrame(frame);
 }
 
+// ------------------------------------------------------------------ kind
+
+// Terms that need a word of explanation, shown on hover.
+const GLOSSARY = {
+  "stile antico": "the old church style: two slow beats in a bar, long notes, lines moving mostly by step, suspensions",
+  "ricercar": "a learned fugue in the old style on a slow, serious subject",
+  "verset": "a short organ fugue made for the liturgy on a brief stock subject, as in Fischer and Kerll",
+  "fughetta": "a short, light fugue",
+  "Spielfuge": "a 'playing fugue', built from idiomatic keyboard figuration",
+  "partimento": "a fugue improvised from a figured bass, which is how fugue was usually taught",
+  "galant": "the lighter, fashionable style of Bach's later years: clear phrases and simple harmony",
+  "canzona": "an older, lively kind of fugue in quick notes",
+  "exposition fugue": "a fugue made of a chain of expositions, with little or no episode between them",
+  "triple-counterpoint": "three lines written so that any one of them can be the bass",
+  "triple counterpoint": "three lines written so that any one of them can be the bass",
+  "quadruple counterpoint": "four lines written so that any one of them can be the bass",
+  "double counterpoint": "two lines written so that either can be the bass",
+  "concerto-like": "planned like a concerto movement: the exposition returns as the full band's theme does",
+  "concerto type": "planned like a concerto movement: the exposition returns as the full band's theme does",
+  "da capo": "the opening comes back at the end",
+  "alla breve": "two minim beats in a bar",
+  "bourrée": "a quick dance in two, starting with an upbeat",
+  "gigue": "a quick dance in compound time",
+  "passepied": "a light, quick dance in three",
+  "gavotte": "a moderate dance in two, starting in the middle of the bar",
+  "Minuet": "a moderate dance in three",
+  "real answer": "the subject transposed exactly to the dominant",
+  "tonal answer": "the subject transposed to the dominant with a note or two adjusted to stay near the home key",
+  "stretto": "a second statement begins before the first has finished",
+  "inversion": "the subject upside down",
+  "augmentation": "the subject in notes twice as long",
+  "diminution": "the subject in notes half as long",
+  "pedal point": "one note held or repeated while the harmony moves over it",
+  "countersubject": "a line that regularly accompanies the subject",
+};
+
+// Text with any glossary term wrapped so that hovering explains it.
+function glossed(text) {
+  const terms = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
+  const escaped = terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const pattern = new RegExp(`(${escaped.join("|")})s?`, "gi");
+  const meaning = Object.fromEntries(Object.entries(GLOSSARY).map(([k, v]) => [k.toLowerCase(), v]));
+  const nodes = [];
+  let last = 0;
+  for (const m of text.matchAll(pattern)) {
+    if (m.index > last) nodes.push(text.slice(last, m.index));
+    const abbr = el("abbr", null, m[0]);
+    abbr.title = meaning[m[1].toLowerCase()];
+    nodes.push(abbr);
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
+}
+
+function showKind() {
+  const procedures = $("procedures"), character = $("character");
+  if (piece.procedures && piece.procedures.length) {
+    procedures.replaceChildren(el("b", null, "Means: "), ...glossed(piece.procedures.join(" · ")));
+    procedures.hidden = false;
+  }
+  if (piece.character) {
+    character.replaceChildren(el("b", null, "Character: "), ...glossed(piece.character.text),
+      el("span", "source", ` (${piece.character.source.replace(/\s*\((\d+)\)/, ", $1")})`));
+    character.hidden = false;
+  }
+}
+
 // ------------------------------------------------------------------ boot
 
 function wireControls() {
@@ -762,6 +830,7 @@ async function boot() {
     mini.hidden = false;
   }
   $("meta").textContent = `${piece.voices.length} voices · ${piece.key} · ${piece.meter} · ${piece.measures.length} bars`;
+  showKind();
   $("tempo").value = bpm;
   $("tempo-text").textContent = `♩ = ${bpm}`;
 

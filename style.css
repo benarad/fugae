@@ -71,6 +71,11 @@ body {
 .masthead { padding-top: 20px; padding-bottom: 10px; }
 h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text-wrap: balance; }
 #meta { margin: 2px 0 0; color: var(--ink-2); }
+/* What kind of fugue it is: the means it uses, and its character as a commentator reads it. */
+.kind { margin: 4px 0 0; max-width: 70ch; }
+.kind b { font-weight: 600; }
+.kind .source { color: var(--muted); }
+.kind abbr { text-decoration: underline dotted var(--muted); text-underline-offset: 3px; cursor: help; }
 #piece {
   margin-top: 8px; max-width: 100%; height: 30px; padding: 0 8px;
   border: 1px solid var(--axis); border-radius: 6px;
