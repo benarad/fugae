@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fugae</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="masthead">
+    <h1 id="title">Loading…</h1>
+    <p id="meta"></p>
+    <select id="piece" aria-label="Choose a fugue" hidden></select>
+  </header>
+
+  <section class="deck" id="deck" aria-label="Playback and structure">
+    <div class="transport">
+      <strong id="mini" class="mini" hidden></strong>
+      <button id="play" class="btn primary" aria-label="Play" disabled>
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path id="play-icon" d="M4 2.5v11l9-5.5z"/></svg>
+        <span id="play-text">Play</span>
+      </button>
+      <button id="rewind" class="btn" aria-label="Back to the start">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 2.5h1.6v11H3zM13.5 2.5v11L5.5 8z"/></svg>
+      </button>
+
+      <div class="segmented" role="radiogroup" aria-label="Instrument">
+        <label><input type="radio" name="instrument" value="piano" checked><span>Piano</span></label>
+        <label><input type="radio" name="instrument" value="harpsichord"><span>Harpsichord</span></label>
+      </div>
+
+      <label class="tempo">
+        <span id="tempo-text">♩ = 72</span>
+        <input id="tempo" type="range" min="30" max="120" step="1" value="72" aria-label="Tempo in beats per minute">
+      </label>
+
+      <p id="now" class="now" aria-live="off"></p>
+    </div>
+
+    <div class="timeline" id="timeline"></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <main>
+    <details class="tables">
+      <summary>Entries and sections as a table</summary>
+      <div class="tables-grid">
+        <table id="entries-table"></table>
+        <table id="sections-table"></table>
+      </div>
+    </details>
+    <div id="score" class="paper"><p class="status">Rendering the score…</p></div>
+  </main>
+
+  <footer class="credits">
+    <p>The analysis is worked out by a program and is a first reading, not an authority.</p>
+    <p>Scores: the Humdrum edition of <i>The Well-Tempered Clavier</i>, encoded by David Huron and edited by
+      Craig Stuart Sapp (<a href="https://github.com/humdrum-tools/bach-wtc-fugues">humdrum-tools/bach-wtc-fugues</a>),
+      after the Bach-Gesellschaft edition. Notation is drawn by <a href="https://www.verovio.org">Verovio</a>;
+      the piano and harpsichord are from the FluidR3 GM sound set.</p>
+  </footer>
+
+  <div id="tip" class="tip" hidden></div>
+
+  <script src="vendor/verovio-toolkit-wasm.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
