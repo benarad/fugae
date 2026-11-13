@@ -243,6 +243,8 @@ function buildTimeline() {
     tl.append(label, track);
   });
 
+  buildKeyPath(tl);
+
   // Bar axis.
   tl.append(el("span", "tl-label", "Bar"));
   const axis = el("div", "tl-track axis");
@@ -287,6 +289,141 @@ function buildTimeline() {
     item.append(el("i", "pedal-key"), "Pedal point");
     legend.append(item);
   }
+  if (tl.querySelector(".tl-track.keys")) {
+    // The key path can be put away: it takes room that a small screen may want for the score.
+    let shown = true;
+    try { shown = localStorage.getItem("fugae-keys") !== "off"; } catch { /* no storage: shown */ }
+    const toggle = el("button", "voice-toggle", "Keys");
+    toggle.type = "button";
+    toggle.title = "Show or hide the key path: each statement on the line of its key. The home key and "
+      + "its five nearest neighbours always have the same six lines, the sharper pair above and the flatter below";
+    const set = (on) => {
+      toggle.setAttribute("aria-pressed", String(on));
+      tl.classList.toggle("no-keys", !on);
+    };
+    toggle.addEventListener("click", () => {
+      shown = !shown;
+      set(shown);
+      try { localStorage.setItem("fugae-keys", shown ? "on" : "off"); } catch { /* not remembered */ }
+    });
+    set(shown);
+    legend.append(toggle);
+  }
+}
+
+// ------------------------------------------------------------------ keys
+
+const KEY_ROW = 12;   // height of one key's line in the key path, in pixels
+const KEY_GAP = 6;    // between the six near keys and any farther ones
+
+// A key from its name: its signature in sharps (flats negative), its tonic and its mode.
+function keyOf(name) {
+  const m = /^([A-G])([♯♭]*) (major|minor)$/.exec(name || "");
+  if (!m) return null;
+  const alter = m[2].split("♯").length - m[2].split("♭").length;
+  const place = "FCGDAEB".indexOf(m[1]) - 1 + 7 * alter;        // on the line of fifths, C = 0
+  const minor = m[3] === "minor";
+  return { name, minor, sharps: place - (minor ? 3 : 0), tonic: (((place * 7) % 12) + 12) % 12 };
+}
+
+// What a key is to the home key, in the words a harmony book would use.
+function relationTo(home, key) {
+  if (key.name === home.name) return "the home key";
+  const up = (key.tonic - home.tonic + 12) % 12;
+  const kind = key.minor ? "minor" : "major";
+  if (up === 0) return `the tonic ${kind}`;
+  if (up === 7) return key.minor === home.minor ? "the dominant" : `the dominant ${kind}`;
+  if (up === 5) return key.minor === home.minor ? "the subdominant" : `the subdominant ${kind}`;
+  if (!home.minor && key.minor) {
+    if (up === 9) return "the relative minor";
+    if (up === 2) return "the supertonic minor (relative minor of the subdominant)";
+    if (up === 4) return "the mediant minor (relative minor of the dominant)";
+  }
+  if (home.minor && !key.minor) {
+    if (up === 3) return "the relative major";
+    if (up === 10) return "the relative major of the dominant";
+    if (up === 8) return "the relative major of the subdominant";
+  }
+  const steps = Math.abs(key.sharps - home.sharps);
+  return `a distant key (${steps} ${key.sharps > home.sharps ? "sharps sharper" : "flats flatter"})`;
+}
+
+// The key at a signature (sharps, flats negative), major or minor.
+function keyAt(sharps, minor) {
+  const place = sharps + (minor ? 3 : 0);                       // its tonic on the line of fifths
+  const alter = Math.floor((place + 1) / 7);
+  const letter = "FCGDAEB"[(((place + 1) % 7) + 7) % 7];
+  return keyOf(`${letter}${(alter > 0 ? "♯" : "♭").repeat(Math.abs(alter))} ${minor ? "minor" : "major"}`);
+}
+
+// The key path. Six lines are always there and always in the same places: the home
+// key's signature in the middle, one sharper above it and one flatter below, each as
+// a major key over its relative minor. Those six are the home key and its five
+// nearest neighbours, so the same plan draws the same shape in every fugue. A key
+// farther off gets a line of its own beyond a small gap. Each statement is drawn on
+// the line of its key. Only the statements have keys; the dotted lines between them
+// show the order, not the route.
+function buildKeyPath(tl) {
+  const home = keyOf(piece.key);
+  const stated = piece.entries
+    .filter((e) => (e.theme || 1) === 1 && !e.partial && keyOf(e.key))
+    .sort((a, b) => a.start - b.start || a.voice - b.voice);
+  if (!home || new Set(stated.map((e) => e.key)).size < 2) return;
+  const id = (k) => `${k.sharps}:${k.minor}`;
+  const used = new Map(stated.map((e) => keyOf(e.key)).map((k) => [id(k), k]));
+  const near = [1, 0, -1].flatMap((d) => [keyAt(home.sharps + d, false), keyAt(home.sharps + d, true)]);
+  const far = [...used.values()].filter((k) => Math.abs(k.sharps - home.sharps) > 1)
+    .sort((a, b) => b.sharps - a.sharps || a.minor - b.minor);
+  const groups = [far.filter((k) => k.sharps > home.sharps), near, far.filter((k) => k.sharps < home.sharps)]
+    .filter((g) => g.length);
+  const keys = [], top = new Map();
+  let height = 0;
+  groups.forEach((group, g) => {
+    if (g) height += KEY_GAP;
+    for (const k of group) {
+      top.set(id(k), height);
+      keys.push(k);
+      height += KEY_ROW;
+    }
+  });
+  const middle = (name) => top.get(id(keyOf(name))) + KEY_ROW / 2;
+
+  const labels = el("div", "tl-label keys-labels");
+  labels.style.height = `${height}px`;
+  for (const k of keys) {
+    const text = el("span", k.name === home.name ? "home" : used.has(id(k)) ? null : "unused",
+      k.name.replace("major", "maj").replace("minor", "min"));
+    text.style.top = `${top.get(id(k))}px`;
+    text.title = `${k.name}: ${relationTo(home, k)}${used.has(id(k)) ? "" : " (the subject is not stated in it)"}`;
+    labels.append(text);
+  }
+
+  const track = el("div", "tl-track keys");
+  track.style.height = `${height}px`;
+  const ruled = el("div", "key-home");
+  ruled.style.top = `${middle(home.name)}px`;
+  track.append(ruled);
+
+  const lines = svgEl("svg", { class: "key-lines", viewBox: `0 0 ${piece.end} ${height}`, preserveAspectRatio: "none" });
+  stated.forEach((e, i) => {
+    const before = stated[i - 1];
+    if (before && e.start >= before.end - 1e-6) {
+      lines.append(svgEl("line", { x1: before.end, y1: middle(before.key), x2: e.start, y2: middle(e.key) }));
+    }
+  });
+  track.append(lines);
+
+  for (const e of stated) {
+    const mark = place(el("div", `key-mark ${e.role === "answer" ? "answer" : "subject"}`), e.start, e.end);
+    mark.style.top = `${top.get(id(keyOf(e.key))) + 2}px`;
+    const what = `${e.role === "answer" ? "Answer" : "Subject"} in ${e.key}`;
+    const where = `${relationTo(home, keyOf(e.key))} · ${piece.voices[e.voice]}, bar ${barOf(e.start)}`;
+    mark.addEventListener("mousemove", (ev) => showTip(ev, what, where));
+    mark.addEventListener("mouseleave", hideTip);
+    track.append(mark);
+  }
+  trackSeek(track);
+  tl.append(labels, track);
 }
 
 function buildTables() {

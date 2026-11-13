@@ -261,6 +261,20 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 }
 .pedal { position: absolute; bottom: 0; height: 3px; border-radius: 2px; background: var(--ink-2); }
 
+/* The key path: a line for each key, sharper keys above, each statement on its key's line. */
+.keys-labels { position: relative; align-self: start; padding: 0; }
+.keys-labels span { position: absolute; left: 0; font-size: 10.5px; line-height: 12px; color: var(--muted); white-space: nowrap; }
+.keys-labels span.home { color: var(--ink); font-weight: 600; }
+.keys-labels span.unused { opacity: 0.45; }
+.tl-track.keys { background: var(--surface); border-radius: 4px; }
+.key-home { position: absolute; left: 0; right: 0; height: 1px; background: var(--axis); }
+.key-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.key-lines line { stroke: var(--muted); stroke-width: 1px; stroke-dasharray: 2 2; vector-effect: non-scaling-stroke; }
+.key-mark { position: absolute; height: 8px; min-width: 3px; border-radius: 3px; background: var(--role); box-shadow: 0 0 0 1px var(--surface); }
+.key-mark:hover { box-shadow: 0 0 0 2px var(--ink); z-index: 2; }
+.timeline.no-keys .keys-labels, .timeline.no-keys .tl-track.keys { display: none; }
+.legend .voice-toggle { margin-left: 0; color: var(--ink-2); }
+
 .tick { position: absolute; top: 0; width: 1px; height: 4px; background: var(--axis); }
 .tick.major { height: 6px; background: var(--muted); }
 .tick-label { position: absolute; top: 5px; transform: translateX(-50%); font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
