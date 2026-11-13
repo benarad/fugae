@@ -59,6 +59,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 body {
   margin: 0;
@@ -75,12 +76,89 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .kind { margin: 4px 0 0; max-width: 70ch; }
 .kind b { font-weight: 600; }
 .kind .source { color: var(--muted); }
-.kind abbr { text-decoration: underline dotted var(--muted); text-underline-offset: 3px; cursor: help; }
+.kind .term {
+  display: inline; margin: 0; padding: 0; border: 0; border-radius: 2px;
+  background: none; color: inherit; font: inherit; text-align: inherit;
+  text-decoration: underline dotted var(--muted); text-underline-offset: 3px; cursor: help;
+}
+.kind .term:hover, .kind .term[aria-expanded="true"] { text-decoration-color: currentColor; }
+.kind .term:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 #piece {
-  margin-top: 8px; max-width: 100%; height: 30px; padding: 0 8px;
+  max-width: 100%; height: 30px; padding: 0 8px;
   border: 1px solid var(--axis); border-radius: 6px;
   background: var(--surface); color: var(--ink); font: inherit;
 }
+/* Where this fugue sits among the others: back to the list, and its neighbours. */
+.where { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-bottom: 12px; }
+.where a { text-decoration: none; white-space: nowrap; }
+.where .step { color: var(--ink-2); }
+.where .step:hover { color: var(--ink); border-color: var(--muted); }
+.where .steps { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.where #piece { flex: 0 1 170px; min-width: 0; }
+
+/* ------------------------------------------------- the list of pieces */
+
+.browse main { max-width: 1040px; padding-top: 4px; }
+.filters { display: grid; gap: 8px; }
+.filter-row { display: grid; grid-template-columns: 92px 1fr; gap: 8px; align-items: baseline; }
+.filter-label { font-size: 12px; color: var(--ink-2); }
+.filter-label .source { display: block; font-size: 11px; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 26px; padding: 0 10px;
+  border: 1px solid var(--axis); border-radius: 13px;
+  background: var(--surface); color: var(--ink);
+  font: inherit; font-size: 13px; white-space: nowrap; cursor: pointer;
+}
+.chip .n { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip:hover:not(:disabled) { border-color: var(--muted); }
+.chip:disabled { opacity: 0.4; cursor: default; }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: 0.7; }
+/* The tags on each fugue in the list: quieter, and the commentator's are filled. */
+.chips.quiet .chip { height: 22px; padding: 0 8px; font-size: 12px; border-color: var(--hairline); background: transparent; color: var(--ink-2); }
+.chips.quiet .chip.of-character { background: var(--neutral-fill); border-color: transparent; color: var(--ink); }
+.chips.quiet .chip:hover { border-color: var(--muted); }
+.chip[aria-pressed="true"], .chips.quiet .chip.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--page); }
+
+.count { display: flex; align-items: center; gap: 12px; min-height: 26px; margin: 18px 0 8px; }
+.count b { font-weight: 600; }
+.btn.small { height: 24px; padding: 0 8px; font-size: 12px; }
+
+/* The map: twelve tonics across, a line for each book and mode. */
+.map { display: grid; grid-template-columns: max-content repeat(12, minmax(0, 1fr)); gap: 3px; max-width: 760px; }
+.map-label { grid-column: 1; grid-row: calc(var(--line) + 1); align-self: center; padding-right: 10px; font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.cell {
+  grid-column: calc(var(--pc) + 2); grid-row: calc(var(--line) + 1);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 40px; border: 1px solid var(--hairline); border-radius: 5px;
+  background: var(--surface); color: var(--ink); text-decoration: none; line-height: 1.15;
+}
+.cell b { font-size: 13px; font-weight: 600; }
+.cell span { font-size: 10.5px; color: var(--muted); }
+.map .second { margin-top: 7px; }
+.cell:hover { border-color: var(--ink); }
+.cell.on { background: var(--ink); border-color: var(--ink); color: var(--page); }
+.cell.on span { color: inherit; opacity: 0.7; }
+.cell.off { background: transparent; color: var(--muted); }
+.cell.off b { font-weight: 400; }
+.map-note { margin: 6px 0 0; font-size: 12px; color: var(--muted); }
+
+.pieces { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid var(--hairline); }
+.piece { display: grid; grid-template-columns: 200px 1fr; gap: 4px 20px; padding: 10px 0; border-bottom: 1px solid var(--hairline); }
+.piece-head { display: flex; flex-direction: column; gap: 1px; }
+.piece-link { color: var(--ink); font-size: 15px; text-decoration: none; }
+.piece-link b { display: inline-block; min-width: 2.9em; font-weight: 650; }
+.piece-link:hover { text-decoration: underline; }
+.facts { font-size: 12px; color: var(--muted); }
+.piece-character { margin: 0 0 6px; max-width: 70ch; }
+/* Each theme as a line or two of score, in the page's own ink. */
+.incipits { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 28px; }
+.incipits:not(:empty) { margin-bottom: 8px; }
+.incipit { margin: 0; min-width: 0; }
+.incipit .staff { display: block; color: var(--ink); }
+.incipit svg { display: block; max-width: 100%; height: auto; color: inherit; fill: currentColor; overflow: visible; }
+.incipit svg .mNum { display: none; }
 
 /* ------------------------------------------------------------ the deck */
 
@@ -261,6 +339,14 @@ tbody tr:hover td { background: var(--neutral-fill); }
 .tip span { opacity: 0.8; }
 
 @media (max-width: 560px) {
+  .filter-row, .piece { grid-template-columns: 1fr; }
+  .filter-row { gap: 3px; }
+  .filter-label .source { display: inline; }
+  /* On a narrow screen the map turns on its side: four columns, twelve tonics down. */
+  .map { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 420px; }
+  .map-label { grid-column: calc(var(--line) + 1); grid-row: 1; padding: 0 0 2px; font-size: 11px; text-align: center; white-space: normal; }
+  .cell { grid-column: calc(var(--line) + 1); grid-row: calc(var(--pc) + 2); flex-direction: row; gap: 6px; min-height: 30px; }
+  .map .second { margin-top: 0; }
   .timeline { grid-template-columns: 72px 1fr; }
   .tl-overlay { left: 72px; }
   .legend { margin-left: 0; }

@@ -3,7 +3,6 @@
  "title": "The Well-Tempered Clavier, Book 2, Fugue 9 in E major",
  "procedures": [
   "real answer",
-  "3 subjects",
   "1 countersubject",
   "stretto",
   "inversion",
@@ -6253,20 +6252,7 @@
    "E3"
   ]
  },
- "later_subjects": [
-  {
-   "number": 2,
-   "notes": 10,
-   "measure": 16,
-   "beat": 3.0
-  },
-  {
-   "number": 3,
-   "notes": 6,
-   "measure": 16,
-   "beat": 4.0
-  }
- ],
+ "later_subjects": [],
  "entries": [
   {
    "id": "e1",
@@ -6772,195 +6758,6 @@
    "deviations": [],
    "measure": 40,
    "beat": 1.0
-  },
-  {
-   "id": "e26",
-   "theme": 2,
-   "role": "subject",
-   "tonal": false,
-   "form": "direct",
-   "complete": true,
-   "exposition": false,
-   "late": false,
-   "varied": false,
-   "partial": false,
-   "key": "",
-   "voice": 2,
-   "start": 122.0,
-   "end": 135.0,
-   "notes": 10,
-   "deviations": [],
-   "measure": 16,
-   "beat": 3.0
-  },
-  {
-   "id": "e27",
-   "theme": 3,
-   "role": "subject",
-   "tonal": false,
-   "form": "direct",
-   "complete": true,
-   "exposition": false,
-   "late": false,
-   "varied": false,
-   "partial": false,
-   "key": "",
-   "voice": 3,
-   "start": 123.0,
-   "end": 134.0,
-   "notes": 6,
-   "deviations": [],
-   "measure": 16,
-   "beat": 4.0
-  },
-  {
-   "id": "e28",
-   "theme": 2,
-   "role": "subject",
-   "tonal": false,
-   "form": "direct",
-   "complete": true,
-   "exposition": false,
-   "late": false,
-   "varied": false,
-   "partial": false,
-   "key": "",
-   "voice": 1,
-   "start": 134.0,
-   "end": 147.0,
-   "notes": 10,
-   "deviations": [],
-   "measure": 17,
-   "beat": 7.0
-  },
-  {
-   "id": "e29",
-   "theme": 3,
-   "role": "subject",
-   "tonal": false,
-   "form": "direct",
-   "complete": true,
-   "exposition": false,
-   "late": false,
-   "varied": false,
-   "partial": false,
-   "key": "",
-   "voice": 2,
-   "start": 135.0,
-   "end": 145.5,
-   "notes": 6,
-   "deviations": [],
-   "measure": 17,
-   "beat": 8.0
-  },
-  {
-   "id": "e30",
-   "theme": 2,
-   "role": "subject",
-   "tonal": false,
-   "form": "direct",
-   "complete": true,
-   "exposition": false,
-   "late": false,
-   "varied": false,
-   "partial": false,
-   "key": "",
-   "voice": 0,
-   "start": 146.0,
-   "end": 157.0,
-   "notes": 10,
-   "deviations": [],
-   "measure": 19,
-   "beat": 3.0
-  },
-  {
-   "id": "e31",
-   "theme": 3,
-   "role": "subject",
-   "tonal": false,
-   "form": "direct",
-   "complete": true,
-   "exposition": false,
-   "late": false,
-   "varied": false,
-   "partial": false,
-   "key": "",
-   "voice": 1,
-   "start": 147.0,
-   "end": 158.0,
-   "notes": 6,
-   "deviations": [],
-   "measure": 19,
-   "beat": 4.0
-  },
-  {
-   "id": "e32",
-   "theme": 3,
-   "role": "subject",
-   "tonal": false,
-   "form": "direct",
-   "complete": false,
-   "exposition": false,
-   "late": false,
-   "varied": false,
-   "partial": false,
-   "key": "",
-   "voice": 3,
-   "start": 243.0,
-   "end": 249.0,
-   "notes": 4,
-   "deviations": [
-    0,
-    1
-   ],
-   "measure": 31,
-   "beat": 4.0
-  },
-  {
-   "id": "e33",
-   "theme": 3,
-   "role": "subject",
-   "tonal": false,
-   "form": "direct",
-   "complete": false,
-   "exposition": false,
-   "late": false,
-   "varied": false,
-   "partial": false,
-   "key": "",
-   "voice": 3,
-   "start": 251.0,
-   "end": 257.0,
-   "notes": 4,
-   "deviations": [
-    0,
-    1
-   ],
-   "measure": 32,
-   "beat": 4.0
-  },
-  {
-   "id": "e34",
-   "theme": 3,
-   "role": "subject",
-   "tonal": false,
-   "form": "direct",
-   "complete": false,
-   "exposition": false,
-   "late": false,
-   "varied": false,
-   "partial": false,
-   "key": "",
-   "voice": 3,
-   "start": 259.0,
-   "end": 266.0,
-   "notes": 4,
-   "deviations": [
-    0,
-    1
-   ],
-   "measure": 33,
-   "beat": 4.0
   }
  ],
  "countersubjects": [
@@ -7085,7 +6882,7 @@
   {
    "kind": "episode",
    "label": "Episode 1",
-   "summary": "Soprano: a figure from the subject. Alto: the opening of subject 2, inverted. Tenor: a figure from countersubject 1. Bass: free counterpoint.",
+   "summary": "Soprano: a figure from the subject. Alto: free counterpoint. Tenor: a figure from countersubject 1. Bass: free counterpoint.",
    "reworks": "",
    "start": 50.0,
    "end": 66.0,
@@ -7114,18 +6911,38 @@
   },
   {
    "kind": "entries",
-   "label": "Stretto: Subject in E major (Alto); Subject 2 (Tenor); Subject 3 (Bass); Subject in B major (Soprano); Subject 2 (Alto); Subject in B major, rhythm varied (Bass); Subject 3 (Tenor); Subject in B major (Bass); Subject 2 (Soprano); Subject 3 (Alto); Subject in F♯ minor, rhythm varied (Tenor)",
+   "label": "Stretto: Subject in E major (Alto); Subject in B major (Soprano); Subject in B major, rhythm varied (Bass)",
    "summary": "",
    "reworks": "",
    "start": 120.0,
-   "end": 165.0,
+   "end": 143.0,
    "measure": 16,
+   "beat": 1.0
+  },
+  {
+   "kind": "link",
+   "label": "Link",
+   "summary": "Free counterpoint: nothing here is traced to the themes.",
+   "reworks": "",
+   "start": 143.0,
+   "end": 144.0,
+   "measure": 18,
+   "beat": 8.0
+  },
+  {
+   "kind": "entries",
+   "label": "Stretto: Subject in B major (Bass); Subject in F♯ minor, rhythm varied (Tenor)",
+   "summary": "",
+   "reworks": "",
+   "start": 144.0,
+   "end": 165.0,
+   "measure": 19,
    "beat": 1.0
   },
   {
    "kind": "episode",
    "label": "Episode 3",
-   "summary": "Soprano: a figure from the subject and the opening of countersubject 1, inverted. Alto: a figure from the subject and a figure from subject 2. Tenor: the opening of countersubject 1. Bass: free counterpoint.",
+   "summary": "Soprano: a figure from the subject and the opening of countersubject 1, inverted. Alto: a figure from the subject. Tenor: the opening of countersubject 1. Bass: free counterpoint.",
    "reworks": "",
    "start": 165.0,
    "end": 206.0,
@@ -7174,7 +6991,7 @@
   },
   {
    "kind": "entries",
-   "label": "Stretto: Subject in B major, diminished (Bass); Subject in E major (Alto); Subject 3 (Bass)",
+   "label": "Stretto: Subject in B major, diminished (Bass); Subject in E major (Alto)",
    "summary": "",
    "reworks": "",
    "start": 234.0,
@@ -7183,54 +7000,14 @@
    "beat": 3.0
   },
   {
-   "kind": "link",
-   "label": "Link",
-   "summary": "Soprano: free counterpoint. Alto: free counterpoint. Tenor: the opening of countersubject 1. Bass: free counterpoint.",
-   "reworks": "",
-   "start": 249.0,
-   "end": 251.0,
-   "measure": 32,
-   "beat": 2.0
-  },
-  {
-   "kind": "entries",
-   "label": "Subject 3 (Bass)",
-   "summary": "",
-   "reworks": "",
-   "start": 251.0,
-   "end": 257.0,
-   "measure": 32,
-   "beat": 4.0
-  },
-  {
-   "kind": "link",
-   "label": "Link",
-   "summary": "Soprano: the opening of countersubject 1, inverted. Alto: free counterpoint. Tenor: free counterpoint. Bass: free counterpoint.",
-   "reworks": "",
-   "start": 257.0,
-   "end": 259.0,
-   "measure": 33,
-   "beat": 2.0
-  },
-  {
-   "kind": "entries",
-   "label": "Subject 3 (Bass)",
-   "summary": "",
-   "reworks": "",
-   "start": 259.0,
-   "end": 266.0,
-   "measure": 33,
-   "beat": 4.0
-  },
-  {
    "kind": "episode",
    "label": "Episode 4",
-   "summary": "Free counterpoint: nothing here is traced to the themes.",
+   "summary": "Soprano: the opening of countersubject 1, inverted. Alto: the opening of countersubject 1, inverted (2 times). Tenor: the opening of countersubject 1. Bass: the opening of countersubject 1 (2 times), in a sequence rising by a step every bar.",
    "reworks": "",
-   "start": 266.0,
+   "start": 249.0,
    "end": 274.0,
-   "measure": 34,
-   "beat": 3.0
+   "measure": 32,
+   "beat": 2.0
   },
   {
    "kind": "entries",
@@ -7288,28 +7065,15 @@
  "fragments": [
   {
    "voice": 3,
-   "start": 34.0,
-   "end": 37.0,
-   "source": "s2",
-   "first": 7,
-   "last": 10,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from subject 2",
-   "measure": 5,
-   "beat": 3.0
-  },
-  {
-   "voice": 1,
-   "start": 52.0,
-   "end": 58.0,
-   "source": "s2",
+   "start": 36.0,
+   "end": 40.0,
+   "source": "cs1",
    "first": 1,
    "last": 4,
    "inverted": true,
    "exact": true,
-   "text": "the opening of subject 2, inverted",
-   "measure": 7,
+   "text": "the opening of countersubject 1, inverted",
+   "measure": 5,
    "beat": 5.0
   },
   {
@@ -7350,19 +7114,6 @@
    "text": "a figure from the subject",
    "measure": 10,
    "beat": 6.0
-  },
-  {
-   "voice": 1,
-   "start": 87.0,
-   "end": 92.0,
-   "source": "s2",
-   "first": 2,
-   "last": 5,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from subject 2",
-   "measure": 11,
-   "beat": 8.0
   },
   {
    "voice": 0,
@@ -7496,19 +7247,6 @@
   },
   {
    "voice": 1,
-   "start": 200.0,
-   "end": 203.0,
-   "source": "s2",
-   "first": 7,
-   "last": 10,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from subject 2",
-   "measure": 26,
-   "beat": 1.0
-  },
-  {
-   "voice": 1,
    "start": 217.0,
    "end": 221.0,
    "source": "cs1",
@@ -7534,6 +7272,19 @@
    "beat": 2.0
   },
   {
+   "voice": 3,
+   "start": 241.0,
+   "end": 247.0,
+   "source": "cs1",
+   "first": 1,
+   "last": 4,
+   "inverted": false,
+   "exact": true,
+   "text": "the opening of countersubject 1",
+   "measure": 31,
+   "beat": 2.0
+  },
+  {
    "voice": 0,
    "start": 248.0,
    "end": 256.0,
@@ -7553,6 +7304,19 @@
    "source": "cs1",
    "first": 1,
    "last": 5,
+   "inverted": false,
+   "exact": true,
+   "text": "the opening of countersubject 1",
+   "measure": 32,
+   "beat": 2.0
+  },
+  {
+   "voice": 3,
+   "start": 249.0,
+   "end": 255.0,
+   "source": "cs1",
+   "first": 1,
+   "last": 4,
    "inverted": false,
    "exact": true,
    "text": "the opening of countersubject 1",
@@ -7586,6 +7350,19 @@
    "beat": 2.0
   },
   {
+   "voice": 3,
+   "start": 257.0,
+   "end": 263.0,
+   "source": "cs1",
+   "first": 1,
+   "last": 4,
+   "inverted": false,
+   "exact": true,
+   "text": "the opening of countersubject 1",
+   "measure": 33,
+   "beat": 2.0
+  },
+  {
    "voice": 1,
    "start": 259.0,
    "end": 264.0,
@@ -7597,32 +7374,6 @@
    "text": "the opening of countersubject 1, inverted",
    "measure": 33,
    "beat": 4.0
-  },
-  {
-   "voice": 0,
-   "start": 262.0,
-   "end": 271.0,
-   "source": "s2",
-   "first": 1,
-   "last": 4,
-   "inverted": false,
-   "exact": true,
-   "text": "the opening of subject 2",
-   "measure": 33,
-   "beat": 7.0
-  },
-  {
-   "voice": 2,
-   "start": 264.0,
-   "end": 270.0,
-   "source": "s2",
-   "first": 4,
-   "last": 8,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from subject 2",
-   "measure": 34,
-   "beat": 1.0
   },
   {
    "voice": 1,
@@ -7677,19 +7428,6 @@
    "beat": 2.0
   },
   {
-   "voice": 1,
-   "start": 314.0,
-   "end": 318.0,
-   "source": "s2",
-   "first": 1,
-   "last": 3,
-   "inverted": true,
-   "exact": true,
-   "text": "the opening of subject 2, inverted",
-   "measure": 40,
-   "beat": 3.0
-  },
-  {
    "voice": 2,
    "start": 321.0,
    "end": 325.0,
@@ -7729,19 +7467,6 @@
    "beat": 6.0
   },
   {
-   "voice": 1,
-   "start": 331.0,
-   "end": 336.0,
-   "source": "s3",
-   "first": 1,
-   "last": 3,
-   "inverted": false,
-   "exact": true,
-   "text": "the opening of subject 3",
-   "measure": 42,
-   "beat": 4.0
-  },
-  {
    "voice": 3,
    "start": 332.0,
    "end": 340.0,
@@ -7755,5 +7480,17 @@
    "beat": 5.0
   }
  ],
- "sequences": []
+ "sequences": [
+  {
+   "voice": 3,
+   "start": 249.0,
+   "end": 266.0,
+   "period": 8.0,
+   "count": 2,
+   "step": 1,
+   "text": "a sequence rising by a step every bar",
+   "measure": 32,
+   "beat": 2.0
+  }
+ ]
 }

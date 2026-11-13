@@ -4,7 +4,7 @@
  * data/<id>.json. All musical time below is in quarter notes from the start.
  */
 
-const PIECE = new URLSearchParams(location.search).get("piece") || "bwv847";
+const PIECE = new URLSearchParams(location.search).get("piece");   // none: go to the list of pieces
 const SVG_NS = "http://www.w3.org/2000/svg";
 const SCALE = 40; // Verovio rendering scale, per cent
 
@@ -117,7 +117,36 @@ function sectionAt(q) {
 // --------------------------------------------------------------- tooltip
 
 const tip = $("tip");
+let pinned = null;          // the glossary term whose explanation was opened by a click
+
+function unpin() {
+  if (pinned) pinned.setAttribute("aria-expanded", "false");
+  pinned = null;
+}
+
+// Explain a glossary term in a box anchored under the term itself.
+function explain(term) {
+  tip.replaceChildren(el("b", null, term.textContent), el("span", null, term.dataset.meaning));
+  tip.hidden = false;
+  const box = term.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = Math.min(box.left, innerWidth - w - 4), y = box.bottom + 6;
+  if (y + h > innerHeight - 4) y = box.top - h - 6;
+  tip.style.left = `${Math.max(4, x)}px`;
+  tip.style.top = `${Math.max(4, y)}px`;
+}
+
+function closeExplanation() {
+  if (!pinned) return;
+  unpin();
+  tip.hidden = true;
+}
+document.addEventListener("pointerdown", (ev) => { if (!ev.target.closest(".term")) closeExplanation(); });
+document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") closeExplanation(); });
+addEventListener("scroll", closeExplanation, { passive: true });
+addEventListener("resize", closeExplanation);
+
 function showTip(event, title, detail) {
+  unpin();
   tip.replaceChildren(el("b", null, title), el("span", null, detail || ""));
   tip.hidden = false;
   const pad = 12, w = tip.offsetWidth, h = tip.offsetHeight;
@@ -700,41 +729,8 @@ function frame() {
 
 // ------------------------------------------------------------------ kind
 
-// Terms that need a word of explanation, shown on hover.
-const GLOSSARY = {
-  "stile antico": "the old church style: two slow beats in a bar, long notes, lines moving mostly by step, suspensions",
-  "ricercar": "a learned fugue in the old style on a slow, serious subject",
-  "verset": "a short organ fugue made for the liturgy on a brief stock subject, as in Fischer and Kerll",
-  "fughetta": "a short, light fugue",
-  "Spielfuge": "a 'playing fugue', built from idiomatic keyboard figuration",
-  "partimento": "a fugue improvised from a figured bass, which is how fugue was usually taught",
-  "galant": "the lighter, fashionable style of Bach's later years: clear phrases and simple harmony",
-  "canzona": "an older, lively kind of fugue in quick notes",
-  "exposition fugue": "a fugue made of a chain of expositions, with little or no episode between them",
-  "triple-counterpoint": "three lines written so that any one of them can be the bass",
-  "triple counterpoint": "three lines written so that any one of them can be the bass",
-  "quadruple counterpoint": "four lines written so that any one of them can be the bass",
-  "double counterpoint": "two lines written so that either can be the bass",
-  "concerto-like": "planned like a concerto movement: the exposition returns as the full band's theme does",
-  "concerto type": "planned like a concerto movement: the exposition returns as the full band's theme does",
-  "da capo": "the opening comes back at the end",
-  "alla breve": "two minim beats in a bar",
-  "bourrée": "a quick dance in two, starting with an upbeat",
-  "gigue": "a quick dance in compound time",
-  "passepied": "a light, quick dance in three",
-  "gavotte": "a moderate dance in two, starting in the middle of the bar",
-  "Minuet": "a moderate dance in three",
-  "real answer": "the subject transposed exactly to the dominant",
-  "tonal answer": "the subject transposed to the dominant with a note or two adjusted to stay near the home key",
-  "stretto": "a second statement begins before the first has finished",
-  "inversion": "the subject upside down",
-  "augmentation": "the subject in notes twice as long",
-  "diminution": "the subject in notes half as long",
-  "pedal point": "one note held or repeated while the harmony moves over it",
-  "countersubject": "a line that regularly accompanies the subject",
-};
-
-// Text with any glossary term wrapped so that hovering explains it.
+// Text with any glossary term made into a button: hovering explains it,
+// and a click or tap keeps the explanation open.
 function glossed(text) {
   const terms = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
   const escaped = terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
@@ -744,9 +740,24 @@ function glossed(text) {
   let last = 0;
   for (const m of text.matchAll(pattern)) {
     if (m.index > last) nodes.push(text.slice(last, m.index));
-    const abbr = el("abbr", null, m[0]);
-    abbr.title = meaning[m[1].toLowerCase()];
-    nodes.push(abbr);
+    const term = el("button", "term", m[0]);
+    term.type = "button";
+    term.dataset.meaning = meaning[m[1].toLowerCase()];
+    term.setAttribute("aria-expanded", "false");
+    term.addEventListener("mouseenter", () => explain(term));
+    term.addEventListener("mouseleave", () => { if (pinned) explain(pinned); else tip.hidden = true; });
+    term.addEventListener("click", () => {
+      const open = pinned !== term;
+      unpin();
+      if (open) {
+        pinned = term;
+        term.setAttribute("aria-expanded", "true");
+        explain(term);
+      } else {
+        tip.hidden = true;
+      }
+    });
+    nodes.push(term);
     last = m.index + m[0].length;
   }
   if (last < text.length) nodes.push(text.slice(last));
@@ -796,16 +807,31 @@ async function boot() {
     fetch(`data/${PIECE}.musicxml`).then((r) => r.text()),
     fetch("data/index.json").then((r) => (r.ok ? r.json() : [])).catch(() => []),
   ]);
-  const menu = $("piece");
   if (index.length > 1) {
+    // "I/2 C minor" for a fugue of the Well-Tempered Clavier, otherwise its title.
+    const name = (p) => (p.book ? `${["", "I", "II"][p.book]}/${p.number} ${p.key}` : p.title);
+    const menu = $("piece");
     for (const p of index) {
-      const option = el("option", null, p.title);
+      const option = el("option", null, name(p));
       option.value = p.id;
       option.selected = p.id === PIECE;
       menu.append(option);
     }
-    menu.hidden = false;
     menu.addEventListener("change", () => { location.search = `?piece=${menu.value}`; });
+    const here = index.findIndex((p) => p.id === PIECE);
+    for (const [id, other, arrow] of [["prev", index[here - 1], "‹ "], ["next", index[here + 1], " ›"]]) {
+      if (here < 0 || !other) continue;
+      const link = $(id);
+      link.href = `?piece=${other.id}`;
+      link.textContent = id === "prev" ? arrow + name(other) : name(other) + arrow;
+      link.setAttribute("aria-label", `${id === "prev" ? "Previous" : "Next"}: ${other.title}`);
+      link.hidden = false;
+    }
+    // Go back to the list as it was left, with the same tags chosen.
+    let tags = "";
+    try { tags = sessionStorage.getItem("fugae-tags") || ""; } catch { /* private window */ }
+    if (tags) $("all").href = `browse.html#${tags}`;
+    $("where").hidden = false;
   }
   piece = json;
   piece.xml = xml;
@@ -846,6 +872,7 @@ async function boot() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  if (!PIECE) { location.replace("browse.html"); return; }
   boot().catch((err) => {
     console.error(err);
     $("score").replaceChildren(el("p", "status", `Could not load the piece: ${err.message}`));
