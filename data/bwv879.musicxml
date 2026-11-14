@@ -13,7 +13,7 @@
     <creator type="electronicEditor">David Huron</creator>
     <rights>Copyright 1994, David Huron</rights>
     <encoding>
-      <encoding-date>2026-11-13</encoding-date>
+      <encoding-date>2026-11-14</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -52,21 +52,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P44245e91f3e8adf87069b5c959e96fc9">
+    <score-part id="Pf0c25109e9ef6228c4d3c2539b9872f9">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pe0f01d5319c5927dd514dcf900fb84fe">
+    <score-part id="P4e00f31fd2d9dcad8aba0eb9b44056ec">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P36197e34ddca993acb829880840a223c">
+    <score-part id="P56d6209c6b8b47ab60ea321edae432f6">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P44245e91f3e8adf87069b5c959e96fc9">
+  <part id="Pf0c25109e9ef6228c4d3c2539b9872f9">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -8070,6 +8070,7 @@
           <octave>4</octave>
         </pitch>
         <duration>6720</duration>
+        <voice>1</voice>
         <type>quarter</type>
         <accidental>sharp</accidental>
         <time-modification>
@@ -8096,6 +8097,7 @@
           <octave>4</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -8114,6 +8116,7 @@
         </pitch>
         <duration>10080</duration>
         <tie type="start" />
+        <voice>1</voice>
         <type>quarter</type>
         <notations>
           <tied type="start" />
@@ -8127,6 +8130,7 @@
         </pitch>
         <duration>3360</duration>
         <tie type="stop" />
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -8154,6 +8158,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -8169,6 +8174,7 @@
           <octave>4</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <accidental>sharp</accidental>
         <time-modification>
@@ -8188,6 +8194,7 @@
           <octave>4</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -8208,9 +8215,20 @@
           </tuplet>
         </notations>
       </note>
-      <forward>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>4</octave>
+        </pitch>
         <duration>3360</duration>
-      </forward>
+        <voice>1</voice>
+        <type>eighth</type>
+        <time-modification>
+          <actual-notes>3</actual-notes>
+          <normal-notes>2</normal-notes>
+          <normal-type>eighth</normal-type>
+        </time-modification>
+      </note>
       <note>
         <pitch>
           <step>D</step>
@@ -8218,6 +8236,7 @@
           <octave>4</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <accidental>sharp</accidental>
         <time-modification>
@@ -8233,13 +8252,28 @@
       <backup>
         <duration>40320</duration>
       </backup>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>4</octave>
-        </pitch>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
         <duration>3360</duration>
-        <voice>1</voice>
+        <voice>2</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -8259,20 +8293,6 @@
           </tuplet>
         </notations>
       </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>36960</duration>
-        <voice>1</voice>
-        <type>whole</type>
-        <time-modification>
-          <actual-notes>12</actual-notes>
-          <normal-notes>11</normal-notes>
-          <normal-type>16th</normal-type>
-        </time-modification>
-      </note>
-      <backup>
-        <duration>40320</duration>
-      </backup>
       <note>
         <pitch>
           <step>E</step>
@@ -8286,29 +8306,20 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <notations>
-          <tuplet bracket="yes" number="1" placement="above" type="start">
-            <tuplet-actual>
-              <tuplet-number>3</tuplet-number>
-              <tuplet-type>eighth</tuplet-type>
-            </tuplet-actual>
-            <tuplet-normal>
-              <tuplet-number>2</tuplet-number>
-              <tuplet-type>eighth</tuplet-type>
-            </tuplet-normal>
-          </tuplet>
-        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
-        <duration>36960</duration>
+        <duration>3360</duration>
         <voice>2</voice>
-        <type>whole</type>
+        <type>eighth</type>
         <time-modification>
-          <actual-notes>12</actual-notes>
-          <normal-notes>11</normal-notes>
-          <normal-type>16th</normal-type>
+          <actual-notes>3</actual-notes>
+          <normal-notes>2</normal-notes>
+          <normal-type>eighth</normal-type>
         </time-modification>
+        <notations>
+          <tuplet number="1" type="stop" />
+        </notations>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -11154,7 +11165,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pe0f01d5319c5927dd514dcf900fb84fe">
+  <part id="P4e00f31fd2d9dcad8aba0eb9b44056ec">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -19633,7 +19644,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P36197e34ddca993acb829880840a223c">
+  <part id="P56d6209c6b8b47ab60ea321edae432f6">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -21603,6 +21614,7 @@
       <note>
         <rest />
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21629,6 +21641,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21643,6 +21656,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21660,6 +21674,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21686,6 +21701,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21700,6 +21716,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21717,11 +21734,9 @@
           <octave>2</octave>
         </pitch>
         <duration>10080</duration>
+        <voice>1</voice>
         <type>quarter</type>
       </note>
-      <backup>
-        <duration>30240</duration>
-      </backup>
       <note>
         <pitch>
           <step>C</step>
@@ -21733,16 +21748,27 @@
         <type>quarter</type>
         <accidental>sharp</accidental>
       </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>30240</duration>
-        <voice>1</voice>
-        <type>half</type>
-        <dot />
-      </note>
       <backup>
         <duration>40320</duration>
       </backup>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
       <note>
         <pitch>
           <step>C</step>
@@ -21753,13 +21779,6 @@
         <voice>2</voice>
         <type>quarter</type>
         <accidental>natural</accidental>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>30240</duration>
-        <voice>2</voice>
-        <type>half</type>
-        <dot />
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -21878,6 +21897,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21905,6 +21925,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21919,6 +21940,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21936,6 +21958,7 @@
           <octave>3</octave>
         </pitch>
         <duration>10080</duration>
+        <voice>1</voice>
         <type>quarter</type>
       </note>
       <note>
@@ -21944,6 +21967,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21970,6 +21994,7 @@
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <time-modification>
           <actual-notes>3</actual-notes>
@@ -21977,27 +22002,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <beam number="1">continue</beam>
-        <notations>
-          <tuplet number="1" type="stop" />
-        </notations>
       </note>
-      <forward>
-        <duration>3360</duration>
-      </forward>
-      <note>
-        <pitch>
-          <step>C</step>
-          <alter>1</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-        <accidental>sharp</accidental>
-        <beam number="1">continue</beam>
-      </note>
-      <backup>
-        <duration>40320</duration>
-      </backup>
       <note>
         <pitch>
           <step>A</step>
@@ -22013,32 +22018,59 @@
         </time-modification>
         <beam number="1">end</beam>
         <notations>
-          <tuplet bracket="yes" number="1" placement="above" type="start">
-            <tuplet-actual>
-              <tuplet-number>3</tuplet-number>
-              <tuplet-type>eighth</tuplet-type>
-            </tuplet-actual>
-            <tuplet-normal>
-              <tuplet-number>2</tuplet-number>
-              <tuplet-type>eighth</tuplet-type>
-            </tuplet-normal>
-          </tuplet>
+          <tuplet number="1" type="stop" />
         </notations>
       </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>36960</duration>
+      <note>
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>10080</duration>
         <voice>1</voice>
-        <type>whole</type>
-        <time-modification>
-          <actual-notes>12</actual-notes>
-          <normal-notes>11</normal-notes>
-          <normal-type>16th</normal-type>
-        </time-modification>
+        <type>quarter</type>
+        <accidental>sharp</accidental>
+        <beam number="1">continue</beam>
       </note>
       <backup>
         <duration>40320</duration>
       </backup>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>6720</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+        <time-modification>
+          <actual-notes>3</actual-notes>
+          <normal-notes>2</normal-notes>
+          <normal-type>quarter</normal-type>
+        </time-modification>
+        <notations>
+          <tuplet bracket="yes" number="1" placement="above" type="start">
+            <tuplet-actual>
+              <tuplet-number>3</tuplet-number>
+              <tuplet-type>quarter</tuplet-type>
+            </tuplet-actual>
+            <tuplet-normal>
+              <tuplet-number>2</tuplet-number>
+              <tuplet-type>quarter</tuplet-type>
+            </tuplet-normal>
+          </tuplet>
+        </notations>
+      </note>
       <note>
         <pitch>
           <step>B</step>
@@ -22054,28 +22086,14 @@
         </time-modification>
         <beam number="1">end</beam>
         <notations>
-          <tuplet bracket="yes" number="1" placement="above" type="start">
-            <tuplet-actual>
-              <tuplet-number>3</tuplet-number>
-              <tuplet-type>eighth</tuplet-type>
-            </tuplet-actual>
-            <tuplet-normal>
-              <tuplet-number>2</tuplet-number>
-              <tuplet-type>eighth</tuplet-type>
-            </tuplet-normal>
-          </tuplet>
+          <tuplet number="1" type="stop" />
         </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
-        <duration>36960</duration>
+        <duration>10080</duration>
         <voice>2</voice>
-        <type>whole</type>
-        <time-modification>
-          <actual-notes>12</actual-notes>
-          <normal-notes>11</normal-notes>
-          <normal-type>16th</normal-type>
-        </time-modification>
+        <type>quarter</type>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -25167,16 +25185,6 @@
           </tuplet>
         </notations>
       </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>16800</duration>
-        <type>half</type>
-        <time-modification>
-          <actual-notes>6</actual-notes>
-          <normal-notes>5</normal-notes>
-          <normal-type>16th</normal-type>
-        </time-modification>
-      </note>
       <note>
         <pitch>
           <step>D</step>
@@ -25191,36 +25199,11 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <notations>
-          <tuplet bracket="yes" number="1" placement="above" type="start">
-            <tuplet-actual>
-              <tuplet-number>3</tuplet-number>
-              <tuplet-type>eighth</tuplet-type>
-            </tuplet-actual>
-            <tuplet-normal>
-              <tuplet-number>2</tuplet-number>
-              <tuplet-type>eighth</tuplet-type>
-            </tuplet-normal>
-          </tuplet>
-        </notations>
       </note>
       <note>
         <pitch>
           <step>C</step>
           <octave>4</octave>
-        </pitch>
-        <duration>3360</duration>
-        <type>eighth</type>
-        <time-modification>
-          <actual-notes>3</actual-notes>
-          <normal-notes>2</normal-notes>
-          <normal-type>eighth</normal-type>
-        </time-modification>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
         </pitch>
         <duration>3360</duration>
         <type>eighth</type>
@@ -25235,7 +25218,7 @@
       </note>
       <note>
         <pitch>
-          <step>A</step>
+          <step>B</step>
           <octave>3</octave>
         </pitch>
         <duration>3360</duration>
@@ -25257,6 +25240,19 @@
             </tuplet-normal>
           </tuplet>
         </notations>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>3360</duration>
+        <type>eighth</type>
+        <time-modification>
+          <actual-notes>3</actual-notes>
+          <normal-notes>2</normal-notes>
+          <normal-type>eighth</normal-type>
+        </time-modification>
       </note>
       <note>
         <pitch>
@@ -25283,11 +25279,6 @@
     </measure>
     <!--========================= Measure 52 =========================-->
     <measure implicit="no" number="52">
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <type>quarter</type>
-      </note>
       <note>
         <pitch>
           <step>A</step>

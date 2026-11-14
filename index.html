@@ -61,6 +61,17 @@
         <table id="sections-table"></table>
       </div>
     </details>
+    <div class="score-tools" id="score-tools" hidden>
+      <div class="segmented" role="radiogroup" aria-label="Layout of the score">
+        <label><input type="radio" name="layout" value="open" checked><span>Open score</span></label>
+        <label><input type="radio" name="layout" value="keyboard"><span>Keyboard</span></label>
+      </div>
+      <div class="segmented" id="colour-tools" role="radiogroup" aria-label="Colour the notes" hidden>
+        <label><input type="radio" name="colour" value="voice" checked><span>Colour by voice</span></label>
+        <label><input type="radio" name="colour" value="theme"><span>By theme</span></label>
+      </div>
+      <span class="score-note" id="score-note"></span>
+    </div>
     <div id="score" class="paper"><p class="status">Rendering the score…</p></div>
   </main>
 

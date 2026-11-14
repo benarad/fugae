@@ -316,6 +316,36 @@ tbody tr:hover td { background: var(--neutral-fill); }
 .paper g.note { cursor: pointer; }
 .paper g.note.sounding, .paper g.note.sounding * { fill: var(--sounding); stroke: var(--sounding); color: var(--sounding); }
 
+/* The keyboard layout: two staves, with each note in the colour of its voice or of its theme. */
+.score-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 10px; }
+.score-note { flex: 1 1 260px; min-width: 0; font-size: 12.5px; color: var(--ink-2); }
+.v0 { --voice: var(--paper-1); --voice-ui: var(--series-1); }
+.v1 { --voice: var(--paper-2); --voice-ui: var(--series-2); }
+.v2 { --voice: var(--paper-3); --voice-ui: var(--series-3); }
+.v3 { --voice: var(--paper-4); --voice-ui: var(--series-4); }
+.v4 { --voice: var(--paper-5); --voice-ui: var(--series-5); }
+.paper.colour-voice g.note.voiced, .paper.colour-voice g.note.voiced *,
+.paper.colour-voice g.rest.voiced, .paper.colour-voice g.rest.voiced *,
+.paper.colour-voice g.beam.voiced > polygon { fill: var(--voice); stroke: var(--voice); color: var(--voice); }
+.paper.colour-theme g.note.themed, .paper.colour-theme g.note.themed *,
+.paper.colour-theme g.beam.themed > polygon { fill: var(--paper-role); stroke: var(--paper-role); color: var(--paper-role); }
+/* The notes being played: each keeps its colour and gets a disc of that colour behind its head. */
+.paper .halo { fill: var(--sounding); stroke: none; opacity: 0; pointer-events: none; }
+.paper.colour-voice .halo { fill: var(--voice, var(--sounding)); }
+.paper.colour-theme .halo.themed { fill: var(--paper-role); }
+.paper .halo.on { opacity: 0.45; }
+.paper.keyboard g.note.sounding, .paper.keyboard g.note.sounding * { fill: inherit; stroke: inherit; color: inherit; }
+.paper.keyboard.colour-voice g.note.sounding.voiced, .paper.keyboard.colour-voice g.note.sounding.voiced * { fill: var(--voice); stroke: var(--voice); color: var(--voice); }
+.paper.keyboard.colour-theme g.note.sounding.themed, .paper.keyboard.colour-theme g.note.sounding.themed * { fill: var(--paper-role); stroke: var(--paper-role); color: var(--paper-role); }
+/* Pointing at a voice's name fades the others. */
+.paper.keyboard.solo g.note.voiced, .paper.keyboard.solo g.rest.voiced, .paper.keyboard.solo g.beam.voiced > polygon { opacity: 0.18; }
+.paper.keyboard.solo-v0 g.note.v0, .paper.keyboard.solo-v0 g.rest.v0, .paper.keyboard.solo-v0 g.beam.v0 > polygon,
+.paper.keyboard.solo-v1 g.note.v1, .paper.keyboard.solo-v1 g.rest.v1, .paper.keyboard.solo-v1 g.beam.v1 > polygon,
+.paper.keyboard.solo-v2 g.note.v2, .paper.keyboard.solo-v2 g.rest.v2, .paper.keyboard.solo-v2 g.beam.v2 > polygon,
+.paper.keyboard.solo-v3 g.note.v3, .paper.keyboard.solo-v3 g.rest.v3, .paper.keyboard.solo-v3 g.beam.v3 > polygon,
+.paper.keyboard.solo-v4 g.note.v4, .paper.keyboard.solo-v4 g.rest.v4, .paper.keyboard.solo-v4 g.beam.v4 > polygon { opacity: 1; }
+.timeline.voice-colours .voice-toggle[aria-pressed="true"]::before { background: var(--voice-ui); border-color: var(--voice-ui); }
+
 .mark-rect { fill-opacity: 0.16; stroke-opacity: 0.7; stroke-width: 1px; vector-effect: non-scaling-stroke; cursor: pointer; }
 .mark-rect.hot { fill-opacity: 0.3; stroke-opacity: 1; }
 .mark-chip-bg { cursor: pointer; }

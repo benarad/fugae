@@ -13,7 +13,7 @@
     <creator type="electronicEditor">David Huron</creator>
     <rights>Copyright 1994, David Huron</rights>
     <encoding>
-      <encoding-date>2026-11-13</encoding-date>
+      <encoding-date>2026-11-14</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -53,25 +53,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P66ad40f98198da2b2c4cf24458b50ee2">
+    <score-part id="P45754308498ef90ccd26f891947ba9f6">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pc481d998618b47d2e4961c46d5756152">
+    <score-part id="P2754543fde80a97064b41a353eaef92a">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P4f2c5873d5db0c0c4b7d1ab6983403f7">
+    <score-part id="P69bf9520f093191cf8e0bd1a47ec68fa">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="P10e24a9d895459588891837c1b8b57b3">
+    <score-part id="P61fdcb10751a8de2cff86d1c9d3f4313">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P66ad40f98198da2b2c4cf24458b50ee2">
+  <part id="P45754308498ef90ccd26f891947ba9f6">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -2421,12 +2421,6 @@
         <type>32nd</type>
         <beam number="1">end</beam>
       </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>30240</duration>
-        <type>half</type>
-        <dot />
-      </note>
       <note>
         <pitch>
           <step>F</step>
@@ -2490,11 +2484,6 @@
     </measure>
     <!--========================= Measure 27 =========================-->
     <measure implicit="no" number="27">
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>5040</duration>
-        <type>eighth</type>
-      </note>
       <note>
         <rest />
         <duration>2520</duration>
@@ -2589,7 +2578,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pc481d998618b47d2e4961c46d5756152">
+  <part id="P2754543fde80a97064b41a353eaef92a">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -5188,7 +5177,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P4f2c5873d5db0c0c4b7d1ab6983403f7">
+  <part id="P69bf9520f093191cf8e0bd1a47ec68fa">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -7498,7 +7487,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="P10e24a9d895459588891837c1b8b57b3">
+  <part id="P61fdcb10751a8de2cff86d1c9d3f4313">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>

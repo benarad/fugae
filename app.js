@@ -29,6 +29,8 @@ let marks = [];     // every coloured thing: entries and countersubject occurren
 let toolkit;        // Verovio
 let scoreNotes = []; // notes in the rendered score: {id, el, on, off, staff, system}
 let currentSystem = null;
+let layoutMode = "open";    // "open": a staff for each voice; "keyboard": two staves, as in a keyboard edition
+let colourMode = "voice";   // in the keyboard layout the notes are coloured by "voice" or by "theme"
 
 // ------------------------------------------------------------------ data
 
@@ -217,10 +219,13 @@ function buildTimeline() {
   // One row per voice.
   piece.voices.forEach((name, v) => {
     const label = el("span", "tl-label");
-    const toggle = el("button", "voice-toggle", name);
+    const toggle = el("button", `voice-toggle v${v}`, name);
     toggle.type = "button";
     toggle.setAttribute("aria-pressed", "true");
     toggle.title = `Mute or unmute the ${name.toLowerCase()}`;
+    // In the keyboard layout, pointing at a voice fades the others in the score.
+    toggle.addEventListener("mouseenter", () => $("score").classList.add("solo", `solo-v${v}`));
+    toggle.addEventListener("mouseleave", () => $("score").classList.remove("solo", `solo-v${v}`));
     toggle.addEventListener("click", () => {
       const on = toggle.getAttribute("aria-pressed") !== "true";
       toggle.setAttribute("aria-pressed", String(on));
@@ -459,8 +464,9 @@ function buildTables() {
 
 // ----------------------------------------------------------------- score
 
-function renderScore(first) {
+function renderScore(load) {
   const host = $("score");
+  const keyboard = layoutMode === "keyboard";
   const width = Math.max(480, host.clientWidth);
   toolkit.setOptions({
     scale: SCALE,
@@ -478,20 +484,28 @@ function renderScore(first) {
     spacingStaff: 20,
     spacingSystem: 30,
   });
-  if (first) toolkit.loadData(piece.xml);
+  if (load) toolkit.loadData(keyboard ? piece.keyboardXml : piece.xml);
   else toolkit.redoLayout();
 
   let svg = "";
   for (let p = 1; p <= toolkit.getPageCount(); p++) svg += toolkit.renderToSVG(p);
   host.innerHTML = svg;
+  host.classList.toggle("keyboard", keyboard);
+  host.classList.toggle("colour-voice", keyboard && colourMode === "voice");
+  host.classList.toggle("colour-theme", keyboard && colourMode === "theme");
+  $("timeline").classList.toggle("voice-colours", keyboard && colourMode === "voice");
 
   toolkit.renderToMIDI();
   indexNotes(toolkit.renderToTimemap());
   if (scoreNotes.length) {
     // Length of one CSS pixel in the score's own units.
     const unit = 1 / scoreNotes[0].el.getScreenCTM().a;
-    drawMarks(unit);
-    drawSequences(unit);
+    if (keyboard) {
+      tagKeyboardNotes();      // the boxes and brackets assume a staff for each voice
+    } else {
+      drawMarks(unit);
+      drawSequences(unit);
+    }
     drawSectionTags(unit);
   }
   currentSystem = null;
@@ -516,6 +530,47 @@ function indexNotes(timemap) {
     node.addEventListener("click", () => seek(t.on));
   }
   scoreNotes.sort((a, b) => a.on - b.on);
+}
+
+// In the keyboard layout two or three voices share a staff, so each note is given
+// its voice (and its theme, if it belongs to a statement) as classes, and the
+// stylesheet colours it. The voice is written into the score itself: every note
+// and printed rest has an id that begins with it ("v1n204", "v0r17").
+function tagKeyboardNotes() {
+  const voiceOf = (node) => { const m = /^v(\d+)[nr]/.exec(node.id || ""); return m ? Number(m[1]) : null; };
+  const themes = marks.filter((m) => !m.frag);
+  const started = new Map(scoreNotes.map((n) => [n.el, n]));
+  for (const node of document.querySelectorAll("#score g.note, #score g.rest")) {
+    const voice = voiceOf(node);
+    if (voice == null) continue;
+    node.classList.add("voiced", `v${voice}`);
+    const note = started.get(node);
+    if (!note) continue;
+    note.voice = voice;
+    const mark = themes.find((m) => m.voice === voice && note.on >= m.start - 1e-6 && note.on < m.end - 1e-6);
+    if (mark) { node.classList.add("themed", mark.cls); note.theme = mark.cls; }
+  }
+  // A beam takes the colour of its notes when they agree.
+  for (const beam of document.querySelectorAll("#score g.beam")) {
+    const inside = [...beam.querySelectorAll("g.note")];
+    const voices = new Set(inside.map(voiceOf));
+    const roles = new Set(inside.map((x) => (started.get(x) || {}).theme || null));
+    if (voices.size === 1 && !voices.has(null)) beam.classList.add("voiced", `v${[...voices][0]}`);
+    if (roles.size === 1 && !roles.has(null)) beam.classList.add("themed", [...roles][0]);
+  }
+  // A disc behind each note head, shown while the note sounds: among coloured notes a
+  // change of colour is easy to miss, and a mark behind the head is not.
+  for (const n of scoreNotes) {
+    const head = n.el.querySelector("g.notehead") || n.el;
+    const box = head.getBBox();
+    if (!box.width || !n.system) continue;
+    const halo = svgEl("circle", {
+      class: `halo${n.voice != null ? ` v${n.voice}` : ""}${n.theme ? ` themed ${n.theme}` : ""}`,
+      cx: box.x + box.width / 2, cy: box.y + box.height / 2, r: box.width * 1.15,
+    });
+    n.system.insertBefore(halo, n.system.firstChild);
+    n.halo = halo;
+  }
 }
 
 function svgEl(tag, attrs) {
@@ -831,8 +886,16 @@ function paint(q, jump) {
       if (q < n.off - 1e-6) { sounding.add(n); lead = lead || n; }
     }
   }
-  for (const n of lastSounding) if (!sounding.has(n)) n.el.classList.remove("sounding");
-  for (const n of sounding) if (!lastSounding.has(n)) n.el.classList.add("sounding");
+  for (const n of lastSounding) {
+    if (sounding.has(n)) continue;
+    n.el.classList.remove("sounding");
+    if (n.halo) n.halo.classList.remove("on");
+  }
+  for (const n of sounding) {
+    if (lastSounding.has(n)) continue;
+    n.el.classList.add("sounding");
+    if (n.halo) n.halo.classList.add("on");
+  }
   lastSounding = sounding;
 
   // Keep the system being played in view, below the sticky deck.
@@ -916,6 +979,58 @@ function showKind() {
 
 // ------------------------------------------------------------------ boot
 
+// The switch between the two layouts of the score, where the piece has both.
+async function loadKeyboard() {
+  if (piece.keyboardXml) return true;
+  try {
+    const reply = await fetch(`data/${PIECE}.keyboard.musicxml`);
+    if (reply.ok) piece.keyboardXml = await reply.text();
+  } catch { /* no keyboard score: stay with the open score */ }
+  return Boolean(piece.keyboardXml);
+}
+
+// Draw the score in the chosen layout, falling back to the open score if the other cannot be had.
+async function showLayout() {
+  if (layoutMode === "keyboard" && !(await loadKeyboard())) {
+    layoutMode = "open";
+    document.querySelectorAll('input[name="layout"]').forEach((input) => { input.checked = input.value === "open"; });
+  }
+  $("colour-tools").hidden = layoutMode !== "keyboard";
+  $("score-note").textContent = layoutMode === "keyboard"
+    ? "Laid out on two staves by rule, not copied from an edition. Point at a voice's name to pick it out."
+    : "";
+  if (toolkit) renderScore(true);
+}
+
+function wireLayout() {
+  if (!piece.hasKeyboard) return;
+  const recall = (key, allowed, otherwise) => {
+    try { const v = localStorage.getItem(key); return allowed.includes(v) ? v : otherwise; } catch { return otherwise; }
+  };
+  const remember = (key, value) => { try { localStorage.setItem(key, value); } catch { /* not remembered */ } };
+  layoutMode = recall("fugae-layout", ["open", "keyboard"], "open");
+  colourMode = recall("fugae-colour", ["voice", "theme"], "voice");
+  document.querySelectorAll('input[name="layout"]').forEach((input) => {
+    input.checked = input.value === layoutMode;
+    input.addEventListener("change", () => {
+      if (!input.checked) return;
+      layoutMode = input.value;
+      remember("fugae-layout", layoutMode);
+      showLayout();
+    });
+  });
+  document.querySelectorAll('input[name="colour"]').forEach((input) => {
+    input.checked = input.value === colourMode;
+    input.addEventListener("change", () => {
+      if (!input.checked) return;
+      colourMode = input.value;
+      remember("fugae-colour", colourMode);
+      if (toolkit) renderScore(false);
+    });
+  });
+  $("score-tools").hidden = false;
+}
+
 function wireControls() {
   $("play").addEventListener("click", () => (playing ? pause() : play()));
   $("rewind").addEventListener("click", () => { seek(0); scrollTo({ top: 0, behavior: "smooth" }); });
@@ -972,6 +1087,8 @@ async function boot() {
   }
   piece = json;
   piece.xml = xml;
+  piece.hasKeyboard = Boolean((index.find((p) => p.id === PIECE) || {}).keyboard);
+  piece.keyboardXml = null;      // the two-staff score, fetched when first asked for
   piece.notes.sort((a, b) => a.on - b.on);
   marks = buildMarks();
   bpm = piece.tempo || 72;
@@ -1000,11 +1117,12 @@ async function boot() {
   buildTimeline();
   buildTables();
   wireControls();
+  wireLayout();
   paint(0);
 
   await verovioReady;
   toolkit = new verovio.toolkit();
-  renderScore(true);
+  await showLayout();
   $("play").disabled = false;
 }
 

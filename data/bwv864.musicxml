@@ -13,7 +13,7 @@
     <creator type="electronicEditor">David Huron</creator>
     <rights>Copyright 1994, David Huron</rights>
     <encoding>
-      <encoding-date>2026-11-13</encoding-date>
+      <encoding-date>2026-11-14</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -55,21 +55,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P459bd033e00c66c244ee08fd5c3a00a3">
+    <score-part id="P457d26746a18a46c0d27132223857b22">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pc2fce39524e11046009eddcb22dab200">
+    <score-part id="P2092e29980054238ad0e61993a31d555">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P37f6c79659b5fdf374d50f622d421c82">
+    <score-part id="P98efe03a24cf861154b1d5b124db5d16">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P459bd033e00c66c244ee08fd5c3a00a3">
+  <part id="P457d26746a18a46c0d27132223857b22">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -4905,7 +4905,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pc2fce39524e11046009eddcb22dab200">
+  <part id="P2092e29980054238ad0e61993a31d555">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -8992,6 +8992,7 @@
       <note>
         <rest />
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
       </note>
       <note>
@@ -9002,6 +9003,7 @@
         </pitch>
         <duration>10080</duration>
         <tie type="start" />
+        <voice>1</voice>
         <type>quarter</type>
         <notations>
           <tied type="start" />
@@ -9015,6 +9017,7 @@
         </pitch>
         <duration>5040</duration>
         <tie type="stop" />
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">begin</beam>
         <notations>
@@ -9027,6 +9030,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">continue</beam>
       </note>
@@ -9037,6 +9041,7 @@
         </pitch>
         <duration>5040</duration>
         <tie type="start" />
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">end</beam>
         <notations>
@@ -9050,6 +9055,7 @@
         </pitch>
         <duration>5040</duration>
         <tie type="stop" />
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">begin</beam>
         <notations>
@@ -9063,12 +9069,10 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">continue</beam>
       </note>
-      <backup>
-        <duration>40320</duration>
-      </backup>
       <note>
         <pitch>
           <step>E</step>
@@ -9079,15 +9083,33 @@
         <type>eighth</type>
         <beam number="1">end</beam>
       </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>40320</duration>
-        <voice>1</voice>
-        <type>whole</type>
-      </note>
       <backup>
         <duration>45360</duration>
       </backup>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
       <note>
         <pitch>
           <step>F</step>
@@ -9098,12 +9120,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <beam number="1">end</beam>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>40320</duration>
-        <voice>2</voice>
-        <type>whole</type>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -9218,6 +9234,7 @@
         </pitch>
         <duration>5040</duration>
         <tie type="stop" />
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">begin</beam>
         <notations>
@@ -9230,6 +9247,7 @@
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">continue</beam>
       </note>
@@ -9239,50 +9257,10 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">end</beam>
       </note>
-      <forward>
-        <duration>5040</duration>
-      </forward>
-      <note>
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <alter>1</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <beam number="1">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <alter>1</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-      </note>
-      <backup>
-        <duration>45360</duration>
-      </backup>
       <note>
         <pitch>
           <step>G</step>
@@ -9294,15 +9272,60 @@
         <type>eighth</type>
         <beam number="1">begin</beam>
       </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>40320</duration>
+      <note>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
         <voice>1</voice>
-        <type>whole</type>
+        <type>eighth</type>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>10080</duration>
+        <voice>1</voice>
+        <type>quarter</type>
       </note>
       <backup>
         <duration>45360</duration>
       </backup>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+      </note>
       <note>
         <pitch>
           <step>E</step>
@@ -9315,9 +9338,21 @@
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
-        <duration>40320</duration>
+        <duration>10080</duration>
         <voice>2</voice>
-        <type>whole</type>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -9350,7 +9385,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P37f6c79659b5fdf374d50f622d421c82">
+  <part id="P98efe03a24cf861154b1d5b124db5d16">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>

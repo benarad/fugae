@@ -13,7 +13,7 @@
     <creator type="electronicEditor">David Huron</creator>
     <rights>Copyright 1994, David Huron</rights>
     <encoding>
-      <encoding-date>2026-11-13</encoding-date>
+      <encoding-date>2026-11-14</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -52,25 +52,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P52b98d35d95e7858f5bf3734591d6669">
+    <score-part id="Pda0f18f0d5480c258c94ca1eb839be4a">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pa23caf846cd74e0cf1074167a8ef560e">
+    <score-part id="P6205766b6a891c019599839aa6f6764b">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P170bb83d36fcf96d98244a04cbf925e5">
+    <score-part id="P20ec21a6c373e1e6879dd05d329f4645">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="P49e1bd22b9fa087e7684d39278d13c14">
+    <score-part id="Pbbbbd77d16c499bbeb91189b7e9eaae9">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P52b98d35d95e7858f5bf3734591d6669">
+  <part id="Pda0f18f0d5480c258c94ca1eb839be4a">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -812,11 +812,6 @@
         <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <type>quarter</type>
-      </note>
       <note>
         <pitch>
           <step>G</step>
@@ -835,11 +830,6 @@
     </measure>
     <!--========================= Measure 10 =========================-->
     <measure implicit="no" number="10">
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>20160</duration>
-        <type>half</type>
-      </note>
       <note>
         <pitch>
           <step>G</step>
@@ -1055,6 +1045,7 @@
           <octave>5</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">begin</beam>
       </note>
@@ -1064,6 +1055,7 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <beam number="1">continue</beam>
       </note>
@@ -1073,6 +1065,7 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <beam number="1">end</beam>
       </note>
@@ -1082,6 +1075,7 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <beam number="1">begin</beam>
       </note>
@@ -1092,6 +1086,7 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <accidental>sharp</accidental>
         <beam number="1">continue</beam>
@@ -1102,6 +1097,7 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <beam number="1">continue</beam>
       </note>
@@ -1111,6 +1107,7 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <beam number="1">end</beam>
       </note>
@@ -1120,6 +1117,7 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <beam number="1">begin</beam>
       </note>
@@ -1130,19 +1128,39 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
-      <forward>
-        <duration>5040</duration>
-      </forward>
+      <note>
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <voice>1</voice>
+        <type>16th</type>
+        <accidental>sharp</accidental>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <voice>1</voice>
+        <type>16th</type>
+        <beam number="1">end</beam>
+      </note>
       <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">begin</beam>
       </note>
@@ -1152,6 +1170,7 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <beam number="1">continue</beam>
         <beam number="2">continue</beam>
@@ -1162,44 +1181,31 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
+        <voice>1</voice>
         <type>16th</type>
         <beam number="1">end</beam>
       </note>
       <backup>
         <duration>40320</duration>
       </backup>
-      <note>
-        <pitch>
-          <step>G</step>
-          <alter>1</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <voice>1</voice>
-        <type>16th</type>
-        <accidental>sharp</accidental>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <voice>1</voice>
-        <type>16th</type>
-        <beam number="1">end</beam>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
-        <duration>35280</duration>
-        <voice>1</voice>
-        <type>half</type>
-        <dot />
-        <dot />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
       </note>
-      <backup>
-        <duration>40320</duration>
-      </backup>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+      </note>
       <note>
         <pitch>
           <step>A</step>
@@ -1223,11 +1229,9 @@
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
-        <duration>35280</duration>
+        <duration>10080</duration>
         <voice>2</voice>
-        <type>half</type>
-        <dot />
-        <dot />
+        <type>quarter</type>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -2517,7 +2521,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pa23caf846cd74e0cf1074167a8ef560e">
+  <part id="P6205766b6a891c019599839aa6f6764b">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -2854,6 +2858,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">begin</beam>
       </note>
@@ -2864,6 +2869,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <accidental>natural</accidental>
         <beam number="1">end</beam>
@@ -2874,6 +2880,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">begin</beam>
       </note>
@@ -2883,6 +2890,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <beam number="1">end</beam>
       </note>
@@ -2892,11 +2900,21 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
       </note>
-      <forward>
-        <duration>10080</duration>
-      </forward>
+      <note>
+        <rest />
+        <duration>5040</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+      </note>
+      <note>
+        <rest />
+        <duration>5040</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+      </note>
       <note>
         <pitch>
           <step>G</step>
@@ -2904,6 +2922,7 @@
         </pitch>
         <duration>5040</duration>
         <tie type="start" />
+        <voice>1</voice>
         <type>eighth</type>
         <notations>
           <tied type="start" />
@@ -2912,28 +2931,24 @@
       <backup>
         <duration>40320</duration>
       </backup>
-      <note>
+      <note print-object="no" print-spacing="yes">
         <rest />
-        <duration>5040</duration>
-        <voice>1</voice>
-        <type>eighth</type>
-      </note>
-      <note>
-        <rest />
-        <duration>5040</duration>
-        <voice>1</voice>
-        <type>eighth</type>
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
-        <duration>30240</duration>
-        <voice>1</voice>
-        <type>half</type>
-        <dot />
+        <duration>10080</duration>
+        <voice>2</voice>
+        <type>quarter</type>
       </note>
-      <backup>
-        <duration>40320</duration>
-      </backup>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+      </note>
       <note>
         <pitch>
           <step>A</step>
@@ -2956,10 +2971,9 @@
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
-        <duration>30240</duration>
+        <duration>5040</duration>
         <voice>2</voice>
-        <type>half</type>
-        <dot />
+        <type>eighth</type>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -4988,7 +5002,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P170bb83d36fcf96d98244a04cbf925e5">
+  <part id="P20ec21a6c373e1e6879dd05d329f4645">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -7080,7 +7094,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="P49e1bd22b9fa087e7684d39278d13c14">
+  <part id="Pbbbbd77d16c499bbeb91189b7e9eaae9">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
