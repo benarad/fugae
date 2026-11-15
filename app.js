@@ -142,10 +142,15 @@ function closeExplanation() {
   unpin();
   tip.hidden = true;
 }
-document.addEventListener("pointerdown", (ev) => { if (!ev.target.closest(".term")) closeExplanation(); });
+document.addEventListener("pointerdown", (ev) => { if (!ev.target.closest?.(".term")) closeExplanation(); });
 document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") closeExplanation(); });
 addEventListener("scroll", closeExplanation, { passive: true });
 addEventListener("resize", closeExplanation);
+
+// A screen that is touched, not pointed at. There a tip opens on a tap, sits above
+// the finger, and stays until the next touch (or a few seconds), since nothing "leaves".
+const touchScreen = matchMedia("(hover: none)");
+let tipTimer = 0;
 
 function showTip(event, title, detail) {
   unpin();
@@ -153,12 +158,21 @@ function showTip(event, title, detail) {
   tip.hidden = false;
   const pad = 12, w = tip.offsetWidth, h = tip.offsetHeight;
   let x = event.clientX + pad, y = event.clientY + pad;
-  if (x + w > innerWidth - 4) x = event.clientX - w - pad;
-  if (y + h > innerHeight - 4) y = event.clientY - h - pad;
-  tip.style.left = `${Math.max(4, x)}px`;
+  if (touchScreen.matches) {
+    x = event.clientX - w / 2;
+    y = event.clientY - h - 18;
+    if (y < 4) y = event.clientY + 24;
+    clearTimeout(tipTimer);
+    tipTimer = setTimeout(hideTip, 6000);
+  } else {
+    if (x + w > innerWidth - 4) x = event.clientX - w - pad;
+    if (y + h > innerHeight - 4) y = event.clientY - h - pad;
+  }
+  tip.style.left = `${Math.max(4, Math.min(x, innerWidth - w - 4))}px`;
   tip.style.top = `${Math.max(4, y)}px`;
 }
 function hideTip() { tip.hidden = true; }
+document.addEventListener("pointerdown", (ev) => { if (ev.pointerType === "touch" && !pinned) hideTip(); });
 
 function setHot(index, on) {
   document.querySelectorAll(`[data-mark="${index}"]`).forEach((n) => n.classList.toggle("hot", on));
@@ -187,6 +201,19 @@ function trackSeek(track) {
     const box = track.getBoundingClientRect();
     seek(Math.max(0, Math.min(piece.end, ((ev.clientX - box.left) / box.width) * piece.end)));
   });
+}
+
+// Bar numbers every five bars, or fewer where the timeline is too narrow to hold them
+// (a long fugue on a phone): they are thinned until they stand clear of each other.
+function thinAxis() {
+  const axis = document.querySelector(".tl-track.axis");
+  if (!axis || !axis.clientWidth) return;
+  const each = axis.clientWidth / piece.measures.length;      // pixels to a bar
+  const step = [5, 10, 20, 25, 50, 100].find((n) => n * each >= 26) || 100;
+  for (const label of axis.querySelectorAll(".tick-label")) {
+    const bar = Number(label.dataset.bar);
+    label.hidden = bar % step !== 0 && !(bar === 1 && step * each >= 26);
+  }
 }
 
 function buildTimeline() {
@@ -224,7 +251,8 @@ function buildTimeline() {
     toggle.setAttribute("aria-pressed", "true");
     toggle.title = `Mute or unmute the ${name.toLowerCase()}`;
     // In the keyboard layout, pointing at a voice fades the others in the score.
-    toggle.addEventListener("mouseenter", () => $("score").classList.add("solo", `solo-v${v}`));
+    // (Not on a touch screen, where a tap would leave the fading stuck on.)
+    toggle.addEventListener("mouseenter", () => { if (!touchScreen.matches) $("score").classList.add("solo", `solo-v${v}`); });
     toggle.addEventListener("mouseleave", () => $("score").classList.remove("solo", `solo-v${v}`));
     toggle.addEventListener("click", () => {
       const on = toggle.getAttribute("aria-pressed") !== "true";
@@ -261,10 +289,12 @@ function buildTimeline() {
     if (major) {
       const text = el("span", m.number === 1 ? "tick-label first" : "tick-label", String(m.number));
       text.style.left = pct(m.start);
+      text.dataset.bar = m.number;
       axis.append(text);
     }
   }
   tl.append(axis);
+  thinAxis();
 
   const overlay = el("div", "tl-overlay");
   const head = el("div", "playhead");
@@ -464,10 +494,20 @@ function buildTables() {
 
 // ----------------------------------------------------------------- score
 
+// How much of the top of the screen stays covered while the page scrolls: the whole
+// deck on a wide screen, only the playing controls on a phone (see the style sheet).
+function stuckHeight() {
+  return $("deck").offsetHeight || $("controls").offsetHeight;
+}
+
+// The narrowest the score is engraved. A narrower screen shows that engraving
+// scaled down: about one bar to the line on a phone held upright.
+const NARROWEST = 440;
+
 function renderScore(load) {
   const host = $("score");
   const keyboard = layoutMode === "keyboard";
-  const width = Math.max(480, host.clientWidth);
+  const width = Math.max(NARROWEST, host.clientWidth);
   toolkit.setOptions({
     scale: SCALE,
     pageWidth: Math.round((width * 100) / SCALE),
@@ -929,7 +969,7 @@ function paint(q, jump) {
   const system = lead ? lead.system : (jump && nearestNote(q)?.system) || null;
   if (system && system !== currentSystem && (playing || jump)) {
     currentSystem = system;
-    const top = system.getBoundingClientRect().top + scrollY - $("deck").offsetHeight - 28;
+    const top = system.getBoundingClientRect().top + scrollY - stuckHeight() - 28;
     scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   }
 
@@ -1024,7 +1064,8 @@ async function showLayout() {
   }
   $("colour-tools").hidden = layoutMode !== "keyboard";
   $("score-note").textContent = layoutMode === "keyboard"
-    ? "Laid out on two staves by rule, not copied from an edition. Point at a voice's name to pick it out."
+    ? "Laid out on two staves by rule, not copied from an edition."
+      + (touchScreen.matches ? "" : " Point at a voice's name to pick it out.")
     : "";
   if (toolkit) renderScore(true);
 }
@@ -1073,6 +1114,7 @@ function wireControls() {
   addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
+      thinAxis();
       if ($("score").clientWidth === lastWidth) return;
       lastWidth = $("score").clientWidth;
       renderScore(false);

@@ -100,6 +100,15 @@ function showTip(event, title, detail) {
   tip.style.top = `${Math.max(4, y)}px`;
 }
 function hideTip() { tip.hidden = true; }
+// On a touch screen nothing "leaves" a button: the next touch puts the tip away,
+// and so does coming back to this page from a fugue.
+document.addEventListener("pointerdown", (ev) => { if (ev.pointerType === "touch") hideTip(); });
+addEventListener("pageshow", hideTip);
+
+// The tags fold away on a phone, unless some are chosen.
+const phone = matchMedia("(max-width: 560px)");
+function fold() { $("narrow").open = !phone.matches || chosen.size > 0; }
+phone.addEventListener("change", fold);
 
 // ---------------------------------------------------------------- drawing
 
@@ -221,6 +230,7 @@ function render() {
     ? `${shown.length} of ${pieces.length} fugues`
     : `All ${pieces.length} fugues`;
   $("clear").hidden = chosen.size === 0;
+  $("chosen").textContent = chosen.size ? `· ${chosen.size} chosen` : "";
 }
 
 // ------------------------------------------------------------------ boot
@@ -241,6 +251,7 @@ async function boot() {
     document.querySelectorAll(".incipits").forEach(drawIncipits);
   }).catch(() => {});
   recall();
+  fold();
   $("clear").addEventListener("click", () => { chosen.clear(); remember(); render(); });
   addEventListener("hashchange", () => { recall(); render(); });
   render();

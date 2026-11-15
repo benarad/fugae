@@ -27,26 +27,31 @@
 
   <section class="deck" id="deck" aria-label="Playback and structure">
     <div class="transport">
-      <strong id="mini" class="mini" hidden></strong>
-      <button id="play" class="btn primary" aria-label="Play" disabled>
-        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path id="play-icon" d="M4 2.5v11l9-5.5z"/></svg>
-        <span id="play-text">Play</span>
-      </button>
-      <button id="rewind" class="btn" aria-label="Back to the start">
-        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 2.5h1.6v11H3zM13.5 2.5v11L5.5 8z"/></svg>
-      </button>
-
-      <div class="segmented" role="radiogroup" aria-label="Instrument">
-        <label><input type="radio" name="instrument" value="piano" checked><span>Piano</span></label>
-        <label><input type="radio" name="instrument" value="harpsichord"><span>Harpsichord</span></label>
+      <!-- Two groups: on a wide screen they run together in one row; on a phone only
+           the first stays at the top of the screen while the score scrolls. -->
+      <div class="controls" id="controls">
+        <strong id="mini" class="mini" hidden></strong>
+        <button id="play" class="btn primary" aria-label="Play" disabled>
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path id="play-icon" d="M4 2.5v11l9-5.5z"/></svg>
+          <span id="play-text">Play</span>
+        </button>
+        <button id="rewind" class="btn" aria-label="Back to the start">
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 2.5h1.6v11H3zM13.5 2.5v11L5.5 8z"/></svg>
+        </button>
+        <p id="now" class="now" aria-live="off"></p>
       </div>
 
-      <label class="tempo">
-        <span id="tempo-text">♩ = 72</span>
-        <input id="tempo" type="range" min="30" max="120" step="1" value="72" aria-label="Tempo in beats per minute">
-      </label>
+      <div class="settings">
+        <div class="segmented" role="radiogroup" aria-label="Instrument">
+          <label><input type="radio" name="instrument" value="piano" checked><span>Piano</span></label>
+          <label><input type="radio" name="instrument" value="harpsichord"><span>Harpsichord</span></label>
+        </div>
 
-      <p id="now" class="now" aria-live="off"></p>
+        <label class="tempo">
+          <span id="tempo-text">♩ = 72</span>
+          <input id="tempo" type="range" min="30" max="120" step="1" value="72" aria-label="Tempo in beats per minute">
+        </label>
+      </div>
     </div>
 
     <div class="timeline" id="timeline"></div>

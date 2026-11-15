@@ -13,7 +13,10 @@
   </header>
 
   <main>
-    <section class="filters" id="filters" aria-label="Narrow by tag"></section>
+    <details class="narrow" id="narrow" open>
+      <summary><span>Narrow by tag</span> <span class="chosen" id="chosen"></span></summary>
+      <section class="filters" id="filters" aria-label="Narrow by tag"></section>
+    </details>
 
     <p class="count" aria-live="polite">
       <b id="count"></b>
