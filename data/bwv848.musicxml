@@ -7,7 +7,7 @@
   <movement-title>The Well-Tempered Clavier, Book 1, Fugue 3 in C-sharp major</movement-title>
   <identification>
     <creator type="composer">Bach, Johann Sebastian</creator>
-    <creator type="originalDocumentOwner">Breitkopf und HÃ¤rtel</creator>
+    <creator type="originalDocumentOwner">Breitkopf und Härtel</creator>
     <creator type="originalEditor">Franz Kroll (1820-1877)</creator>
     <creator type="electronicEncoder">David Huron</creator>
     <creator type="electronicEditor">David Huron</creator>
@@ -52,21 +52,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P5c5de88a8c62baff917251b33d5c5a61">
+    <score-part id="Pb983fe8837e63def3f53248335d540f9">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pe0ac1364bc88f9a876fea3335eee071c">
+    <score-part id="P186a78c210a787b0f3daf271d666dc6e">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="Pc35e6b8df74ca93c80808c87c5e5f305">
+    <score-part id="Pd683339f38150658103e96e103c5d2c6">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P5c5de88a8c62baff917251b33d5c5a61">
+  <part id="Pb983fe8837e63def3f53248335d540f9">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -6667,6 +6667,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <stem>up</stem>
         <beam number="1">begin</beam>
@@ -6678,6 +6679,7 @@
           <octave>5</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <stem>up</stem>
         <beam number="1">end</beam>
@@ -6689,6 +6691,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <stem>up</stem>
         <beam number="1">begin</beam>
@@ -6700,6 +6703,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <voice>1</voice>
         <type>eighth</type>
         <stem>up</stem>
         <beam number="1">end</beam>
@@ -6711,10 +6715,116 @@
           <octave>5</octave>
         </pitch>
         <duration>20160</duration>
+        <voice>1</voice>
         <type>half</type>
         <notations>
           <fermata type="inverted" />
         </notations>
+      </note>
+      <backup>
+        <duration>40320</duration>
+      </backup>
+      <note>
+        <pitch>
+          <step>E</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <chord />
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <chord />
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <chord />
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <voice>2</voice>
+        <type>eighth</type>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>20160</duration>
+        <voice>2</voice>
+        <type>half</type>
+      </note>
+      <note>
+        <chord />
+        <pitch>
+          <step>E</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>20160</duration>
+        <voice>2</voice>
+        <type>half</type>
       </note>
       <barline location="right">
         <bar-style>light-light</bar-style>
@@ -6722,7 +6832,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pe0ac1364bc88f9a876fea3335eee071c">
+  <part id="P186a78c210a787b0f3daf271d666dc6e">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -10959,7 +11069,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="Pc35e6b8df74ca93c80808c87c5e5f305">
+  <part id="Pd683339f38150658103e96e103c5d2c6">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>

@@ -7,7 +7,7 @@
   <movement-title>The Well-Tempered Clavier, Book 2, Fugue 12 in F minor</movement-title>
   <identification>
     <creator type="composer">Bach, Johann Sebastian</creator>
-    <creator type="originalDocumentOwner">Breitkopf und HÃ¤rtel</creator>
+    <creator type="originalDocumentOwner">Breitkopf und Härtel</creator>
     <creator type="originalEditor">Franz Kroll (1820-1877)</creator>
     <creator type="electronicEncoder">David Huron</creator>
     <creator type="electronicEditor">David Huron</creator>
@@ -52,21 +52,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P0e8e4b952d18328c1d5fde73aeff833a">
+    <score-part id="P694f2ecac22e52d1159944f40d0af674">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pa78e83a10ae5a7602ab97522b785da80">
+    <score-part id="Pd896ac568cde682b1c884588091e975b">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="Pd78c4aa4ef1472bd541aad78a7ade1ca">
+    <score-part id="P353d6cc403162e68927f547ea548b412">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P0e8e4b952d18328c1d5fde73aeff833a">
+  <part id="P694f2ecac22e52d1159944f40d0af674">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -3048,11 +3048,8 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
       </note>
       <note>
         <pitch>
@@ -3061,12 +3058,9 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
         <accidental>natural</accidental>
-        <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -3075,11 +3069,9 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
+        <accidental>natural</accidental>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
       </note>
       <note>
         <pitch>
@@ -3087,11 +3079,8 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">end</beam>
-        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -3099,11 +3088,8 @@
           <octave>6</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
       </note>
       <note>
         <pitch>
@@ -3112,11 +3098,8 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -3125,11 +3108,8 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
       </note>
       <note>
         <pitch>
@@ -3137,52 +3117,8 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <backup>
-        <duration>20160</duration>
-      </backup>
-      <note>
-        <pitch>
-          <step>E</step>
-          <alter>0</alter>
-          <octave>5</octave>
-        </pitch>
-        <duration>2520</duration>
-        <voice>2</voice>
-        <type>16th</type>
-        <accidental>natural</accidental>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>5</octave>
-        </pitch>
-        <duration>2520</duration>
-        <voice>2</voice>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>5040</duration>
-        <voice>2</voice>
-        <type>eighth</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
-        <type>quarter</type>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -4872,7 +4808,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pa78e83a10ae5a7602ab97522b785da80">
+  <part id="Pd896ac568cde682b1c884588091e975b">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -8945,7 +8881,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="Pd78c4aa4ef1472bd541aad78a7ade1ca">
+  <part id="P353d6cc403162e68927f547ea548b412">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>

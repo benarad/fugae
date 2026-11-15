@@ -865,7 +865,44 @@ function pump() {
   if (q >= piece.end + 0.5) { pause(); pausedAt = 0; paint(0); }
 }
 
+// An iPhone's ring/silent switch also silences this page, whose sound the phone
+// takes for the kind that should obey it, like a keyboard click. Telling the phone
+// the page is playing music gets round the switch. Older systems cannot be told;
+// they take the hint from an <audio> element that plays nothing, alongside.
+let hush = null;
+
+function silentWav() {
+  const rate = 8000, samples = rate / 4;
+  const wav = new DataView(new ArrayBuffer(44 + samples));
+  const text = (at, word) => [...word].forEach((c, i) => wav.setUint8(at + i, c.charCodeAt(0)));
+  text(0, "RIFF"); wav.setUint32(4, 36 + samples, true); text(8, "WAVEfmt ");
+  wav.setUint32(16, 16, true); wav.setUint16(20, 1, true); wav.setUint16(22, 1, true);
+  wav.setUint32(24, rate, true); wav.setUint32(28, rate, true);
+  wav.setUint16(32, 1, true); wav.setUint16(34, 8, true);
+  text(36, "data"); wav.setUint32(40, samples, true);
+  for (let i = 0; i < samples; i++) wav.setUint8(44 + i, 128);   // in 8 bits, 128 is silence
+  return URL.createObjectURL(new Blob([wav], { type: "audio/wav" }));
+}
+
+function soundDespiteSilentSwitch() {
+  try {
+    if (navigator.audioSession) { navigator.audioSession.type = "playback"; return; }
+  } catch { /* try the older way */ }
+  const apple = /iPad|iPhone|iPod/.test(navigator.userAgent)
+    || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (!apple) return;
+  try {
+    if (!hush) {
+      hush = new Audio(silentWav());
+      hush.loop = true;
+      hush.setAttribute("playsinline", "");
+    }
+    hush.play().catch(() => {});
+  } catch { /* the page plays as before */ }
+}
+
 async function play() {
+  soundDespiteSilentSwitch();   // before anything is awaited: it must happen in the tap itself
   ensureContext();
   await ctx.resume();
   if (!banks[instrument]) {
@@ -889,6 +926,7 @@ function pause() {
   playing = false;
   clearInterval(timer);
   silence(false);
+  hush?.pause();
   setPlayLabel("Play");
 }
 
@@ -1166,13 +1204,21 @@ async function boot() {
   $("title").textContent = piece.title;
 
   // A compact title for the sticky bar: "II/2 · C minor · BWV 871". It appears
-  // only when the full title above has scrolled out of view.
+  // only when the full title above has scrolled out of view, and is the way back
+  // up to it: a button that returns to the top of the page.
   const mini = $("mini");
   const parts = piece.title.match(/Book (\d+), Fugue (\d+) in (.+)$/);
   const short = parts ? `${["", "I", "II"][Number(parts[1])] || parts[1]}/${parts[2]} · ${parts[3]}` : piece.title;
   const bwv = /^bwv\d+$/.test(piece.id) ? `BWV ${piece.id.slice(3)}` : "";
-  mini.replaceChildren(short.replace("-sharp", "♯").replace("-flat", "♭"), ...(bwv ? [el("span", null, ` · ${bwv}`)] : []));
-  mini.title = piece.title;
+  const arrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  arrow.setAttribute("viewBox", "0 0 16 16");
+  arrow.setAttribute("aria-hidden", "true");
+  arrow.innerHTML = '<path d="M8 3l5 5.2-1.1 1.1L8.8 6v7H7.2V6L4.1 9.3 3 8.2z"/>';
+  mini.replaceChildren(arrow, el("b", null, short.replace("-sharp", "♯").replace("-flat", "♭")),
+                       ...(bwv ? [el("span", null, ` · ${bwv}`)] : []));
+  mini.title = `${piece.title}: back to the top of the page`;
+  mini.setAttribute("aria-label", mini.title);
+  mini.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(([entry]) => { mini.hidden = entry.isIntersecting; }).observe($("title"));
   } else {

@@ -7,7 +7,7 @@
   <movement-title>The Well-Tempered Clavier, Book 2, Fugue 8 in D-sharp minor</movement-title>
   <identification>
     <creator type="composer">Bach, Johann Sebastian</creator>
-    <creator type="originalDocumentOwner">Breitkopf und HÃ¤rtel</creator>
+    <creator type="originalDocumentOwner">Breitkopf und Härtel</creator>
     <creator type="originalEditor">Franz Kroll (1820-1877)</creator>
     <creator type="electronicEncoder">David Huron</creator>
     <creator type="electronicEditor">David Huron</creator>
@@ -53,25 +53,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P9719540a6dc2a4501ba4e21b2de49ad0">
+    <score-part id="Pa404c76a3dea3a460166239aaccb7a74">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P931c9feceeb4f38c7a326fb8dfc74de9">
+    <score-part id="P261339cf37ddcccf68ec239cbbe2cf09">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P4639ca2c2ebc4bed859968017687fa79">
+    <score-part id="Pbbdcd9a566ae862b0fc6703f0e7298ac">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="Pf4cb9ee2e758ebdcbc92afd376687d38">
+    <score-part id="Pa87349f6dd5662f9307979b4917fdab3">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P9719540a6dc2a4501ba4e21b2de49ad0">
+  <part id="Pa404c76a3dea3a460166239aaccb7a74">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -610,11 +610,8 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
       </note>
       <note>
         <pitch>
@@ -623,11 +620,8 @@
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -635,11 +629,8 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
       </note>
       <note>
         <pitch>
@@ -648,11 +639,8 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">end</beam>
-        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -661,9 +649,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
-        <voice>1</voice>
         <type>eighth</type>
-        <stem>up</stem>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -672,11 +658,8 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
       </note>
       <note>
         <pitch>
@@ -685,11 +668,8 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>up</stem>
         <beam number="1">end</beam>
-        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -697,9 +677,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
-        <voice>1</voice>
         <type>eighth</type>
-        <stem>up</stem>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -709,9 +687,7 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
-        <voice>1</voice>
         <type>eighth</type>
-        <stem>up</stem>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -722,48 +698,10 @@
         </pitch>
         <duration>10080</duration>
         <tie type="start" />
-        <voice>1</voice>
         <type>quarter</type>
         <notations>
           <tied type="start" />
         </notations>
-      </note>
-      <backup>
-        <duration>40320</duration>
-      </backup>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
-        <type>quarter</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>5040</duration>
-        <voice>2</voice>
-        <type>eighth</type>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <alter>1</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <voice>2</voice>
-        <type>eighth</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
-        <type>quarter</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
-        <type>quarter</type>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -2912,7 +2850,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P931c9feceeb4f38c7a326fb8dfc74de9">
+  <part id="P261339cf37ddcccf68ec239cbbe2cf09">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -5695,7 +5633,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <stem>up</stem>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -5707,7 +5644,6 @@
         <duration>5040</duration>
         <type>eighth</type>
         <accidental>natural</accidental>
-        <stem>up</stem>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -5718,7 +5654,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <stem>up</stem>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -5729,7 +5664,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <stem>up</stem>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -5748,7 +5682,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <stem>up</stem>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -5759,7 +5692,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <stem>up</stem>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -6754,7 +6686,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P4639ca2c2ebc4bed859968017687fa79">
+  <part id="Pbbdcd9a566ae862b0fc6703f0e7298ac">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -10379,7 +10311,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="Pf4cb9ee2e758ebdcbc92afd376687d38">
+  <part id="Pa87349f6dd5662f9307979b4917fdab3">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -12792,7 +12724,6 @@
         </pitch>
         <duration>10080</duration>
         <tie type="start" />
-        <voice>1</voice>
         <type>quarter</type>
         <notations>
           <tied type="start" />
@@ -12806,11 +12737,8 @@
         </pitch>
         <duration>2520</duration>
         <tie type="stop" />
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
         <notations>
           <tied type="stop" />
         </notations>
@@ -12822,11 +12750,8 @@
           <octave>3</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -12835,12 +12760,9 @@
           <octave>3</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
         <accidental>natural</accidental>
-        <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
       </note>
       <note>
         <pitch>
@@ -12849,11 +12771,8 @@
           <octave>3</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>down</stem>
         <beam number="1">end</beam>
-        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -12862,7 +12781,6 @@
           <octave>3</octave>
         </pitch>
         <duration>15120</duration>
-        <voice>1</voice>
         <type>quarter</type>
         <dot />
         <accidental>double-sharp</accidental>
@@ -12874,12 +12792,9 @@
           <octave>2</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
         <accidental>sharp</accidental>
-        <stem>up</stem>
         <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
       </note>
       <note>
         <pitch>
@@ -12888,55 +12803,8 @@
           <octave>2</octave>
         </pitch>
         <duration>2520</duration>
-        <voice>1</voice>
         <type>16th</type>
-        <stem>up</stem>
         <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <backup>
-        <duration>40320</duration>
-      </backup>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
-        <type>quarter</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>5040</duration>
-        <voice>2</voice>
-        <type>eighth</type>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <alter>1</alter>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <voice>2</voice>
-        <type>16th</type>
-        <accidental>sharp</accidental>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>2520</duration>
-        <voice>2</voice>
-        <type>16th</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
-        <type>quarter</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
-        <type>quarter</type>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>

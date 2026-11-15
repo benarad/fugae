@@ -7,7 +7,7 @@
   <movement-title>The Well-Tempered Clavier, Book 1, Fugue 12 in F minor</movement-title>
   <identification>
     <creator type="composer">Bach, Johann Sebastian</creator>
-    <creator type="originalDocumentOwner">Breitkopf und HÃ¤rtel</creator>
+    <creator type="originalDocumentOwner">Breitkopf und Härtel</creator>
     <creator type="originalEditor">Franz Kroll (1820-1877)</creator>
     <creator type="electronicEncoder">David Huron</creator>
     <creator type="electronicEditor">David Huron</creator>
@@ -52,25 +52,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P395c1af3984de56e5968fce0952dff8d">
+    <score-part id="Pc97b402c9873e9eeda04bcdbbc0f02f7">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P0469406a808242d553fae43ff55533a4">
+    <score-part id="P73384fbfeadf7924ec376b09a725f3e1">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P663762bdd09bec8564d2b37a5b5d3b42">
+    <score-part id="Ped38ecee429d9b8c834fff896923c8f1">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="Pc874918a6fdeecadaeb125727a115fbf">
+    <score-part id="P59c8d08d9538aef432feccc312dbc1e3">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P395c1af3984de56e5968fce0952dff8d">
+  <part id="Pc97b402c9873e9eeda04bcdbbc0f02f7">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -4170,7 +4170,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P0469406a808242d553fae43ff55533a4">
+  <part id="P73384fbfeadf7924ec376b09a725f3e1">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -6858,7 +6858,6 @@
           <octave>4</octave>
         </pitch>
         <duration>20160</duration>
-        <voice>1</voice>
         <type>half</type>
       </note>
       <note>
@@ -6867,56 +6866,16 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
-        <voice>1</voice>
         <type>eighth</type>
       </note>
       <note>
         <rest />
         <duration>5040</duration>
-        <voice>1</voice>
         <type>eighth</type>
       </note>
       <note>
         <rest />
         <duration>10080</duration>
-        <voice>1</voice>
-        <type>quarter</type>
-      </note>
-      <backup>
-        <duration>40320</duration>
-      </backup>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
-        <type>quarter</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
-        <type>quarter</type>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <alter>-1</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <voice>2</voice>
-        <type>eighth</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>5040</duration>
-        <voice>2</voice>
-        <type>eighth</type>
-      </note>
-      <note print-object="no" print-spacing="yes">
-        <rest />
-        <duration>10080</duration>
-        <voice>2</voice>
         <type>quarter</type>
       </note>
       <barline location="right">
@@ -8505,7 +8464,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P663762bdd09bec8564d2b37a5b5d3b42">
+  <part id="Ped38ecee429d9b8c834fff896923c8f1">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -13126,7 +13085,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="Pc874918a6fdeecadaeb125727a115fbf">
+  <part id="P59c8d08d9538aef432feccc312dbc1e3">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
