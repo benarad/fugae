@@ -733,7 +733,10 @@ function drawSequences(unit) {
 }
 
 function tagText(s) {
-  if (s.kind === "entries") return /^(Stretto|Combination)/.test(s.label) ? s.label.split(":")[0] : "Entry";
+  if (s.kind === "entries") {
+    if (/^Together/.test(s.label)) return "Entries together";
+    return /^(Stretto|Combination)/.test(s.label) ? s.label.split(":")[0] : "Entry";
+  }
   if (s.kind === "codetta") return "Codetta";
   return s.label.split(":")[0];
 }

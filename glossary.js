@@ -26,11 +26,11 @@ const GLOSSARY = {
   "Minuet": "a moderate dance in three",
   "real answer": "the subject transposed exactly to the dominant",
   "tonal answer": "the subject transposed to the dominant with a note or two adjusted to stay near the home key",
-  "stretto": "a second statement begins before the first has finished",
+  "stretto": "a second statement begins before the first has finished, sooner than the entries followed each other in the exposition",
   "inversion": "the subject upside down",
   "augmentation": "the subject in notes twice as long",
   "diminution": "the subject in notes half as long",
-  "pedal point": "one note held or repeated while the harmony moves over it",
+  "pedal point": "one note held or repeated, usually in the bass, while the harmony changes in the other voices",
   "countersubject": "a line that regularly accompanies the subject",
 };
 

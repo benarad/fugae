@@ -2,11 +2,10 @@
  "id": "bwv872",
  "title": "The Well-Tempered Clavier, Book 2, Fugue 3 in C-sharp major",
  "procedures": [
-  "real answer",
+  "tonal answer",
   "no regular countersubject",
   "stretto",
-  "inversion",
-  "pedal point"
+  "inversion"
  ],
  "character": {
   "text": "Verset- or canzona-derived fughetta",
@@ -6764,9 +6763,9 @@
    "id": "e2",
    "theme": 1,
    "role": "answer",
-   "tonal": false,
+   "tonal": true,
    "form": "direct",
-   "complete": false,
+   "complete": true,
    "exposition": true,
    "late": false,
    "varied": false,
@@ -6774,9 +6773,11 @@
    "key": "G♯ major",
    "voice": 0,
    "start": 2.5,
-   "end": 4.0,
-   "notes": 3,
-   "deviations": [],
+   "end": 4.5,
+   "notes": 4,
+   "deviations": [
+    3
+   ],
    "measure": 1,
    "beat": 3.5
   },
@@ -7774,16 +7775,6 @@
    "end": 112.0,
    "measure": 28,
    "beat": 1.0
-  },
-  {
-   "kind": "pedal",
-   "label": "Tonic pedal",
-   "summary": "",
-   "voice": 2,
-   "start": 130.0,
-   "end": 134.5,
-   "measure": 33,
-   "beat": 3.0
   }
  ],
  "fragments": [],
