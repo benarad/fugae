@@ -225,9 +225,15 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 
 /* ------------------------------------------------------------ timeline */
 
-.timeline { position: relative; display: grid; grid-template-columns: 92px 1fr; row-gap: 3px; align-items: center; }
-.tl-label { font-size: 12px; color: var(--ink-2); padding-right: 8px; white-space: nowrap; }
-.tl-track { position: relative; height: 20px; cursor: pointer; }
+/* --tl-label is the width of the column of names; --tl-min is the least width of the
+   tracks (a long fugue on a phone is given room and scrolls sideways). */
+.timeline {
+  --tl-label: 92px; --tl-min: 0px;
+  position: relative; display: grid; grid-template-columns: var(--tl-label) minmax(var(--tl-min), 1fr);
+  row-gap: 3px; align-items: center;
+}
+.tl-label { grid-column: 1; font-size: 12px; color: var(--ink-2); padding-right: 8px; white-space: nowrap; }
+.tl-track { grid-column: 2; position: relative; height: 20px; cursor: pointer; }
 .tl-track.voice { background: var(--surface); border-radius: 4px; }
 .tl-track.axis { height: 16px; cursor: default; }
 
@@ -298,10 +304,27 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .tick-label { position: absolute; top: 5px; transform: translateX(-50%); font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .tick-label.first { transform: none; }
 
-.tl-overlay { position: absolute; left: 92px; right: 0; top: 0; bottom: 0; pointer-events: none; }
+.tl-overlay {
+  position: absolute; left: var(--tl-label); top: 0; bottom: 0; pointer-events: none;
+  width: max(100% - var(--tl-label), var(--tl-min));
+}
 .playhead { position: absolute; top: 0; bottom: 12px; width: 2px; margin-left: -1px; background: var(--ink); border-radius: 1px; }
 
 .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 6px 0 0 92px; font-size: 12px; color: var(--ink-2); }
+
+/* While the score is being read the deck shrinks to what is needed to follow and to
+   move about: the controls, the form and a thin line for each voice. The button at the
+   end of the controls brings the rest back. (The script sets .compact once the deck is
+   stuck to the top of the screen, and a bottom margin that keeps the page from jumping.) */
+.fold { order: 2; height: 26px; padding: 0 8px; font-size: 12px; color: var(--ink-2); }
+.fold[hidden] { display: none; }
+.deck.compact { padding-top: 6px; padding-bottom: 4px; }
+.deck.compact .transport { margin-bottom: 6px; }
+.deck.compact .settings, .deck.compact .legend, .deck.compact .tl-label,
+.deck.compact .tl-track.keys, .deck.compact .pedal, .deck.compact .block.frag { display: none; }
+.deck.compact .timeline { --tl-label: 0px; row-gap: 2px; }
+.deck.compact .tl-track.voice { height: 8px; border-radius: 2px; }
+.deck.compact .voice .block { top: 1px; bottom: 1px; padding: 0; border-radius: 2px; font-size: 0; }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
 .legend i { background: var(--role); }
@@ -337,6 +360,7 @@ tbody tr:hover td { background: var(--neutral-fill); }
 /* The keyboard layout: two staves, with each note in the colour of its voice or of its theme. */
 .score-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 10px; }
 .score-note { flex: 1 1 260px; min-width: 0; font-size: 12.5px; color: var(--ink-2); }
+.score-tools [hidden] { display: none; }
 .v0 { --voice: var(--paper-1); --voice-ui: var(--series-1); }
 .v1 { --voice: var(--paper-2); --voice-ui: var(--series-2); }
 .v2 { --voice: var(--paper-3); --voice-ui: var(--series-3); }
@@ -438,6 +462,11 @@ tbody tr:hover td { background: var(--neutral-fill); }
    away with the page, leaving the screen to the score. */
 @media (max-width: 560px), (max-height: 520px) {
   .deck, .transport { display: contents; }
+  .fold { display: none; }
+  /* A long fugue's timeline is wider than the screen and scrolls sideways; the names stay put. */
+  .timeline { overflow-x: auto; --tl-min: calc(var(--beats, 0) * 1.5px); }
+  .tl-label { position: sticky; left: 0; z-index: 3; background: var(--page); align-self: stretch; display: flex; align-items: center; }
+  .tl-label.keys-labels { display: block; }
   .controls {
     position: sticky; top: 0; z-index: 5;
     display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;

@@ -6,7 +6,8 @@
 
 const PIECE = new URLSearchParams(location.search).get("piece");   // none: go to the list of pieces
 const SVG_NS = "http://www.w3.org/2000/svg";
-const SCALE = 40; // Verovio rendering scale, per cent
+const SIZES = { small: 32, medium: 40, large: 50 };   // Verovio rendering scale, per cent
+let scoreSize = "medium";
 
 const INSTRUMENTS = {
   piano: { file: "soundfonts/acoustic_grand_piano-mp3.js", gain: 0.9, hold: 0.98, release: 0.14 },
@@ -203,6 +204,42 @@ function trackSeek(track) {
   });
 }
 
+// What a block in the form row may say, longest first. The longest that fits is shown
+// (see fitFormLabels); a block too narrow for any of them says nothing, and its colour
+// and outline still tell an entry from an episode.
+function formWordings(s, inside) {
+  const head = s.label.split(":")[0];
+  if (s.kind === "link") return [];
+  if (s.kind === "episode") { const n = head.replace("Episode ", ""); return [head, `Ep. ${n}`, n]; }
+  if (s.kind === "exposition") return [head, "Exp."];
+  if (s.kind === "final") return ["Final entry", "Final"];
+  if (s.kind !== "entries") return [head];
+  if (/^(Stretto|Combination)/.test(s.label)) return [head, `${head.slice(0, 3)}.`];
+  const long = inside.map((e) => (e.key ? e.key.replace("major", "maj").replace("minor", "min") : `S${e.theme}`));
+  const short = inside.map((e) => (e.key ? e.key.replace(" major", "").replace(" minor", "m") : `S${e.theme}`));
+  return [...new Set([long.join(", "), short.join(", "), short.length > 1 ? `${short[0]}…` : short[0]])];
+}
+
+function fitFormLabels() {
+  for (const block of document.querySelectorAll(".block.section[data-wordings]")) {
+    block.textContent = "";
+    for (const wording of JSON.parse(block.dataset.wordings)) {
+      block.textContent = wording;
+      if (block.scrollWidth <= block.clientWidth) break;
+      block.textContent = "";
+    }
+  }
+}
+
+// What depends on the timeline's width, set again whenever that changes.
+let timelineScrolls = false;
+function refitTimeline() {
+  const tl = $("timeline");
+  timelineScrolls = tl.scrollWidth > tl.clientWidth + 1;
+  fitFormLabels();
+  thinAxis();
+}
+
 // Bar numbers every five bars, or fewer where the timeline is too narrow to hold them
 // (a long fugue on a phone): they are thinned until they stand clear of each other.
 function thinAxis() {
@@ -219,17 +256,15 @@ function thinAxis() {
 function buildTimeline() {
   const tl = $("timeline");
   tl.replaceChildren();
+  tl.style.setProperty("--beats", String(Math.round(piece.end)));
 
   // Form: the sections, and the codetta inside the exposition.
   tl.append(el("span", "tl-label", "Form"));
   const form = el("div", "tl-track");
   for (const s of piece.sections) {
     const inside = piece.entries.filter((e) => e.start >= s.start - 1e-6 && e.start < s.end);
-    const short = s.kind === "entries"
-      ? (/^(Stretto|Combination)/.test(s.label) ? s.label.split(":")[0]
-        : inside.map((e) => (e.key ? e.key.replace("major", "maj").replace("minor", "min") : `S${e.theme}`)).join(", "))
-      : s.kind === "link" ? "" : s.label.split(":")[0].replace("Episode", "Ep.");
-    const block = place(el("div", `block section ${s.kind}`, short), s.start, s.end);
+    const block = place(el("div", `block section ${s.kind}`), s.start, s.end);
+    block.dataset.wordings = JSON.stringify(formWordings(s, inside));
     block.addEventListener("mousemove", (ev) => showTip(ev, s.label, passageDetail(s)));
     block.addEventListener("mouseleave", hideTip);
     form.append(block);
@@ -294,7 +329,6 @@ function buildTimeline() {
     }
   }
   tl.append(axis);
-  thinAxis();
 
   const overlay = el("div", "tl-overlay");
   const head = el("div", "playhead");
@@ -344,6 +378,7 @@ function buildTimeline() {
     set(shown);
     legend.append(toggle);
   }
+  refitTimeline();
 }
 
 // ------------------------------------------------------------------ keys
@@ -497,7 +532,7 @@ function buildTables() {
 // How much of the top of the screen stays covered while the page scrolls: the whole
 // deck on a wide screen, only the playing controls on a phone (see the style sheet).
 function stuckHeight() {
-  return $("deck").offsetHeight || $("controls").offsetHeight;
+  return panelHeight() || $("deck").offsetHeight || $("controls").offsetHeight;
 }
 
 // The narrowest the score is engraved. A narrower screen shows that engraving
@@ -508,9 +543,10 @@ function renderScore(load) {
   const host = $("score");
   const keyboard = layoutMode === "keyboard";
   const width = Math.max(NARROWEST, host.clientWidth);
+  const scale = SIZES[scoreSize];
   toolkit.setOptions({
-    scale: SCALE,
-    pageWidth: Math.round((width * 100) / SCALE),
+    scale,
+    pageWidth: Math.round((width * 100) / scale),
     pageHeight: 60000,
     adjustPageHeight: true,
     breaks: "auto",
@@ -521,8 +557,10 @@ function renderScore(load) {
     pageMarginBottom: 60,
     pageMarginLeft: 60,
     pageMarginRight: 60,
-    spacingStaff: 20,
-    spacingSystem: 30,
+    // The open score needs room over every staff for the names of the themes; the
+    // keyboard layout has only the section names over each system.
+    spacingStaff: keyboard ? 12 : 20,
+    spacingSystem: keyboard ? 16 : 30,
   });
   if (load) toolkit.loadData(keyboard ? piece.keyboardXml : piece.xml);
   else toolkit.redoLayout();
@@ -696,7 +734,17 @@ function drawMarks(unit) {
         text.textContent = mark.chip;
         group.append(bg, text);
         system.append(group);
-        bg.setAttribute("width", text.getComputedTextLength() + 8 * unit);
+        const width = text.getComputedTextLength() + 8 * unit;
+        bg.setAttribute("width", width);
+        // Keep the name on the page when the theme begins at the right-hand edge.
+        // (The systems are drawn inside a group moved right by the page's left margin.)
+        const page = system.closest("svg").viewBox.baseVal;
+        const margin = system.closest(".page-margin")?.transform.baseVal.consolidate()?.matrix.e || 0;
+        const over = x0 - padX + width - (page.x + page.width - margin - 3 * unit);
+        if (page.width && over > 0) {
+          bg.setAttribute("x", x0 - padX - over);
+          text.setAttribute("x", x0 - padX + 4 * unit - over);
+        }
         wireMark(bg, mark);
       }
     }
@@ -985,6 +1033,10 @@ let lastSounding = new Set();
 function paint(q, jump) {
   const head = $("playhead");
   if (head) head.style.left = pct(Math.min(q, piece.end));
+  if (head && timelineScrolls && (playing || jump)) {
+    const tl = $("timeline"), x = head.offsetLeft, room = tl.clientWidth - head.parentNode.offsetLeft;
+    if (x < tl.scrollLeft || x > tl.scrollLeft + room - 24) tl.scrollLeft = Math.max(0, x - room / 3);
+  }
 
   const sounding = new Set();
   let lead = null;
@@ -1111,12 +1163,27 @@ async function showLayout() {
   if (toolkit) renderScore(true);
 }
 
+const recall = (key, allowed, otherwise) => {
+  try { const v = localStorage.getItem(key); return allowed.includes(v) ? v : otherwise; } catch { return otherwise; }
+};
+const remember = (key, value) => { try { localStorage.setItem(key, value); } catch { /* not remembered */ } };
+
 function wireLayout() {
-  if (!piece.hasKeyboard) return;
-  const recall = (key, allowed, otherwise) => {
-    try { const v = localStorage.getItem(key); return allowed.includes(v) ? v : otherwise; } catch { return otherwise; }
-  };
-  const remember = (key, value) => { try { localStorage.setItem(key, value); } catch { /* not remembered */ } };
+  scoreSize = recall("fugae-size", Object.keys(SIZES), "medium");
+  document.querySelectorAll('input[name="size"]').forEach((input) => {
+    input.checked = input.value === scoreSize;
+    input.addEventListener("change", () => {
+      if (!input.checked) return;
+      scoreSize = input.value;
+      remember("fugae-size", scoreSize);
+      if (toolkit) renderScore(false);
+    });
+  });
+  $("score-tools").hidden = false;
+  if (!piece.hasKeyboard) {
+    document.querySelector('[aria-label="Layout of the score"]').hidden = true;
+    return;
+  }
   layoutMode = recall("fugae-layout", ["open", "keyboard"], "open");
   colourMode = recall("fugae-colour", ["voice", "theme"], "voice");
   document.querySelectorAll('input[name="layout"]').forEach((input) => {
@@ -1137,7 +1204,76 @@ function wireLayout() {
       if (toolkit) renderScore(false);
     });
   });
-  $("score-tools").hidden = false;
+}
+
+// ----------------------------------------------------------------- panel
+
+// On a wide screen the deck stays at the top while the score scrolls. Whole, it takes
+// a good third of the screen, so once it is stuck it shrinks to its controls and a thin
+// timeline (.compact in the style sheet). The button at the end of the controls keeps
+// it whole instead, and that choice is remembered.
+const wideScreen = matchMedia("(min-width: 561px) and (min-height: 521px)");
+let panelWhole = false;       // the reader asked for the whole deck
+let panelHeights = null;      // { whole, compact } in pixels, measured for the present width
+
+function measurePanel() {
+  const deck = $("deck"), was = deck.classList.contains("compact");
+  deck.classList.remove("compact");
+  const whole = deck.offsetHeight;
+  deck.classList.add("compact");
+  const compact = deck.offsetHeight;
+  deck.classList.toggle("compact", was);
+  panelHeights = { whole, compact };
+}
+
+// The height the deck has once the page has scrolled, or 0 on a phone (where only the
+// controls stay, and stuckHeight measures those).
+function panelHeight() {
+  if (!wideScreen.matches || !panelHeights) return 0;
+  return panelWhole ? panelHeights.whole : panelHeights.compact;
+}
+
+function updatePanel() {
+  const deck = $("deck"), fold = $("fold"), masthead = document.querySelector(".masthead");
+  const stuck = wideScreen.matches && scrollY > masthead.offsetTop + masthead.offsetHeight + 24;
+  const compact = stuck && !panelWhole;
+  fold.hidden = !stuck;
+  if (compact === deck.classList.contains("compact")) return;
+  deck.classList.toggle("compact", compact);
+  // The space the deck gives up stays in the page as a margin, so nothing below it moves.
+  deck.style.marginBottom = compact ? `${panelHeights.whole - panelHeights.compact}px` : "";
+  refitTimeline();
+}
+
+function wirePanel() {
+  panelWhole = recall("fugae-panel", ["whole", "compact"], "compact") === "whole";
+  const label = () => {
+    $("fold-text").textContent = panelWhole ? "Less" : "More";
+    $("fold-icon").setAttribute("d", panelWhole ? "M3 10.5l5-5 5 5-1.1 1.1L8 7.7l-3.9 3.9z" : "M3 5.5l5 5 5-5-1.1-1.1L8 8.3 4.1 4.4z");
+    $("fold").title = panelWhole
+      ? "Shrink this panel while the score scrolls, to leave it more room"
+      : "Keep the whole panel in view: instrument, tempo, voices, key path and legend";
+    $("fold").setAttribute("aria-expanded", String(panelWhole));
+  };
+  $("fold").addEventListener("click", () => {
+    panelWhole = !panelWhole;
+    remember("fugae-panel", panelWhole ? "whole" : "compact");
+    label();
+    updatePanel();
+  });
+  label();
+  measurePanel();
+  updatePanel();
+  addEventListener("scroll", updatePanel, { passive: true });
+}
+
+// After the window changes size: the deck's two heights are different, and so is the margin.
+function resizePanel() {
+  const deck = $("deck");
+  deck.classList.remove("compact");
+  deck.style.marginBottom = "";
+  measurePanel();
+  updatePanel();
 }
 
 function wireControls() {
@@ -1155,7 +1291,8 @@ function wireControls() {
   addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      thinAxis();
+      resizePanel();
+      refitTimeline();
       if ($("score").clientWidth === lastWidth) return;
       lastWidth = $("score").clientWidth;
       renderScore(false);
@@ -1236,6 +1373,7 @@ async function boot() {
   buildTables();
   wireControls();
   wireLayout();
+  wirePanel();
   paint(0);
 
   await verovioReady;
