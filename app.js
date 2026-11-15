@@ -55,7 +55,9 @@ function buildMarks() {
     const form = e.form === "direct" ? "" : `, by ${e.form}`;
     const tag = { inversion: " inv.", augmentation: " aug.", diminution: " dim." }[e.form] || "";
     const voice = piece.voices[e.voice];
+    const changed = (e.altered || []).length;
     out.push({
+      entry: e,
       cls: later ? `s${e.theme}` : e.role,
       short: (later ? `S${e.theme}` : e.role === "answer" ? "A" : "S") + tag,
       voice: e.voice, start: e.start, end: e.end,
@@ -63,7 +65,9 @@ function buildMarks() {
       detail: `${voice}, ${barRange(e.start, e.end)}`
         + (e.late ? ` · the ${voice.toLowerCase()}'s first entry` : "")
         + (e.varied ? " · opening or rhythm varied" : "")
-        + (e.partial ? " · breaks off as another voice takes over" : e.complete ? "" : " · incomplete"),
+        + (e.partial ? " · breaks off as another voice takes over" : e.complete ? "" : " · incomplete")
+        + (changed ? ` · ${changed === 1 ? "the ringed note is" : `the ${changed} ringed notes are`} a step `
+          + `${e.altered_by < 0 ? "lower" : "higher"} than the rest of the answer` : ""),
       chip: `${role}${e.tonal ? " (tonal)" : ""}${tag}${e.varied ? " (varied)" : ""}${e.key ? ` · ${e.key}` : ""}`,
     });
   }
@@ -265,6 +269,7 @@ function buildTimeline() {
     const inside = piece.entries.filter((e) => e.start >= s.start - 1e-6 && e.start < s.end);
     const block = place(el("div", `block section ${s.kind}`), s.start, s.end);
     block.dataset.wordings = JSON.stringify(formWordings(s, inside));
+    block.dataset.start = s.start;
     block.addEventListener("mousemove", (ev) => showTip(ev, s.label, passageDetail(s)));
     block.addEventListener("mouseleave", hideTip);
     form.append(block);
@@ -356,6 +361,11 @@ function buildTimeline() {
   if (piece.spans.some((s) => s.kind === "pedal")) {
     const item = el("span");
     item.append(el("i", "pedal-key"), "Pedal point");
+    legend.append(item);
+  }
+  if (piece.entries.some((e) => (e.altered || []).length)) {
+    const item = el("span");
+    item.append(el("i", "ring-key"), "Ring: where a tonal answer is adjusted");
     legend.append(item);
   }
   if (tl.querySelector(".tl-track.keys")) {
@@ -584,6 +594,7 @@ function renderScore(load) {
       drawMarks(unit);
       drawSequences(unit);
     }
+    drawAltered(unit);
     drawSectionTags(unit);
   }
   currentSystem = null;
@@ -789,27 +800,94 @@ function tagText(s) {
   return s.label.split(":")[0];
 }
 
-// A label above the system wherever a section begins.
+// What a flag may say, longest first. In the open score every entry carries its own
+// name, so the flag only says "Entry". The keyboard layout has no such names, and there
+// the flag says which theme enters, in what key and in which voice, where there is room.
+function tagWordings(s) {
+  const short = tagText(s);
+  if (layoutMode !== "keyboard" || !["entries", "final"].includes(s.kind)) return [short];
+  const inside = marks.filter((m) => m.entry && m.start >= s.start - 1e-6 && m.start < s.end - 1e-6);
+  if (!inside.length) return [short];
+  const voice = (m) => piece.voices[m.voice].toLowerCase();
+  if (inside.length === 1 && s.kind === "entries") {
+    const m = inside[0];
+    return [`${m.chip} · ${voice(m)}`, `${m.chip.split(" · ")[0]} · ${voice(m)}`, short];
+  }
+  const head = short === "Entry" ? "Entries" : short;
+  const who = inside.length > 4 ? `${inside.length} entries` : inside.map(voice).join(", ");
+  return [`${head} · ${who}`, head];
+}
+
+// A label above the system wherever a section begins: the longest wording that fits
+// before the next flag (or the edge of the page).
 function drawSectionTags(unit) {
   const frames = new Map();
   for (const system of document.querySelectorAll("#score g.system")) frames.set(system, system.getBBox());
+  const tags = [];
   for (const s of passages()) {
     const firstNote = scoreNotes.find((n) => n.on >= s.start - 1e-6);
     if (!firstNote) continue;
-    const frame = frames.get(firstNote.system);
     const x = Math.min(...scoreNotes.filter((n) => n.on === firstNote.on).map((n) => n.el.getBBox().x)) - 5 * unit;
+    tags.push({ s, system: firstNote.system, x });
+  }
+  tags.forEach(({ s, system, x }, i) => {
+    const frame = frames.get(system);
+    const next = tags[i + 1] && tags[i + 1].system === system ? tags[i + 1] : null;
+    const page = system.closest("svg").viewBox.baseVal;
+    const margin = system.closest(".page-margin")?.transform.baseVal.consolidate()?.matrix.e || 0;
+    const edge = page.width ? page.x + page.width - margin - 3 * unit : Infinity;
+    const room = (next ? next.x - 4 * unit : edge) - x;
     const tagH = 16 * unit, y = frame.y - tagH - 4 * unit;
     const group = svgEl("g", { class: "section-tag" });
     const line = svgEl("path", { class: "section-line", d: `M${x} ${y + tagH} V${frame.y + frame.height}` });
     const bg = svgEl("rect", { class: "section-tag-bg", x, y, height: tagH, rx: 3 * unit, width: 10 });
     const text = svgEl("text", { class: "section-tag-text", x: x + 6 * unit, y: y + 11.5 * unit, "font-size": 10.5 * unit });
-    text.textContent = tagText(s);
     group.append(line, bg, text);
-    firstNote.system.append(group);
-    bg.setAttribute("width", text.getComputedTextLength() + 12 * unit);
+    system.append(group);
+    let width = 0;
+    for (const wording of tagWordings(s)) {
+      text.textContent = wording;
+      width = text.getComputedTextLength() + 12 * unit;
+      if (width <= room) break;
+    }
+    bg.setAttribute("width", width);
+    if (!next && x + width > edge) {     // the last flag of a line: keep it on the page
+      const left = Math.max(frame.x, edge - width);
+      bg.setAttribute("x", left);
+      text.setAttribute("x", left + 6 * unit);
+    }
     bg.addEventListener("mousemove", (ev) => showTip(ev, s.label, passageDetail(s)));
     bg.addEventListener("mouseleave", hideTip);
     bg.addEventListener("click", () => seek(s.start));
+  });
+}
+
+// A ring round each note where a tonal answer is adjusted: the few notes a step off
+// the rest of it, which is what makes the answer tonal and not real.
+function drawAltered(unit) {
+  for (const e of piece.entries) {
+    const step = e.altered_by < 0 ? "lower" : "higher";
+    const why = e.answer_at === "fourth"
+      ? `A step ${step} than the rest of the answer. Most of this answer is a fourth above the subject, which `
+        + "brings it back to the home key after a subject that leaves it; this note is a fifth above, as in an exact answer."
+      : e.answer_at === "fifth"
+        ? `A step ${step} than the rest of the answer, which is a fifth above the subject as an exact answer would be. `
+          + "Adjustments like this keep the answer near the home key."
+        : `A step ${step} than the rest of this statement: the adjustment the answer makes in the exposition, in another key.`;
+    for (const t of e.altered || []) {
+      const n = scoreNotes.find((x) => Math.abs(x.on - t) < 1e-6
+        && (layoutMode === "keyboard" ? x.voice === e.voice : x.staff === e.voice));
+      if (!n || !n.system) continue;
+      const box = (n.el.querySelector("g.notehead") || n.el).getBBox();
+      if (!box.width) continue;
+      const ring = svgEl("circle", { class: "altered", cx: box.x + box.width / 2, cy: box.y + box.height / 2, r: box.width * 1.05 });
+      // Set on the element itself: the engraver's own stylesheet styles every shape by id.
+      ring.style.cssText = `fill: none; stroke: var(--paper-ink); stroke-width: ${(1.5 * unit).toFixed(1)}px; pointer-events: all; cursor: pointer`;
+      ring.addEventListener("mousemove", (ev) => showTip(ev, "Where the answer is adjusted", why));
+      ring.addEventListener("mouseleave", hideTip);
+      ring.addEventListener("click", () => seek(t));
+      n.system.append(ring);
+    }
   }
 }
 
@@ -907,13 +985,45 @@ function pump() {
   if (!playing) return;
   const now = ctx.currentTime, q = position();
   const horizon = q + (0.35 * bpm) / 60;
-  while (pointer < piece.notes.length && piece.notes[pointer].on < horizon) {
+  const stop = loop ? loop.end - 1e-6 : Infinity;      // a repeated section's notes only
+  while (pointer < piece.notes.length && piece.notes[pointer].on < Math.min(horizon, stop)) {
     const n = piece.notes[pointer++];
     const when = t0 + ((n.on - q0) * 60) / bpm;
     if (when > now - 0.03) scheduleNote(n, Math.max(when, now));
   }
   live = live.filter((x) => x.end > now);
+  if (loop && q >= loop.end) { seek(loop.start); return; }
   if (q >= piece.end + 0.5) { pause(); pausedAt = 0; paint(0); }
+}
+
+// Repeating a section: while `loop` holds a section, playing goes round it. Moving
+// somewhere else (a click in the score or the timeline, an arrow key) moves the
+// repeat to the section landed in.
+let loop = null;
+
+function setLoopQuietly(section) {
+  loop = section;
+  $("loop").setAttribute("aria-pressed", String(Boolean(loop)));
+  for (const block of document.querySelectorAll(".block.section")) {
+    block.classList.toggle("looped", Boolean(loop) && Number(block.dataset.start) === loop.start);
+  }
+}
+
+function setLoop(section) {
+  setLoopQuietly(section);
+  paint(position());
+}
+
+// To the next or the previous place where a section (or, with `byEntry`, a statement
+// of a theme) begins. Going back while playing first returns to the start of the
+// present one, as a music player does.
+function step(direction, byEntry) {
+  const starts = [...new Set((byEntry ? piece.entries : passages()).map((x) => x.start))].sort((a, b) => a - b);
+  const q = position();
+  const to = direction > 0
+    ? starts.find((t) => t > q + 1e-6)
+    : starts.filter((t) => t < q - (playing ? 1 : 1e-6)).at(-1) ?? 0;
+  if (to != null) seek(to);
 }
 
 // An iPhone's ring/silent switch also silences this page, whose sound the phone
@@ -982,6 +1092,7 @@ function pause() {
 }
 
 function seek(q) {
+  if (loop && !(q >= loop.start - 1e-6 && q < loop.end - 1e-6)) setLoopQuietly(sectionAt(q));
   if (playing) {
     silence(false);
     q0 = q;
@@ -1073,7 +1184,7 @@ function paint(q, jump) {
     .map((m) => `${m.short} in ${piece.voices[m.voice].toLowerCase()}`);
   const now = $("now");
   now.replaceChildren(el("b", null, `Bar ${barOf(at)}`),
-    ` · ${section.label}` + (section.summary ? ` · ${section.summary}` : active.length ? ` · ${active.join(", ")}` : ""));
+    ` · ${section.label}${loop ? " (repeating)" : ""}` + (section.summary ? ` · ${section.summary}` : active.length ? ` · ${active.join(", ")}` : ""));
   now.title = section.summary || "";
 }
 
@@ -1282,10 +1393,20 @@ function wireControls() {
   $("tempo").addEventListener("input", (ev) => setTempo(Number(ev.target.value)));
   document.querySelectorAll('input[name="instrument"]').forEach((input) =>
     input.addEventListener("change", () => input.checked && setInstrument(input.value)));
+  $("loop").addEventListener("click", () => setLoop(loop ? null : sectionAt(Math.min(position(), piece.end - 0.01))));
   document.addEventListener("keydown", (ev) => {
-    if (ev.code !== "Space" || ev.target.closest("input, button, summary, select, textarea")) return;
-    ev.preventDefault();
-    playing ? pause() : play();
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    if (ev.target.closest?.("input, select, textarea")) return;
+    if (ev.code === "Space") {
+      if (ev.target.closest?.("button, summary")) return;
+      ev.preventDefault();
+      playing ? pause() : play();
+    } else if (ev.key === "ArrowRight" || ev.key === "ArrowLeft") {
+      ev.preventDefault();
+      step(ev.key === "ArrowRight" ? 1 : -1, ev.shiftKey);
+    } else if (ev.key === "l" || ev.key === "L") {
+      $("loop").click();
+    }
   });
   let resizeTimer, lastWidth = $("score").clientWidth;
   addEventListener("resize", () => {

@@ -38,6 +38,10 @@
         <button id="rewind" class="btn" aria-label="Back to the start">
           <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 2.5h1.6v11H3zM13.5 2.5v11L5.5 8z"/></svg>
         </button>
+        <button id="loop" class="btn" type="button" aria-pressed="false" aria-label="Repeat this section"
+                title="Repeat the section being played, until this is pressed again (L)">
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4h7V2l3 3-3 3V6H5v3H3V5a1 1 0 0 1 1-1zm8 8H5v2l-3-3 3-3v2h6V7h2v4a1 1 0 0 1-1 1z"/></svg>
+        </button>
         <p id="now" class="now" aria-live="off"></p>
         <button id="fold" class="btn fold" type="button" hidden>
           <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path id="fold-icon" d="M3 5.5l5 5 5-5-1.1-1.1L8 8.3 4.1 4.4z"/></svg>
@@ -91,6 +95,8 @@
 
   <footer class="credits">
     <p>The analysis is worked out by a program and is a first reading, not an authority.</p>
+    <p class="keys-help">Keys: space plays and pauses; ← and → go to the previous and the next section, and with
+      shift to the previous and the next entry; L repeats the section.</p>
     <p>Scores: the Humdrum edition of <i>The Well-Tempered Clavier</i>, encoded by David Huron and edited by
       Craig Stuart Sapp (<a href="https://github.com/humdrum-tools/bach-wtc-fugues">humdrum-tools/bach-wtc-fugues</a>),
       after the Bach-Gesellschaft edition. Notation is drawn by <a href="https://www.verovio.org">Verovio</a>;

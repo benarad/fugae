@@ -206,6 +206,7 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .btn svg { fill: currentColor; }
 .btn:hover:not(:disabled) { border-color: var(--muted); }
 .btn:disabled { opacity: 0.5; cursor: default; }
+.btn[aria-pressed="true"] { background: var(--neutral-fill); border-color: var(--ink); }
 .btn.primary { background: var(--ink); color: var(--page); border-color: var(--ink); min-width: 84px; justify-content: center; font-weight: 600; }
 :focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; }
 
@@ -283,6 +284,7 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
   background: repeating-linear-gradient(135deg, transparent 0 3px, var(--axis) 3px 4px);
   color: var(--ink-2); font-weight: 500; line-height: 20px; text-align: right;
 }
+.block.section.looped { box-shadow: 0 0 0 2px var(--ink); z-index: 2; }
 .pedal { position: absolute; bottom: 0; height: 3px; border-radius: 2px; background: var(--ink-2); }
 
 /* The key path: a line for each key, sharper keys above, each statement on its key's line. */
@@ -329,6 +331,7 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
 .legend i { background: var(--role); }
 .legend i.frag-key { background: transparent; border: 1.5px solid var(--ink-2); width: 14px; height: 8px; border-radius: 3px; }
+.legend i.ring-key { width: 9px; height: 9px; border-radius: 50%; background: transparent; border: 1.5px solid var(--ink-2); }
 .legend i.pedal-key { height: 3px; width: 14px; border-radius: 2px; background: var(--ink-2); }
 
 /* --------------------------------------------------------------- score */
