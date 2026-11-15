@@ -558,6 +558,33 @@ function tagKeyboardNotes() {
     if (voices.size === 1 && !voices.has(null)) beam.classList.add("voiced", `v${[...voices][0]}`);
     if (roles.size === 1 && !roles.has(null)) beam.classList.add("themed", [...roles][0]);
   }
+  // Where two voices have the same note on the same staff, one head is printed for
+  // both and only one colour shows. The voice underneath gets a ring in its own colour.
+  for (const staff of document.querySelectorAll("#score g.staff")) {
+    const heads = [...staff.querySelectorAll("g.note")].map((node) => {
+      const box = (node.querySelector("g.notehead") || node).getBBox();
+      return { node, box, voice: voiceOf(node) };
+    }).filter((h) => h.box.width && h.voice != null);
+    for (let i = 0; i < heads.length; i++) {
+      for (let j = i + 1; j < heads.length; j++) {
+        const a = heads[i], b = heads[j];
+        if (a.voice === b.voice) continue;
+        const across = Math.min(a.box.x + a.box.width, b.box.x + b.box.width) - Math.max(a.box.x, b.box.x);
+        const down = Math.min(a.box.y + a.box.height, b.box.y + b.box.height) - Math.max(a.box.y, b.box.y);
+        if (across <= 0 || down <= 0 || (across * down) / (a.box.width * a.box.height) < 0.9) continue;
+        // The later of the two in the page is drawn on top; the ring is for the other.
+        const under = a.node.compareDocumentPosition(b.node) & Node.DOCUMENT_POSITION_FOLLOWING ? a : b;
+        const ring = svgEl("ellipse", {
+          class: `shared voiced v${under.voice}`,
+          cx: under.box.x + under.box.width / 2, cy: under.box.y + under.box.height / 2,
+          rx: under.box.width * 0.78, ry: under.box.height * 0.85,
+        });
+        // Set on the element itself: the engraver's own stylesheet styles every shape by id.
+        ring.style.cssText = `fill: none; stroke: var(--voice); stroke-width: ${(under.box.height * 0.22).toFixed(1)}px`;
+        staff.append(ring);
+      }
+    }
+  }
   // A disc behind each note head, shown while the note sounds: among coloured notes a
   // change of colour is easy to miss, and a mark behind the head is not.
   for (const n of scoreNotes) {

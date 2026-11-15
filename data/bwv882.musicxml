@@ -52,21 +52,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P2476810499b7de3ac9112c1bac087ea7">
+    <score-part id="Pdd95cb659f51859a16a52f09c6bd30c0">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P43135dc6908dd9995360d2589e9b25f8">
+    <score-part id="Pf82448ff039af877995a66165b68e445">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P63918f2e46b6e5858e709a064a5b7161">
+    <score-part id="P76acf8c3e6e449416e40f8858111c425">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P2476810499b7de3ac9112c1bac087ea7">
+  <part id="Pdd95cb659f51859a16a52f09c6bd30c0">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -169,7 +169,6 @@
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -397,12 +396,10 @@
       <note>
         <pitch>
           <step>B</step>
-          <alter>0</alter>
           <octave>4</octave>
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>natural</accidental>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -951,7 +948,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -1304,7 +1300,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -1360,7 +1355,6 @@
         <notations>
           <ornaments>
             <mordent placement="above" />
-            <accidental-mark placement="below">natural</accidental-mark>
           </ornaments>
         </notations>
       </note>
@@ -1372,7 +1366,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <pitch>
@@ -1406,11 +1399,9 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
         <notations>
           <ornaments>
             <mordent placement="above" />
-            <accidental-mark placement="below">double-sharp</accidental-mark>
           </ornaments>
         </notations>
       </note>
@@ -1422,7 +1413,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <pitch>
@@ -1456,7 +1446,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
         <notations>
           <ornaments>
             <mordent placement="above" />
@@ -1583,7 +1572,6 @@
         <notations>
           <ornaments>
             <mordent placement="above" />
-            <accidental-mark placement="below">double-sharp</accidental-mark>
           </ornaments>
         </notations>
       </note>
@@ -1595,7 +1583,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <pitch>
@@ -1630,11 +1617,9 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
         <notations>
           <ornaments>
             <mordent placement="above" />
-            <accidental-mark placement="below">double-sharp</accidental-mark>
           </ornaments>
         </notations>
       </note>
@@ -1646,7 +1631,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <rest />
@@ -1788,7 +1772,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>natural</accidental>
       </note>
       <note>
         <pitch>
@@ -2232,7 +2215,6 @@
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -2398,7 +2380,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -2711,7 +2692,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -3548,7 +3528,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -3839,7 +3818,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -4113,7 +4091,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P43135dc6908dd9995360d2589e9b25f8">
+  <part id="Pf82448ff039af877995a66165b68e445">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -4299,7 +4277,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -4355,7 +4332,6 @@
         <notations>
           <ornaments>
             <mordent placement="above" />
-            <accidental-mark placement="below">natural</accidental-mark>
           </ornaments>
         </notations>
       </note>
@@ -4367,7 +4343,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -4653,7 +4628,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -4782,7 +4756,6 @@
         <duration>10080</duration>
         <tie type="start" />
         <type>quarter</type>
-        <accidental>natural</accidental>
         <notations>
           <tied type="start" />
         </notations>
@@ -4962,7 +4935,6 @@
         <duration>10080</duration>
         <tie type="start" />
         <type>quarter</type>
-        <accidental>sharp</accidental>
         <notations>
           <tied type="start" />
         </notations>
@@ -4989,7 +4961,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -5078,7 +5049,6 @@
         </pitch>
         <duration>20160</duration>
         <type>half</type>
-        <accidental>sharp</accidental>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -5670,7 +5640,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -5727,7 +5696,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -5902,7 +5870,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -5958,7 +5925,6 @@
         <notations>
           <ornaments>
             <mordent placement="above" />
-            <accidental-mark placement="below">natural</accidental-mark>
           </ornaments>
         </notations>
       </note>
@@ -5970,7 +5936,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <rest />
@@ -6177,7 +6142,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -6225,7 +6189,6 @@
         <duration>10080</duration>
         <tie type="start" />
         <type>quarter</type>
-        <accidental>sharp</accidental>
         <notations>
           <tied type="start" />
         </notations>
@@ -6662,7 +6625,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -6853,12 +6815,10 @@
       <note>
         <pitch>
           <step>E</step>
-          <alter>0</alter>
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -6895,7 +6855,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -7138,7 +7097,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -7418,7 +7376,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -7701,7 +7658,6 @@
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -7722,7 +7678,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -7778,7 +7733,6 @@
         <duration>15120</duration>
         <type>quarter</type>
         <dot />
-        <accidental>natural</accidental>
       </note>
       <note>
         <pitch>
@@ -7922,7 +7876,6 @@
         <notations>
           <ornaments>
             <mordent placement="above" />
-            <accidental-mark placement="below">natural</accidental-mark>
           </ornaments>
         </notations>
       </note>
@@ -7934,7 +7887,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <pitch>
@@ -7973,7 +7925,6 @@
         <notations>
           <ornaments>
             <mordent placement="above" />
-            <accidental-mark placement="below">natural</accidental-mark>
           </ornaments>
         </notations>
       </note>
@@ -7985,7 +7936,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <pitch>
@@ -8018,7 +7968,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
         <notations>
           <ornaments>
             <mordent placement="above" />
@@ -8341,7 +8290,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P63918f2e46b6e5858e709a064a5b7161">
+  <part id="P76acf8c3e6e449416e40f8858111c425">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -8613,7 +8562,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -8862,7 +8810,6 @@
         <duration>10080</duration>
         <tie type="start" />
         <type>quarter</type>
-        <accidental>sharp</accidental>
         <notations>
           <tied type="start" />
         </notations>
@@ -9022,7 +8969,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>natural</accidental>
       </note>
       <note>
         <pitch>
@@ -9227,12 +9173,10 @@
       <note>
         <pitch>
           <step>A</step>
-          <alter>0</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -9427,7 +9371,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -9500,12 +9443,10 @@
       <note>
         <pitch>
           <step>B</step>
-          <alter>0</alter>
           <octave>2</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -9557,12 +9498,10 @@
       <note>
         <pitch>
           <step>E</step>
-          <alter>0</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -9573,7 +9512,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -9606,7 +9544,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -9695,7 +9632,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -9785,7 +9721,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -9796,7 +9731,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -9865,7 +9799,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -9932,7 +9865,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -9965,7 +9897,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -10059,7 +9990,6 @@
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -10090,7 +10020,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <pitch>
@@ -10309,12 +10238,10 @@
       <note>
         <pitch>
           <step>B</step>
-          <alter>0</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -10333,7 +10260,6 @@
         <notations>
           <ornaments>
             <mordent placement="above" />
-            <accidental-mark placement="below">natural</accidental-mark>
           </ornaments>
         </notations>
       </note>
@@ -10345,7 +10271,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <rest />
@@ -10656,7 +10581,6 @@
         <duration>15120</duration>
         <type>quarter</type>
         <dot />
-        <accidental>sharp</accidental>
       </note>
       <note>
         <pitch>
@@ -10666,7 +10590,6 @@
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -10694,7 +10617,6 @@
         <duration>15120</duration>
         <type>quarter</type>
         <dot />
-        <accidental>sharp</accidental>
       </note>
       <note>
         <pitch>
@@ -10931,7 +10853,6 @@
         <duration>10080</duration>
         <tie type="start" />
         <type>quarter</type>
-        <accidental>sharp</accidental>
         <notations>
           <tied type="start" />
         </notations>
@@ -10958,7 +10879,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -11362,7 +11282,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <accidental>sharp</accidental>
       </note>
       <note>
         <pitch>
@@ -11474,12 +11393,10 @@
       <note>
         <pitch>
           <step>E</step>
-          <alter>0</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -11522,7 +11439,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -11580,7 +11496,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -11617,12 +11532,10 @@
       <note>
         <pitch>
           <step>E</step>
-          <alter>0</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">end</beam>
       </note>
       <barline location="right">
@@ -11655,12 +11568,10 @@
       <note>
         <pitch>
           <step>A</step>
-          <alter>0</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -11671,7 +11582,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -11704,7 +11614,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -11791,7 +11700,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -11880,7 +11788,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -11938,7 +11845,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -11959,7 +11865,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -11996,7 +11901,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">begin</beam>
       </note>
       <note>
@@ -12026,7 +11930,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -12059,7 +11962,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>double-sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -12290,7 +12192,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -12791,7 +12692,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">end</beam>
       </note>
       <note>
@@ -13188,12 +13088,10 @@
       <note>
         <pitch>
           <step>B</step>
-          <alter>0</alter>
           <octave>2</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>natural</accidental>
         <beam number="1">begin</beam>
       </note>
       <note>

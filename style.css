@@ -329,6 +329,12 @@ tbody tr:hover td { background: var(--neutral-fill); }
 .paper.colour-voice g.beam.voiced > polygon { fill: var(--voice); stroke: var(--voice); color: var(--voice); }
 .paper.colour-theme g.note.themed, .paper.colour-theme g.note.themed *,
 .paper.colour-theme g.beam.themed > polygon { fill: var(--paper-role); stroke: var(--paper-role); color: var(--paper-role); }
+/* Two voices on one note head: a ring in the colour of the voice whose head is hidden. */
+.paper .shared { pointer-events: none; }
+.paper:not(.colour-voice) .shared { display: none; }
+.paper.keyboard.solo .shared { opacity: 0.18; }
+.paper.keyboard.solo-v0 .shared.v0, .paper.keyboard.solo-v1 .shared.v1, .paper.keyboard.solo-v2 .shared.v2,
+.paper.keyboard.solo-v3 .shared.v3, .paper.keyboard.solo-v4 .shared.v4 { opacity: 1; }
 /* The notes being played: each keeps its colour and gets a disc of that colour behind its head. */
 .paper .halo { fill: var(--sounding); stroke: none; opacity: 0; pointer-events: none; }
 .paper.colour-voice .halo { fill: var(--voice, var(--sounding)); }
