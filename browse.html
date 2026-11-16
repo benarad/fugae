@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The 48 · Fugae</title>
+  <title>Fugae</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="browse">
   <header class="masthead">
-    <h1>The Well-Tempered Clavier: the 48 fugues</h1>
-    <p id="meta">Pick a fugue from the map or the list. Tags narrow both to the fugues that share them.</p>
+    <nav class="collections" id="collections" aria-label="Collections" hidden></nav>
+    <h1 id="heading">Fugues</h1>
+    <p id="meta"></p>
   </header>
 
   <main>
@@ -24,15 +25,16 @@
     </p>
 
     <div class="map" id="map" role="group" aria-label="The 48 fugues by key and book"></div>
-    <p class="map-note">Each square is a fugue: its key (small letters for minor) and how many voices it has.</p>
+    <p class="map-note" id="map-note">Each square is a fugue: its key (small letters for minor) and how many voices it has.</p>
 
     <ol class="pieces" id="pieces"></ol>
   </main>
 
   <footer class="credits">
     <p>The tags under <i>Voices</i>, <i>Answer</i>, <i>Themes</i> and <i>Devices</i> are worked out by a program and are
-      a first reading, not an authority. The tags under <i>Character</i> group the descriptions in David Ledbetter,
-      <i>Bach's Well-tempered Clavier</i> (2002); the grouping is this page's, not his.</p>
+      a first reading, not an authority. <span id="character-credit">The tags under <i>Character</i> group the descriptions
+      in David Ledbetter, <i>Bach's Well-tempered Clavier</i> (2002); the grouping is this page's, not his.</span></p>
+    <p id="source-credit"></p>
   </footer>
 
   <div id="tip" class="tip" hidden></div>

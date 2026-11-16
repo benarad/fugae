@@ -18,7 +18,9 @@ const GROUPS = [
   { key: "character", label: "Character", note: "after Ledbetter, 2002" },
 ];
 const LINES = ["Book I, major", "Book I, minor", "Book II, major", "Book II, minor"];
-const ROMAN = ["", "I", "II"];
+
+// Which collection is shown: "?c=art-of-fugue" in the address, or the 48.
+const COLLECTION = collectionOf(new URLSearchParams(location.search).get("c"));
 
 const $ = (id) => document.getElementById(id);
 const el = (tag, cls, text) => {
@@ -33,7 +35,6 @@ let incipits = {};             // piece id -> its themes, each a small engraved 
 const chosen = new Set();      // "group:tag"
 
 const idOf = (group, tag) => `${group}:${tag}`;
-const shortName = (p) => (p.book ? `${ROMAN[p.book]}/${p.number}` : p.title);
 const href = (p) => `index.html?piece=${encodeURIComponent(p.id)}`;
 
 // "c♯" for C♯ minor, "E♭" for E♭ major.
@@ -73,7 +74,7 @@ function toggle(group, tag) {
 function remember() {
   const hash = [...chosen].map((id) => encodeURI(id.replace(/ /g, "_"))).join("&");
   history.replaceState(null, "", hash ? `#${hash}` : location.pathname + location.search);
-  try { sessionStorage.setItem("fugae-tags", hash); } catch { /* private window: the address is enough */ }
+  try { sessionStorage.setItem(tagsKey(COLLECTION), hash); } catch { /* private window: the address is enough */ }
 }
 
 function recall() {
@@ -131,7 +132,7 @@ function chip(group, tag, count) {
 }
 
 function drawFilters() {
-  const rows = GROUPS.map((g) => {
+  const rows = GROUPS.filter((g) => g.tags.length).map((g) => {
     const row = el("div", "filter-row");
     const label = el("span", "filter-label", g.label);
     if (g.note) label.append(el("span", "source", ` (${g.note})`));
@@ -194,8 +195,8 @@ function drawList(shown) {
     const row = el("li", "piece");
     const link = el("a", "piece-link");
     link.href = href(p);
-    link.append(el("b", null, shortName(p)), p.book ? ` ${p.key}` : "");
-    const bwv = /^bwv\d+$/.test(p.id) ? ` · BWV ${p.id.slice(3)}` : "";
+    link.append(el("b", null, shortName(p)), p.book ? ` ${p.key}` : p.note ? `, ${p.note}` : "");
+    const bwv = bwvOf(p.id) ? ` · ${bwvOf(p.id)}` : "";
     const facts = el("span", "facts", `${p.voices} voices · ${p.meter} · ${p.bars} bars${bwv}`);
     const head = el("div", "piece-head");
     head.append(link, facts);
@@ -206,6 +207,7 @@ function drawList(shown) {
     drawIncipits(themes);
     body.append(themes);
     if (p.character) body.append(el("p", "piece-character", p.character));
+    if (p.caution) body.append(el("p", "piece-character caution", p.caution));
     const chips = el("div", "chips quiet");
     for (const g of GROUPS.filter((x) => x.key !== "voices")) {
       for (const t of g.tags.filter((x) => (p.tags[g.key] || []).includes(x))) {
@@ -224,7 +226,7 @@ function drawList(shown) {
 function render() {
   const shown = pieces.filter((p) => matches(p, chosen));
   drawFilters();
-  drawMap(new Set(shown.map((p) => p.id)));
+  if (COLLECTION.map) drawMap(new Set(shown.map((p) => p.id)));
   drawList(shown);
   $("count").textContent = chosen.size
     ? `${shown.length} of ${pieces.length} fugues`
@@ -236,7 +238,27 @@ function render() {
 // ------------------------------------------------------------------ boot
 
 async function boot() {
-  pieces = await fetch("data/index.json").then((r) => r.json());
+  const all = await fetch("data/index.json").then((r) => r.json());
+  pieces = all.filter((p) => collectionOf(p.collection) === COLLECTION)
+    .sort((a, b) => (a.book || 0) - (b.book || 0) || (a.number || 0) - (b.number || 0));
+
+  // The collections, where there is more than one: links, the present one marked.
+  const present = COLLECTIONS.filter((c) => all.some((p) => collectionOf(p.collection) === c));
+  if (present.length > 1) {
+    $("collections").replaceChildren(...present.map((c) => {
+      const link = el("a", "btn", c.name);
+      link.href = listHref(c);
+      if (c === COLLECTION) link.setAttribute("aria-current", "page");
+      return link;
+    }));
+    $("collections").hidden = false;
+  }
+  document.title = `${COLLECTION.name} · Fugae`;
+  $("heading").textContent = COLLECTION.heading;
+  $("meta").textContent = COLLECTION.intro;
+  $("map").hidden = $("map-note").hidden = !COLLECTION.map;
+  $("character-credit").hidden = !pieces.some((p) => (p.tags.character || []).length);
+  $("source-credit").innerHTML = COLLECTION.credit;      // our own text, with links
   for (const g of GROUPS) {
     const count = new Map();
     for (const p of pieces) for (const t of p.tags[g.key] || []) count.set(t, (count.get(t) || 0) + 1);

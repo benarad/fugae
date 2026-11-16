@@ -64,11 +64,11 @@ function buildMarks() {
       title: `${role}${kind}${e.key ? ` in ${e.key}` : ""}${form}`,
       detail: `${voice}, ${barRange(e.start, e.end)}`
         + (e.late ? ` · the ${voice.toLowerCase()}'s first entry` : "")
-        + (e.varied ? " · opening or rhythm varied" : "")
+        + (e.ornamented ? " · ornamented: notes are added between the theme's own" : e.varied ? " · opening or rhythm varied" : "")
         + (e.partial ? " · breaks off as another voice takes over" : e.complete ? "" : " · incomplete")
         + (changed ? ` · ${changed === 1 ? "the ringed note is" : `the ${changed} ringed notes are`} a step `
           + `${e.altered_by < 0 ? "lower" : "higher"} than the rest of the answer` : ""),
-      chip: `${role}${e.tonal ? " (tonal)" : ""}${tag}${e.varied ? " (varied)" : ""}${e.key ? ` · ${e.key}` : ""}`,
+      chip: `${role}${e.tonal ? " (tonal)" : ""}${tag}${e.ornamented ? " (ornamented)" : e.varied ? " (varied)" : ""}${e.key ? ` · ${e.key}` : ""}`,
     });
   }
   for (const cs of piece.countersubjects) {
@@ -1471,14 +1471,20 @@ function wireControls() {
 }
 
 async function boot() {
-  const [json, xml, index] = await Promise.all([
+  const [json, xml, index0] = await Promise.all([
     fetch(`data/${PIECE}.json`).then((r) => r.json()),
     fetch(`data/${PIECE}.musicxml`).then((r) => r.text()),
     fetch("data/index.json").then((r) => (r.ok ? r.json() : [])).catch(() => []),
   ]);
+  const all = index0;
+  // The fugue's own collection: the menu and the arrows stay inside it.
+  const collection = collectionOf(json.collection || (all.find((p) => p.id === PIECE) || {}).collection);
+  const index = all.filter((p) => collectionOf(p.collection) === collection)
+    .sort((a, b) => (a.book || 0) - (b.book || 0) || (a.number || 0) - (b.number || 0));
+  $("source-credit").innerHTML = collection.credit;      // our own text, with links
   if (index.length > 1) {
-    // "I/2 C minor" for a fugue of the Well-Tempered Clavier, otherwise its title.
-    const name = (p) => (p.book ? `${["", "I", "II"][p.book]}/${p.number} ${p.key}` : p.title);
+    // "I/2 C minor" for a fugue of the Well-Tempered Clavier, otherwise its name in its collection.
+    const name = (p) => (p.book ? `${shortName(p)} ${p.key}` : shortName(p));
     const menu = $("piece");
     for (const p of index) {
       const option = el("option", null, name(p));
@@ -1498,8 +1504,8 @@ async function boot() {
     }
     // Go back to the list as it was left, with the same tags chosen.
     let tags = "";
-    try { tags = sessionStorage.getItem("fugae-tags") || ""; } catch { /* private window */ }
-    if (tags) $("all").href = `browse.html#${tags}`;
+    try { tags = sessionStorage.getItem(tagsKey(collection)) || ""; } catch { /* private window */ }
+    $("all").href = listHref(collection, tags);
     $("where").hidden = false;
   }
   piece = json;
@@ -1518,8 +1524,11 @@ async function boot() {
   // up to it: a button that returns to the top of the page.
   const mini = $("mini");
   const parts = piece.title.match(/Book (\d+), Fugue (\d+) in (.+)$/);
-  const short = parts ? `${["", "I", "II"][Number(parts[1])] || parts[1]}/${parts[2]} · ${parts[3]}` : piece.title;
-  const bwv = /^bwv\d+$/.test(piece.id) ? `BWV ${piece.id.slice(3)}` : "";
+  const short = parts ? `${["", "I", "II"][Number(parts[1])] || parts[1]}/${parts[2]} · ${parts[3]}`
+    : piece.label || piece.title;
+  const bwv = bwvOf(piece.id);
+  $("caution").textContent = piece.caution ? `Not yet read well. ${piece.caution}` : "";
+  $("caution").hidden = !piece.caution;
   const arrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   arrow.setAttribute("viewBox", "0 0 16 16");
   arrow.setAttribute("aria-hidden", "true");

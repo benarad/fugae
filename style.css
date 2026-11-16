@@ -158,6 +158,12 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .piece-link:hover { text-decoration: underline; }
 .facts { font-size: 12px; color: var(--muted); }
 .piece-character { margin: 0 0 6px; max-width: 70ch; }
+.caution { color: var(--ink-2); font-style: italic; }
+/* The collections: links across the top of the list page, the present one filled in. */
+.collections { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.collections[hidden] { display: none; }
+.collections .btn { text-decoration: none; }
+.collections .btn[aria-current="page"] { background: var(--neutral-fill); border-color: var(--ink); font-weight: 600; }
 /* Each theme as a line or two of score, in the page's own ink. */
 .incipits { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 28px; }
 .incipits:not(:empty) { margin-bottom: 8px; }
