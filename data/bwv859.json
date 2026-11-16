@@ -7022,12 +7022,36 @@
    ]
   }
  ],
+ "cadences": [
+  {
+   "start": 117.0,
+   "key": "C♯ minor",
+   "voice": 3,
+   "measure": 20,
+   "beat": 4.0
+  },
+  {
+   "start": 162.0,
+   "key": "C♯ minor",
+   "voice": 3,
+   "measure": 28,
+   "beat": 1.0
+  },
+  {
+   "start": 234.0,
+   "key": "F♯ minor",
+   "voice": 3,
+   "measure": 40,
+   "beat": 1.0
+  }
+ ],
  "sections": [
   {
    "kind": "exposition",
    "label": "Exposition",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 0.0,
    "end": 102.5,
    "measure": 1,
@@ -7038,6 +7062,7 @@
    "label": "Episode 1",
    "summary": "Reworks the codetta (bars 7–8), with the alto's line in the soprano, the tenor's line in the bass, transposed. Soprano: a figure from the subject (3 times) and the opening of countersubject 1, in a sequence rising by a step every half bar. Alto: the opening of countersubject 1 (2 times), in a sequence rising by a step every half bar. Bass: a figure from the subject (2 times) and the opening of countersubject 1 (2 times), in a sequence rising by a seventh every half bar. Returns in Episode 3 (bars 28–29).",
    "reworks": "Codetta",
+   "leads": "Between two statements in F♯ minor; perfect cadence in C♯ minor at bar 20",
    "start": 102.5,
    "end": 118.0,
    "measure": 18,
@@ -7048,6 +7073,7 @@
    "label": "Subject in F♯ minor, inverted (Alto)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 118.0,
    "end": 137.0,
    "measure": 20,
@@ -7058,6 +7084,7 @@
    "label": "Episode 2",
    "summary": "Soprano: free counterpoint. Alto: a figure from the subject. Bass: a figure from the subject and a figure from countersubject 1.",
    "reworks": "",
+   "leads": "From F♯ minor to C♯ minor",
    "start": 137.0,
    "end": 147.0,
    "measure": 23,
@@ -7068,6 +7095,7 @@
    "label": "Subject in C♯ minor, rhythm varied (Soprano)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 147.0,
    "end": 162.5,
    "measure": 25,
@@ -7078,6 +7106,7 @@
    "label": "Episode 3",
    "summary": "Reworks Episode 1 (bars 18–20), with the bass's line in the alto, a fifth higher. Soprano: a figure from the subject (2 times) and the opening of countersubject 1, in a sequence rising by a step every half bar. Alto: a figure from the subject and a figure from countersubject 1, in a sequence rising by a step every half bar.",
    "reworks": "Episode 1",
+   "leads": "From C♯ minor to F♯ minor",
    "start": 162.5,
    "end": 169.0,
    "measure": 28,
@@ -7088,6 +7117,7 @@
    "label": "Subject in F♯ minor (Tenor)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 169.0,
    "end": 187.0,
    "measure": 29,
@@ -7098,6 +7128,7 @@
    "label": "Subject in F♯ minor, inverted (Bass)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 187.0,
    "end": 207.0,
    "measure": 32,
@@ -7108,6 +7139,7 @@
    "label": "Episode 4",
    "summary": "Soprano: a figure from countersubject 1 and the opening of countersubject 1. Alto: a figure from countersubject 1. Tenor: a figure from countersubject 1. Bass: a figure from countersubject 1 (2 times), in a sequence falling by a step every bar.",
    "reworks": "",
+   "leads": "Between two statements in F♯ minor",
    "start": 207.0,
    "end": 217.0,
    "measure": 35,
@@ -7118,6 +7150,7 @@
    "label": "Subject in F♯ minor (Soprano)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 217.0,
    "end": 237.0,
    "measure": 37,
@@ -7128,6 +7161,7 @@
    "label": "Coda",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 237.0,
    "end": 240.0,
    "measure": 40,

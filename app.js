@@ -53,7 +53,7 @@ function buildMarks() {
     const role = later ? `Subject ${e.theme}` : e.role === "answer" ? "Answer" : "Subject";
     const kind = !later && e.role === "answer" ? (e.tonal ? " (tonal)" : " (real)") : "";
     const form = e.form === "direct" ? "" : `, by ${e.form}`;
-    const tag = { inversion: " inv.", augmentation: " aug.", diminution: " dim." }[e.form] || "";
+    const tag = { inversion: " inv.", augmentation: " aug.", diminution: " dim.", "inverted diminution": " inv. dim." }[e.form] || "";
     const voice = piece.voices[e.voice];
     const changed = (e.altered || []).length;
     out.push({
@@ -114,7 +114,7 @@ function passageBars(s) {
 }
 
 function passageDetail(s) {
-  return passageBars(s) + (s.summary ? ` · ${s.summary}` : "");
+  return passageBars(s) + (s.leads ? ` · ${s.leads}` : "") + (s.summary ? ` · ${s.summary}` : "");
 }
 
 function sectionAt(q) {
@@ -333,6 +333,14 @@ function buildTimeline() {
       axis.append(text);
     }
   }
+  for (const c of piece.cadences || []) {
+    const mark = el("div", "cadence-mark");
+    mark.style.left = pct(c.start);
+    mark.addEventListener("mousemove", (ev) => showTip(ev, `Perfect cadence in ${c.key}`, `bar ${c.measure}`));
+    mark.addEventListener("mouseleave", hideTip);
+    mark.addEventListener("click", (ev) => { ev.stopPropagation(); seek(c.start); });
+    axis.append(mark);
+  }
   tl.append(axis);
 
   const overlay = el("div", "tl-overlay");
@@ -361,6 +369,11 @@ function buildTimeline() {
   if (piece.spans.some((s) => s.kind === "pedal")) {
     const item = el("span");
     item.append(el("i", "pedal-key"), "Pedal point");
+    legend.append(item);
+  }
+  if ((piece.cadences || []).length) {
+    const item = el("span");
+    item.append(el("i", "cadence-key"), "Perfect cadence");
     legend.append(item);
   }
   if (piece.entries.some((e) => (e.altered || []).length)) {
@@ -534,7 +547,12 @@ function buildTables() {
   fill($("entries-table"), "Thematic statements", ["Bar", "Voice", "Statement"],
     pieces.map((p) => row([String(barOf(p.q)), piece.voices[p.voice], p.what], p.q)));
   fill($("sections-table"), "Sections", ["Bars", "Section", "Made of"],
-    passages().map((s) => row([passageBars(s).replace(/^bars? /, ""), s.label, s.summary || ""], s.start)));
+    passages().map((s) => row([passageBars(s).replace(/^bars? /, ""), s.label,
+      [s.leads ? `${s.leads}.` : "", s.summary || ""].filter(Boolean).join(" ")], s.start)));
+  const cadences = piece.cadences || [];
+  $("cadences-table").hidden = !cadences.length;
+  fill($("cadences-table"), "Perfect cadences", ["Bar", "Key", "Where"],
+    cadences.map((c) => row([String(c.measure), c.key, sectionAt(Math.max(0, c.start - 0.01)).label.split(":")[0]], c.start)));
 }
 
 // ----------------------------------------------------------------- score
@@ -596,6 +614,7 @@ function renderScore(load) {
     }
     drawAltered(unit);
     drawSectionTags(unit);
+    drawCadences(unit);
   }
   currentSystem = null;
   paint(position());
@@ -860,6 +879,36 @@ function drawSectionTags(unit) {
     bg.addEventListener("mouseleave", hideTip);
     bg.addEventListener("click", () => seek(s.start));
   });
+}
+
+// Under the system, where a perfect cadence arrives: the key it closes in.
+function drawCadences(unit) {
+  const frames = new Map();
+  for (const system of document.querySelectorAll("#score g.system")) frames.set(system, system.getBBox());
+  const reached = new Map();      // per system, how far right its last label runs
+  for (const c of piece.cadences || []) {
+    const note = scoreNotes.find((n) => n.on >= c.start - 1e-6);
+    if (!note || !note.system || Math.abs(note.on - c.start) > 1e-6) continue;
+    const system = note.system, frame = frames.get(system);
+    const page = system.closest("svg").viewBox.baseVal;
+    const margin = system.closest(".page-margin")?.transform.baseVal.consolidate()?.matrix.e || 0;
+    const edge = page.width ? page.x + page.width - margin - 3 * unit : Infinity;
+    let x = Math.min(...scoreNotes.filter((n) => n.on === note.on).map((n) => n.el.getBBox().x));
+    const text = svgEl("text", { class: "cadence-text", x, y: frame.y + frame.height + 13 * unit, "font-size": 10 * unit });
+    system.append(text);
+    const free = reached.get(system) ?? -Infinity;
+    for (const wording of [`◆ cadence in ${c.key}`, `◆ ${c.key}`]) {
+      text.textContent = wording;
+      if (x >= free + 6 * unit || wording.length < 12) break;
+    }
+    const width = text.getComputedTextLength();
+    if (x + width > edge) { x = Math.max(frame.x, edge - width); text.setAttribute("x", x); }
+    reached.set(system, x + width);
+    text.addEventListener("mousemove", (ev) => showTip(ev, `Perfect cadence in ${c.key}`,
+      `bar ${c.measure} · the lowest voice steps from the fifth of the key to the keynote, and the top voice arrives on it`));
+    text.addEventListener("mouseleave", hideTip);
+    text.addEventListener("click", () => seek(c.start));
+  }
 }
 
 // A ring round each note where a tonal answer is adjusted: the few notes a step off

@@ -7296,12 +7296,57 @@
    ]
   }
  ],
+ "cadences": [
+  {
+   "start": 42.0,
+   "key": "C♯ major",
+   "voice": 2,
+   "measure": 11,
+   "beat": 3.0
+  },
+  {
+   "start": 64.0,
+   "key": "C♯ major",
+   "voice": 2,
+   "measure": 17,
+   "beat": 1.0
+  },
+  {
+   "start": 66.0,
+   "key": "C♯ major",
+   "voice": 2,
+   "measure": 17,
+   "beat": 3.0
+  },
+  {
+   "start": 84.0,
+   "key": "D♯ minor",
+   "voice": 2,
+   "measure": 22,
+   "beat": 1.0
+  },
+  {
+   "start": 88.0,
+   "key": "D♯ minor",
+   "voice": 2,
+   "measure": 23,
+   "beat": 1.0
+  },
+  {
+   "start": 136.0,
+   "key": "F♯ major",
+   "voice": 2,
+   "measure": 35,
+   "beat": 1.0
+  }
+ ],
  "sections": [
   {
    "kind": "exposition",
    "label": "Exposition",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 0.0,
    "end": 24.0,
    "measure": 1,
@@ -7312,6 +7357,7 @@
    "label": "Episode 1",
    "summary": "Soprano: a figure from the subject (2 times) and the opening of the subject and a figure from the subject, inverted, in a sequence falling by a step every half bar. Alto: a figure from countersubject 1 (2 times) and a figure from the subject and the opening of countersubject 1 and a figure from the subject, inverted. Bass: a figure from countersubject 1 (5 times) and a figure from countersubject 1, inverted, in a sequence falling by a third every beat. Returns in Episode 2 (bars 17–19). Returns in Episode 4 (bars 30–31).",
    "reworks": "",
+   "leads": "From F♯ major to C♯ major; perfect cadence in C♯ major at bar 11",
    "start": 24.0,
    "end": 56.5,
    "measure": 7,
@@ -7322,6 +7368,7 @@
    "label": "Subject in C♯ major (Alto)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 56.5,
    "end": 64.0,
    "measure": 15,
@@ -7332,6 +7379,7 @@
    "label": "Episode 2",
    "summary": "Reworks Episode 1 (bars 7–14) in part, in the same voices, a step higher. Soprano: a figure from the subject, in a sequence falling by a step every half bar. Alto: a figure from countersubject 1. Bass: free counterpoint, in a sequence falling by a step every half bar. Returns in Episode 5 (bars 33–34).",
    "reworks": "Episode 1",
+   "leads": "From C♯ major to D♯ minor; perfect cadence in C♯ major at bar 17",
    "start": 64.0,
    "end": 76.5,
    "measure": 17,
@@ -7342,6 +7390,7 @@
    "label": "Subject in D♯ minor (Bass)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 76.5,
    "end": 84.0,
    "measure": 20,
@@ -7352,6 +7401,7 @@
    "label": "Episode 3",
    "summary": "Soprano: the opening of the subject (2 times) and a figure from the subject and a figure from countersubject 1, in a sequence falling by a step every bar. Alto: the opening of the subject (2 times) and a figure from countersubject 1. Bass: the opening of the subject (4 times) and a figure from countersubject 1, in a sequence falling by a step every half bar.",
    "reworks": "",
+   "leads": "From D♯ minor to B major; perfect cadence in D♯ minor at bar 23",
    "start": 84.0,
    "end": 108.5,
    "measure": 22,
@@ -7362,6 +7412,7 @@
    "label": "Subject in B major (Alto)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 108.5,
    "end": 116.0,
    "measure": 28,
@@ -7372,6 +7423,7 @@
    "label": "Episode 4",
    "summary": "Reworks Episode 1 (bars 7–14), with soprano and alto exchanged, a fifth lower. Soprano: a figure from the subject, inverted. Alto: a figure from the subject, inverted. Bass: a figure from countersubject 1 (2 times) and a figure from countersubject 1, inverted, in a sequence falling by a step every beat.",
    "reworks": "Episode 1",
+   "leads": "From B major to F♯ major",
    "start": 116.0,
    "end": 122.5,
    "measure": 30,
@@ -7382,6 +7434,7 @@
    "label": "Subject in F♯ major (Soprano)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 122.5,
    "end": 130.0,
    "measure": 31,
@@ -7392,6 +7445,7 @@
    "label": "Episode 5",
    "summary": "Reworks Episode 2 (bars 17–19) in part, in the same voices, a third lower. Soprano: free counterpoint. Alto: the opening of countersubject 1, inverted. Bass: free counterpoint.",
    "reworks": "Episode 2",
+   "leads": "Perfect cadence in F♯ major at bar 35",
    "start": 130.0,
    "end": 136.0,
    "measure": 33,
@@ -7402,6 +7456,7 @@
    "label": "Coda",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 136.0,
    "end": 140.0,
    "measure": 35,

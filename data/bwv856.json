@@ -6053,6 +6053,29 @@
    "deviations": [],
    "measure": 48,
    "beat": 2.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e13",
+   "theme": 1,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": false,
+   "exposition": false,
+   "late": false,
+   "varied": true,
+   "partial": true,
+   "key": "G minor",
+   "voice": 0,
+   "start": 75.5,
+   "end": 78.75,
+   "notes": 9,
+   "deviations": [],
+   "measure": 51,
+   "beat": 1.0
   }
  ],
  "countersubjects": [
@@ -6123,12 +6146,36 @@
    ]
   }
  ],
+ "cadences": [
+  {
+   "start": 68.0,
+   "key": "D minor",
+   "voice": 2,
+   "measure": 46,
+   "beat": 1.0
+  },
+  {
+   "start": 83.0,
+   "key": "G minor",
+   "voice": 2,
+   "measure": 56,
+   "beat": 1.0
+  },
+  {
+   "start": 107.0,
+   "key": "F major",
+   "voice": 2,
+   "measure": 72,
+   "beat": 1.0
+  }
+ ],
  "sections": [
   {
    "kind": "exposition",
    "label": "Exposition",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 0.0,
    "end": 18.75,
    "measure": 0,
@@ -6139,6 +6186,7 @@
    "label": "Episode 1",
    "summary": "Soprano: free counterpoint. Alto: a figure from countersubject 1. Bass: a figure from countersubject 1 and the opening of countersubject 1, in a sequence rising by a third every bar.",
    "reworks": "",
+   "leads": "Between two statements in F major",
    "start": 18.75,
    "end": 25.5,
    "measure": 13,
@@ -6149,6 +6197,7 @@
    "label": "Subject in F major (Soprano)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 25.5,
    "end": 31.5,
    "measure": 17,
@@ -6159,6 +6208,7 @@
    "label": "Answer in C major (Alto)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 31.5,
    "end": 37.5,
    "measure": 21,
@@ -6169,6 +6219,7 @@
    "label": "Stretto: Subject in F major (Bass); Subject in F major (Alto)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 37.5,
    "end": 45.75,
    "measure": 25,
@@ -6179,6 +6230,7 @@
    "label": "Episode 2",
    "summary": "Soprano: a figure from the subject, inverted (2 times), in a sequence falling by a step every two bars. Alto: a figure from the subject (3 times) and the opening of countersubject 1, inverted. Bass: the opening of the subject.",
    "reworks": "",
+   "leads": "From F major to D minor",
    "start": 45.75,
    "end": 54.0,
    "measure": 31,
@@ -6189,6 +6241,7 @@
    "label": "Stretto: Subject in D minor (Soprano); Subject in D minor (Alto); Subject in D minor (Bass)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 54.0,
    "end": 65.25,
    "measure": 36,
@@ -6199,6 +6252,7 @@
    "label": "Episode 3",
    "summary": "Soprano: a figure from countersubject 1, inverted. Alto: a figure from countersubject 1, inverted. Bass: a figure from the subject.",
    "reworks": "",
+   "leads": "From D minor to G minor; perfect cadence in D minor at bar 46",
    "start": 65.25,
    "end": 69.0,
    "measure": 44,
@@ -6206,11 +6260,12 @@
   },
   {
    "kind": "entries",
-   "label": "Stretto: Subject in G minor (Bass); Subject in G minor (Alto)",
+   "label": "Stretto: Subject in G minor (Bass); Subject in G minor (Alto); Subject in G minor, rhythm varied (Soprano)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 69.0,
-   "end": 75.75,
+   "end": 78.75,
    "measure": 46,
    "beat": 2.0
   },
@@ -6219,9 +6274,10 @@
    "label": "Coda",
    "summary": "",
    "reworks": "",
-   "start": 75.75,
+   "leads": "Perfect cadence in G minor at bar 56; perfect cadence in F major at bar 72",
+   "start": 78.75,
    "end": 108.5,
-   "measure": 51,
+   "measure": 53,
    "beat": 1.25
   }
  ],
@@ -6621,19 +6677,6 @@
    "text": "a figure from the subject",
    "measure": 50,
    "beat": 1.25
-  },
-  {
-   "voice": 0,
-   "start": 75.5,
-   "end": 78.75,
-   "source": "subject",
-   "first": 2,
-   "last": 10,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 51,
-   "beat": 1.0
   },
   {
    "voice": 1,

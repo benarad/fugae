@@ -7122,12 +7122,71 @@
    ]
   }
  ],
+ "cadences": [
+  {
+   "start": 48.0,
+   "key": "G♯ minor",
+   "voice": 2,
+   "measure": 13,
+   "beat": 1.0
+  },
+  {
+   "start": 52.0,
+   "key": "E major",
+   "voice": 2,
+   "measure": 14,
+   "beat": 1.0
+  },
+  {
+   "start": 56.0,
+   "key": "C♯ minor",
+   "voice": 2,
+   "measure": 15,
+   "beat": 1.0
+  },
+  {
+   "start": 112.0,
+   "key": "C♯ minor",
+   "voice": 3,
+   "measure": 29,
+   "beat": 1.0
+  },
+  {
+   "start": 116.0,
+   "key": "D♯ minor",
+   "voice": 3,
+   "measure": 30,
+   "beat": 1.0
+  },
+  {
+   "start": 120.0,
+   "key": "B major",
+   "voice": 3,
+   "measure": 31,
+   "beat": 1.0
+  },
+  {
+   "start": 124.0,
+   "key": "G♯ minor",
+   "voice": 3,
+   "measure": 32,
+   "beat": 1.0
+  },
+  {
+   "start": 160.0,
+   "key": "G♯ minor",
+   "voice": 3,
+   "measure": 41,
+   "beat": 1.0
+  }
+ ],
  "sections": [
   {
    "kind": "exposition",
    "label": "Exposition",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 0.0,
    "end": 32.5,
    "measure": 1,
@@ -7138,6 +7197,7 @@
    "label": "Episode 1",
    "summary": "Soprano: free counterpoint. Alto: free counterpoint. Tenor: free counterpoint. Bass: a figure from the subject (2 times), in a sequence rising by a third every bar.",
    "reworks": "",
+   "leads": "From D♯ minor to C♯ minor",
    "start": 32.5,
    "end": 41.0,
    "measure": 9,
@@ -7148,6 +7208,7 @@
    "label": "Answer in C♯ minor (Tenor)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 41.0,
    "end": 48.5,
    "measure": 11,
@@ -7158,6 +7219,7 @@
    "label": "Episode 2",
    "summary": "Soprano: a figure from the subject, inverted and the opening of the subject, inverted, in a sequence falling by a third every bar. Alto: a figure from the subject. Tenor: a figure from the subject (2 times). Returns in Episode 4 (bars 28–32).",
    "reworks": "",
+   "leads": "Between two statements in C♯ minor; perfect cadence in E major at bar 14; perfect cadence in C♯ minor at bar 15",
    "start": 48.5,
    "end": 57.0,
    "measure": 13,
@@ -7168,6 +7230,7 @@
    "label": "Subject in C♯ minor (Bass)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 57.0,
    "end": 65.0,
    "measure": 15,
@@ -7178,6 +7241,7 @@
    "label": "Subject in G♯ minor (Tenor)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 65.0,
    "end": 73.0,
    "measure": 17,
@@ -7188,6 +7252,7 @@
    "label": "Answer in C♯ minor (Alto)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 73.0,
    "end": 80.5,
    "measure": 19,
@@ -7198,6 +7263,7 @@
    "label": "Episode 3",
    "summary": "Alto: free counterpoint, in a sequence rising by a step every bar. Tenor: a figure from the subject, inverted, in a sequence rising by a fifth every half bar. Bass: free counterpoint, in a sequence rising by a step every bar.",
    "reworks": "",
+   "leads": "From C♯ minor to D♯ minor",
    "start": 80.5,
    "end": 93.0,
    "measure": 21,
@@ -7208,6 +7274,7 @@
    "label": "Subject in D♯ minor (Soprano)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 93.0,
    "end": 101.0,
    "measure": 24,
@@ -7218,6 +7285,7 @@
    "label": "Answer in B major (Bass)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 101.0,
    "end": 108.5,
    "measure": 26,
@@ -7228,6 +7296,7 @@
    "label": "Episode 4",
    "summary": "Reworks Episode 2 (bars 13–15), with the tenor's line in the bass, a fourth lower. Soprano: a figure from the subject, inverted and the opening of the subject, inverted, in a sequence falling by a third every bar. Alto: a figure from the subject, in a sequence rising by a step every bar. Bass: a figure from the subject (5 times), in a sequence rising by a fifth every half bar.",
    "reworks": "Episode 2",
+   "leads": "From B major to G♯ minor; perfect cadence in C♯ minor at bar 29; perfect cadence in D♯ minor at bar 30; perfect cadence in B major at bar 31; perfect cadence in G♯ minor at bar 32",
    "start": 108.5,
    "end": 125.0,
    "measure": 28,
@@ -7238,6 +7307,7 @@
    "label": "Subject in G♯ minor (Tenor)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 125.0,
    "end": 132.5,
    "measure": 32,
@@ -7248,6 +7318,7 @@
    "label": "Episode 5",
    "summary": "Soprano: a figure from the subject. Alto: a figure from the subject (2 times) and a figure from the subject, inverted. Tenor: a figure from the subject (2 times). Bass: a figure from the subject and the opening of the subject.",
    "reworks": "",
+   "leads": "From G♯ minor to C♯ minor",
    "start": 132.5,
    "end": 145.5,
    "measure": 34,
@@ -7258,6 +7329,7 @@
    "label": "Subject in C♯ minor, rhythm varied (Soprano)",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 145.5,
    "end": 152.5,
    "measure": 37,
@@ -7268,6 +7340,7 @@
    "label": "Episode 6",
    "summary": "Soprano: the opening of the subject. Alto: free counterpoint. Tenor: free counterpoint. Bass: a figure from the subject.",
    "reworks": "",
+   "leads": "Perfect cadence in G♯ minor at bar 41",
    "start": 152.5,
    "end": 160.0,
    "measure": 39,
@@ -7278,6 +7351,7 @@
    "label": "Coda",
    "summary": "",
    "reworks": "",
+   "leads": "",
    "start": 160.0,
    "end": 164.0,
    "measure": 41,
