@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-15</encoding-date>
+      <encoding-date>2026-11-19</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pf3c2bf4d6ea265d31778daa6b3e3f57d">
+    <score-part id="P1fdf2f545b624c7e2c39add473160937">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pf3c2bf4d6ea265d31778daa6b3e3f57d">
+  <part id="P1fdf2f545b624c7e2c39add473160937">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -87,6 +87,7 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
+        <beam number="1">begin</beam>
       </note>
       <note id="v1n5">
         <pitch>
@@ -99,7 +100,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n6">
         <pitch>
@@ -323,7 +324,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n23">
         <pitch>
@@ -336,7 +337,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n24">
         <pitch>
@@ -1155,6 +1156,7 @@
         <voice>3</voice>
         <type>eighth</type>
         <staff>2</staff>
+        <beam number="1">begin</beam>
       </note>
       <note id="v2n85">
         <pitch>
@@ -1167,7 +1169,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n86">
         <pitch>
@@ -2244,7 +2246,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n165">
         <pitch>
@@ -2257,7 +2259,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n166">
         <pitch>
@@ -4181,7 +4183,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n299">
         <pitch>
@@ -4194,7 +4196,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n300">
         <pitch>
@@ -4240,7 +4242,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n303">
         <pitch>
@@ -4253,7 +4255,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n304">
         <pitch>
@@ -5086,7 +5088,7 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note id="v0n356">
         <pitch>
@@ -5100,7 +5102,7 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note id="v0n357">
         <pitch>
@@ -5414,7 +5416,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n376">
         <pitch>
@@ -5427,7 +5429,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n377">
         <pitch>
@@ -5695,7 +5697,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n397">
         <pitch>
@@ -5707,7 +5709,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n398">
         <pitch>
@@ -6013,6 +6015,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
+        <beam number="1">begin</beam>
       </note>
       <note id="v0n420">
         <pitch>
@@ -6025,7 +6028,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n421">
         <pitch>
@@ -6298,7 +6301,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n440">
         <pitch>
@@ -6311,7 +6314,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n441">
         <pitch>
@@ -6502,7 +6505,7 @@
         <accidental>natural</accidental>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n455">
         <pitch>
@@ -6515,7 +6518,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n456">
         <pitch>
@@ -6802,7 +6805,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n477">
         <pitch>
@@ -6815,7 +6818,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n478">
         <pitch>
@@ -8263,7 +8266,7 @@
         <accidental>double-sharp</accidental>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n585">
         <pitch>
@@ -8276,7 +8279,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n586">
         <pitch>
@@ -9115,7 +9118,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note id="v2n643">
         <pitch>
@@ -9129,7 +9132,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note id="v2n644">
         <pitch>
@@ -9187,7 +9190,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n648">
         <pitch>
@@ -9200,7 +9203,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n649">
         <pitch>
@@ -10598,7 +10601,7 @@
         <accidental>double-sharp</accidental>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n743">
         <pitch>
@@ -10611,7 +10614,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n744">
         <pitch>
@@ -10780,7 +10783,7 @@
         <accidental>double-sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n756">
         <pitch>
@@ -10793,7 +10796,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n757">
         <pitch>
@@ -11449,7 +11452,7 @@
         <accidental>double-sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n802">
         <pitch>
@@ -11462,7 +11465,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n803">
         <pitch>
@@ -12597,6 +12600,7 @@
         <type>eighth</type>
         <accidental>natural</accidental>
         <staff>2</staff>
+        <beam number="1">begin</beam>
       </note>
       <note id="v2n887">
         <pitch>
@@ -12609,7 +12613,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n888">
         <pitch>
@@ -12656,7 +12660,7 @@
         <accidental>natural</accidental>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n891">
         <pitch>
@@ -12669,7 +12673,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n892">
         <pitch>
@@ -12748,7 +12752,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n898">
         <pitch>
@@ -12760,7 +12764,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n899">
         <pitch>
@@ -13158,6 +13162,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
+        <beam number="1">begin</beam>
       </note>
       <note id="v2n923">
         <pitch>
@@ -13170,7 +13175,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n924">
         <pitch>
@@ -13216,7 +13221,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n927">
         <pitch>
@@ -13229,7 +13234,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n928">
         <pitch>
@@ -13308,7 +13313,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n934">
         <pitch>
@@ -13321,7 +13326,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n935">
         <pitch>
@@ -13400,7 +13405,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n941">
         <pitch>
@@ -13413,7 +13418,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n942">
         <pitch>
@@ -14043,7 +14048,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n981">
         <pitch>
@@ -14056,7 +14061,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n982">
         <pitch>
@@ -15158,7 +15163,7 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note id="v0n1059">
         <pitch>
@@ -15172,7 +15177,7 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note id="v0n1060">
         <pitch>
@@ -15220,7 +15225,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n1063">
         <pitch>
@@ -15233,7 +15238,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n1064">
         <pitch>
@@ -15563,7 +15568,7 @@
         <accidental>double-sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n1083">
         <pitch>
@@ -15577,7 +15582,7 @@
         <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n1084">
         <pitch>
@@ -15901,7 +15906,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n1108">
         <pitch>
@@ -15914,7 +15919,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n1109">
         <pitch>
@@ -16580,7 +16585,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n1151">
         <pitch>
@@ -16593,7 +16598,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n1152">
         <pitch>
@@ -17067,7 +17072,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note id="v2n1187">
         <pitch>
@@ -17081,7 +17086,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note id="v2n1188">
         <pitch>
@@ -17127,7 +17132,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n1191">
         <pitch>
@@ -17140,7 +17145,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v0n1192">
         <pitch>
@@ -17914,7 +17919,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n1247">
         <pitch>
@@ -17927,7 +17932,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n1248">
         <pitch>
@@ -19067,7 +19072,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n1328">
         <pitch>
@@ -19080,7 +19085,7 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v2n1329">
         <pitch>
@@ -19830,7 +19835,7 @@
         <accidental>natural</accidental>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n1379">
         <pitch>
@@ -19843,7 +19848,7 @@
         <type>eighth</type>
         <stem>up</stem>
         <staff>2</staff>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note id="v1n1380">
         <pitch>

@@ -7077,7 +7077,8 @@
    "B4",
    "A♯4",
    "G♯4",
-   "C♯5"
+   "C♯5",
+   "A♯4"
   ]
  },
  "later_subjects": [],
@@ -7100,8 +7101,8 @@
    "key": "F♯ major",
    "voice": 0,
    "start": 0.5,
-   "end": 8.0,
-   "notes": 15,
+   "end": 8.5,
+   "notes": 16,
    "deviations": [],
    "measure": 1,
    "beat": 1.5
@@ -7126,8 +7127,8 @@
    "key": "C♯ major",
    "voice": 1,
    "start": 8.5,
-   "end": 16.0,
-   "notes": 15,
+   "end": 16.5,
+   "notes": 16,
    "deviations": [
     0
    ],
@@ -7143,7 +7144,7 @@
    "role": "subject",
    "tonal": false,
    "form": "direct",
-   "complete": true,
+   "complete": false,
    "exposition": true,
    "late": false,
    "varied": false,
@@ -7176,8 +7177,8 @@
    "key": "C♯ major",
    "voice": 1,
    "start": 56.5,
-   "end": 64.0,
-   "notes": 15,
+   "end": 64.25,
+   "notes": 16,
    "deviations": [],
    "measure": 15,
    "beat": 1.5
@@ -7191,7 +7192,7 @@
    "role": "subject",
    "tonal": false,
    "form": "direct",
-   "complete": true,
+   "complete": false,
    "exposition": false,
    "late": false,
    "varied": false,
@@ -7224,8 +7225,8 @@
    "key": "B major",
    "voice": 1,
    "start": 108.5,
-   "end": 116.0,
-   "notes": 15,
+   "end": 116.5,
+   "notes": 16,
    "deviations": [],
    "measure": 28,
    "beat": 1.5
@@ -7248,8 +7249,8 @@
    "key": "F♯ major",
    "voice": 0,
    "start": 122.5,
-   "end": 130.0,
-   "notes": 15,
+   "end": 130.25,
+   "notes": 16,
    "deviations": [],
    "measure": 31,
    "beat": 3.5
@@ -7377,7 +7378,7 @@
    "reworks": "",
    "leads": "",
    "start": 56.5,
-   "end": 64.0,
+   "end": 64.25,
    "measure": 15,
    "beat": 1.5
   },
@@ -7387,10 +7388,10 @@
    "summary": "Reworks Episode 1 (bars 7–14) in part, in the same voices, a step higher. Soprano: a figure from the subject, in a sequence falling by a step every half bar. Alto: a figure from countersubject 1. Bass: free counterpoint, in a sequence falling by a step every half bar. Returns in Episode 5 (bars 33–34).",
    "reworks": "Episode 1",
    "leads": "From C♯ major to D♯ minor; perfect cadence in C♯ major at bar 17",
-   "start": 64.0,
+   "start": 64.25,
    "end": 76.5,
    "measure": 17,
-   "beat": 1.0
+   "beat": 1.25
   },
   {
    "kind": "entries",
@@ -7421,20 +7422,20 @@
    "reworks": "",
    "leads": "",
    "start": 108.5,
-   "end": 116.0,
+   "end": 116.5,
    "measure": 28,
    "beat": 1.5
   },
   {
    "kind": "episode",
    "label": "Episode 4",
-   "summary": "Reworks Episode 1 (bars 7–14), with soprano and alto exchanged, a fifth lower. Soprano: a figure from the subject, inverted. Alto: a figure from the subject, inverted. Bass: a figure from countersubject 1 (2 times) and a figure from countersubject 1, inverted, in a sequence falling by a step every beat.",
+   "summary": "Reworks Episode 1 (bars 7–14), with soprano and alto exchanged, a fifth lower. Soprano: a figure from the subject, inverted. Alto: a figure from the subject, inverted. Bass: a figure from countersubject 1 (2 times), in a sequence falling by a step every beat.",
    "reworks": "Episode 1",
    "leads": "From B major to F♯ major",
-   "start": 116.0,
+   "start": 116.5,
    "end": 122.5,
    "measure": 30,
-   "beat": 1.0
+   "beat": 1.5
   },
   {
    "kind": "entries",
@@ -7443,7 +7444,7 @@
    "reworks": "",
    "leads": "",
    "start": 122.5,
-   "end": 130.0,
+   "end": 130.25,
    "measure": 31,
    "beat": 3.5
   },
@@ -7453,10 +7454,10 @@
    "summary": "Reworks Episode 2 (bars 17–19) in part, in the same voices, a third lower. Soprano: free counterpoint. Alto: the opening of countersubject 1, inverted. Bass: free counterpoint.",
    "reworks": "Episode 2",
    "leads": "Perfect cadence in F♯ major at bar 35",
-   "start": 130.0,
+   "start": 130.25,
    "end": 136.0,
    "measure": 33,
-   "beat": 3.0
+   "beat": 3.25
   },
   {
    "kind": "coda",
@@ -7644,10 +7645,10 @@
   {
    "voice": 0,
    "start": 46.0,
-   "end": 50.0,
+   "end": 50.5,
    "source": "subject",
    "first": 10,
-   "last": 15,
+   "last": 16,
    "inverted": false,
    "exact": true,
    "text": "a figure from the subject",

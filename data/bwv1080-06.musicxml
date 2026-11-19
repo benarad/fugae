@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-15</encoding-date>
+      <encoding-date>2026-11-19</encoding-date>
       <software>music21 v.10.5.2</software>
       <software>MuseScore 3.2.3</software>
       <supports element="beam" type="yes" />
@@ -37,11 +37,11 @@
     <score-part id="P1">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
-      <score-instrument id="I4b55bff49490c8df58a143ce1f12af0c">
+      <score-instrument id="I9df95276f9230bc232187ead9f8f3053">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I4b55bff49490c8df58a143ce1f12af0c">
+      <midi-instrument id="I9df95276f9230bc232187ead9f8f3053">
         <midi-channel>2</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -49,11 +49,11 @@
     <score-part id="P2">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
-      <score-instrument id="I7d86639cd3da56bf080f20bd0379c4be">
+      <score-instrument id="I8f19ed48ea73b875b7fa636741438e45">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I7d86639cd3da56bf080f20bd0379c4be">
+      <midi-instrument id="I8f19ed48ea73b875b7fa636741438e45">
         <midi-channel>3</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -61,11 +61,11 @@
     <score-part id="P3">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
-      <score-instrument id="I3475bf5aa42c677f3c8ff37f3c265427">
+      <score-instrument id="If26f406790cc250b1cda9d8f4e5c710d">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I3475bf5aa42c677f3c8ff37f3c265427">
+      <midi-instrument id="If26f406790cc250b1cda9d8f4e5c710d">
         <midi-channel>4</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -73,11 +73,11 @@
     <score-part id="P4">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
-      <score-instrument id="Id6942fe1439c060bdb3d780a67383522">
+      <score-instrument id="I33207b2d4091603bbd306c3a321c3191">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="Id6942fe1439c060bdb3d780a67383522">
+      <midi-instrument id="I33207b2d4091603bbd306c3a321c3191">
         <midi-channel>5</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -6397,7 +6397,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="360.33" default-y="15">
         <pitch>
@@ -6409,7 +6409,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="395.01" default-y="10">
         <pitch>
@@ -21684,7 +21684,7 @@
         <type>32nd</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
+        <beam number="2">end</beam>
         <beam number="3">end</beam>
       </note>
       <note default-x="152.58" default-y="-330" dynamics="100.00">
@@ -21697,7 +21697,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
+        <beam number="2">begin</beam>
       </note>
       <note default-x="184.21" default-y="-340" dynamics="100.00">
         <pitch>

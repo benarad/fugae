@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-15</encoding-date>
+      <encoding-date>2026-11-19</encoding-date>
       <software>music21 v.10.5.2</software>
       <software>MuseScore 3.2.3</software>
       <supports element="beam" type="yes" />
@@ -37,11 +37,11 @@
     <score-part id="P1">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
-      <score-instrument id="Ie0c33dd33b8a40534e389a2d00c456e7">
+      <score-instrument id="I86a731931de3ba659fdbaefebd717e27">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="Ie0c33dd33b8a40534e389a2d00c456e7">
+      <midi-instrument id="I86a731931de3ba659fdbaefebd717e27">
         <midi-channel>2</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -49,11 +49,11 @@
     <score-part id="P2">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
-      <score-instrument id="I2413c60be88db1aef18872bff4ec13cf">
+      <score-instrument id="Ib919724054f8f7af70e1f3c7a701c39a">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I2413c60be88db1aef18872bff4ec13cf">
+      <midi-instrument id="Ib919724054f8f7af70e1f3c7a701c39a">
         <midi-channel>3</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -61,11 +61,11 @@
     <score-part id="P3">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
-      <score-instrument id="I3bec12b80e716c9f14193e159f189df0">
+      <score-instrument id="I24bc9ab1114cc0a0305cc8ba12722558">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I3bec12b80e716c9f14193e159f189df0">
+      <midi-instrument id="I24bc9ab1114cc0a0305cc8ba12722558">
         <midi-channel>4</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -73,11 +73,11 @@
     <score-part id="P4">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
-      <score-instrument id="Ic50fa8023d259942336842eed3a59e3f">
+      <score-instrument id="Ieb346d29a5e2cbb081b4e432d66d2214">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="Ic50fa8023d259942336842eed3a59e3f">
+      <midi-instrument id="Ieb346d29a5e2cbb081b4e432d66d2214">
         <midi-channel>5</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -6979,7 +6979,7 @@
         <type>eighth</type>
         <accidental>natural</accidental>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tied type="start" />
         </notations>
@@ -6993,7 +6993,7 @@
         <tie type="stop" />
         <type>16th</type>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <beam number="2">begin</beam>
         <notations>
           <tied type="stop" />
@@ -13343,8 +13343,8 @@
         <duration>2520</duration>
         <type>16th</type>
         <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="204.53" default-y="-105" dynamics="100.00">
         <pitch>
@@ -13354,8 +13354,8 @@
         <duration>2520</duration>
         <type>16th</type>
         <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="222.43" default-y="-100" dynamics="100.00">
         <pitch>

@@ -71,6 +71,18 @@ const COLLECTIONS = [
       + 'They are under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>, and so are '
       + 'the files this page builds from them.',
   },
+  {
+    id: "handel-fugues",
+    name: "Handel: Six Fugues",
+    heading: "Handel: Six Fugues or Voluntarys, HWV 605\u2013610",
+    intro: "Six four-voice fugues for organ or harpsichord, published in 1735. Handel writes more freely than Bach: "
+      + "voices drop out and come back, chords are filled in, and a subject is often accompanied from its first bars. "
+      + "The voices here were worked out by this program from a keyboard edition and have not been proofread note by note.",
+    credit: 'Scores: made from the MIDI files and typeset editions of Handel\u2019s <i>Six Fugues</i> by Patrick Roose '
+      + '(Werner Icking Music Archive, at <a href="https://imslp.org/wiki/6_Fugues,_HWV_605-610_(Handel,_George_Frideric)">IMSLP</a>), '
+      + 'which are under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>, and so are '
+      + 'the files this page builds from them. The edition is for two staves; this program sorted its notes into voices.',
+  },
 ];
 const collectionOf = (id) => COLLECTIONS.find((c) => c.id === (id || "wtc")) || COLLECTIONS[0];
 // Where a collection's chosen tags are kept while a fugue is open (see browse.js).
@@ -78,10 +90,10 @@ const tagsKey = (c) => (c.id === "wtc" ? "fugae-tags" : `fugae-tags-${c.id}`);
 const listHref = (c, tags) => `browse.html${c.id === "wtc" ? "" : `?c=${c.id}`}${tags ? `#${tags}` : ""}`;
 // "I/2" for the 48, otherwise the name its collection gives it, or its title.
 const shortName = (p) => (p.book ? `${["", "I", "II"][p.book]}/${p.number}` : p.label || p.title);
-// "BWV 847", or "BWV 1080/9" for one piece of a larger work.
+// "BWV 847", "HWV 605", or "BWV 1080/9" for one piece of a larger work.
 function bwvOf(id) {
-  const m = /^bwv(\d+)(?:-0*(\d+))?$/.exec(id || "");
-  return m ? `BWV ${m[1]}${m[2] ? `/${m[2]}` : ""}` : "";
+  const m = /^(bwv|hwv)(\d+)(?:-0*(\d+))?$/.exec(id || "");
+  return m ? `${m[1].toUpperCase()} ${m[2]}${m[3] ? `/${m[3]}` : ""}` : "";
 }
 
 function tagNote(tag) {

@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-15</encoding-date>
+      <encoding-date>2026-11-19</encoding-date>
       <software>music21 v.10.5.2</software>
       <software>MuseScore 3.2.3</software>
       <supports element="beam" type="yes" />
@@ -37,11 +37,11 @@
     <score-part id="P1">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
-      <score-instrument id="Id3f0b348e4a54939adf83da8fd8ee485">
+      <score-instrument id="Ieadf418274f16570f4120473d9f7b78e">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="Id3f0b348e4a54939adf83da8fd8ee485">
+      <midi-instrument id="Ieadf418274f16570f4120473d9f7b78e">
         <midi-channel>2</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -49,11 +49,11 @@
     <score-part id="P2">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
-      <score-instrument id="Ic83e615d86ee02bcd040fabc7fb1ec2a">
+      <score-instrument id="Ic7dccb3c33fa733f6d7affcf6507eed7">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="Ic83e615d86ee02bcd040fabc7fb1ec2a">
+      <midi-instrument id="Ic7dccb3c33fa733f6d7affcf6507eed7">
         <midi-channel>3</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -61,11 +61,11 @@
     <score-part id="P3">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
-      <score-instrument id="I33a1a1111896bef3d6c53583e006c66c">
+      <score-instrument id="I3af88a01a511e711c11975a8c4bb0be3">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I33a1a1111896bef3d6c53583e006c66c">
+      <midi-instrument id="I3af88a01a511e711c11975a8c4bb0be3">
         <midi-channel>4</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -73,11 +73,11 @@
     <score-part id="P4">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
-      <score-instrument id="I24e43caa91cbe5613e9eeec08e2da1fe">
+      <score-instrument id="If07beda816988b7bb7cf355049e9f4a4">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I24e43caa91cbe5613e9eeec08e2da1fe">
+      <midi-instrument id="If07beda816988b7bb7cf355049e9f4a4">
         <midi-channel>5</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -264,7 +264,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="366.51" default-y="10" dynamics="100.00">
         <pitch>
@@ -274,7 +274,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="423.19" default-y="15" dynamics="100.00">
         <pitch>
@@ -4465,7 +4465,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="351.99" default-y="10" dynamics="100.00">
         <pitch>
@@ -4475,7 +4475,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="407.88" default-y="5" dynamics="100.00">
         <pitch>
@@ -5117,7 +5117,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="361.6" default-y="-15">
         <pitch>
@@ -5129,7 +5129,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="388.9" default-y="-20">
         <pitch>
@@ -5366,7 +5366,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="394.14" default-y="0" dynamics="100.00">
         <pitch>
@@ -5378,7 +5378,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="425.22" default-y="-5" dynamics="100.00">
         <pitch>
@@ -5416,7 +5416,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="512.43" default-y="10" dynamics="100.00">
         <pitch>
@@ -5428,7 +5428,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="541.5" default-y="5" dynamics="100.00">
         <pitch>
@@ -5468,7 +5468,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="159.56" default-y="-15">
         <pitch>
@@ -5480,7 +5480,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="188.63" default-y="-20">
         <pitch>
@@ -5580,7 +5580,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="67.68" default-y="5" dynamics="100.00">
         <pitch>
@@ -5592,7 +5592,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="94.62" default-y="0" dynamics="100.00">
         <pitch>
@@ -5727,7 +5727,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="287.35" default-y="-30">
         <pitch>
@@ -5739,7 +5739,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="314.29" default-y="-25">
         <pitch>
@@ -5775,7 +5775,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="395.11" default-y="-10">
         <pitch>
@@ -5788,7 +5788,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="422.05" default-y="-20">
         <pitch>
@@ -5893,7 +5893,7 @@
         <accidental>flat</accidental>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="562.51" default-y="0" dynamics="100.00">
         <pitch>
@@ -5905,7 +5905,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="595.93" default-y="-5" dynamics="100.00">
         <pitch>
@@ -5946,7 +5946,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="161.47" default-y="-20">
         <pitch>
@@ -5958,7 +5958,7 @@
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="194.89" default-y="-25">
         <pitch>
@@ -6050,7 +6050,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="79.33" default-y="-20" dynamics="100.00">
         <pitch>
@@ -6062,7 +6062,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="113.64" default-y="-10" dynamics="100.00">
         <pitch>
@@ -6109,7 +6109,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">end</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="216.55" default-y="-15" dynamics="100.00">
         <pitch>
@@ -6121,7 +6121,7 @@
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">continue</beam>
-        <beam number="2">begin</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="250.86" default-y="-20" dynamics="100.00">
         <pitch>
@@ -7672,7 +7672,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>up</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="357.6" default-y="-130" dynamics="100.00">
         <pitch>
@@ -7683,7 +7683,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>up</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="414.42" default-y="-125" dynamics="100.00">
         <pitch>
@@ -10942,7 +10942,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="375.11" default-y="-105" dynamics="100.00">
         <pitch>
@@ -10952,7 +10952,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="434.62" default-y="-115" dynamics="100.00">
         <pitch>
@@ -13938,7 +13938,7 @@
         <type>eighth</type>
         <accidental>natural</accidental>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="414.28" default-y="-220" dynamics="100.00">
         <pitch>
@@ -13948,7 +13948,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="469.12" default-y="-220" dynamics="100.00">
         <pitch>
@@ -14212,7 +14212,7 @@
         <type>eighth</type>
         <accidental>sharp</accidental>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="432.74" default-y="-215" dynamics="100.00">
         <pitch>
@@ -14222,7 +14222,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="492.44" default-y="-200" dynamics="100.00">
         <pitch>
@@ -16481,7 +16481,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="495.67" default-y="-222.62" dynamics="100.00">
         <pitch>
@@ -16491,7 +16491,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="562.51" default-y="-237.62" dynamics="100.00">
         <pitch>
@@ -18584,7 +18584,7 @@
         <type>eighth</type>
         <accidental>flat</accidental>
         <stem>up</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="361.46" default-y="-355" dynamics="100.00">
         <pitch>
@@ -18594,7 +18594,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>up</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="420.03" default-y="-350" dynamics="100.00">
         <pitch>
@@ -18883,7 +18883,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="432.74" default-y="-310" dynamics="100.00">
         <pitch>
@@ -18894,7 +18894,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="492.44" default-y="-320" dynamics="100.00">
         <pitch>
@@ -20145,7 +20145,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note default-x="425.32" default-y="-315" dynamics="100.00">
         <pitch>
@@ -20155,7 +20155,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note default-x="482" default-y="-320" dynamics="100.00">
         <pitch>

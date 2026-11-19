@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-15</encoding-date>
+      <encoding-date>2026-11-19</encoding-date>
       <software>music21 v.10.5.2</software>
       <software>MuseScore 3.2.3</software>
       <supports element="beam" type="yes" />
@@ -37,11 +37,11 @@
     <score-part id="P1">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
-      <score-instrument id="Iffa33d4c00a5ca7ad5eb730f1ea37c1c">
+      <score-instrument id="I2ba07d3cefb3edad339c0d8603d99a3d">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="Iffa33d4c00a5ca7ad5eb730f1ea37c1c">
+      <midi-instrument id="I2ba07d3cefb3edad339c0d8603d99a3d">
         <midi-channel>2</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -49,11 +49,11 @@
     <score-part id="P2">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
-      <score-instrument id="I990b3f39be9b740fc27492f8b3ef285f">
+      <score-instrument id="I3bb245b25d00dbdcd67faf8db5934747">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I990b3f39be9b740fc27492f8b3ef285f">
+      <midi-instrument id="I3bb245b25d00dbdcd67faf8db5934747">
         <midi-channel>3</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -61,11 +61,11 @@
     <score-part id="P3">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
-      <score-instrument id="I0a0302e51cafc1009e32b71bb9f900ec">
+      <score-instrument id="Ie28525ca1c1d0e443bf5360efb10a914">
         <instrument-name>Harpsichord</instrument-name>
         <instrument-abbreviation>Hpschd</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I0a0302e51cafc1009e32b71bb9f900ec">
+      <midi-instrument id="Ie28525ca1c1d0e443bf5360efb10a914">
         <midi-channel>4</midi-channel>
         <midi-program>7</midi-program>
       </midi-instrument>
@@ -285,7 +285,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -303,7 +303,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -483,7 +483,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -501,7 +501,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -690,7 +690,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -708,7 +708,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -1399,7 +1399,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -1417,7 +1417,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -1612,7 +1612,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -1630,7 +1630,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -1736,7 +1736,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -1755,7 +1755,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -2173,7 +2173,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -2192,7 +2192,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -2375,7 +2375,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -2394,7 +2394,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -2648,7 +2648,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -2667,7 +2667,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -2804,7 +2804,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">begin</beam>
         <notations>
           <tied type="stop" />
@@ -2833,7 +2833,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="196.36" default-y="-25" dynamics="100.00">
@@ -2848,8 +2848,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">end</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -2868,7 +2868,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -3051,7 +3051,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -3069,7 +3069,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -3238,7 +3238,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
+        <stem>down</stem>
         <beam number="1">begin</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
@@ -3265,7 +3265,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
+        <stem>down</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="68.31" default-y="-25" dynamics="100.00">
@@ -3280,8 +3280,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
-        <beam number="1">end</beam>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -3300,7 +3300,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -3454,7 +3454,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -3473,7 +3473,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -3578,7 +3578,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -3596,7 +3596,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -3711,7 +3711,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -3729,8 +3729,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -3756,7 +3756,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
+        <stem>down</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="218.41" default-y="-25" dynamics="100.00">
@@ -3771,7 +3771,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
+        <stem>down</stem>
         <beam number="1">end</beam>
         <notations>
           <tuplet number="1" type="stop" />
@@ -3833,7 +3833,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -3853,7 +3853,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -3959,7 +3959,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -3977,7 +3977,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -4420,8 +4420,8 @@
         <duration>2520</duration>
         <type>16th</type>
         <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="199.58" default-y="-5" dynamics="100.00">
         <pitch>
@@ -4431,8 +4431,8 @@
         <duration>2520</duration>
         <type>16th</type>
         <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
       </note>
       <note default-x="231.32" default-y="0" dynamics="100.00">
         <pitch>
@@ -4535,7 +4535,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -4553,7 +4553,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -4655,7 +4655,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -4675,7 +4675,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -4821,7 +4821,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -4839,7 +4839,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -5927,7 +5927,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -5946,7 +5946,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -6050,7 +6050,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -6069,7 +6069,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -6174,7 +6174,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -6192,7 +6192,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -6366,7 +6366,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -6384,7 +6384,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -6575,7 +6575,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -6593,7 +6593,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -6778,7 +6778,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -6796,7 +6796,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -7078,7 +7078,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -7097,7 +7097,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -7280,7 +7280,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -7298,7 +7298,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -7479,7 +7479,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -7497,7 +7497,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -7635,7 +7635,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">begin</beam>
         <notations>
           <tied type="stop" />
@@ -7663,7 +7663,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="135.41" default-y="-130" dynamics="100.00">
@@ -7678,8 +7678,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">end</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -7697,7 +7697,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -7901,7 +7901,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -7919,7 +7919,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -8365,7 +8365,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -8383,7 +8383,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -8485,7 +8485,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -8505,7 +8505,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -8862,7 +8862,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">begin</beam>
         <notations>
           <tied type="stop" />
@@ -8890,7 +8890,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="216.84" default-y="-130" dynamics="100.00">
@@ -8905,8 +8905,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">end</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -8924,7 +8924,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -9114,7 +9114,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -9132,7 +9132,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -9317,7 +9317,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -9335,7 +9335,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -9925,7 +9925,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -9943,7 +9943,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -10051,7 +10051,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -10068,8 +10068,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -10095,7 +10095,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="129.08" default-y="-115" dynamics="100.00">
@@ -10111,7 +10111,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">end</beam>
         <notations>
           <tuplet number="1" type="stop" />
@@ -10200,7 +10200,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -10218,7 +10218,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -10344,7 +10344,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -10362,7 +10362,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -10487,7 +10487,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -10505,7 +10505,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -10664,7 +10664,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -10683,7 +10683,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -10898,7 +10898,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -10916,7 +10916,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -11100,7 +11100,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -11118,7 +11118,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -11310,7 +11310,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -11328,7 +11328,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -11980,7 +11980,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">begin</beam>
         <notations>
           <tied type="stop" />
@@ -12008,7 +12008,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="271.25" default-y="-130" dynamics="100.00">
@@ -12023,8 +12023,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">end</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -12042,7 +12042,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -12224,7 +12224,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -12242,7 +12242,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -12427,7 +12427,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -12445,7 +12445,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -13140,7 +13140,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -13159,7 +13159,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -13263,7 +13263,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -13283,7 +13283,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -13389,7 +13389,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -13407,7 +13407,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -13509,7 +13509,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -13527,8 +13527,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -13554,7 +13554,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="315.75" default-y="-125" dynamics="100.00">
@@ -13569,7 +13569,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">end</beam>
         <notations>
           <tuplet number="1" type="stop" />
@@ -13641,7 +13641,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -13658,8 +13658,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -13685,7 +13685,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="206.14" default-y="-120" dynamics="100.00">
@@ -13700,7 +13700,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">end</beam>
         <notations>
           <tuplet number="1" type="stop" />
@@ -13765,7 +13765,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -13784,7 +13784,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -14006,7 +14006,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -14024,7 +14024,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -14126,7 +14126,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -14143,8 +14143,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -14172,7 +14172,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="524.69" default-y="-115" dynamics="100.00">
@@ -14189,7 +14189,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">end</beam>
         <notations>
           <tuplet number="1" type="stop" />
@@ -14212,7 +14212,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">begin</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
@@ -14239,7 +14239,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="87.62" default-y="-135" dynamics="100.00">
@@ -14254,8 +14254,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">end</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -14275,7 +14275,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -14551,7 +14551,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -14569,7 +14569,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -15103,7 +15103,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -15121,7 +15121,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -15257,7 +15257,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">begin</beam>
         <notations>
           <tied type="stop" />
@@ -15285,7 +15285,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="214.61" default-y="-235" dynamics="100.00">
@@ -15302,8 +15302,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">end</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -15321,7 +15321,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -15506,7 +15506,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -15524,7 +15524,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -15685,7 +15685,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
+        <stem>down</stem>
         <beam number="1">begin</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
@@ -15714,7 +15714,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
+        <stem>down</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="73.03" default-y="-240" dynamics="100.00">
@@ -15731,8 +15731,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
-        <beam number="1">end</beam>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -15751,7 +15751,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -17046,7 +17046,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -17063,8 +17063,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -17090,7 +17090,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="277.09" default-y="-225" dynamics="100.00">
@@ -17107,7 +17107,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">end</beam>
         <notations>
           <tuplet number="1" type="stop" />
@@ -17258,7 +17258,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -17276,7 +17276,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -17461,7 +17461,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -17480,7 +17480,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -17829,7 +17829,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -17847,7 +17847,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -17955,7 +17955,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -17973,7 +17973,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -18077,7 +18077,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -18095,7 +18095,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -18753,7 +18753,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -18770,8 +18770,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -18797,7 +18797,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="195.9" default-y="-251.37" dynamics="100.00">
@@ -18812,7 +18812,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">end</beam>
         <notations>
           <tuplet number="1" type="stop" />
@@ -19747,7 +19747,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -19765,7 +19765,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -19946,7 +19946,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -19964,7 +19964,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -20146,7 +20146,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -20164,7 +20164,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
@@ -20411,7 +20411,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
+        <stem>down</stem>
         <beam number="1">begin</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
@@ -20438,7 +20438,7 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
+        <stem>down</stem>
         <beam number="1">continue</beam>
       </note>
       <note default-x="56.89" default-y="-231.79" dynamics="100.00">
@@ -20453,8 +20453,8 @@
           <normal-notes>2</normal-notes>
           <normal-type>eighth</normal-type>
         </time-modification>
-        <stem>up</stem>
-        <beam number="1">end</beam>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet number="1" type="stop" />
         </notations>
@@ -20472,7 +20472,7 @@
           <normal-type>eighth</normal-type>
         </time-modification>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
         <notations>
           <tuplet bracket="no" number="1" type="start">
             <tuplet-actual>
