@@ -13,7 +13,7 @@
     <creator type="electronicEditor">David Huron</creator>
     <rights>Copyright 1994, David Huron</rights>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -53,25 +53,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pc82e3436fd3de00670641389d177c592">
+    <score-part id="Pa3c16530abb53bed3739fd5811f2a482">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P4a3e3982d7d93667be755b78588681e7">
+    <score-part id="Pa59222dceed0a9354d337a867746f877">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P68e40dc1f2b40e1500cad819b55d128b">
+    <score-part id="P85a4e755f52742a9b78c0dc24ae37e1e">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="P3feb376b5cf51c9df9eb02a1676e75a3">
+    <score-part id="Pb6441f6a1e9cbfe4403b586b7a3bd0f2">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pc82e3436fd3de00670641389d177c592">
+  <part id="Pa3c16530abb53bed3739fd5811f2a482">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -1711,12 +1711,11 @@
       <note>
         <pitch>
           <step>F</step>
-          <alter>1</alter>
+          <alter>2</alter>
           <octave>5</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>sharp</accidental>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -2657,12 +2656,11 @@
       <note>
         <pitch>
           <step>C</step>
-          <alter>1</alter>
+          <alter>2</alter>
           <octave>5</octave>
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <stem>down</stem>
         <beam number="1">end</beam>
         <beam number="2">end</beam>
@@ -3047,7 +3045,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P4a3e3982d7d93667be755b78588681e7">
+  <part id="Pa59222dceed0a9354d337a867746f877">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -4517,12 +4515,11 @@
       <note>
         <pitch>
           <step>F</step>
-          <alter>1</alter>
+          <alter>2</alter>
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <stem>up</stem>
         <beam number="1">continue</beam>
         <beam number="2">begin</beam>
@@ -7280,7 +7277,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P68e40dc1f2b40e1500cad819b55d128b">
+  <part id="P85a4e755f52742a9b78c0dc24ae37e1e">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -9493,12 +9490,11 @@
       <note>
         <pitch>
           <step>C</step>
-          <alter>1</alter>
+          <alter>2</alter>
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <stem>up</stem>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
@@ -9519,7 +9515,7 @@
       <note>
         <pitch>
           <step>C</step>
-          <alter>1</alter>
+          <alter>2</alter>
           <octave>4</octave>
         </pitch>
         <duration>10080</duration>
@@ -9534,6 +9530,7 @@
         <duration>10080</duration>
         <tie type="start" />
         <type>quarter</type>
+        <accidental>sharp</accidental>
         <notations>
           <tied type="start" />
         </notations>
@@ -11233,7 +11230,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="P3feb376b5cf51c9df9eb02a1676e75a3">
+  <part id="Pb6441f6a1e9cbfe4403b586b7a3bd0f2">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -12707,12 +12704,11 @@
       <note>
         <pitch>
           <step>B</step>
-          <alter>0</alter>
+          <alter>1</alter>
           <octave>2</octave>
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>natural</accidental>
         <stem>up</stem>
         <beam number="1">continue</beam>
         <beam number="2">begin</beam>
@@ -12720,12 +12716,11 @@
       <note>
         <pitch>
           <step>C</step>
-          <alter>1</alter>
+          <alter>2</alter>
           <octave>3</octave>
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <stem>up</stem>
         <beam number="1">end</beam>
         <beam number="2">end</beam>
