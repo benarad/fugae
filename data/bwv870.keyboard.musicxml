@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P6049ae6bdac30a859622f8473f58b7b6">
+    <score-part id="P60892a75c5616cdbc45b82105d4adbd4">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P6049ae6bdac30a859622f8473f58b7b6">
+  <part id="P60892a75c5616cdbc45b82105d4adbd4">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -8552,12 +8552,14 @@
         </pitch>
         <duration>20160</duration>
         <tie type="stop" />
+        <tie type="start" />
         <voice>1</voice>
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
         <notations>
           <tied type="stop" />
+          <tied type="start" />
         </notations>
       </note>
       <backup>
@@ -8764,10 +8766,14 @@
           <octave>5</octave>
         </pitch>
         <duration>10080</duration>
+        <tie type="stop" />
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note id="v0n632">
         <pitch>
@@ -11522,7 +11528,7 @@
       </note>
       <note id="v0n832">
         <pitch>
-          <step>B</step>
+          <step>G</step>
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>

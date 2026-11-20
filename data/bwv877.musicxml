@@ -53,25 +53,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pa3c16530abb53bed3739fd5811f2a482">
+    <score-part id="P25734b233272d382535bc8d18e479b8f">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pa59222dceed0a9354d337a867746f877">
+    <score-part id="Pe83734c5de2f9cf2474af1fb70281a3a">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P85a4e755f52742a9b78c0dc24ae37e1e">
+    <score-part id="P8bca3c4671539cb587ee6551780d18b9">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="Pb6441f6a1e9cbfe4403b586b7a3bd0f2">
+    <score-part id="P4a4058224248d88f55d6eba1e121a37d">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pa3c16530abb53bed3739fd5811f2a482">
+  <part id="P25734b233272d382535bc8d18e479b8f">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -3045,7 +3045,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pa59222dceed0a9354d337a867746f877">
+  <part id="Pe83734c5de2f9cf2474af1fb70281a3a">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -6106,33 +6106,9 @@
           <alter>1</alter>
           <octave>4</octave>
         </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <alter>0</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <accidental>natural</accidental>
-        <stem>up</stem>
-        <beam number="1">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <alter>1</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
+        <duration>15120</duration>
+        <type>quarter</type>
+        <dot />
       </note>
       <note>
         <pitch>
@@ -6142,8 +6118,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
       </note>
       <note>
         <pitch>
@@ -7277,7 +7251,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P85a4e755f52742a9b78c0dc24ae37e1e">
+  <part id="P8bca3c4671539cb587ee6551780d18b9">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -11230,7 +11204,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="Pb6441f6a1e9cbfe4403b586b7a3bd0f2">
+  <part id="P4a4058224248d88f55d6eba1e121a37d">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -14484,7 +14458,11 @@
           <octave>3</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="start" />
         <type>half</type>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -14499,9 +14477,13 @@
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
+        <tie type="stop" />
         <type>eighth</type>
         <stem>up</stem>
         <beam number="1">begin</beam>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <pitch>

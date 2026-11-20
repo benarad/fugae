@@ -2273,7 +2273,7 @@
    "on": 131.5,
    "dur": 0.5,
    "midi": [
-    70
+    71
    ]
   },
   {
@@ -2673,7 +2673,7 @@
    "on": 169.0,
    "dur": 1.0,
    "midi": [
-    70
+    71
    ]
   },
   {
@@ -7543,9 +7543,17 @@
   {
    "v": 2,
    "on": 31.0,
-   "dur": 0.75,
+   "dur": 0.5,
    "midi": [
     55
+   ]
+  },
+  {
+   "v": 2,
+   "on": 31.5,
+   "dur": 0.25,
+   "midi": [
+    57
    ]
   },
   {
@@ -7553,23 +7561,23 @@
    "on": 31.75,
    "dur": 0.25,
    "midi": [
-    53
+    58
    ]
   },
   {
    "v": 2,
    "on": 32.0,
-   "dur": 0.5,
+   "dur": 0.75,
    "midi": [
-    55
+    60
    ]
   },
   {
    "v": 2,
-   "on": 32.5,
-   "dur": 0.5,
+   "on": 32.75,
+   "dur": 0.25,
    "midi": [
-    51
+    58
    ]
   },
   {
@@ -14328,6 +14336,13 @@
  ],
  "cadences": [
   {
+   "start": 132.0,
+   "key": "C minor",
+   "voice": 3,
+   "measure": 45,
+   "beat": 1.0
+  },
+  {
    "start": 222.0,
    "key": "G minor",
    "voice": 3,
@@ -14425,7 +14440,7 @@
    "label": "Episode 3",
    "summary": "Soprano: a figure from countersubject 1. Alto: a figure from countersubject 1 (4 times), in a sequence rising by a step every bar. Bass: the opening of countersubject 1 (3 times) and a figure from countersubject 1.",
    "reworks": "",
-   "leads": "From F major to B♭ major",
+   "leads": "From F major to B♭ major; perfect cadence in C minor at bar 45",
    "start": 117.75,
    "end": 133.0,
    "measure": 40,
@@ -14549,7 +14564,7 @@
   {
    "voice": 2,
    "start": 30.0,
-   "end": 31.75,
+   "end": 31.5,
    "source": "cs1",
    "first": 25,
    "last": 29,

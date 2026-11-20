@@ -52,21 +52,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pda64f9b252d4d978a8684ea74da2dcc1">
+    <score-part id="Pcd42b8912a2ca542dcb093f9f49d5369">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P751c8aa3c8996997e3bfba8f0ca2f2f0">
+    <score-part id="P518ed97c5628405718221555dd27fc10">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="Pf7db12f4ab74e4bf4c183f9d27b23a12">
+    <score-part id="Pba42dc6590bf0a10d14d3e8a73313cc1">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pda64f9b252d4d978a8684ea74da2dcc1">
+  <part id="Pcd42b8912a2ca542dcb093f9f49d5369">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -4270,7 +4270,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P751c8aa3c8996997e3bfba8f0ca2f2f0">
+  <part id="P518ed97c5628405718221555dd27fc10">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -8634,7 +8634,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="Pf7db12f4ab74e4bf4c183f9d27b23a12">
+  <part id="Pba42dc6590bf0a10d14d3e8a73313cc1">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -9554,10 +9554,12 @@
       <note>
         <pitch>
           <step>A</step>
+          <alter>1</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
+        <accidental>sharp</accidental>
         <stem>down</stem>
         <beam number="1">end</beam>
       </note>

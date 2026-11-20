@@ -5425,15 +5425,7 @@
   {
    "v": 1,
    "on": 119.75,
-   "dur": 0.25,
-   "midi": [
-    60
-   ]
-  },
-  {
-   "v": 1,
-   "on": 120.0,
-   "dur": 0.25,
+   "dur": 0.5,
    "midi": [
     60
    ]
@@ -9287,16 +9279,16 @@
   },
   {
    "voice": 1,
-   "start": 120.0,
+   "start": 120.25,
    "end": 122.0,
    "source": "subject",
-   "first": 12,
+   "first": 13,
    "last": 18,
    "inverted": false,
    "exact": true,
    "text": "a figure from the subject",
    "measure": 81,
-   "beat": 1.0
+   "beat": 1.25
   },
   {
    "voice": 2,
@@ -9618,6 +9610,17 @@
    "text": "a sequence rising by a step every bar",
    "measure": 78,
    "beat": 2.25
+  },
+  {
+   "voice": 1,
+   "start": 117.25,
+   "end": 120.25,
+   "period": 1.5,
+   "count": 2,
+   "step": 1,
+   "text": "a sequence rising by a step every bar",
+   "measure": 79,
+   "beat": 1.25
   },
   {
    "voice": 2,

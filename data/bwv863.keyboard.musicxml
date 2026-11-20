@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P5f9bc49ebab6e86ad14586ef1c86b519">
+    <score-part id="Pb794cc3f78bee3303baa52a5ea5efd16">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P5f9bc49ebab6e86ad14586ef1c86b519">
+  <part id="Pb794cc3f78bee3303baa52a5ea5efd16">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -10028,15 +10028,21 @@
       </note>
       <note id="v3n679">
         <pitch>
-          <step>E</step>
+          <step>F</step>
+          <alter>1</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
+        <tie type="start" />
         <voice>4</voice>
         <type>eighth</type>
+        <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <note id="v3n680">
         <pitch>
@@ -10045,13 +10051,16 @@
           <octave>3</octave>
         </pitch>
         <duration>2520</duration>
+        <tie type="stop" />
         <voice>4</voice>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note id="v3n681">
         <pitch>
@@ -12639,7 +12648,7 @@
         <pitch>
           <step>C</step>
           <alter>1</alter>
-          <octave>4</octave>
+          <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <voice>3</voice>

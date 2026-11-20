@@ -4751,7 +4751,15 @@
   {
    "v": 2,
    "on": 37.5,
-   "dur": 1.0,
+   "dur": 0.75,
+   "midi": [
+    54
+   ]
+  },
+  {
+   "v": 2,
+   "on": 38.25,
+   "dur": 0.25,
    "midi": [
     54
    ]
@@ -7560,16 +7568,16 @@
   },
   {
    "voice": 2,
-   "start": 38.5,
+   "start": 38.25,
    "end": 40.0,
    "source": "cs1",
-   "first": 5,
+   "first": 4,
    "last": 10,
    "inverted": false,
    "exact": false,
    "text": "a figure from countersubject 1",
    "measure": 10,
-   "beat": 3.5
+   "beat": 3.25
   },
   {
    "voice": 1,

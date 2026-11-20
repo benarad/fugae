@@ -52,21 +52,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pa702954175e40d3799b4b7083c4c0162">
+    <score-part id="P2a28a717d9de08d2e41f459b5a2a13a3">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pc726b9d2ab4e54822dabe59305d70544">
+    <score-part id="P7de4a6734d095ddf2c1553596530f161">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="Pc5a2df6b574d31b7892fc9a5378c69e0">
+    <score-part id="Pe13d69da1da0fbb0a04dbcf619fce443">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pa702954175e40d3799b4b7083c4c0162">
+  <part id="P2a28a717d9de08d2e41f459b5a2a13a3">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -6095,7 +6095,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pc726b9d2ab4e54822dabe59305d70544">
+  <part id="P7de4a6734d095ddf2c1553596530f161">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -9590,7 +9590,11 @@
           <octave>4</octave>
         </pitch>
         <duration>10080</duration>
+        <tie type="start" />
         <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -9605,9 +9609,13 @@
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
+        <tie type="stop" />
         <type>eighth</type>
         <stem>up</stem>
         <beam number="1">begin</beam>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <pitch>
@@ -12158,7 +12166,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="Pc5a2df6b574d31b7892fc9a5378c69e0">
+  <part id="Pe13d69da1da0fbb0a04dbcf619fce443">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>

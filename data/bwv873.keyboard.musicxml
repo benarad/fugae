@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P772d2d403bc3d304f77202478ffb9f68">
+    <score-part id="Pf390aee652d508191e4bb1f4125daba2">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P772d2d403bc3d304f77202478ffb9f68">
+  <part id="Pf390aee652d508191e4bb1f4125daba2">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -15946,13 +15946,11 @@
       <note id="v1n1066">
         <pitch>
           <step>D</step>
-          <alter>1</alter>
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
         <voice>2</voice>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">continue</beam>
@@ -18650,13 +18648,12 @@
       <note id="v1n1253">
         <pitch>
           <step>F</step>
-          <alter>1</alter>
+          <alter>2</alter>
           <octave>3</octave>
         </pitch>
         <duration>2520</duration>
         <voice>3</voice>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
@@ -19961,13 +19958,11 @@
       <note id="v1n1343">
         <pitch>
           <step>D</step>
-          <alter>1</alter>
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
         <voice>2</voice>
         <type>16th</type>
-        <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">continue</beam>
@@ -21810,12 +21805,13 @@
       <note id="v2n1454">
         <pitch>
           <step>A</step>
-          <alter>0</alter>
+          <alter>1</alter>
           <octave>2</octave>
         </pitch>
         <duration>2520</duration>
         <voice>3</voice>
         <type>16th</type>
+        <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">end</beam>

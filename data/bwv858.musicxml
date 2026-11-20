@@ -13,7 +13,7 @@
     <creator type="electronicEditor">David Huron</creator>
     <rights>Copyright 1994, David Huron</rights>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -52,21 +52,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P5efe8af996396a303eccbbe61230bdc5">
+    <score-part id="P81286c62a44447d8eb0d32737a9b0f89">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P89ced069079b03bc0c369ed93f764937">
+    <score-part id="P379bbe0918df3a356dd3b579a5e874d8">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="Pd0549a1ab2b6c9407f77630e6de68400">
+    <score-part id="Pec9e235b89b10d6963e2eceb77f89dc6">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P5efe8af996396a303eccbbe61230bdc5">
+  <part id="P81286c62a44447d8eb0d32737a9b0f89">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -3885,7 +3885,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P89ced069079b03bc0c369ed93f764937">
+  <part id="P379bbe0918df3a356dd3b579a5e874d8">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -6950,7 +6950,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="Pd0549a1ab2b6c9407f77630e6de68400">
+  <part id="Pec9e235b89b10d6963e2eceb77f89dc6">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -7771,14 +7771,12 @@
         </pitch>
         <duration>2520</duration>
         <tie type="stop" />
-        <tie type="start" />
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
         <notations>
           <tied type="stop" />
-          <tied type="start" />
         </notations>
       </note>
       <note>
@@ -7788,14 +7786,10 @@
           <octave>3</octave>
         </pitch>
         <duration>2520</duration>
-        <tie type="stop" />
         <type>16th</type>
         <stem>down</stem>
         <beam number="1">continue</beam>
         <beam number="2">continue</beam>
-        <notations>
-          <tied type="stop" />
-        </notations>
       </note>
       <note>
         <pitch>

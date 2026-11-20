@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P7bf59be23361432d15e258c43de549be">
+    <score-part id="P8308f975b33e8b4c42aea2e983a4420e">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P7bf59be23361432d15e258c43de549be">
+  <part id="P8308f975b33e8b4c42aea2e983a4420e">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -2132,10 +2132,14 @@
           <octave>4</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="start" />
         <voice>2</voice>
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -2312,10 +2316,14 @@
           <octave>4</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="stop" />
         <voice>2</voice>
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note id="v1n157">
         <pitch>
@@ -4000,10 +4008,14 @@
           <octave>5</octave>
         </pitch>
         <duration>10080</duration>
+        <tie type="start" />
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -4139,10 +4151,14 @@
           <octave>5</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="stop" />
         <voice>1</voice>
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note id="v0n283">
         <pitch>
@@ -8383,10 +8399,14 @@
           <octave>5</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="start" />
         <voice>1</voice>
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -8570,11 +8590,15 @@
           <octave>5</octave>
         </pitch>
         <duration>15120</duration>
+        <tie type="stop" />
         <voice>1</voice>
         <type>quarter</type>
         <dot />
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note id="v0n595">
         <pitch>
@@ -16769,10 +16793,17 @@
           <step>B</step>
           <octave>3</octave>
         </pitch>
-        <duration>20160</duration>
+        <duration>10080</duration>
         <voice>3</voice>
-        <type>half</type>
+        <type>quarter</type>
         <stem>up</stem>
+        <staff>2</staff>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>10080</duration>
+        <voice>3</voice>
+        <type>quarter</type>
         <staff>2</staff>
       </note>
       <backup>

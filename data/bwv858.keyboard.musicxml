@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pbbc4a0c66c1676f4a901484a9a41e2ce">
+    <score-part id="Pb0fbd1a5b99b6ec1d3d255df54a24f79">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pbbc4a0c66c1676f4a901484a9a41e2ce">
+  <part id="Pb0fbd1a5b99b6ec1d3d255df54a24f79">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -3165,7 +3165,6 @@
         </pitch>
         <duration>2520</duration>
         <tie type="stop" />
-        <tie type="start" />
         <voice>3</voice>
         <type>16th</type>
         <stem>down</stem>
@@ -3174,7 +3173,6 @@
         <beam number="2">begin</beam>
         <notations>
           <tied type="stop" />
-          <tied type="start" />
         </notations>
       </note>
       <note id="v2n222">
@@ -3184,16 +3182,12 @@
           <octave>3</octave>
         </pitch>
         <duration>2520</duration>
-        <tie type="stop" />
         <voice>3</voice>
         <type>16th</type>
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">continue</beam>
         <beam number="2">continue</beam>
-        <notations>
-          <tied type="stop" />
-        </notations>
       </note>
       <note id="v2n223">
         <pitch>

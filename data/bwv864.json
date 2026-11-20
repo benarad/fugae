@@ -1713,7 +1713,7 @@
    "on": 133.5,
    "dur": 0.5,
    "midi": [
-    83
+    71
    ]
   },
   {
@@ -1729,7 +1729,7 @@
    "on": 134.5,
    "dur": 0.5,
    "midi": [
-    85
+    73
    ]
   },
   {
@@ -1737,7 +1737,7 @@
    "on": 135.0,
    "dur": 0.5,
    "midi": [
-    86
+    74
    ]
   },
   {
@@ -10655,7 +10655,7 @@
   {
    "kind": "episode",
    "label": "Episode 6",
-   "summary": "Reworks Link (bar 22) in part, with the soprano's line in the bass, the alto's line in the soprano, the lines moved by different intervals (invertible counterpoint at the tenth). Free counterpoint: nothing here is traced to the themes.",
+   "summary": "Reworks Link (bar 22) in part, with the soprano's line in the bass, the alto's line in the soprano, the lines moved by different intervals (invertible counterpoint at the tenth). Soprano: a figure from the subject. Alto: free counterpoint. Bass: free counterpoint.",
    "reworks": "Link",
    "leads": "From E major to D major",
    "start": 124.0,
@@ -10910,6 +10910,19 @@
    "text": "the opening of the subject",
    "measure": 19,
    "beat": 1.0
+  },
+  {
+   "voice": 0,
+   "start": 133.0,
+   "end": 135.0,
+   "source": "subject",
+   "first": 3,
+   "last": 6,
+   "inverted": false,
+   "exact": true,
+   "text": "a figure from the subject",
+   "measure": 30,
+   "beat": 3.5
   },
   {
    "voice": 0,

@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P17d9ae7dd30b69925a1c45fe5c314a8e">
+    <score-part id="P59cdaf3dba0add1e07228b8e6f7c6b80">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P17d9ae7dd30b69925a1c45fe5c314a8e">
+  <part id="P59cdaf3dba0add1e07228b8e6f7c6b80">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -2075,13 +2075,11 @@
       <note id="v2n146">
         <pitch>
           <step>G</step>
-          <alter>1</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <voice>3</voice>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
@@ -2089,13 +2087,11 @@
       <note id="v2n147">
         <pitch>
           <step>G</step>
-          <alter>1</alter>
           <octave>2</octave>
         </pitch>
         <duration>5040</duration>
         <voice>3</voice>
         <type>eighth</type>
-        <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">continue</beam>
@@ -2103,7 +2099,6 @@
       <note id="v2n148">
         <pitch>
           <step>G</step>
-          <alter>1</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
@@ -5401,7 +5396,8 @@
       </note>
       <note id="v1n374">
         <pitch>
-          <step>D</step>
+          <step>F</step>
+          <alter>1</alter>
           <octave>3</octave>
         </pitch>
         <duration>2520</duration>

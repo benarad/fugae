@@ -52,25 +52,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P6b475e26d07349c06364771b07cdefdc">
+    <score-part id="Pee0152646c020ff266ef0aab8d022ac1">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pdc3a7fcceb7acb2e74ddbf7f062ebe08">
+    <score-part id="P1acd7ebb369b18ca49bd661011113510">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P475dfaea52b33dcb8b76110c384e2b07">
+    <score-part id="P22895876b0cdc9392e814530cad63671">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="P1ef84c7e6f4f5fee441c3213d27f73d1">
+    <score-part id="Pe7fc56bc44506e310f8b64f0596b2e77">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P6b475e26d07349c06364771b07cdefdc">
+  <part id="Pee0152646c020ff266ef0aab8d022ac1">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -4394,7 +4394,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pdc3a7fcceb7acb2e74ddbf7f062ebe08">
+  <part id="P1acd7ebb369b18ca49bd661011113510">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -6760,13 +6760,11 @@
       <note>
         <pitch>
           <step>A</step>
-          <alter>1</alter>
           <octave>4</octave>
         </pitch>
         <duration>10080</duration>
         <tie type="start" />
         <type>quarter</type>
-        <accidental>sharp</accidental>
         <notations>
           <tied type="start" />
         </notations>
@@ -6780,7 +6778,7 @@
       <note>
         <pitch>
           <step>A</step>
-          <alter>1</alter>
+          <alter>0</alter>
           <octave>4</octave>
         </pitch>
         <duration>10080</duration>
@@ -9480,8 +9478,12 @@
           <octave>4</octave>
         </pitch>
         <duration>10080</duration>
+        <tie type="start" />
         <type>quarter</type>
         <accidental>sharp</accidental>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -9496,8 +9498,11 @@
           <octave>4</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="stop" />
         <type>half</type>
-        <accidental>sharp</accidental>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <rest />
@@ -9700,7 +9705,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P475dfaea52b33dcb8b76110c384e2b07">
+  <part id="P22895876b0cdc9392e814530cad63671">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -14547,8 +14552,12 @@
           <octave>4</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="start" />
         <type>half</type>
         <accidental>natural</accidental>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -14563,8 +14572,11 @@
           <octave>4</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="stop" />
         <type>half</type>
-        <accidental>natural</accidental>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <rest />
@@ -14637,7 +14649,11 @@
           <octave>3</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="start" />
         <type>half</type>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -14652,9 +14668,11 @@
           <octave>3</octave>
         </pitch>
         <duration>40320</duration>
+        <tie type="stop" />
         <type>whole</type>
         <notations>
           <fermata type="inverted" />
+          <tied type="stop" />
         </notations>
       </note>
       <barline location="right">
@@ -14663,7 +14681,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="P1ef84c7e6f4f5fee441c3213d27f73d1">
+  <part id="Pe7fc56bc44506e310f8b64f0596b2e77">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>

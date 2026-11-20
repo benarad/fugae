@@ -13,7 +13,7 @@
     <creator type="electronicEditor">David Huron</creator>
     <rights>Copyright 1994, David Huron</rights>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -52,29 +52,29 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pa29713dd6b6b3ce8097965ee44a678b3">
+    <score-part id="Pd35cbd459742ecafe7d144adb3d4bce9">
       <part-name>Soprano I</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P69241eb5711e7119515c287adbb426c8">
+    <score-part id="Pf3d52f92d60c12028d11e4d09033cfed">
       <part-name>Soprano II</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P38d694123d22a4bf1669784746a87b74">
+    <score-part id="Pf5050cd5a9c201fd558a19a40f569f11">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P28fa80c283b9462e3ced0bdda9191e0c">
+    <score-part id="P3a0ad1f2d71b2ef15af750c168fc2c4a">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="P527eab019b90d6b1b9609f6fac487b9a">
+    <score-part id="Pa99b48fa10739e764a74f6d842d001dc">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pa29713dd6b6b3ce8097965ee44a678b3">
+  <part id="Pd35cbd459742ecafe7d144adb3d4bce9">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -847,7 +847,11 @@
           <octave>5</octave>
         </pitch>
         <duration>10080</duration>
+        <tie type="start" />
         <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -861,7 +865,11 @@
           <octave>5</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="stop" />
         <type>half</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <pitch>
@@ -2068,7 +2076,11 @@
           <octave>5</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="start" />
         <type>half</type>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -2082,8 +2094,12 @@
           <octave>5</octave>
         </pitch>
         <duration>15120</duration>
+        <tie type="stop" />
         <type>quarter</type>
         <dot />
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <pitch>
@@ -4239,7 +4255,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P69241eb5711e7119515c287adbb426c8">
+  <part id="Pf3d52f92d60c12028d11e4d09033cfed">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -4614,7 +4630,11 @@
           <octave>4</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="start" />
         <type>half</type>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -4629,7 +4649,11 @@
           <octave>4</octave>
         </pitch>
         <duration>20160</duration>
+        <tie type="stop" />
         <type>half</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <pitch>
@@ -8408,7 +8432,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P38d694123d22a4bf1669784746a87b74">
+  <part id="Pf5050cd5a9c201fd558a19a40f569f11">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -11523,8 +11547,13 @@
           <step>B</step>
           <octave>3</octave>
         </pitch>
-        <duration>20160</duration>
-        <type>half</type>
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
+      <note>
+        <rest />
+        <duration>10080</duration>
+        <type>quarter</type>
       </note>
       <barline location="right">
         <bar-style>regular</bar-style>
@@ -12270,7 +12299,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="P28fa80c283b9462e3ced0bdda9191e0c">
+  <part id="P3a0ad1f2d71b2ef15af750c168fc2c4a">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -15676,7 +15705,7 @@
     </measure>
   </part>
   <!--=========================== Part 5 ===========================-->
-  <part id="P527eab019b90d6b1b9609f6fac487b9a">
+  <part id="Pa99b48fa10739e764a74f6d842d001dc">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>

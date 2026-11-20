@@ -4061,7 +4061,7 @@
    "on": 58.5,
    "dur": 0.25,
    "midi": [
-    50
+    54
    ]
   },
   {
@@ -5557,7 +5557,7 @@
    "on": 26.0,
    "dur": 0.5,
    "midi": [
-    56
+    55
    ]
   },
   {
@@ -5565,7 +5565,7 @@
    "on": 26.5,
    "dur": 0.5,
    "midi": [
-    44
+    43
    ]
   },
   {
@@ -5573,7 +5573,7 @@
    "on": 27.0,
    "dur": 0.5,
    "midi": [
-    56
+    55
    ]
   },
   {
@@ -8712,6 +8712,16 @@
      "beat": 1.25
     },
     {
+     "voice": 1,
+     "start": 57.75,
+     "end": 59.5,
+     "against": "e5",
+     "score": 1.0,
+     "shared": false,
+     "measure": 39,
+     "beat": 1.25
+    },
+    {
      "voice": 0,
      "start": 69.75,
      "end": 71.5,
@@ -8798,64 +8808,54 @@
    "late": true,
    "occurrences": [
     {
-     "voice": 2,
-     "start": 45.75,
-     "end": 47.0,
-     "against": "e4",
-     "score": 1.0,
-     "shared": false,
-     "measure": 31,
-     "beat": 1.25
-    },
-    {
      "voice": 1,
-     "start": 59.25,
-     "end": 60.75,
+     "start": 59.5,
+     "end": 61.25,
      "against": "e5",
      "score": 1.0,
      "shared": false,
      "measure": 40,
-     "beat": 1.25
+     "beat": 1.5
     },
     {
      "voice": 0,
-     "start": 72.75,
+     "start": 73.0,
      "end": 74.25,
      "against": "e6",
      "score": 1.0,
      "shared": false,
      "measure": 49,
-     "beat": 1.25
+     "beat": 1.5
     },
     {
      "voice": 0,
-     "start": 87.75,
+     "start": 88.0,
      "end": 89.25,
      "against": "e7",
      "score": 1.0,
      "shared": false,
      "measure": 59,
-     "beat": 1.25
+     "beat": 1.5
     },
     {
      "voice": 0,
-     "start": 111.75,
-     "end": 113.25,
+     "start": 112.0,
+     "end": 113.75,
      "against": "e9",
      "score": 1.0,
      "shared": false,
      "measure": 75,
-     "beat": 1.25
+     "beat": 1.5
     },
     {
-     "voice": 2,
-     "start": 128.25,
-     "end": 129.5,
-     "against": "e10",
+     "voice": 0,
+     "start": 115.0,
+     "end": 116.75,
+     "against": null,
      "score": 1.0,
      "shared": false,
-     "measure": 86,
-     "beat": 1.25
+     "measure": 77,
+     "beat": 1.5
     }
    ]
   }
@@ -8928,7 +8928,7 @@
   {
    "kind": "episode",
    "label": "Episode 3",
-   "summary": "Soprano: a figure from the subject, inverted and a figure from the subject. Alto: a figure from the subject. Bass: free counterpoint.",
+   "summary": "Soprano: a figure from the subject, inverted and a figure from the subject. Alto: a figure from the subject, inverted and a figure from the subject. Bass: free counterpoint.",
    "reworks": "",
    "leads": "From D major to A major",
    "start": 61.0,
@@ -8994,7 +8994,7 @@
   {
    "kind": "episode",
    "label": "Episode 6",
-   "summary": "Soprano: a figure from the subject (4 times). Alto: free counterpoint. Bass: a figure from the subject (2 times) and a figure from the subject, inverted.",
+   "summary": "Soprano: a figure from the subject (2 times). Alto: free counterpoint. Bass: a figure from the subject (2 times) and a figure from the subject, inverted.",
    "reworks": "",
    "leads": "From E minor to B minor",
    "start": 113.25,
@@ -9308,6 +9308,19 @@
   },
   {
    "voice": 2,
+   "start": 46.0,
+   "end": 47.0,
+   "source": "cs2",
+   "first": 1,
+   "last": 4,
+   "inverted": false,
+   "exact": true,
+   "text": "the opening of countersubject 2",
+   "measure": 31,
+   "beat": 1.5
+  },
+  {
+   "voice": 2,
    "start": 47.25,
    "end": 48.5,
    "source": "cs1",
@@ -9372,19 +9385,6 @@
    "beat": 1.25
   },
   {
-   "voice": 1,
-   "start": 60.75,
-   "end": 62.0,
-   "source": "subject",
-   "first": 6,
-   "last": 10,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 41,
-   "beat": 1.25
-  },
-  {
    "voice": 0,
    "start": 61.0,
    "end": 62.5,
@@ -9396,6 +9396,19 @@
    "text": "a figure from the subject, inverted",
    "measure": 41,
    "beat": 1.5
+  },
+  {
+   "voice": 1,
+   "start": 61.25,
+   "end": 62.5,
+   "source": "subject",
+   "first": 17,
+   "last": 21,
+   "inverted": true,
+   "exact": true,
+   "text": "a figure from the subject, inverted",
+   "measure": 41,
+   "beat": 1.75
   },
   {
    "voice": 1,
@@ -9671,19 +9684,6 @@
    "beat": 1.25
   },
   {
-   "voice": 0,
-   "start": 114.25,
-   "end": 115.5,
-   "source": "subject",
-   "first": 18,
-   "last": 22,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 76,
-   "beat": 2.25
-  },
-  {
    "voice": 2,
    "start": 115.0,
    "end": 116.5,
@@ -9695,19 +9695,6 @@
    "text": "a figure from the subject",
    "measure": 77,
    "beat": 1.5
-  },
-  {
-   "voice": 0,
-   "start": 116.0,
-   "end": 117.0,
-   "source": "subject",
-   "first": 19,
-   "last": 22,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 78,
-   "beat": 1.0
   },
   {
    "voice": 0,
@@ -9786,6 +9773,19 @@
    "text": "a figure from the subject, inverted",
    "measure": 83,
    "beat": 1.25
+  },
+  {
+   "voice": 2,
+   "start": 128.5,
+   "end": 129.5,
+   "source": "cs2",
+   "first": 1,
+   "last": 4,
+   "inverted": false,
+   "exact": true,
+   "text": "the opening of countersubject 2",
+   "measure": 86,
+   "beat": 1.5
   },
   {
    "voice": 2,

@@ -2372,15 +2372,7 @@
   {
    "v": 1,
    "on": 59.0,
-   "dur": 1.0,
-   "midi": [
-    65
-   ]
-  },
-  {
-   "v": 1,
-   "on": 60.0,
-   "dur": 2.5,
+   "dur": 3.5,
    "midi": [
     65
    ]
@@ -9637,7 +9629,7 @@
   {
    "voice": 1,
    "start": 57.5,
-   "end": 60.0,
+   "end": 62.5,
    "source": "cs1",
    "first": 3,
    "last": 6,
@@ -9649,16 +9641,16 @@
   },
   {
    "voice": 1,
-   "start": 60.0,
-   "end": 64.0,
-   "source": "subject",
-   "first": 8,
-   "last": 11,
-   "inverted": true,
+   "start": 62.5,
+   "end": 64.5,
+   "source": "cs1",
+   "first": 3,
+   "last": 6,
+   "inverted": false,
    "exact": true,
-   "text": "a figure from the subject, inverted",
+   "text": "a figure from countersubject 1",
    "measure": 16,
-   "beat": 1.0
+   "beat": 3.5
   },
   {
    "voice": 1,

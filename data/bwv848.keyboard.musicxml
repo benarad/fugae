@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P384a40db4b06adc87f8329e18ae1bddf">
+    <score-part id="Pa411e12f8c33ca1a212d7a482a1005f1">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P384a40db4b06adc87f8329e18ae1bddf">
+  <part id="Pa411e12f8c33ca1a212d7a482a1005f1">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -15574,9 +15574,9 @@
       </note>
       <note id="v2n1036">
         <pitch>
-          <step>C</step>
+          <step>B</step>
           <alter>1</alter>
-          <octave>4</octave>
+          <octave>3</octave>
         </pitch>
         <duration>2520</duration>
         <voice>2</voice>
@@ -22031,20 +22031,14 @@
       <backup>
         <duration>40320</duration>
       </backup>
-      <note id="v0n1470">
-        <pitch>
-          <step>E</step>
-          <alter>1</alter>
-          <octave>4</octave>
-        </pitch>
+      <note print-object="no" print-spacing="yes">
+        <rest />
         <duration>5040</duration>
         <voice>11</voice>
         <type>eighth</type>
-        <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
       </note>
-      <note id="v0n1471">
+      <note id="v0n1470">
         <pitch>
           <step>G</step>
           <alter>1</alter>
@@ -22055,9 +22049,8 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
       </note>
-      <note id="v0n1472">
+      <note id="v0n1471">
         <chord />
         <pitch>
           <step>C</step>
@@ -22069,7 +22062,7 @@
         <type>eighth</type>
         <staff>1</staff>
       </note>
-      <note id="v0n1473">
+      <note id="v0n1472">
         <pitch>
           <step>A</step>
           <alter>1</alter>
@@ -22082,7 +22075,7 @@
         <staff>1</staff>
         <beam number="1">begin</beam>
       </note>
-      <note id="v0n1474">
+      <note id="v0n1473">
         <chord />
         <pitch>
           <step>F</step>
@@ -22094,7 +22087,7 @@
         <type>eighth</type>
         <staff>1</staff>
       </note>
-      <note id="v0n1475">
+      <note id="v0n1474">
         <pitch>
           <step>G</step>
           <alter>1</alter>
@@ -22107,7 +22100,7 @@
         <staff>1</staff>
         <beam number="1">end</beam>
       </note>
-      <note id="v0n1476">
+      <note id="v0n1475">
         <chord />
         <pitch>
           <step>F</step>
@@ -22129,7 +22122,7 @@
       <backup>
         <duration>40320</duration>
       </backup>
-      <note id="v1n1477">
+      <note id="v1n1476">
         <pitch>
           <step>C</step>
           <alter>1</alter>
@@ -22141,7 +22134,7 @@
         <stem>down</stem>
         <staff>1</staff>
       </note>
-      <note id="v1n1478">
+      <note id="v1n1477">
         <pitch>
           <step>D</step>
           <alter>1</alter>
@@ -22153,7 +22146,7 @@
         <stem>down</stem>
         <staff>1</staff>
       </note>
-      <note id="v1n1479">
+      <note id="v1n1478">
         <pitch>
           <step>C</step>
           <alter>1</alter>
@@ -22168,14 +22161,14 @@
       <backup>
         <duration>40320</duration>
       </backup>
-      <note id="v2r1480">
+      <note id="v2r1479">
         <rest />
         <duration>5040</duration>
         <voice>12</voice>
         <type>eighth</type>
         <staff>2</staff>
       </note>
-      <note id="v2n1481">
+      <note id="v2n1480">
         <pitch>
           <step>E</step>
           <alter>1</alter>
@@ -22186,7 +22179,7 @@
         <type>eighth</type>
         <staff>2</staff>
       </note>
-      <note id="v2n1482">
+      <note id="v2n1481">
         <pitch>
           <step>F</step>
           <alter>1</alter>
@@ -22199,7 +22192,7 @@
         <staff>2</staff>
         <beam number="1">begin</beam>
       </note>
-      <note id="v2n1483">
+      <note id="v2n1482">
         <pitch>
           <step>G</step>
           <alter>1</alter>
@@ -22212,7 +22205,7 @@
         <staff>2</staff>
         <beam number="1">end</beam>
       </note>
-      <note id="v2n1484">
+      <note id="v2n1483">
         <pitch>
           <step>C</step>
           <alter>1</alter>

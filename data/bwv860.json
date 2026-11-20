@@ -5889,7 +5889,7 @@
   {
    "v": 0,
    "on": 255.0,
-   "dur": 1.0,
+   "dur": 1.25,
    "midi": [
     79
    ]
@@ -13961,7 +13961,7 @@
   {
    "v": 2,
    "on": 252.0,
-   "dur": 3.0,
+   "dur": 6.0,
    "midi": [
     55
    ]
@@ -14005,16 +14005,7 @@
   {
    "v": 0,
    "on": 255.75,
-   "dur": 0.5,
-   "midi": [
-    72
-   ],
-   "beside": true
-  },
-  {
-   "v": 0,
-   "on": 256.0,
-   "dur": 0.5,
+   "dur": 0.75,
    "midi": [
     72
    ],
@@ -14032,34 +14023,7 @@
   {
    "v": 2,
    "on": 249.5,
-   "dur": 1.0,
-   "midi": [
-    43
-   ],
-   "beside": true
-  },
-  {
-   "v": 2,
-   "on": 250.5,
-   "dur": 1.5,
-   "midi": [
-    43
-   ],
-   "beside": true
-  },
-  {
-   "v": 2,
-   "on": 252.0,
-   "dur": 6.0,
-   "midi": [
-    43
-   ],
-   "beside": true
-  },
-  {
-   "v": 2,
-   "on": 255.0,
-   "dur": 3.0,
+   "dur": 8.5,
    "midi": [
     43
    ],
@@ -14743,15 +14707,26 @@
    "beat": 1.0
   },
   {
+   "kind": "episode",
+   "label": "Episode 7",
+   "summary": "Soprano: a figure from the subject and a figure from countersubject 1. Alto: free counterpoint. Bass: free counterpoint.",
+   "reworks": "",
+   "leads": "Perfect cadence in G major at bar 83",
+   "start": 243.25,
+   "end": 252.0,
+   "measure": 82,
+   "beat": 1.25
+  },
+  {
    "kind": "coda",
    "label": "Coda",
    "summary": "",
    "reworks": "",
-   "leads": "Perfect cadence in G major at bar 83",
-   "start": 243.25,
+   "leads": "",
+   "start": 252.0,
    "end": 258.0,
-   "measure": 82,
-   "beat": 1.25
+   "measure": 85,
+   "beat": 1.0
   }
  ],
  "spans": [
@@ -14801,7 +14776,7 @@
    "summary": "",
    "voice": 2,
    "start": 252.0,
-   "end": 255.0,
+   "end": 258.0,
    "measure": 85,
    "beat": 1.0
   }

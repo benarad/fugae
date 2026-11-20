@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pab92110cab2fe4fa0454fa7afa210507">
+    <score-part id="P4059c56c995fa73f444f8badf015b127">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pab92110cab2fe4fa0454fa7afa210507">
+  <part id="P4059c56c995fa73f444f8badf015b127">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -4538,7 +4538,6 @@
         <duration>2520</duration>
         <voice>3</voice>
         <type>16th</type>
-        <accidental>natural</accidental>
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">continue</beam>
@@ -4616,13 +4615,11 @@
       <note id="v3n319">
         <pitch>
           <step>E</step>
-          <alter>-1</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <voice>4</voice>
         <type>eighth</type>
-        <accidental>flat</accidental>
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
@@ -5794,13 +5791,12 @@
       <note id="v3n402">
         <pitch>
           <step>E</step>
-          <alter>-1</alter>
+          <alter>0</alter>
           <octave>3</octave>
         </pitch>
         <duration>5040</duration>
         <voice>3</voice>
         <type>eighth</type>
-        <accidental>flat</accidental>
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
