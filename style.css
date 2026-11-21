@@ -230,6 +230,42 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .now { margin: 0; flex: 1 1 220px; min-width: 0; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .now b { color: var(--ink); font-weight: 600; }
 
+/* ---------------------------------------------------------------- sound */
+
+/* What plays each voice: a window that floats beside the music and stays open while it plays. */
+.sound {
+  position: fixed; inset: auto; z-index: 15; margin: 0;
+  width: min(440px, calc(100vw - 24px)); max-height: calc(100vh - 24px); overflow: auto;
+  padding: 12px 14px 12px; border: 1px solid var(--axis); border-radius: 8px;
+  background: var(--surface); color: var(--ink); font-size: 13px;
+  box-shadow: 0 8px 28px rgb(0 0 0 / 0.16);
+}
+.sound-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.sound h2 { margin: 0; font-size: 14px; font-weight: 650; }
+.sound-label { margin: 10px 0 6px; font-size: 12px; color: var(--ink-2); display: flex; justify-content: space-between; }
+.sound-scale { color: var(--muted); padding-right: 52px; }
+.sound-presets { display: grid; gap: 6px; }
+.sound-row { display: grid; grid-template-columns: 84px 1fr; gap: 8px; align-items: center; }
+.sound-group { font-size: 12px; color: var(--ink-2); }
+.sound-voices { display: grid; gap: 6px; }
+.sound-voice { display: grid; grid-template-columns: 84px minmax(0, 1fr) 96px 44px; gap: 8px; align-items: center; }
+.sound-name { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; white-space: nowrap; }
+.sound-name::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--voice-ui); flex: none; }
+.sound select {
+  height: 28px; min-width: 0; padding: 0 6px; border: 1px solid var(--axis); border-radius: 6px;
+  background: var(--surface); color: var(--ink); font: inherit;
+}
+.sound input[type="range"] { width: 100%; accent-color: var(--ink-2); margin: 0; }
+.sound-db { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
+.sound-spread { display: flex; gap: 8px; align-items: baseline; margin-top: 12px; color: var(--ink-2); }
+.sound-note { margin: 10px 0 0; font-size: 11.5px; color: var(--muted); line-height: 1.4; }
+.sound-take-list { display: grid; gap: 4px; }
+.sound-take { display: flex; gap: 8px; align-items: baseline; cursor: pointer; }
+.sound-credit { margin: 6px 0 0; font-size: 11.5px; color: var(--ink-2); line-height: 1.4; }
+.sound-credit a { color: inherit; }
+/* While a recording plays, the page's own instruments wait: still to be set, but not heard. */
+.sound-made.unused { opacity: 0.45; }
+
 /* ------------------------------------------------------------ timeline */
 
 /* --tl-label is the width of the column of names; --tl-min is the least width of the
@@ -497,6 +533,11 @@ tbody tr:hover td { background: var(--neutral-fill); }
   .legend { margin: 8px var(--gutter) 0; padding-bottom: 10px; }
   main { border-top: 1px solid var(--hairline); margin-top: 2px; }
   .paper { border-radius: 4px; }
+  /* The sound window along the foot of the screen, under the thumb. */
+  .sound { top: auto !important; left: 0 !important; right: 0; bottom: 0; width: 100%; max-height: 72vh;
+           border-radius: 12px 12px 0 0; border-bottom: 0; padding-bottom: calc(14px + env(safe-area-inset-bottom)); }
+  .sound-voice { grid-template-columns: 80px minmax(0, 1fr) 72px 36px; gap: 6px; }
+  .sound-row { grid-template-columns: 80px 1fr; }
 }
 
 /* On its side there is width to spare and little height: one row. */
@@ -524,5 +565,7 @@ tbody tr:hover td { background: var(--neutral-fill); }
   .legend { gap: 2px 14px; }
   .tables summary { padding: 8px 0; }
   .tempo input { height: 32px; }
+  .sound select { height: 36px; }
+  .sound input[type="range"] { height: 32px; }
   .piece-link { display: inline-block; padding: 4px 0; }
 }

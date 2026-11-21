@@ -9,10 +9,19 @@ const SVG_NS = "http://www.w3.org/2000/svg";
 const SIZES = { small: 32, medium: 40, large: 50 };   // Verovio rendering scale, per cent
 let scoreSize = "medium";
 
+// The recorded instruments. Anything else that plays a voice is one of the synthesizer's patches (synth.js),
+// whose notes do not die away by themselves and so are held a little short.
 const INSTRUMENTS = {
-  piano: { file: "soundfonts/acoustic_grand_piano-mp3.js", gain: 0.9, hold: 0.98, release: 0.14 },
-  harpsichord: { file: "soundfonts/harpsichord-mp3.js", gain: 0.55, hold: 0.94, release: 0.05 },
+  piano: { label: "Piano", file: "soundfonts/acoustic_grand_piano-mp3.js", gain: 0.9, hold: 0.98, release: 0.14 },
+  harpsichord: { label: "Harpsichord", file: "soundfonts/harpsichord-mp3.js", gain: 0.55, hold: 0.94, release: 0.05 },
 };
+// Measured: at this gain a patch's note is about as strong as the piano's in the same register over the
+// first half second, and a little weaker, since it is the brighter sound. (The clip page plays the
+// synthesizer louder and evens out the whole recording afterwards; here every voice shares one mix.)
+const SYNTH = { gain: 0.035, hold: 0.9 };
+// The synthesizer, loaded beside the page (it is a module, which this script is not); null if it cannot be.
+const synthReady = import("./synth.js").catch(() => null);
+let synth = null;
 
 // Verovio compiles in the background; hook its ready signal before anything else runs.
 const verovioReady = new Promise((ready) => { verovio.module.onRuntimeInitialized = ready; });
@@ -943,10 +952,14 @@ function drawAltered(unit) {
 // ----------------------------------------------------------------- audio
 
 let ctx, master;
-const voiceGains = [];
+const voiceGains = [];  // for each voice: its loudness, or nothing while it is muted
+const voicePans = [];   // for each voice: where it is placed, from left to right
 const voiceOn = [];
 const banks = {};       // instrument name -> Map(midi -> AudioBuffer)
-let instrument = "piano";
+let sound = [];         // for each voice: "piano", "harpsichord", or the name of a synthesizer patch
+let levels = [];        // for each voice: how much louder or softer than the others, in decibels
+let spread = false;     // the voices placed from left to right
+let sung = [];          // for each voice on the synthesizer: {name, play}, its voice there (synth.js)
 let bpm = 72;
 let playing = false;
 let pausedAt = 0;       // quarter notes
@@ -966,14 +979,37 @@ function ensureContext() {
   master.connect(squash).connect(ctx.destination);
   piece.voices.forEach((_, v) => {
     const g = ctx.createGain();
-    g.gain.value = voiceOn[v] === false ? 0 : 1;
-    g.connect(master);
+    g.gain.value = loudness(v);
+    if (ctx.createStereoPanner) {
+      const pan = ctx.createStereoPanner();
+      pan.pan.value = placing(v);
+      g.connect(pan).connect(master);
+      voicePans[v] = pan;
+    } else g.connect(master);
     voiceGains[v] = g;
+  });
+  tuneSynth();
+}
+
+const loudness = (v) => (voiceOn[v] === false ? 0 : 10 ** ((levels[v] || 0) / 20));
+// As on a piano, and as in a clip: the highest voice on the right and the lowest on the left.
+const placing = (v) => (spread && piece.voices.length > 1 ? 0.6 - (1.2 * v) / (piece.voices.length - 1) : 0);
+
+// Each voice that the synthesizer plays has a voice of its own there, with the patch chosen for it.
+function tuneSynth() {
+  if (!ctx) return;
+  sung = piece.voices.map((_, v) => {
+    const name = sound[v];
+    if (INSTRUMENTS[name] || !synth) return null;
+    if (sung[v] && sung[v].name === name) return sung[v];
+    return { name, play: synth.voice(ctx, synth.patch(name), voiceGains[v]) };
   });
 }
 
-async function loadInstrument(name) {
-  if (banks[name]) return banks[name];
+const loading = {};     // instrument name -> its bank, on the way
+const loadInstrument = (name) => (loading[name] ||= fetchInstrument(name));
+
+async function fetchInstrument(name) {
   const text = await (await fetch(INSTRUMENTS[name].file)).text();
   const wanted = new Set(piece.notes.flatMap((n) => [...n.midi, ...(n.aux || [])]));
   const bank = new Map();
@@ -991,6 +1027,7 @@ async function loadInstrument(name) {
 
 function position() {
   if (!playing) return pausedAt;
+  if (take) return Math.max(0, take.q(take.audio.currentTime));
   return q0 + (Math.max(0, ctx.currentTime - t0) * bpm) / 60;
 }
 
@@ -1000,13 +1037,18 @@ function firstNoteFrom(q) {
   return lo;
 }
 
-// A note is struck once, or as its ornament has it (ornaments.js).
+// The recorded instruments that some voice is played on.
+const recorded = () => [...new Set(sound.filter((name) => INSTRUMENTS[name]))];
+
+// A note is struck once, or as its ornament has it (ornaments.js), on whatever plays its voice.
 function scheduleNote(n, start) {
-  const inst = INSTRUMENTS[instrument], bank = banks[instrument];
-  for (const { midi, at, sounds } of strokes(n, (n.dur * 60) / bpm, inst.hold)) {
+  const inst = INSTRUMENTS[sound[n.v]], bank = inst && banks[sound[n.v]], voice = !inst && sung[n.v];
+  if (!bank && !voice) return;
+  for (const { midi, at, sounds } of strokes(n, (n.dur * 60) / bpm, inst ? inst.hold : SYNTH.hold)) {
+    const when = start + at, off = when + sounds;
+    if (voice) { live.push({ when, ...voice.play(midi, when, off, SYNTH.gain) }); continue; }
     const buffer = bank.get(midi);
     if (!buffer) continue;
-    const when = start + at, off = when + sounds;
     const src = ctx.createBufferSource();
     const gain = ctx.createGain();
     src.buffer = buffer;
@@ -1016,7 +1058,14 @@ function scheduleNote(n, start) {
     src.connect(gain).connect(voiceGains[n.v]);
     src.start(when);
     src.stop(off + inst.release * 3);
-    live.push({ src, gain, when, end: off + inst.release * 3 });
+    live.push({
+      when, end: off + inst.release * 3,
+      stop(now) {
+        gain.gain.cancelScheduledValues(now);
+        gain.gain.setTargetAtTime(0, now, 0.012);
+        try { src.stop(now + 0.08); } catch { /* already stopped */ }
+      },
+    });
   }
 }
 
@@ -1024,26 +1073,28 @@ function silence(onlyFuture) {
   const now = ctx.currentTime;
   live = live.filter((x) => {
     if (onlyFuture && x.when <= now) return true;
-    x.gain.gain.cancelScheduledValues(now);
-    x.gain.gain.setTargetAtTime(0, now, 0.012);
-    try { x.src.stop(now + 0.08); } catch { /* already stopped */ }
+    x.stop(now);
     return false;
   });
+  for (const voice of sung) voice?.play.quiet(now);
 }
 
 function pump() {
   if (!playing) return;
-  const now = ctx.currentTime, q = position();
-  const horizon = q + (0.35 * bpm) / 60;
-  const stop = loop ? loop.end - 1e-6 : Infinity;      // a repeated section's notes only
-  while (pointer < piece.notes.length && piece.notes[pointer].on < Math.min(horizon, stop)) {
-    const n = piece.notes[pointer++];
-    const when = t0 + ((n.on - q0) * 60) / bpm;
-    if (when > now - 0.03) scheduleNote(n, Math.max(when, now));
+  const q = position();
+  if (!take) {
+    const now = ctx.currentTime, horizon = q + (0.35 * bpm) / 60;
+    const stop = loop ? loop.end - 1e-6 : Infinity;      // a repeated section's notes only
+    while (pointer < piece.notes.length && piece.notes[pointer].on < Math.min(horizon, stop)) {
+      const n = piece.notes[pointer++];
+      const when = t0 + ((n.on - q0) * 60) / bpm;
+      if (when > now - 0.03) scheduleNote(n, Math.max(when, now));
+    }
+    live = live.filter((x) => x.end > now);
   }
-  live = live.filter((x) => x.end > now);
   if (loop && q >= loop.end) { seek(loop.start); return; }
-  if (q >= piece.end + 0.5) { pause(); pausedAt = 0; paint(0); }
+  // A recording plays to its end, the last chord's dying away and all.
+  if (take ? take.audio.ended : q >= piece.end + 0.5) { pause(); pausedAt = 0; paint(0); }
 }
 
 // Repeating a section: while `loop` holds a section, playing goes round it. Moving
@@ -1114,11 +1165,23 @@ function soundDespiteSilentSwitch() {
 
 async function play() {
   soundDespiteSilentSwitch();   // before anything is awaited: it must happen in the tap itself
+  if (take) {
+    if (pausedAt >= piece.end) pausedAt = 0;
+    // From the very beginning of the file at the start, so that the first note is not cut into.
+    take.audio.currentTime = pausedAt > 0 ? take.t(pausedAt) : 0;
+    try { await take.audio.play(); } catch { setPlayLabel("Play"); return; }
+    playing = true;
+    setPlayLabel("Pause");
+    timer = setInterval(pump, 25);
+    requestAnimationFrame(frame);
+    return;
+  }
   ensureContext();
   await ctx.resume();
-  if (!banks[instrument]) {
+  const missing = recorded().filter((name) => !banks[name]);
+  if (missing.length) {
     setPlayLabel("Loading…");
-    await loadInstrument(instrument);
+    await Promise.all(missing.map(loadInstrument));
   }
   if (pausedAt >= piece.end) pausedAt = 0;
   q0 = pausedAt;
@@ -1136,14 +1199,17 @@ function pause() {
   pausedAt = Math.min(position(), piece.end);
   playing = false;
   clearInterval(timer);
-  silence(false);
+  if (take) take.audio.pause();
+  if (ctx) silence(false);
   hush?.pause();
   setPlayLabel("Play");
 }
 
 function seek(q) {
   if (loop && !(q >= loop.start - 1e-6 && q < loop.end - 1e-6)) setLoopQuietly(sectionAt(q));
-  if (playing) {
+  if (playing && take) {
+    take.audio.currentTime = q > 0 ? take.t(q) : 0;
+  } else if (playing) {
     silence(false);
     q0 = q;
     t0 = ctx.currentTime + 0.05;
@@ -1155,29 +1221,58 @@ function seek(q) {
   paint(q, true);
 }
 
+// While playing: the notes not yet begun are taken back, to be scheduled again from here as things now are.
+function reschedule() {
+  if (!playing || take) return;
+  const q = position();
+  silence(true);
+  q0 = q;
+  t0 = ctx.currentTime;
+  pointer = firstNoteFrom(q + 1e-4);
+}
+
 function setTempo(value) {
-  if (playing) {
-    const q = position();
-    silence(true);
-    q0 = q;
-    t0 = ctx.currentTime;
-    pointer = firstNoteFrom(q + 1e-4);
+  if (take) {
+    // A recording is played faster or slower as a whole, at its own pitch; the tempo shown is its average.
+    take.audio.playbackRate = Math.min(2, Math.max(0.5, value / take.natural));
+    take.audio.preservesPitch = true;
+    $("tempo-text").textContent = `♩ ≈ ${Math.round(take.natural * take.audio.playbackRate)}`;
+    return;
   }
+  reschedule();
   bpm = value;
   $("tempo-text").textContent = `♩ = ${value}`;
 }
 
 function setVoice(v, on) {
   voiceOn[v] = on;
-  if (voiceGains[v]) voiceGains[v].gain.setTargetAtTime(on ? 1 : 0, ctx.currentTime, 0.015);
+  if (voiceGains[v]) voiceGains[v].gain.setTargetAtTime(loudness(v), ctx.currentTime, 0.015);
 }
 
-async function setInstrument(name) {
-  instrument = name;
+function setLevel(v, db) {
+  levels[v] = db;
+  if (voiceGains[v]) voiceGains[v].gain.setTargetAtTime(loudness(v), ctx.currentTime, 0.015);
+}
+
+function setSpread(on) {
+  spread = on;
+  voicePans.forEach((pan, v) => pan.pan.setTargetAtTime(placing(v), ctx.currentTime, 0.05));
+}
+
+// What plays each voice. A change is heard from the next note on; a recorded instrument not yet
+// loaded is loaded first, with the music paused meanwhile.
+async function setSound(list) {
+  sound = list;
+  showSound();
   if (!ctx) return;
+  tuneSynth();
+  const missing = recorded().filter((name) => !banks[name]);
+  if (!missing.length) { reschedule(); return; }
   const wasPlaying = playing;
   if (wasPlaying) pause();
-  if (!banks[name]) { setPlayLabel("Loading…"); await loadInstrument(name); setPlayLabel("Play"); }
+  setPlayLabel("Loading…");
+  await Promise.all(missing.map(loadInstrument));
+  setPlayLabel("Play");
   if (wasPlaying) play();
 }
 
@@ -1185,6 +1280,222 @@ function setPlayLabel(text) {
   $("play-text").textContent = text;
   $("play").setAttribute("aria-label", text);
   $("play-icon").setAttribute("d", text === "Pause" ? "M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" : "M4 2.5v11l9-5.5z");
+}
+
+// ----------------------------------------------------------------- sound
+
+// The window that says what plays each voice. Every voice can be put on one instrument at once, or on
+// one of the synthesizer's sets (a patch for each voice, as on the clip page), and then any voice on
+// anything else. What was chosen is remembered for the next fugue: the same instrument or set if one
+// was chosen for all the voices, and otherwise the same choice for each voice in a fugue of as many.
+
+const SETS = { classic: "Classic", brass: "Brass choir", plucked: "Plucked" };
+
+/** Every voice of this fugue on one thing: "piano", "harpsichord", or "synth:" and the name of a set. */
+function presetSound(key) {
+  const count = piece.voices.length;
+  if (key?.startsWith("synth:") && synth) return synth.castNames(count, key.slice(6));
+  return Array(count).fill(INSTRUMENTS[key] ? key : "piano");
+}
+
+const presets = () => [...Object.keys(INSTRUMENTS), ...(synth ? Object.keys(SETS).map((k) => `synth:${k}`) : [])];
+const presetLabel = (key) => (INSTRUMENTS[key] ? INSTRUMENTS[key].label : `Synthesizer, ${SETS[key.slice(6)].toLowerCase()}`);
+const soundLabel = (name) => (INSTRUMENTS[name] ? INSTRUMENTS[name].label : synth?.NAMES[name] || name);
+// The preset that the voices are now on, if they are on one.
+const presetNow = () => presets().find((key) => presetSound(key).every((name, v) => name === sound[v])) || null;
+
+function recallSound() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem("fugae-sound")) || {}; } catch { /* nothing remembered */ }
+  const count = piece.voices.length, own = saved.each?.[count];
+  const known = (name) => Boolean(INSTRUMENTS[name] || synth?.NAMES[name]);
+  sound = Array.isArray(own) && own.length === count && own.every(known) ? own : presetSound(saved.all);
+  spread = Boolean(saved.spread);
+  levels = piece.voices.map(() => 0);
+}
+
+function rememberSound() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem("fugae-sound")) || {}; } catch { /* start afresh */ }
+  const preset = presetNow();
+  if (preset) saved = { all: preset, spread };
+  else saved = { ...saved, spread, each: { ...(saved.each || {}), [piece.voices.length]: sound } };
+  remember("fugae-sound", JSON.stringify(saved));
+}
+
+function showSound() {
+  const preset = presetNow();
+  $("sound-text").textContent = take ? take.performer
+    : preset ? (INSTRUMENTS[preset] ? INSTRUMENTS[preset].label : SETS[preset.slice(6)] + " synth") : "Mixed sound";
+  $("sound-made").classList.toggle("unused", Boolean(take));
+  for (const input of document.querySelectorAll('input[name="take"]')) input.checked = input.value === (take ? take.name : "");
+  $("sound-credit").hidden = !take;
+  if (take) {
+    const credit = [take.performer, take.licence].filter(Boolean).join(", ");
+    $("sound-credit").replaceChildren(`${credit}. The score follows the recording, lined up with it by the program; the tempo plays it faster or slower.`);
+    if (take.source) {
+      const link = el("a", null, "Where it comes from");
+      link.href = take.source;
+      link.target = "_blank";
+      link.rel = "noopener";
+      $("sound-credit").append(" ", link, ".");
+    }
+  }
+  for (const chip of document.querySelectorAll("#sound-presets .chip")) chip.setAttribute("aria-pressed", String(chip.dataset.key === preset));
+  document.querySelectorAll("#sound-voices select").forEach((menu, v) => { menu.value = sound[v]; });
+}
+
+function buildSound() {
+  // The presets: the recorded instruments in one row, the synthesizer's sets in another.
+  const rows = $("sound-presets");
+  rows.replaceChildren();
+  const groups = [["Recorded", presets().filter((k) => INSTRUMENTS[k])], ["Synthesizer", presets().filter((k) => !INSTRUMENTS[k])]];
+  for (const [name, keys] of groups) {
+    if (!keys.length) continue;
+    const row = el("div", "sound-row");
+    row.append(el("span", "sound-group", name));
+    const chips = el("div", "chips");
+    for (const key of keys) {
+      const chip = el("button", "chip", INSTRUMENTS[key] ? INSTRUMENTS[key].label : SETS[key.slice(6)]);
+      chip.type = "button";
+      chip.dataset.key = key;
+      chip.title = `Every voice on the ${presetLabel(key).toLowerCase()}`
+        + (INSTRUMENTS[key] ? "" : `: ${presetSound(key).map((p, v) => `${piece.voices[v].toLowerCase()} ${soundLabel(p).toLowerCase()}`).join(", ")}`);
+      chip.addEventListener("click", () => { setSound(presetSound(key)); rememberSound(); });
+      chips.append(chip);
+    }
+    row.append(chips);
+    rows.append(row);
+  }
+
+  // A row for each voice: what plays it, and how loud.
+  const list = $("sound-voices");
+  list.replaceChildren();
+  piece.voices.forEach((voiceName, v) => {
+    const row = el("div", `sound-voice v${v}`);
+    const name = el("label", "sound-name", voiceName);
+    const menu = el("select");
+    menu.id = `sound-v${v}`;
+    name.htmlFor = menu.id;
+    const recordedGroup = el("optgroup");
+    recordedGroup.label = "Recorded";
+    for (const key of Object.keys(INSTRUMENTS)) recordedGroup.append(new Option(INSTRUMENTS[key].label, key));
+    menu.append(recordedGroup);
+    if (synth) {
+      for (const [set, label] of Object.entries(SETS)) {
+        const group = el("optgroup");
+        group.label = `Synthesizer, ${label.toLowerCase()}`;
+        for (const p of synth.castNames(5, set)) group.append(new Option(synth.NAMES[p], p));
+        menu.append(group);
+      }
+    }
+    menu.addEventListener("change", () => {
+      setSound(sound.map((x, w) => (w === v ? menu.value : x)));
+      rememberSound();
+    });
+    const level = el("input");
+    Object.assign(level, { type: "range", min: -18, max: 6, step: 1, value: levels[v] });
+    level.setAttribute("aria-label", `How loud the ${voiceName.toLowerCase()} is beside the others`);
+    const said = el("span", "sound-db");
+    const sayLevel = () => { said.textContent = levels[v] ? `${levels[v] > 0 ? "+" : "−"}${Math.abs(levels[v])} dB` : "even"; };
+    level.addEventListener("input", () => { setLevel(v, Number(level.value)); sayLevel(); });
+    level.addEventListener("dblclick", () => { level.value = 0; setLevel(v, 0); sayLevel(); });
+    sayLevel();
+    row.append(name, menu, level, said);
+    list.append(row);
+  });
+
+  $("sound-spread").checked = spread;
+  showSound();
+}
+
+function wireSound() {
+  const box = $("sound"), opener = $("sound-open");
+  // Beside the button that opens it on a wide screen; along the foot of the screen on a phone (by the stylesheet).
+  const place = () => {
+    const at = opener.getBoundingClientRect();
+    box.style.top = `${Math.round(Math.max(8, at.bottom + 6))}px`;
+    box.style.left = `${Math.round(Math.max(8, Math.min(at.left, innerWidth - box.offsetWidth - 12)))}px`;
+  };
+  const close = () => { box.close(); opener.setAttribute("aria-expanded", "false"); opener.focus(); };
+  opener.addEventListener("click", () => {
+    if (box.open) { close(); return; }
+    box.show();
+    place();
+    opener.setAttribute("aria-expanded", "true");
+  });
+  $("sound-close").addEventListener("click", close);
+  box.addEventListener("keydown", (ev) => { if (ev.key === "Escape") { ev.preventDefault(); close(); } });
+  $("sound-spread").addEventListener("change", (ev) => { setSpread(ev.target.checked); rememberSound(); });
+  buildTakes();
+  buildSound();
+}
+
+// ------------------------------------------------------------ recordings
+
+// A fugue may have recordings lined up with its score (`python -m fugae align`, which writes recordings/):
+// for each moment at which a note begins, the second at which the performer plays it. One of them can
+// play in place of the page's own instruments, and then where the score is comes from how far into the
+// recording the player has got. Which one was chosen is remembered, by its short name.
+
+let takes = [];         // this fugue's recordings: {name, performer, file}
+let take = null;        // the one playing: as kept, with its <audio>, `q(seconds)`, `t(crotchets)` and `natural` tempo
+
+// Read off a line through the points (xs, ys), carried on past either end by the nearest stretch of it.
+function along(xs, ys, x) {
+  let lo = 0, hi = xs.length - 1;
+  if (x <= xs[0]) hi = Math.min(1, hi);
+  else if (x >= xs[hi]) lo = Math.max(0, hi - 1);
+  else while (hi - lo > 1) { const mid = (lo + hi) >> 1; if (xs[mid] <= x) lo = mid; else hi = mid; }
+  const span = xs[hi] - xs[lo];
+  return span > 0 ? ys[lo] + ((ys[hi] - ys[lo]) * (x - xs[lo])) / span : ys[lo];
+}
+
+async function loadTakes() {
+  try {
+    const listing = await (await fetch("recordings/index.json")).json();
+    takes = Array.isArray(listing[PIECE]) ? listing[PIECE] : [];
+  } catch { takes = []; }     // none made, or none published
+}
+
+async function setTake(entry) {
+  const wasPlaying = playing;
+  if (wasPlaying) pause();
+  take?.audio.pause();
+  take = null;
+  if (entry) {
+    try {
+      const kept = await (await fetch(`recordings/${entry.file}`)).json();
+      const qs = kept.map.map((p) => p[0]), ts = kept.map.map((p) => p[1]);
+      const audio = new Audio(`recordings/${kept.audio}`);
+      audio.preload = "auto";
+      take = { ...kept, audio, q: (t) => along(ts, qs, t), t: (q) => along(qs, ts, q),
+               natural: (60 * (qs.at(-1) - qs[0])) / (ts.at(-1) - ts[0]) };
+    } catch { take = null; }
+  }
+  remember("fugae-take", take ? take.name : "");
+  // The tempo shown is the recording's own, on average, until it is moved.
+  $("tempo").value = take ? Math.round(take.natural) : bpm;
+  $("tempo-text").textContent = take ? `♩ ≈ ${Math.round(take.natural)}` : `♩ = ${bpm}`;
+  showSound();
+  if (wasPlaying) play();
+}
+
+function buildTakes() {
+  $("sound-takes").hidden = !takes.length;
+  if (!takes.length) return;
+  const list = $("sound-take-list");
+  list.replaceChildren();
+  for (const entry of [null, ...takes]) {
+    const label = el("label", "sound-take");
+    const input = el("input");
+    Object.assign(input, { type: "radio", name: "take", value: entry ? entry.name : "" });
+    input.addEventListener("change", () => input.checked && setTake(entry));
+    label.append(input, entry ? `${entry.performer}, recorded` : "The page's own instruments, as set below");
+    list.append(label);
+  }
+  const wanted = recall("fugae-take", takes.map((t) => t.name), "");
+  if (wanted) setTake(takes.find((t) => t.name === wanted));
 }
 
 // ------------------------------------------------------------- following
@@ -1441,8 +1752,6 @@ function wireControls() {
   $("play").addEventListener("click", () => (playing ? pause() : play()));
   $("rewind").addEventListener("click", () => { seek(0); scrollTo({ top: 0, behavior: "smooth" }); });
   $("tempo").addEventListener("input", (ev) => setTempo(Number(ev.target.value)));
-  document.querySelectorAll('input[name="instrument"]').forEach((input) =>
-    input.addEventListener("change", () => input.checked && setInstrument(input.value)));
   $("loop").addEventListener("click", () => setLoop(loop ? null : sectionAt(Math.min(position(), piece.end - 0.01))));
   document.addEventListener("keydown", (ev) => {
     if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
@@ -1548,10 +1857,13 @@ async function boot() {
   showKind();
   $("tempo").value = bpm;
   $("tempo-text").textContent = `♩ = ${bpm}`;
+  [synth] = await Promise.all([synthReady, loadTakes()]);
+  recallSound();
 
   buildTimeline();
   buildTables();
   wireControls();
+  wireSound();
   wireLayout();
   wirePanel();
   paint(0);
