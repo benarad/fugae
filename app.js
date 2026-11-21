@@ -1028,7 +1028,7 @@ async function fetchInstrument(name) {
 function position() {
   if (!playing) return pausedAt;
   if (take) return Math.max(0, take.q(take.audio.currentTime));
-  return q0 + (Math.max(0, ctx.currentTime - t0) * bpm) / 60;
+  return written(played(q0) + (Math.max(0, ctx.currentTime - t0) * bpm) / 60);
 }
 
 function firstNoteFrom(q) {
@@ -1040,20 +1040,27 @@ function firstNoteFrom(q) {
 // The recorded instruments that some voice is played on.
 const recorded = () => [...new Set(sound.filter((name) => INSTRUMENTS[name]))];
 
-// A note is struck once, or as its ornament has it (ornaments.js), on whatever plays its voice.
+// A note is struck once, or as its ornament has it (ornaments.js), on whatever plays its voice; as long as
+// the shaping (if any) makes it, held as it says where it phrases the note, and as loud.
 function scheduleNote(n, start) {
   const inst = INSTRUMENTS[sound[n.v]], bank = inst && banks[sound[n.v]], voice = !inst && sung[n.v];
   if (!bank && !voice) return;
-  for (const { midi, at, sounds } of strokes(n, (n.dur * 60) / bpm, inst ? inst.hold : SYNTH.hold)) {
+  const length = ((played(n.on + n.dur) - played(n.on)) * 60) / bpm;
+  let hold = inst ? inst.hold : SYNTH.hold;
+  const phrased = shaped ? holds.get(`${n.v}:${n.on}`) : undefined;
+  if (phrased !== undefined) hold = Math.max(0.3, hold + (phrased - hold) * strength);
+  const lift = shaped ? 10 ** (((lifts.get(`${n.v}:${n.on}`) || 0) * strength) / 20) : 1;
+  const loud = (inst ? inst.gain : SYNTH.gain) * lift;
+  for (const { midi, at, sounds } of strokes(n, length, hold)) {
     const when = start + at, off = when + sounds;
-    if (voice) { live.push({ when, ...voice.play(midi, when, off, SYNTH.gain) }); continue; }
+    if (voice) { live.push({ when, ...voice.play(midi, when, off, loud) }); continue; }
     const buffer = bank.get(midi);
     if (!buffer) continue;
     const src = ctx.createBufferSource();
     const gain = ctx.createGain();
     src.buffer = buffer;
-    gain.gain.setValueAtTime(inst.gain, when);
-    gain.gain.setValueAtTime(inst.gain, off);
+    gain.gain.setValueAtTime(loud, when);
+    gain.gain.setValueAtTime(loud, off);
     gain.gain.setTargetAtTime(0, off, inst.release / 3);
     src.connect(gain).connect(voiceGains[n.v]);
     src.start(when);
@@ -1083,11 +1090,11 @@ function pump() {
   if (!playing) return;
   const q = position();
   if (!take) {
-    const now = ctx.currentTime, horizon = q + (0.35 * bpm) / 60;
+    const now = ctx.currentTime, horizon = written(played(q) + (0.35 * bpm) / 60);
     const stop = loop ? loop.end - 1e-6 : Infinity;      // a repeated section's notes only
     while (pointer < piece.notes.length && piece.notes[pointer].on < Math.min(horizon, stop)) {
       const n = piece.notes[pointer++];
-      const when = t0 + ((n.on - q0) * 60) / bpm;
+      const when = t0 + ((played(n.on) - played(q0)) * 60) / bpm;
       if (when > now - 0.03) scheduleNote(n, Math.max(when, now));
     }
     live = live.filter((x) => x.end > now);
@@ -1222,9 +1229,9 @@ function seek(q) {
 }
 
 // While playing: the notes not yet begun are taken back, to be scheduled again from here as things now are.
-function reschedule() {
+// (`q` is where the music is, if it was read before the change that makes this needed.)
+function reschedule(q = position()) {
   if (!playing || take) return;
-  const q = position();
   silence(true);
   q0 = q;
   t0 = ctx.currentTime;
@@ -1428,7 +1435,82 @@ function wireSound() {
   box.addEventListener("keydown", (ev) => { if (ev.key === "Escape") { ev.preventDefault(); close(); } });
   $("sound-spread").addEventListener("change", (ev) => { setSpread(ev.target.checked); rememberSound(); });
   buildTakes();
+  buildShaping();
   buildSound();
+}
+
+// --------------------------------------------------------------- shaping
+
+// A fugue may be shaped after a performer (`python -m fugae shape`, which writes styles/): her timing habits,
+// measured on the other fugues she recorded and applied to this one by its score (the gap after each moment
+// at which notes begin taken so much longer or shorter than written, as a logarithm), and her phrasing of
+// the subject, given to every entry of it, and her touch, given to every other note (how much of a note she
+// holds). `strength` scales all of it: at 0 the notes are played as written, at 1 at the measure of her
+// habits, and up to 2, twice that: her habits are averages, gentler than any one performance of hers.
+
+let shaping = null;     // as kept in styles/<piece>.json
+let strength = 1;
+let shaped = false;     // whether the shaping is being played
+let qs = null, taus = null;     // the shaping's map: crotchets as written, and as played at the tempo set
+let holds = new Map();  // "voice:onset" -> how much of the note is held
+let lifts = new Map();  // "voice:onset" -> how much louder (or, below nothing, softer) it is played, in dB
+
+// Where in the played time a moment of the score falls, and the other way about.
+const played = (q) => (qs ? along(qs, taus, q) : q);
+const written = (t) => (qs ? along(taus, qs, t) : t);
+
+function shapeMap() {
+  shaped = Boolean(shaping) && strength > 0;
+  qs = taus = null;
+  if (!shaped) return;
+  const stretch = shaping.stretch;
+  qs = [...stretch.map((p) => p[0]), piece.end + 1];
+  taus = [qs[0]];
+  for (let k = 0; k < stretch.length; k++) {
+    taus.push(taus[k] + (qs[k + 1] - qs[k]) * Math.exp(strength * stretch[k][1]));
+  }
+}
+
+async function loadShaping() {
+  try {
+    const listed = await (await fetch("styles/index.json")).json();
+    shaping = listed.includes(PIECE) ? await (await fetch(`styles/${PIECE}.json`)).json() : null;
+  } catch { shaping = null; }     // none made, or none published
+  holds = new Map((shaping?.hold || []).map(([v, on, h]) => [`${v}:${on}`, h]));
+  lifts = new Map((shaping?.level || []).map(([v, on, db]) => [`${v}:${on}`, db]));
+  strength = Number(recall("fugae-shaping-strength", ["0", "50", "100", "150", "200"], "100")) / 100;
+}
+
+function setStrength(value) {
+  const q = position();       // read by the old shaping, before it changes
+  strength = value;
+  shapeMap();
+  remember("fugae-shaping-strength", String(Math.round(value * 100)));
+  showStrength();
+  reschedule(q);
+}
+
+function showStrength() {
+  const said = { 0: "off", 0.5: "half", 1: "her measure", 1.5: "half as much again", 2: "double" }[strength];
+  $("sound-strength-text").textContent = said || `${Math.round(strength * 100)}%`;
+  $("sound-strength").value = Math.round(strength * 100);
+}
+
+function buildShaping() {
+  $("sound-shape").hidden = !shaping;
+  if (!shaping) return;
+  $("sound-shape-label").textContent = `Shaped after ${shaping.after}`;
+  // Her habits are learned from the fugues of hers that have been lined up, never from this one; her phrasing
+  // of the subject comes from this one, where she recorded it.
+  const own = Boolean(shaping.phrasing);
+  $("sound-shape-note").textContent = `Her timing, touch and loudness, learned from ${own ? "the other fugues" : "the fugues"} `
+    + "of Book I she recorded: leaning into the beat, broadening at the close, letting longer notes go a little "
+    + "early, notes between the beats a little softer, the subject brought forward when it is below the top. "
+    + (own ? "Her own phrasing of this fugue's subject is given to every entry of it. "
+           : "She did not record this fugue, so its subject is phrased only by her touch. ")
+    + "Off plays the notes as written; her habits are averages, gentler than any one performance, so they can be doubled.";
+  $("sound-strength").addEventListener("input", (ev) => setStrength(Number(ev.target.value) / 100));
+  showStrength();
 }
 
 // ------------------------------------------------------------ recordings
@@ -1857,7 +1939,8 @@ async function boot() {
   showKind();
   $("tempo").value = bpm;
   $("tempo-text").textContent = `♩ = ${bpm}`;
-  [synth] = await Promise.all([synthReady, loadTakes()]);
+  [synth] = await Promise.all([synthReady, loadTakes(), loadShaping()]);
+  shapeMap();
   recallSound();
 
   buildTimeline();

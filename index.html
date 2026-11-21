@@ -124,6 +124,17 @@
       <div class="sound-presets" id="sound-presets"></div>
       <p class="sound-label">Each voice <span class="sound-scale">softer ⟷ louder</span></p>
       <div class="sound-voices" id="sound-voices"></div>
+      <!-- A shaping after a performer, if this fugue has one: her timing habits and her phrasing of the subject. -->
+      <div id="sound-shape" class="sound-shape" hidden>
+        <div class="sound-row">
+          <label class="sound-group" for="sound-strength" id="sound-shape-label">Shaped</label>
+          <div class="sound-strength">
+            <input type="range" id="sound-strength" min="0" max="200" step="50" value="100">
+            <span id="sound-strength-text">her measure</span>
+          </div>
+        </div>
+        <p class="sound-note" id="sound-shape-note"></p>
+      </div>
       <label class="sound-spread"><input type="checkbox" id="sound-spread">
         Place the voices from left to right, the highest on the right</label>
       <p class="sound-note">The piano and the harpsichord are recordings. The synthesizer is made by the page, and its
