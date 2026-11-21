@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P2ce8b04f12b159c6d82401208fc7fb91">
+    <score-part id="P20cc328924694314d8a338e11a41baf5">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P2ce8b04f12b159c6d82401208fc7fb91">
+  <part id="P20cc328924694314d8a338e11a41baf5">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -11287,6 +11287,9 @@
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -11348,6 +11351,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note id="v1n792">
         <chord />
@@ -11448,6 +11454,9 @@
         <accidental>natural</accidental>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -11510,6 +11519,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

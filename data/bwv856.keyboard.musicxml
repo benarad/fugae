@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pdc743fc34f47b599d27a36a93056edcd">
+    <score-part id="Pcdc3495b97ae0c83688aed29a814807a">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pdc743fc34f47b599d27a36a93056edcd">
+  <part id="Pcdc3495b97ae0c83688aed29a814807a">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -732,6 +732,11 @@
         <dot />
         <accidental>natural</accidental>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 8 ==========================-->
@@ -1352,6 +1357,11 @@
         <dot />
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <backup>
         <duration>15120</duration>
@@ -1968,6 +1978,11 @@
         <dot />
         <accidental>natural</accidental>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 17 =========================-->
@@ -2530,6 +2545,11 @@
         <type>quarter</type>
         <dot />
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 21 =========================-->
@@ -2954,6 +2974,11 @@
         <dot />
         <accidental>natural</accidental>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <backup>
         <duration>15120</duration>
@@ -3562,6 +3587,11 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <backup>
         <duration>15120</duration>
@@ -3950,6 +3980,11 @@
         <type>quarter</type>
         <dot />
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 31 =========================-->
@@ -5982,6 +6017,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">continue</beam>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n423">
         <pitch>
@@ -7569,6 +7609,11 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">continue</beam>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n531">
         <pitch>
@@ -10019,6 +10064,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">continue</beam>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n699">
         <pitch>
@@ -10115,6 +10165,9 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -10136,6 +10189,9 @@
         <type>quarter</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -10156,6 +10212,9 @@
         <voice>3</voice>
         <type>quarter</type>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />

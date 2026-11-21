@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pcbd09aef1d0e8bf52b4f73411c9ac8e2">
+    <score-part id="P660a547f180a5c836e080af1b4ac0681">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pcbd09aef1d0e8bf52b4f73411c9ac8e2">
+  <part id="P660a547f180a5c836e080af1b4ac0681">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -26021,6 +26021,11 @@
         <accidental>natural</accidental>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n1852">
         <pitch>
@@ -26185,6 +26190,9 @@
         <dot />
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>60480</duration>
@@ -26200,6 +26208,9 @@
         <dot />
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>60480</duration>
@@ -26217,6 +26228,9 @@
         <accidental>natural</accidental>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>60480</duration>
@@ -26233,6 +26247,9 @@
         <dot />
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

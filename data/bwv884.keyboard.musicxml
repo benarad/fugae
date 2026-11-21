@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pa36ea84ada6a2fecdb1d254ba0982fdf">
+    <score-part id="P6e201daf7732b85b7ccb9782483b653a">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pa36ea84ada6a2fecdb1d254ba0982fdf">
+  <part id="P6e201daf7732b85b7ccb9782483b653a">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -7335,6 +7335,9 @@
         <staff>1</staff>
         <notations>
           <tied type="start" />
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
         </notations>
       </note>
       <backup>
@@ -7646,6 +7649,9 @@
         <staff>1</staff>
         <notations>
           <tied type="start" />
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
         </notations>
       </note>
       <backup>
@@ -8543,6 +8549,9 @@
         <staff>2</staff>
         <notations>
           <tied type="start" />
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
         </notations>
       </note>
       <note id="v1n599">
@@ -8905,6 +8914,9 @@
         <staff>2</staff>
         <notations>
           <tied type="start" />
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
         </notations>
       </note>
       <note id="v2n623">
@@ -9231,6 +9243,9 @@
         <staff>2</staff>
         <notations>
           <tied type="start" />
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
         </notations>
       </note>
       <note id="v1n646">
@@ -9340,6 +9355,11 @@
         <staff>2</staff>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v1n652">
         <pitch>
@@ -11097,6 +11117,9 @@
         <dot />
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>15120</duration>
@@ -11112,6 +11135,9 @@
         <dot />
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>15120</duration>
@@ -11126,6 +11152,9 @@
         <type>quarter</type>
         <dot />
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P3fa9043406b7c828e253270e8829983c">
+    <score-part id="P98b25b508caa9e1e3a15ec8534a78163">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P3fa9043406b7c828e253270e8829983c">
+  <part id="P98b25b508caa9e1e3a15ec8534a78163">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -323,6 +323,11 @@
         <voice>2</voice>
         <type>half</type>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 4 ==========================-->
@@ -725,6 +730,11 @@
         <voice>1</voice>
         <type>half</type>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -1895,6 +1905,11 @@
         <voice>3</voice>
         <type>half</type>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v2n131">
         <pitch>
@@ -2017,6 +2032,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n140">
         <pitch>
@@ -2576,6 +2596,11 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v1n177">
         <pitch>
@@ -3136,6 +3161,11 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -22121,6 +22151,9 @@
         <voice>1</voice>
         <type>half</type>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -22183,6 +22216,9 @@
         <type>half</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -22220,6 +22256,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

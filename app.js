@@ -975,7 +975,7 @@ function ensureContext() {
 async function loadInstrument(name) {
   if (banks[name]) return banks[name];
   const text = await (await fetch(INSTRUMENTS[name].file)).text();
-  const wanted = new Set(piece.notes.flatMap((n) => n.midi));
+  const wanted = new Set(piece.notes.flatMap((n) => [...n.midi, ...(n.aux || [])]));
   const bank = new Map();
   const jobs = [];
   for (const m of text.matchAll(/"([A-G])(b?)(\d)":\s*"data:audio\/mp3;base64,([^"]+)"/g)) {
@@ -1000,12 +1000,13 @@ function firstNoteFrom(q) {
   return lo;
 }
 
-function scheduleNote(n, when) {
+// A note is struck once, or as its ornament has it (ornaments.js).
+function scheduleNote(n, start) {
   const inst = INSTRUMENTS[instrument], bank = banks[instrument];
-  const off = when + Math.max(0.07, ((n.dur * 60) / bpm) * inst.hold);
-  for (const midi of n.midi) {
+  for (const { midi, at, sounds } of strokes(n, (n.dur * 60) / bpm, inst.hold)) {
     const buffer = bank.get(midi);
     if (!buffer) continue;
+    const when = start + at, off = when + sounds;
     const src = ctx.createBufferSource();
     const gain = ctx.createGain();
     src.buffer = buffer;

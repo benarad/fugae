@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P08d7bfb1fa50e13dd6ea5eed7c63d3d5">
+    <score-part id="Pe7027e44a46414aedf3d16e72e3c11a2">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P08d7bfb1fa50e13dd6ea5eed7c63d3d5">
+  <part id="Pe7027e44a46414aedf3d16e72e3c11a2">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -8004,6 +8004,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n548">
         <pitch>
@@ -9006,6 +9011,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n618">
         <pitch>
@@ -11649,6 +11659,9 @@
         <type>whole</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -11663,6 +11676,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -11678,6 +11694,9 @@
         <type>whole</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -11692,6 +11711,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

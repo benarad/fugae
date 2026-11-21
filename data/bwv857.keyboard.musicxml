@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pa6b6309954b06dac6dbd41580d40f99f">
+    <score-part id="P71241e13a671571427e65db4a42347ac">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pa6b6309954b06dac6dbd41580d40f99f">
+  <part id="P71241e13a671571427e65db4a42347ac">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -714,6 +714,11 @@
         <voice>2</voice>
         <type>quarter</type>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 7 ==========================-->
@@ -8122,6 +8127,11 @@
         <voice>3</voice>
         <type>quarter</type>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v2n542">
         <pitch>
@@ -21219,6 +21229,11 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -21318,6 +21333,11 @@
         <type>half</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -21346,6 +21366,9 @@
         <type>whole</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -21360,6 +21383,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -21376,6 +21402,9 @@
         <accidental>natural</accidental>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -21390,6 +21419,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

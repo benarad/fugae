@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P240d3d14849794d0961c03a6003a617e">
+    <score-part id="P8f229e6ff0c36676687a0b4a9db4a59c">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P240d3d14849794d0961c03a6003a617e">
+  <part id="P8f229e6ff0c36676687a0b4a9db4a59c">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -4817,6 +4817,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <inverted-mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n340">
         <pitch>
@@ -6998,6 +7003,11 @@
         <staff>1</staff>
         <beam number="1">continue</beam>
         <beam number="2">begin</beam>
+        <notations>
+          <ornaments>
+            <mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n493">
         <pitch>
@@ -9478,6 +9488,11 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n658">
         <pitch>
@@ -11232,6 +11247,9 @@
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -11289,6 +11307,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note id="v1n790">
         <chord />
@@ -11314,6 +11335,9 @@
         <type>whole</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -11330,6 +11354,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
+          <fermata type="inverted" />
           <tied type="stop" />
         </notations>
       </note>

@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pa9400e5a2a688282e1c0645746118d21">
+    <score-part id="Pe8f189e79dae2ff0b805d0f764d177ee">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pa9400e5a2a688282e1c0645746118d21">
+  <part id="Pe8f189e79dae2ff0b805d0f764d177ee">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -19749,6 +19749,9 @@
         <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note default-x="21.74" default-y="0" id="v0n1401">
         <chord />
@@ -19774,6 +19777,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -19790,6 +19796,9 @@
         <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note default-x="21.74" default-y="-315" id="v3n1404">
         <chord />
@@ -19815,6 +19824,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

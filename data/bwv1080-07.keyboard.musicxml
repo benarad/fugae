@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P00ed1be3df368444e2209403014561c0">
+    <score-part id="P6f528a2a992336e1722d75731371152b">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P00ed1be3df368444e2209403014561c0">
+  <part id="P6f528a2a992336e1722d75731371152b">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -5328,6 +5328,11 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="447.12" default-y="-350" dynamics="100.00" id="v3n366">
         <pitch>
@@ -24564,6 +24569,9 @@
         <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note default-x="284.8" default-y="-35" id="v0n1670">
         <chord />
@@ -24635,6 +24643,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -24672,6 +24683,9 @@
         <type>half</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -24701,6 +24715,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
     </measure>
   </part>

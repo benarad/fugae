@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P93c0358ea391a9fe3ed463ea2b187df5">
+    <score-part id="P8d9591e8503d1ade9f8f21080cebbc5a">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P93c0358ea391a9fe3ed463ea2b187df5">
+  <part id="P8d9591e8503d1ade9f8f21080cebbc5a">
     <!--========================= Measure 0 ==========================-->
     <measure implicit="no" number="0">
       <attributes>
@@ -3316,6 +3316,11 @@
         <type>half</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 12 =========================-->
@@ -14946,6 +14951,11 @@
         <dot />
         <accidental>sharp</accidental>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="331.63" default-y="-261.37" dynamics="100.00" id="v2n820">
         <pitch>
@@ -17491,6 +17501,9 @@
         <voice>1</voice>
         <type>half</type>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note id="v0r988">
         <rest />
@@ -17578,6 +17591,9 @@
         <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note id="v1r993">
         <rest />
@@ -17610,6 +17626,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -17728,6 +17747,9 @@
         <staff>1</staff>
         <notations>
           <tied type="start" />
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
         </notations>
       </note>
       <note default-x="277.78" default-y="-5" id="v0n1002">
@@ -18331,6 +18353,9 @@
         <staff>1</staff>
         <notations>
           <tied type="start" />
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
         </notations>
       </note>
       <note default-x="260.16" default-y="5" id="v0n1030">
@@ -21763,6 +21788,11 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -22713,6 +22743,9 @@
         <dot />
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -22737,6 +22770,9 @@
         <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -22758,6 +22794,9 @@
         <type>half</type>
         <dot />
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />

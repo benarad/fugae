@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P91349687a1b362c3b5b224b5981ee7aa">
+    <score-part id="P998ff30b3c2db98c141c35ff23b8670d">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P91349687a1b362c3b5b224b5981ee7aa">
+  <part id="P998ff30b3c2db98c141c35ff23b8670d">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -260,6 +260,11 @@
         <voice>1</voice>
         <type>quarter</type>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n18">
         <pitch>
@@ -878,6 +883,11 @@
         <voice>2</voice>
         <type>quarter</type>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v1n64">
         <pitch>
@@ -1949,6 +1959,11 @@
         <voice>3</voice>
         <type>quarter</type>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v2n142">
         <pitch>
@@ -6218,6 +6233,11 @@
         <voice>2</voice>
         <type>quarter</type>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 19 =========================-->
@@ -7412,6 +7432,11 @@
         <type>quarter</type>
         <accidental>natural</accidental>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 22 =========================-->
@@ -10901,6 +10926,11 @@
         <voice>1</voice>
         <type>quarter</type>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v0n761">
         <pitch>
@@ -13668,6 +13698,9 @@
         <type>whole</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -13847,6 +13880,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note id="v0n953">
         <chord />
@@ -13873,6 +13909,9 @@
         <voice>12</voice>
         <type>whole</type>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

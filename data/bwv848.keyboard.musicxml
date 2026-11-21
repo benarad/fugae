@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pa411e12f8c33ca1a212d7a482a1005f1">
+    <score-part id="P1d1893996148f30c36861b9c1ee9966c">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pa411e12f8c33ca1a212d7a482a1005f1">
+  <part id="P1d1893996148f30c36861b9c1ee9966c">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -14952,6 +14952,9 @@
         <staff>1</staff>
         <notations>
           <tied type="start" />
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
         </notations>
       </note>
       <backup>
@@ -22003,6 +22006,9 @@
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note id="v0n1468">
         <chord />
@@ -22157,6 +22163,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -22215,6 +22224,9 @@
         <voice>12</voice>
         <type>half</type>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

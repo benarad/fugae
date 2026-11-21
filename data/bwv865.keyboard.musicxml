@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pe61cdaa86cc9ac32cb9c57404917f37f">
+    <score-part id="P31d1b84e44027e401c61dbddc08f9286">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pe61cdaa86cc9ac32cb9c57404917f37f">
+  <part id="P31d1b84e44027e401c61dbddc08f9286">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -19948,6 +19948,11 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v1n1437">
         <pitch>
@@ -20278,6 +20283,11 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note id="v1n1462">
         <pitch>
@@ -32475,6 +32485,9 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note id="v0n2323">
         <chord />
@@ -32568,6 +32581,9 @@
         <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -32604,6 +32620,9 @@
         <type>quarter</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -32644,6 +32663,9 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note id="v2r2334">
         <rest />
@@ -32683,6 +32705,9 @@
         <type>quarter</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -35372,6 +35397,9 @@
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note id="v0n2526">
         <chord />
@@ -35398,6 +35426,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -35565,6 +35596,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note id="v1n2539">
         <chord />
@@ -35592,6 +35626,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
+          <fermata type="inverted" />
           <tied type="stop" />
         </notations>
       </note>
@@ -35608,6 +35643,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
     </measure>
   </part>

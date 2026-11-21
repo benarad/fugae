@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pd9176ce2b800ed65fc71e88067ee13a5">
+    <score-part id="Pc8430ab69193f1d4d729c3f542a579fa">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pd9176ce2b800ed65fc71e88067ee13a5">
+  <part id="Pc8430ab69193f1d4d729c3f542a579fa">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -549,6 +549,11 @@
         <type>half</type>
         <dot />
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="267.98" default-y="-335" dynamics="100.00" id="v3n47">
         <pitch>
@@ -668,6 +673,11 @@
         <dot />
         <accidental>sharp</accidental>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="201.81" default-y="-345" dynamics="100.00" id="v3n57">
         <pitch>
@@ -1044,6 +1054,11 @@
         <voice>4</voice>
         <type>whole</type>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 12 =========================-->
@@ -3842,6 +3857,11 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <backup>
         <duration>60480</duration>
@@ -7571,6 +7591,11 @@
         <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="324.72" default-y="-365" dynamics="100.00" id="v3n567">
         <pitch>
@@ -14342,6 +14367,9 @@
         <dot />
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>60480</duration>
@@ -14402,6 +14430,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>60480</duration>
@@ -14453,6 +14484,9 @@
         <type>whole</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>60480</duration>
@@ -14566,6 +14600,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
     </measure>
   </part>

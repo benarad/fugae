@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P7880afc58cc20f21f3364ee0ebb513ec">
+    <score-part id="P6cd2b3bac148885e6b513c3515205563">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P7880afc58cc20f21f3364ee0ebb513ec">
+  <part id="P6cd2b3bac148885e6b513c3515205563">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -4897,6 +4897,11 @@
         <dot />
         <accidental>sharp</accidental>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="125.84" default-y="-330" dynamics="100.00" id="v3n360">
         <pitch>
@@ -5144,6 +5149,11 @@
         <dot />
         <accidental>sharp</accidental>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="124.18" default-y="-345" dynamics="100.00" id="v3n378">
         <pitch>
@@ -11296,6 +11306,11 @@
         <dot />
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <articulations>
+            <staccato />
+          </articulations>
+        </notations>
       </note>
       <note default-x="96.46" default-y="-235" dynamics="100.00" id="v2n828">
         <pitch>
@@ -16267,6 +16282,7 @@
         <stem>up</stem>
         <staff>1</staff>
         <notations>
+          <fermata type="upright" />
           <tied type="stop" />
         </notations>
       </note>
@@ -16337,6 +16353,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -16406,6 +16425,9 @@
         <type>half</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -16420,6 +16442,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
     </measure>
   </part>

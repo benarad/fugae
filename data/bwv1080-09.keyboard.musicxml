@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pe233673ad9cb8aefe512096c4b4e8e3d">
+    <score-part id="P3aefffd3902571f51ccde377ac71fa3d">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pe233673ad9cb8aefe512096c4b4e8e3d">
+  <part id="P3aefffd3902571f51ccde377ac71fa3d">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -438,6 +438,11 @@
         <voice>2</voice>
         <type>quarter</type>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <inverted-mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="42.8" default-y="-100" dynamics="100.00" id="v1n33">
         <pitch>
@@ -1346,6 +1351,11 @@
         <voice>1</voice>
         <type>quarter</type>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <inverted-mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="60.81" default-y="5" dynamics="100.00" id="v0n107">
         <pitch>
@@ -4286,6 +4296,11 @@
         <dot />
         <accidental>sharp</accidental>
         <staff>2</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="102.32" default-y="-360" dynamics="100.00" id="v3n314">
         <pitch>
@@ -24223,6 +24238,9 @@
         <type>whole</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -24237,6 +24255,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -24253,6 +24274,9 @@
         <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -24267,6 +24291,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
     </measure>
   </part>

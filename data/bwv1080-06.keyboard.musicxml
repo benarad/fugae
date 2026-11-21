@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P33551ba4e50e36cc3811efad0611c056">
+    <score-part id="P304ce5d8476b81653bfe6f3167878ae6">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P33551ba4e50e36cc3811efad0611c056">
+  <part id="P304ce5d8476b81653bfe6f3167878ae6">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -515,6 +515,11 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="215.98" default-y="-15" dynamics="100.00" id="v0n35">
         <pitch>
@@ -5781,6 +5786,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="199.97" default-y="-110" dynamics="100.00" id="v1n384">
         <pitch>
@@ -5835,6 +5845,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="372.75" default-y="-125" dynamics="100.00" id="v1n388">
         <pitch>
@@ -12755,6 +12770,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="349.7" default-y="-20" dynamics="100.00" id="v0n864">
         <pitch>
@@ -13994,6 +14014,11 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <trill-mark placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="290.96" default-y="-355" dynamics="100.00" id="v3n950">
         <pitch>
@@ -15711,6 +15736,11 @@
         <stem>up</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
+        <notations>
+          <ornaments>
+            <inverted-mordent placement="above" />
+          </ornaments>
+        </notations>
       </note>
       <note default-x="460.12" default-y="0" dynamics="100.00" id="v0n1072">
         <pitch>
@@ -25508,6 +25538,9 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note id="v0r1720">
         <rest />
@@ -25638,6 +25671,9 @@
         <type>quarter</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -25715,6 +25751,9 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note id="v2r1734">
         <rest />
@@ -25793,6 +25832,9 @@
         <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note print-object="no" print-spacing="yes">
         <rest />
@@ -27833,6 +27875,9 @@
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note default-x="159.62" default-y="0" id="v0n1879">
         <chord />
@@ -27902,6 +27947,9 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -27986,6 +28034,9 @@
         <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <note default-x="159.62" default-y="-230" id="v2n1888">
         <chord />
@@ -28026,6 +28077,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
+          <fermata type="upright" />
           <tied type="stop" />
         </notations>
       </note>

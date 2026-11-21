@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-19</encoding-date>
+      <encoding-date>2026-11-20</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,12 +19,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P19e85e109404e40013e409cc7646f867">
+    <score-part id="P6c8b791d5e7fa81ba97f806b39244f16">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P19e85e109404e40013e409cc7646f867">
+  <part id="P6c8b791d5e7fa81ba97f806b39244f16">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -25299,6 +25299,11 @@
         <type>half</type>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <articulations>
+            <staccato />
+          </articulations>
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -44044,6 +44049,9 @@
         <type>whole</type>
         <stem>up</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -44060,6 +44068,9 @@
         <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>1</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
       <backup>
         <duration>40320</duration>
@@ -44076,6 +44087,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
+          <fermata type="upright" />
           <tied type="stop" />
         </notations>
       </note>
@@ -44092,6 +44104,9 @@
         <type>whole</type>
         <stem>down</stem>
         <staff>2</staff>
+        <notations>
+          <fermata type="upright" />
+        </notations>
       </note>
     </measure>
   </part>
