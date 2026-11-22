@@ -1053,7 +1053,7 @@ function scheduleNote(n, start) {
   const loud = (inst ? inst.gain : SYNTH.gain) * lift;
   for (const { midi, at, sounds } of strokes(n, length, hold)) {
     const when = start + at, off = when + sounds;
-    if (voice) { live.push({ when, ...voice.play(midi, when, off, loud) }); continue; }
+    if (voice) { live.push({ when, ...voice.play(midi, when, off, loud, lift) }); continue; }     // as hard as the shaping plays it
     const buffer = bank.get(midi);
     if (!buffer) continue;
     const src = ctx.createBufferSource();
