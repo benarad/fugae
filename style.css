@@ -261,6 +261,7 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .sound-note { margin: 10px 0 0; font-size: 11.5px; color: var(--muted); line-height: 1.4; }
 .sound-shape { margin-top: 12px; }
 .sound-shape .sound-row { grid-template-columns: auto 1fr; }
+.sound-shape .sound-row + .sound-row { margin-top: 6px; }
 .sound-strength { display: flex; align-items: center; gap: 8px; }
 .sound-strength input { flex: 1; }
 #sound-strength-text { min-width: 7.5em; font-size: 12px; color: var(--ink-2); }

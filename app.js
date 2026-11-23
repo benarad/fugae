@@ -1035,7 +1035,7 @@ function pianoPlan() {
   const struck = [], onPiano = (n) => INSTRUMENTS[sound[n.v]]?.grand;
   for (const n of piece.notes) {
     if (!onPiano(n)) continue;
-    const db = shaped ? (lifts.get(`${n.v}:${n.on}`) || 0) * strength : 0;
+    const db = shaped ? liftOf(n) : 0;
     for (const midi of n.midi) struck.push({ v: n.v, on: n.on, midi, db });
     for (const midi of n.aux || []) struck.push({ v: n.v, on: n.on, midi, db, aside: true });
   }
@@ -1113,7 +1113,7 @@ function scheduleNote(n, start) {
   let hold = inst ? inst.hold : SYNTH.hold;
   const phrased = shaped ? holds.get(`${n.v}:${n.on}`) : undefined;
   if (phrased !== undefined) hold = Math.max(0.3, hold + (phrased - hold) * strength);
-  const lift = shaped ? 10 ** (((lifts.get(`${n.v}:${n.on}`) || 0) * strength) / 20) : 1;
+  const lift = shaped ? 10 ** (liftOf(n) / 20) : 1;
   const loud = (inst ? inst.gain : SYNTH.gain) * lift;
   for (const { midi, at, sounds } of strokes(n, length, hold)) {
     const when = start + at, off = when + sounds;
@@ -1532,8 +1532,18 @@ function wireSound() {
 // the subject, given to every entry of it, and her touch, given to every other note (how much of a note she
 // holds). `strength` scales all of it: at 0 the notes are played as written, at 1 at the measure of her
 // habits, and up to 2, twice that: her habits are averages, gentler than any one performance of hers.
+//
+// A shaping may also say how the loudness rises and falls over the fugue (`dynamics`: so many dB at each
+// beat): as measured in the performer's own recording of it, or, where there is none, by their habits in the
+// fugues they did record (tools/playing_rules/shape_after.py).
+//
+// The page's own shapings are after one performer (styles/<piece>.json). Where there are others'
+// (styles/<name>/<piece>.json; styles/after.json lists every performer, the page's own first, with no
+// name), the Sound window lets one be chosen.
 
-let shaping = null;     // as kept in styles/<piece>.json
+let shaping = null;     // as kept in styles/<piece>.json, or styles/<name>/<piece>.json
+let performers = [];    // whom a fugue can be shaped after here, if there is a choice: { name, performer }
+let shapedAfter = "";   // the name of the one chosen: none is the page's own shaping
 let strength = 1;
 let shaped = false;     // whether the shaping is being played
 let qs = null, taus = null;     // the shaping's map: crotchets as written, and as played at the tempo set
@@ -1556,14 +1566,60 @@ function shapeMap() {
   }
 }
 
-async function loadShaping() {
+// How much louder or softer than plain the shaping plays a note, in dB, at the strength set: the note's own
+// (softer off the beat, a theme brought forward) and the rise and fall over the fugue where the note begins.
+// A rise and fall measured in a recording is one performance, not a habit: it is never played more than as
+// measured.
+function liftOf(n) {
+  const own = (lifts.get(`${n.v}:${n.on}`) || 0) * strength, d = shaping.dynamics;
+  if (!d) return own;
+  const x = Math.max(0, Math.min(d.db.length - 1, (n.on - d.start) / d.step)), i = Math.floor(x);
+  const there = d.db[i] + (d.db[Math.min(d.db.length - 1, i + 1)] - d.db[i]) * (x - i);
+  return own + there * (d.from === "recording" ? Math.min(1, strength) : strength);
+}
+
+// This fugue's shaping after a performer (the page's own, if no name is given), or nothing if there is none.
+async function fetchShaping(name) {
   try {
+    if (name) {
+      const r = await fetch(`styles/${name}/${PIECE}.json`);
+      return r.ok ? await r.json() : null;
+    }
     const listed = await (await fetch("styles/index.json")).json();
-    shaping = listed.includes(PIECE) ? await (await fetch(`styles/${PIECE}.json`)).json() : null;
-  } catch { shaping = null; }     // none made, or none published
+    return listed.includes(PIECE) ? await (await fetch(`styles/${PIECE}.json`)).json() : null;
+  } catch { return null; }     // none made, or none published
+}
+
+function takeShaping(given) {
+  shaping = given;
   holds = new Map((shaping?.hold || []).map(([v, on, h]) => [`${v}:${on}`, h]));
   lifts = new Map((shaping?.level || []).map(([v, on, db]) => [`${v}:${on}`, db]));
+}
+
+async function loadShaping() {
+  try {
+    const r = await fetch("styles/after.json");
+    performers = r.ok ? await r.json() : [];
+  } catch { performers = []; }
+  shapedAfter = recall("fugae-shaped-after", ["", ...performers.map((o) => o.name)], "");
+  let given = await fetchShaping(shapedAfter);
+  if (!given && shapedAfter) { shapedAfter = ""; given = await fetchShaping(""); }
+  takeShaping(given);
   strength = Number(recall("fugae-shaping-strength", ["0", "50", "100", "150", "200"], "100")) / 100;
+}
+
+// Shape the fugue after another performer: from where the music is now, in the new timing.
+async function setShapedAfter(name) {
+  const given = await fetchShaping(name);
+  if (!given) { $("sound-after").value = shapedAfter; return; }
+  const q = position();       // read by the old shaping, before it changes
+  shapedAfter = name;
+  takeShaping(given);
+  shapeMap();
+  remember("fugae-shaped-after", name);
+  showShaping();
+  refreshPiano();       // louder and softer notes are other recordings
+  reschedule(q);
 }
 
 function setStrength(value) {
@@ -1577,7 +1633,7 @@ function setStrength(value) {
 }
 
 function showStrength() {
-  const said = { 0: "off", 0.5: "half", 1: "her measure", 1.5: "half as much again", 2: "double" }[strength];
+  const said = { 0: "off", 0.5: "half", 1: `${shaping.after.split(" ").at(-1)}'s measure`, 1.5: "half as much again", 2: "double" }[strength];
   $("sound-strength-text").textContent = said || `${Math.round(strength * 100)}%`;
   $("sound-strength").value = Math.round(strength * 100);
 }
@@ -1585,17 +1641,44 @@ function showStrength() {
 function buildShaping() {
   $("sound-shape").hidden = !shaping;
   if (!shaping) return;
-  $("sound-shape-label").textContent = `Shaped after ${shaping.after}`;
-  // Her habits are learned from the fugues of hers that have been lined up, never from this one; her phrasing
-  // of the subject comes from this one, where she recorded it.
-  const own = Boolean(shaping.phrasing);
-  $("sound-shape-note").textContent = `Her timing, touch and loudness, learned from ${own ? "the other fugues" : "the fugues"} `
-    + "of Book I she recorded: leaning into the beat, broadening at the close, letting longer notes go a little "
-    + "early, notes between the beats a little softer, the subject brought forward when it is below the top. "
-    + (own ? "Her own phrasing of this fugue's subject is given to every entry of it. "
-           : "She did not record this fugue, so its subject is phrased only by her touch. ")
-    + "Off plays the notes as written; her habits are averages, gentler than any one performance, so they can be doubled.";
+  // Whom to shape it after, where there is more than one.
+  const pick = $("sound-after");
+  $("sound-after-row").hidden = performers.length < 2;
+  if (performers.length > 1) {
+    pick.replaceChildren(...performers.map((o) => new Option(o.performer, o.name)));
+    pick.value = shapedAfter;
+    pick.addEventListener("change", () => setShapedAfter(pick.value));
+  }
   $("sound-strength").addEventListener("input", (ev) => setStrength(Number(ev.target.value) / 100));
+  showShaping();
+}
+
+// What the Sound window says of the shaping now played.
+function showShaping() {
+  const who = shaping.after.split(" ").at(-1), own = Boolean(shaping.phrasing), d = shaping.dynamics;
+  $("sound-shape-label").textContent = performers.length > 1 ? "How much" : `Shaped after ${shaping.after}`;
+  // The habits are learned from the performer's fugues that have been lined up, never from this one; the
+  // phrasing of the subject comes from this one, where there is a recording of it. The page's own shapings
+  // (after Ishizaka, from her Book I) do not say how many fugues they were learned from.
+  const hers = shaping.learned === undefined, whose = hers ? "her" : `${who}'s`;
+  let text = hers
+    ? `Her timing, touch and loudness, learned from ${own ? "the other fugues" : "the fugues"} `
+      + "of Book I she recorded: leaning into the beat, broadening at the close, letting longer notes go a little "
+      + "early, notes between the beats a little softer, the subject brought forward when it is below the top. "
+      + (own ? "Her own phrasing of this fugue's subject is given to every entry of it. "
+             : "She did not record this fugue, so its subject is phrased only by her touch. ")
+    : `${who}'s timing, touch and loudness, learned from ${shaping.learned} ${own ? "other fugues" : "fugues"} `
+      + `of the Well-Tempered Clavier in ${who}'s recordings. `
+      + (own ? `${who}'s own phrasing of this fugue's subject is given to every entry of it. `
+             : `There is no recording of this fugue by ${who} to go by here, so its subject is phrased only by ${who}'s touch. `);
+  if (d) {
+    text += d.from === "recording"
+      ? `The rise and fall of loudness over the fugue is as measured in ${whose} recording of it. `
+      : `The rise and fall of loudness over the fugue follows ${whose} habits in the fugues recorded. `;
+  }
+  text += "Off plays the notes as written; habits are averages, gentler than any one performance, so they can be doubled"
+    + (d?.from === "recording" ? " (the measured rise and fall is not)." : ".");
+  $("sound-shape-note").textContent = text;
   showStrength();
 }
 
