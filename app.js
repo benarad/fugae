@@ -18,15 +18,11 @@ const INSTRUMENTS = {
 };
 // The harpsichords join it once their module is there (`plucked`: harpsichord.js): the page's own first,
 // then the others, each made of recordings by register and ending each note with the sound of its key let
-// go. Last, the harpsichord the page had before, one short recording a key from the FluidR3 General MIDI
-// set; without the module it is the only one.
-const OLD_HARPSICHORD = { file: "soundfonts/harpsichord-mp3.js", gain: 0.55, hold: 0.94, release: 0.05 };
+// go. Without the module there is none, and a voice that was on one is on the piano.
 function addHarpsichords() {
   for (const [key, kind] of Object.entries(plucked ? plucked.KINDS : {})) {
     INSTRUMENTS[key] = { label: kind.label, what: kind.what, plucked: true, gain: kind.gain, hold: 0.94, release: 0.05 };
   }
-  if (plucked) INSTRUMENTS["harpsichord:gm"] = { label: "General MIDI harpsichord", what: "the harpsichord the page had before, from a General MIDI set", ...OLD_HARPSICHORD };
-  else INSTRUMENTS.harpsichord = { label: "Harpsichord", ...OLD_HARPSICHORD };
 }
 // The harpsichords other than the page's own: offered in one menu among the presets, and by name for each voice.
 const otherHarpsichords = () => Object.keys(INSTRUMENTS).filter((key) => key.startsWith("harpsichord:"));
@@ -979,7 +975,7 @@ const voiceOn = [];
 const haloSends = [];   // for each voice: what it sends to the piano's other strings (all of it on the piano, else nothing)
 let halo = null;        // those strings: a convolver (piano.js `strings`)
 let pianoTouch = new Map();   // how each of the piano's notes is struck (piano.js `touches`)
-const banks = {};       // instrument name -> Map(midi -> AudioBuffer); for the piano, only that it is ready
+const banks = {};       // instrument name -> that its recordings for this fugue are ready
 let sound = [];         // for each voice: "piano", a harpsichord, or the name of a synthesizer patch
 let levels = [];        // for each voice: how much louder or softer than the others, in decibels
 let spread = false;     // the voices placed from left to right
@@ -991,8 +987,6 @@ let q0 = 0, t0 = 0;     // playback anchor: position q0 at audio time t0
 let pointer = 0;        // next note to schedule
 let live = [];          // scheduled sources
 let timer = null;
-
-const NOTE_PC = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
 
 function ensureContext() {
   if (ctx) return;
@@ -1090,26 +1084,12 @@ async function fetchInstrument(name) {
     banks[name] = true;
     return true;
   }
+  // A harpsichord: the recordings, in each of its registers, that this fugue's notes are played on.
   const wanted = new Set(piece.notes.flatMap((n) => [...n.midi, ...(n.aux || [])]));
-  if (INSTRUMENTS[name].plucked) {
-    // A harpsichord: the recordings, in each of its registers, that this fugue's notes are played on.
-    await plucked.index(name);
-    await plucked.load(ctx, [...wanted].flatMap((midi) => plucked.picks(name, midi).map((p) => p.key)));
-    banks[name] = true;
-    return true;
-  }
-  const text = await (await fetch(INSTRUMENTS[name].file)).text();
-  const bank = new Map();
-  const jobs = [];
-  for (const m of text.matchAll(/"([A-G])(b?)(\d)":\s*"data:audio\/mp3;base64,([^"]+)"/g)) {
-    const midi = NOTE_PC[m[1]] - (m[2] ? 1 : 0) + 12 * (Number(m[3]) + 1);
-    if (!wanted.has(midi)) continue;
-    const bytes = Uint8Array.from(atob(m[4]), (c) => c.charCodeAt(0));
-    jobs.push(ctx.decodeAudioData(bytes.buffer).then((buf) => bank.set(midi, buf)));
-  }
-  await Promise.all(jobs);
-  banks[name] = bank;
-  return bank;
+  await plucked.index(name);
+  await plucked.load(ctx, [...wanted].flatMap((midi) => plucked.picks(name, midi).map((p) => p.key)));
+  banks[name] = true;
+  return true;
 }
 
 function position() {
@@ -1142,31 +1122,20 @@ function scheduleNote(n, start) {
     const when = start + at, off = when + sounds;
     if (voice) { live.push({ when, ...voice.play(midi, when, off, loud, lift) }); continue; }     // as hard as the shaping plays it
     if (inst.plucked) { pluck(n.v, midi, when, off, loud); continue; }
-    const src = ctx.createBufferSource();
-    const gain = ctx.createGain();
-    let begin = when, end = off, level = loud;
-    if (inst.grand) {
-      // The piano: the recording nearest the loudness wanted (of those fetched), struck in this note's own
-      // way, a little after the highest note of its chord, and a little brighter or darker (piano.js).
-      const t = pianoTouch.get(grand.id(n.v, n.on, midi)) || { db: 20 * Math.log10(lift), shelf: 0, lead: 0 };
-      const p = grand.pick(midi, t.db, true), buffer = p && grand.recording(p.key);
-      if (!buffer) continue;
-      begin = when + (at === 0 ? t.lead : 0);
-      end = Math.max(begin + 0.02, off);       // let go when it would have been
-      level = inst.gain * p.gain;
-      const tone = ctx.createBiquadFilter();
-      tone.type = "highshelf"; tone.frequency.value = 1500; tone.gain.value = t.shelf;
-      src.buffer = buffer;
-      src.playbackRate.value = p.rate;
-      src.connect(tone).connect(gain);
-      src.start(begin, buffer.strike);
-    } else {
-      const buffer = bank.get(midi);
-      if (!buffer) continue;
-      src.buffer = buffer;
-      src.connect(gain);
-      src.start(begin);
-    }
+    // The piano: the recording nearest the loudness wanted (of those fetched), struck in this note's own
+    // way, a little after the highest note of its chord, and a little brighter or darker (piano.js).
+    const t = pianoTouch.get(grand.id(n.v, n.on, midi)) || { db: 20 * Math.log10(lift), shelf: 0, lead: 0 };
+    const p = grand.pick(midi, t.db, true), buffer = p && grand.recording(p.key);
+    if (!buffer) continue;
+    const src = ctx.createBufferSource(), gain = ctx.createGain(), tone = ctx.createBiquadFilter();
+    const begin = when + (at === 0 ? t.lead : 0);
+    const end = Math.max(begin + 0.02, off);       // let go when it would have been
+    const level = inst.gain * p.gain;
+    tone.type = "highshelf"; tone.frequency.value = 1500; tone.gain.value = t.shelf;
+    src.buffer = buffer;
+    src.playbackRate.value = p.rate;
+    src.connect(tone).connect(gain);
+    src.start(begin, buffer.strike);
     gain.gain.setValueAtTime(level, begin);
     gain.gain.setValueAtTime(level, end);
     gain.gain.setTargetAtTime(0, end, inst.release / 3);
@@ -1449,7 +1418,7 @@ const SETS = { classic: "Classic", brass: "Brass choir", plucked: "Plucked" };
 function presetSound(key) {
   const count = piece.voices.length;
   if (key?.startsWith("synth:") && synth) return synth.castNames(count, key.slice(6));
-  return Array(count).fill(INSTRUMENTS[key] ? key : "piano");
+  return Array(count).fill(INSTRUMENTS[key] ? key : key?.startsWith("harpsichord:") && INSTRUMENTS.harpsichord ? "harpsichord" : "piano");
 }
 
 const presets = () => [...Object.keys(INSTRUMENTS), ...(synth ? Object.keys(SETS).map((k) => `synth:${k}`) : [])];

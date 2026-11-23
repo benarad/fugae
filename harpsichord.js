@@ -2,7 +2,7 @@
 // Sample Library (Versilian Studios and contributors, public domain: https://github.com/sgossner/VCSL), cut
 // down for the web by tools/harpsichord/build.py (soundfonts/harpsichords, a folder for each register).
 //
-// Each register has a recording for every whole tone or so (one has every key), and beside each the sound
+// Each register has a recording for every whole tone or so, and beside each the sound
 // of that key let go: the jack falling back and the damper landing. What a recording is called is not
 // trusted for its pitch: its pitch was measured, and a note is played on the recording nearest it, a little
 // faster or slower, so every note is in tune. The keys were not evenly loud as recorded, so each is brought
@@ -22,7 +22,6 @@ export const KINDS = {
   "harpsichord:italian": { label: "Italian harpsichord", what: "an Italian harpsichord, bright and lean", registers: [["italian", 0]], gain: 0.264 },
   "harpsichord:english": { label: "English harpsichord", what: "an English harpsichord (a Zuckermann kit of the 1970s), the brightest of them", registers: [["english", 0]], gain: 0.345 },
   "harpsichord:lute": { label: "English harpsichord, lute stop", what: "the English harpsichord with its lute stop: drier, its notes soon gone", registers: [["english-lute", 0]], gain: 0.42 },
-  "harpsichord:unnamed": { label: "Unnamed harpsichord", what: "a harpsichord the library does not name, every key of it recorded", registers: [["unknown", 0]], gain: 0.278 },
 };
 // How long the damper takes to stop a string, in seconds (what is heard after it is the key's own sound).
 export const DAMP = 0.045;
