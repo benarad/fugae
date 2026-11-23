@@ -15,8 +15,21 @@ let scoreSize = "medium";
 // gain: there, as here, its middle loudness is as strong as the piano the page had before).
 const INSTRUMENTS = {
   piano: { label: "Piano", grand: true, gain: 0.193, hold: 0.98, release: 0.14 },
-  harpsichord: { label: "Harpsichord", file: "soundfonts/harpsichord-mp3.js", gain: 0.55, hold: 0.94, release: 0.05 },
 };
+// The harpsichords join it once their module is there (`plucked`: harpsichord.js): the page's own first,
+// then the others, each made of recordings by register and ending each note with the sound of its key let
+// go. Last, the harpsichord the page had before, one short recording a key from the FluidR3 General MIDI
+// set; without the module it is the only one.
+const OLD_HARPSICHORD = { file: "soundfonts/harpsichord-mp3.js", gain: 0.55, hold: 0.94, release: 0.05 };
+function addHarpsichords() {
+  for (const [key, kind] of Object.entries(plucked ? plucked.KINDS : {})) {
+    INSTRUMENTS[key] = { label: kind.label, what: kind.what, plucked: true, gain: kind.gain, hold: 0.94, release: 0.05 };
+  }
+  if (plucked) INSTRUMENTS["harpsichord:gm"] = { label: "General MIDI harpsichord", what: "the harpsichord the page had before, from a General MIDI set", ...OLD_HARPSICHORD };
+  else INSTRUMENTS.harpsichord = { label: "Harpsichord", ...OLD_HARPSICHORD };
+}
+// The harpsichords other than the page's own: offered in one menu among the presets, and by name for each voice.
+const otherHarpsichords = () => Object.keys(INSTRUMENTS).filter((key) => key.startsWith("harpsichord:"));
 // Measured: at this gain a patch's note is about as strong as the piano's in the same register over the
 // first half second, and a little weaker, since it is the brighter sound. (The clip page plays the
 // synthesizer louder and evens out the whole recording afterwards; here every voice shares one mix.)
@@ -27,6 +40,9 @@ let synth = null;
 // The piano, likewise.
 const pianoReady = import("./piano.js").catch(() => null);
 let grand = null;
+// The harpsichords, likewise.
+const pluckedReady = import("./harpsichord.js").catch(() => null);
+let plucked = null;
 
 // Verovio compiles in the background; hook its ready signal before anything else runs.
 const verovioReady = new Promise((ready) => { verovio.module.onRuntimeInitialized = ready; });
@@ -964,7 +980,7 @@ const haloSends = [];   // for each voice: what it sends to the piano's other st
 let halo = null;        // those strings: a convolver (piano.js `strings`)
 let pianoTouch = new Map();   // how each of the piano's notes is struck (piano.js `touches`)
 const banks = {};       // instrument name -> Map(midi -> AudioBuffer); for the piano, only that it is ready
-let sound = [];         // for each voice: "piano", "harpsichord", or the name of a synthesizer patch
+let sound = [];         // for each voice: "piano", a harpsichord, or the name of a synthesizer patch
 let levels = [];        // for each voice: how much louder or softer than the others, in decibels
 let spread = false;     // the voices placed from left to right
 let sung = [];          // for each voice on the synthesizer: {name, play}, its voice there (synth.js)
@@ -1074,8 +1090,15 @@ async function fetchInstrument(name) {
     banks[name] = true;
     return true;
   }
-  const text = await (await fetch(INSTRUMENTS[name].file)).text();
   const wanted = new Set(piece.notes.flatMap((n) => [...n.midi, ...(n.aux || [])]));
+  if (INSTRUMENTS[name].plucked) {
+    // A harpsichord: the recordings, in each of its registers, that this fugue's notes are played on.
+    await plucked.index(name);
+    await plucked.load(ctx, [...wanted].flatMap((midi) => plucked.picks(name, midi).map((p) => p.key)));
+    banks[name] = true;
+    return true;
+  }
+  const text = await (await fetch(INSTRUMENTS[name].file)).text();
   const bank = new Map();
   const jobs = [];
   for (const m of text.matchAll(/"([A-G])(b?)(\d)":\s*"data:audio\/mp3;base64,([^"]+)"/g)) {
@@ -1118,6 +1141,7 @@ function scheduleNote(n, start) {
   for (const { midi, at, sounds } of strokes(n, length, hold)) {
     const when = start + at, off = when + sounds;
     if (voice) { live.push({ when, ...voice.play(midi, when, off, loud, lift) }); continue; }     // as hard as the shaping plays it
+    if (inst.plucked) { pluck(n.v, midi, when, off, loud); continue; }
     const src = ctx.createBufferSource();
     const gain = ctx.createGain();
     let begin = when, end = off, level = loud;
@@ -1154,6 +1178,44 @@ function scheduleNote(n, start) {
         gain.gain.cancelScheduledValues(now);
         gain.gain.setTargetAtTime(0, now, 0.012);
         try { src.stop(now + 0.08); } catch { /* already stopped */ }
+      },
+    });
+  }
+}
+
+// A harpsichord's note: every register of it sounds, and when the note ends the damper stops it and its key
+// is heard let go (harpsichord.js).
+function pluck(v, midi, when, off, loud) {
+  for (const pick of plucked.picks(sound[v], midi)) {
+    const rec = plucked.recording(pick.key);
+    if (!rec) continue;
+    const src = ctx.createBufferSource(), gain = ctx.createGain(), level = loud * pick.gain;
+    src.buffer = rec.buffer;
+    src.playbackRate.value = pick.rate;
+    gain.gain.setValueAtTime(level, when);
+    gain.gain.setValueAtTime(level, off);
+    gain.gain.setTargetAtTime(0, off, plucked.DAMP / 3);
+    src.connect(gain).connect(voiceGains[v]);
+    src.start(when, rec.strike);
+    src.stop(off + plucked.DAMP * 3);
+    let back = null, soft = null;
+    if (rec.gone) {
+      back = ctx.createBufferSource(); soft = ctx.createGain();
+      back.buffer = rec.gone;
+      back.playbackRate.value = pick.rate;
+      soft.gain.value = level * plucked.back(rec, pick.release, (off - when) * pick.rate);
+      back.connect(soft).connect(voiceGains[v]);
+      back.start(off, rec.goneAt);
+    }
+    live.push({
+      when, end: off + (back ? rec.gone.duration / pick.rate : plucked.DAMP * 3),
+      stop(now) {
+        gain.gain.cancelScheduledValues(now);
+        gain.gain.setTargetAtTime(0, now, 0.012);
+        try { src.stop(now + 0.08); } catch { /* already stopped */ }
+        if (!back) return;
+        soft.gain.setTargetAtTime(0, now, 0.012);       // the key, too, or it is never heard if its note was stopped first
+        try { back.stop(now + 0.08); } catch { /* already stopped */ }
       },
     });
   }
@@ -1383,7 +1445,7 @@ function setPlayLabel(text) {
 
 const SETS = { classic: "Classic", brass: "Brass choir", plucked: "Plucked" };
 
-/** Every voice of this fugue on one thing: "piano", "harpsichord", or "synth:" and the name of a set. */
+/** Every voice of this fugue on one thing: "piano", a harpsichord, or "synth:" and the name of a set. */
 function presetSound(key) {
   const count = piece.voices.length;
   if (key?.startsWith("synth:") && synth) return synth.castNames(count, key.slice(6));
@@ -1433,7 +1495,9 @@ function showSound() {
       $("sound-credit").append(" ", link, ".");
     }
   }
-  for (const chip of document.querySelectorAll("#sound-presets .chip")) chip.setAttribute("aria-pressed", String(chip.dataset.key === preset));
+  for (const chip of document.querySelectorAll("#sound-presets button.chip")) chip.setAttribute("aria-pressed", String(chip.dataset.key === preset));
+  const more = $("sound-more"), other = otherHarpsichords().includes(preset);
+  if (more) { more.value = other ? preset : ""; more.classList.toggle("chosen", other); }
   document.querySelectorAll("#sound-voices select").forEach((menu, v) => { menu.value = sound[v]; });
 }
 
@@ -1441,7 +1505,8 @@ function buildSound() {
   // The presets: the recorded instruments in one row, the synthesizer's sets in another.
   const rows = $("sound-presets");
   rows.replaceChildren();
-  const groups = [["Recorded", presets().filter((k) => INSTRUMENTS[k])], ["Synthesizer", presets().filter((k) => !INSTRUMENTS[k])]];
+  const others = otherHarpsichords();
+  const groups = [["Recorded", presets().filter((k) => INSTRUMENTS[k] && !others.includes(k))], ["Synthesizer", presets().filter((k) => !INSTRUMENTS[k])]];
   for (const [name, keys] of groups) {
     if (!keys.length) continue;
     const row = el("div", "sound-row");
@@ -1452,9 +1517,24 @@ function buildSound() {
       chip.type = "button";
       chip.dataset.key = key;
       chip.title = `Every voice on the ${presetLabel(key).toLowerCase()}`
-        + (INSTRUMENTS[key] ? "" : `: ${presetSound(key).map((p, v) => `${piece.voices[v].toLowerCase()} ${soundLabel(p).toLowerCase()}`).join(", ")}`);
+        + (INSTRUMENTS[key] ? (INSTRUMENTS[key].what ? `: ${INSTRUMENTS[key].what}` : "")
+          : `: ${presetSound(key).map((p, v) => `${piece.voices[v].toLowerCase()} ${soundLabel(p).toLowerCase()}`).join(", ")}`);
       chip.addEventListener("click", () => { setSound(presetSound(key)); rememberSound(); });
       chips.append(chip);
+    }
+    if (name === "Recorded" && others.length) {
+      // After the harpsichord, the others: a menu, so that they take one chip's room.
+      const more = el("select", "chip");
+      more.id = "sound-more";
+      more.title = "Every voice on another harpsichord";
+      more.setAttribute("aria-label", more.title);
+      more.append(new Option("Other harpsichords…", ""), ...others.map((key) => new Option(INSTRUMENTS[key].label, key)));
+      more.addEventListener("change", () => {
+        if (!more.value) { showSound(); return; }
+        setSound(presetSound(more.value));
+        rememberSound();
+      });
+      chips.append(more);
     }
     row.append(chips);
     rows.append(row);
@@ -2108,7 +2188,8 @@ async function boot() {
   showKind();
   $("tempo").value = bpm;
   $("tempo-text").textContent = `♩ = ${bpm}`;
-  [synth, grand] = await Promise.all([synthReady, pianoReady, loadTakes(), loadShaping()]);
+  [synth, grand, plucked] = await Promise.all([synthReady, pianoReady, pluckedReady, loadTakes(), loadShaping()]);
+  addHarpsichords();
   shapeMap();
   recallSound();
 

@@ -126,6 +126,16 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .chips.quiet .chip.of-character { background: var(--neutral-fill); border-color: transparent; color: var(--ink); }
 .chips.quiet .chip:hover { border-color: var(--muted); }
 .chip[aria-pressed="true"], .chips.quiet .chip.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--page); }
+/* A chip that is a menu (the other harpsichords, in one chip's room): a chip's shape whatever the menus
+   around it look like, and its own arrow, drawn in its ink. */
+.chips select.chip {
+  appearance: none; -webkit-appearance: none;
+  width: auto; height: 26px; padding: 0 26px 0 10px; border-radius: 13px; font-size: 13px;
+  background-color: var(--surface);
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 14px center, right 9px center; background-size: 5px 5px; background-repeat: no-repeat;
+}
+.chips select.chip.chosen { background-color: var(--ink); border-color: var(--ink); color: var(--page); }
 
 .count { display: flex; align-items: center; gap: 12px; min-height: 26px; margin: 18px 0 8px; }
 .count b { font-weight: 600; }
@@ -559,6 +569,7 @@ tbody tr:hover td { background: var(--neutral-fill); }
   .mini { min-height: 40px; }
   .segmented span { line-height: 38px; padding: 0 12px; }
   .chip { height: 34px; padding: 0 12px; }
+  .chips select.chip { height: 34px; padding: 0 28px 0 12px; border-radius: 17px; }
   .chips { gap: 8px; }
   .chips.quiet .chip { height: 30px; }
   .cell { min-height: 38px; }
