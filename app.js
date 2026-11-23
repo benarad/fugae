@@ -10,9 +10,11 @@ const SIZES = { small: 32, medium: 40, large: 50 };   // Verovio rendering scale
 let scoreSize = "medium";
 
 // The recorded instruments. Anything else that plays a voice is one of the synthesizer's patches (synth.js),
-// whose notes do not die away by themselves and so are held a little short.
+// whose notes do not die away by themselves and so are held a little short. The piano is not one recording
+// a key but several, by loudness (`grand`: piano.js, which also says how its notes are struck and gives its
+// gain: there, as here, its middle loudness is as strong as the piano the page had before).
 const INSTRUMENTS = {
-  piano: { label: "Piano", file: "soundfonts/acoustic_grand_piano-mp3.js", gain: 0.9, hold: 0.98, release: 0.14 },
+  piano: { label: "Piano", grand: true, gain: 0.193, hold: 0.98, release: 0.14 },
   harpsichord: { label: "Harpsichord", file: "soundfonts/harpsichord-mp3.js", gain: 0.55, hold: 0.94, release: 0.05 },
 };
 // Measured: at this gain a patch's note is about as strong as the piano's in the same register over the
@@ -22,6 +24,9 @@ const SYNTH = { gain: 0.035, hold: 0.9 };
 // The synthesizer, loaded beside the page (it is a module, which this script is not); null if it cannot be.
 const synthReady = import("./synth.js").catch(() => null);
 let synth = null;
+// The piano, likewise.
+const pianoReady = import("./piano.js").catch(() => null);
+let grand = null;
 
 // Verovio compiles in the background; hook its ready signal before anything else runs.
 const verovioReady = new Promise((ready) => { verovio.module.onRuntimeInitialized = ready; });
@@ -955,7 +960,10 @@ let ctx, master;
 const voiceGains = [];  // for each voice: its loudness, or nothing while it is muted
 const voicePans = [];   // for each voice: where it is placed, from left to right
 const voiceOn = [];
-const banks = {};       // instrument name -> Map(midi -> AudioBuffer)
+const haloSends = [];   // for each voice: what it sends to the piano's other strings (all of it on the piano, else nothing)
+let halo = null;        // those strings: a convolver (piano.js `strings`)
+let pianoTouch = new Map();   // how each of the piano's notes is struck (piano.js `touches`)
+const banks = {};       // instrument name -> Map(midi -> AudioBuffer); for the piano, only that it is ready
 let sound = [];         // for each voice: "piano", "harpsichord", or the name of a synthesizer patch
 let levels = [];        // for each voice: how much louder or softer than the others, in decibels
 let spread = false;     // the voices placed from left to right
@@ -977,16 +985,27 @@ function ensureContext() {
   master = ctx.createGain();
   master.gain.value = 0.8;
   master.connect(squash).connect(ctx.destination);
+  // The piano's other strings ring with it: a voice on the piano sends them what it plays, and their answer
+  // joins the mix (silent until the piano is first loaded, when the strings are made).
+  halo = ctx.createConvolver();
+  halo.normalize = false;
+  const answer = ctx.createGain();
+  answer.gain.value = grand ? grand.HALO : 0;
+  halo.connect(answer).connect(master);
   piece.voices.forEach((_, v) => {
-    const g = ctx.createGain();
+    const g = ctx.createGain(), send = ctx.createGain();
     g.gain.value = loudness(v);
+    send.gain.value = 0;
     if (ctx.createStereoPanner) {
       const pan = ctx.createStereoPanner();
       pan.pan.value = placing(v);
       g.connect(pan).connect(master);
+      pan.connect(send);
       voicePans[v] = pan;
-    } else g.connect(master);
+    } else { g.connect(master); g.connect(send); }
+    send.connect(halo);
     voiceGains[v] = g;
+    haloSends[v] = send;
   });
   tuneSynth();
 }
@@ -998,6 +1017,7 @@ const placing = (v) => (spread && piece.voices.length > 1 ? 0.6 - (1.2 * v) / (p
 // Each voice that the synthesizer plays has a voice of its own there, with the patch chosen for it.
 function tuneSynth() {
   if (!ctx) return;
+  haloSends.forEach((send, v) => send.gain.setTargetAtTime(INSTRUMENTS[sound[v]]?.grand ? 1 : 0, ctx.currentTime, 0.02));
   sung = piece.voices.map((_, v) => {
     const name = sound[v];
     if (INSTRUMENTS[name] || !synth) return null;
@@ -1009,7 +1029,51 @@ function tuneSynth() {
 const loading = {};     // instrument name -> its bank, on the way
 const loadInstrument = (name) => (loading[name] ||= fetchInstrument(name));
 
+// The piano's notes as they are to be struck now, and the recordings they take (piano.js): each note's
+// loudness is the shaping's, with the chance of its strike; how long a recording must be goes by the tempo.
+function pianoPlan() {
+  const struck = [], onPiano = (n) => INSTRUMENTS[sound[n.v]]?.grand;
+  for (const n of piece.notes) {
+    if (!onPiano(n)) continue;
+    const db = shaped ? (lifts.get(`${n.v}:${n.on}`) || 0) * strength : 0;
+    for (const midi of n.midi) struck.push({ v: n.v, on: n.on, midi, db });
+    for (const midi of n.aux || []) struck.push({ v: n.v, on: n.on, midi, db, aside: true });
+  }
+  const touch = grand.touches(struck), needs = new Map();
+  for (const n of piece.notes) {
+    if (!onPiano(n)) continue;
+    const length = ((played(n.on + n.dur) - played(n.on)) * 60) / bpm;
+    for (const midi of [...n.midi, ...(n.aux || [])]) {
+      const p = grand.pick(midi, touch.get(grand.id(n.v, n.on, midi)).db);
+      needs.set(p.key, Math.max(needs.get(p.key) || 0, (length + INSTRUMENTS.piano.release * 3) * p.rate + 0.2));
+    }
+  }
+  return { touch, needs: grand.lacking(needs) };
+}
+
+// After a change to what the piano plays, or how (the voices on it, the shaping's strength, the tempo): its
+// notes are struck the new way at once, and any recordings that takes are fetched meanwhile (until one is
+// there, the nearest loudness that is plays). Returns the fetching, or nothing if there is none to do.
+function refreshPiano() {
+  if (!grand || !ctx || !banks.piano || !sound.some((name) => INSTRUMENTS[name]?.grand)) return null;
+  const { touch, needs } = pianoPlan();
+  pianoTouch = touch;
+  return needs.size ? grand.load(ctx, needs) : null;
+}
+let pianoSoon = null;
+const refreshPianoSoon = () => { clearTimeout(pianoSoon); pianoSoon = setTimeout(refreshPiano, 400); };
+
 async function fetchInstrument(name) {
+  if (INSTRUMENTS[name].grand) {
+    if (!grand) throw new Error("the piano could not be loaded");
+    await grand.index();
+    halo.buffer = grand.strings(ctx.sampleRate);
+    const { touch, needs } = pianoPlan();
+    pianoTouch = touch;
+    await grand.load(ctx, needs);
+    banks[name] = true;
+    return true;
+  }
   const text = await (await fetch(INSTRUMENTS[name].file)).text();
   const wanted = new Set(piece.notes.flatMap((n) => [...n.midi, ...(n.aux || [])]));
   const bank = new Map();
@@ -1054,19 +1118,38 @@ function scheduleNote(n, start) {
   for (const { midi, at, sounds } of strokes(n, length, hold)) {
     const when = start + at, off = when + sounds;
     if (voice) { live.push({ when, ...voice.play(midi, when, off, loud, lift) }); continue; }     // as hard as the shaping plays it
-    const buffer = bank.get(midi);
-    if (!buffer) continue;
     const src = ctx.createBufferSource();
     const gain = ctx.createGain();
-    src.buffer = buffer;
-    gain.gain.setValueAtTime(loud, when);
-    gain.gain.setValueAtTime(loud, off);
-    gain.gain.setTargetAtTime(0, off, inst.release / 3);
-    src.connect(gain).connect(voiceGains[n.v]);
-    src.start(when);
-    src.stop(off + inst.release * 3);
+    let begin = when, end = off, level = loud;
+    if (inst.grand) {
+      // The piano: the recording nearest the loudness wanted (of those fetched), struck in this note's own
+      // way, a little after the highest note of its chord, and a little brighter or darker (piano.js).
+      const t = pianoTouch.get(grand.id(n.v, n.on, midi)) || { db: 20 * Math.log10(lift), shelf: 0, lead: 0 };
+      const p = grand.pick(midi, t.db, true), buffer = p && grand.recording(p.key);
+      if (!buffer) continue;
+      begin = when + (at === 0 ? t.lead : 0);
+      end = Math.max(begin + 0.02, off);       // let go when it would have been
+      level = inst.gain * p.gain;
+      const tone = ctx.createBiquadFilter();
+      tone.type = "highshelf"; tone.frequency.value = 1500; tone.gain.value = t.shelf;
+      src.buffer = buffer;
+      src.playbackRate.value = p.rate;
+      src.connect(tone).connect(gain);
+      src.start(begin, buffer.strike);
+    } else {
+      const buffer = bank.get(midi);
+      if (!buffer) continue;
+      src.buffer = buffer;
+      src.connect(gain);
+      src.start(begin);
+    }
+    gain.gain.setValueAtTime(level, begin);
+    gain.gain.setValueAtTime(level, end);
+    gain.gain.setTargetAtTime(0, end, inst.release / 3);
+    gain.connect(voiceGains[n.v]);
+    src.stop(end + inst.release * 3);
     live.push({
-      when, end: off + inst.release * 3,
+      when: begin, end: end + inst.release * 3,
       stop(now) {
         gain.gain.cancelScheduledValues(now);
         gain.gain.setTargetAtTime(0, now, 0.012);
@@ -1249,6 +1332,7 @@ function setTempo(value) {
   reschedule();
   bpm = value;
   $("tempo-text").textContent = `♩ = ${value}`;
+  refreshPianoSoon();       // slower, a long note may outlast the short recording fetched for it
 }
 
 function setVoice(v, on) {
@@ -1274,11 +1358,12 @@ async function setSound(list) {
   if (!ctx) return;
   tuneSynth();
   const missing = recorded().filter((name) => !banks[name]);
-  if (!missing.length) { reschedule(); return; }
+  const more = refreshPiano();        // a voice newly on the piano has notes of its own to fetch
+  if (!missing.length && !more) { reschedule(); return; }
   const wasPlaying = playing;
   if (wasPlaying) pause();
   setPlayLabel("Loading…");
-  await Promise.all(missing.map(loadInstrument));
+  await Promise.all([...missing.map(loadInstrument), more]);
   setPlayLabel("Play");
   if (wasPlaying) play();
 }
@@ -1487,6 +1572,7 @@ function setStrength(value) {
   shapeMap();
   remember("fugae-shaping-strength", String(Math.round(value * 100)));
   showStrength();
+  refreshPiano();       // louder and softer notes are other recordings
   reschedule(q);
 }
 
@@ -1939,7 +2025,7 @@ async function boot() {
   showKind();
   $("tempo").value = bpm;
   $("tempo-text").textContent = `♩ = ${bpm}`;
-  [synth] = await Promise.all([synthReady, loadTakes(), loadShaping()]);
+  [synth, grand] = await Promise.all([synthReady, pianoReady, loadTakes(), loadShaping()]);
   shapeMap();
   recallSound();
 
