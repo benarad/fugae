@@ -434,6 +434,7 @@ tbody tr:hover td { background: var(--neutral-fill); }
 .v2 { --voice: var(--paper-3); --voice-ui: var(--series-3); }
 .v3 { --voice: var(--paper-4); --voice-ui: var(--series-4); }
 .v4 { --voice: var(--paper-5); --voice-ui: var(--series-5); }
+.v5 { --voice: var(--paper-6); --voice-ui: var(--series-6); }
 .paper.colour-voice g.note.voiced, .paper.colour-voice g.note.voiced *,
 .paper.colour-voice g.rest.voiced, .paper.colour-voice g.rest.voiced *,
 .paper.colour-voice g.beam.voiced > polygon { fill: var(--voice); stroke: var(--voice); color: var(--voice); }
@@ -444,7 +445,7 @@ tbody tr:hover td { background: var(--neutral-fill); }
 .paper:not(.colour-voice) .shared { display: none; }
 .paper.keyboard.solo .shared { opacity: 0.18; }
 .paper.keyboard.solo-v0 .shared.v0, .paper.keyboard.solo-v1 .shared.v1, .paper.keyboard.solo-v2 .shared.v2,
-.paper.keyboard.solo-v3 .shared.v3, .paper.keyboard.solo-v4 .shared.v4 { opacity: 1; }
+.paper.keyboard.solo-v3 .shared.v3, .paper.keyboard.solo-v4 .shared.v4, .paper.keyboard.solo-v5 .shared.v5 { opacity: 1; }
 /* The notes being played: each keeps its colour and gets a disc of that colour behind its head. */
 .paper .halo { fill: var(--sounding); stroke: none; opacity: 0; pointer-events: none; }
 .paper.colour-voice .halo { fill: var(--voice, var(--sounding)); }
@@ -459,7 +460,8 @@ tbody tr:hover td { background: var(--neutral-fill); }
 .paper.keyboard.solo-v1 g.note.v1, .paper.keyboard.solo-v1 g.rest.v1, .paper.keyboard.solo-v1 g.beam.v1 > polygon,
 .paper.keyboard.solo-v2 g.note.v2, .paper.keyboard.solo-v2 g.rest.v2, .paper.keyboard.solo-v2 g.beam.v2 > polygon,
 .paper.keyboard.solo-v3 g.note.v3, .paper.keyboard.solo-v3 g.rest.v3, .paper.keyboard.solo-v3 g.beam.v3 > polygon,
-.paper.keyboard.solo-v4 g.note.v4, .paper.keyboard.solo-v4 g.rest.v4, .paper.keyboard.solo-v4 g.beam.v4 > polygon { opacity: 1; }
+.paper.keyboard.solo-v4 g.note.v4, .paper.keyboard.solo-v4 g.rest.v4, .paper.keyboard.solo-v4 g.beam.v4 > polygon,
+.paper.keyboard.solo-v5 g.note.v5, .paper.keyboard.solo-v5 g.rest.v5, .paper.keyboard.solo-v5 g.beam.v5 > polygon { opacity: 1; }
 .timeline.voice-colours .voice-toggle[aria-pressed="true"]::before { background: var(--voice-ui); border-color: var(--voice-ui); }
 
 .mark-rect { fill-opacity: 0.16; stroke-opacity: 0.7; stroke-width: 1px; vector-effect: non-scaling-stroke; cursor: pointer; }

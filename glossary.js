@@ -83,6 +83,21 @@ const COLLECTIONS = [
       + 'which are under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>, and so are '
       + 'the files this page builds from them. The edition is for two staves; this program sorted its notes into voices.',
   },
+  {
+    id: "assorted",
+    name: "Other fugues",
+    heading: "Other fugues: Bach outside the 48, and his contemporaries",
+    intro: "Fugues brought in one at a time, beginning with pieces from Alan Feinberg\u2019s album Fugue State. "
+      + "The Scarlatti and Buxtehude fugues were read by this program from typeset editions, notes and voices both, and "
+      + "proofread against other editions; Scarlatti writes freely, and a voice here is sometimes the program\u2019s best guess.",
+    credit: 'Scores: '
+      + 'the fugues of Domenico and Alessandro Scarlatti are made from Pierre '
+      + 'Gouin\u2019s typeset editions (Les \u00c9ditions Outremontaises, at <a href="https://imslp.org">IMSLP</a>), which are '
+      + 'under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, and so are the files this '
+      + 'page builds from them; Alessandro Scarlatti\u2019s follows the 18th-century prints where they agree against Gouin. '
+      + 'Buxtehude\u2019s fugue is made from Paul-Gustav Feller\u2019s typeset edition (Ritter von '
+      + 'Schleyer Verlag, 2014, at IMSLP, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>).'
+  },
 ];
 const collectionOf = (id) => COLLECTIONS.find((c) => c.id === (id || "wtc")) || COLLECTIONS[0];
 // Where a collection's chosen tags are kept while a fugue is open (see browse.js).
