@@ -1,6 +1,6 @@
 // A synthesizer, in the manner of the early electronic Bach records: each voice
 // of the fugue is one line on a patch of its own, so the voices are told apart
-// by the colour of their sound as well as by where they lie. A patch is the old
+// by the color of their sound as well as by where they lie. A patch is the old
 // recipe: a few plain waves, a filter that opens as the note is struck and
 // closes a little as it is held, and a loudness that rises quickly and falls
 // away when the note is let go. Nothing is recorded; the page makes all of it.
@@ -9,7 +9,7 @@
 //
 // A louder note is also a brighter one here (its filter opens further), which
 // the sampled instruments cannot do, so a reading of the fugue (reading.js) is
-// heard in the colour of the sound and not only in its level. And on the
+// heard in the color of the sound and not only in its level. And on the
 // patches that hold their notes, a held note has a vibrato, as a player's
 // would: each note its own, so that no two swing alike.
 //
@@ -28,7 +28,7 @@
 // held note's vibrato swings at most (a note held two seconds or more, played plainly; see `voice`). The
 // plucked patches have none: their notes die away before a vibrato could come in.
 const PATCHES = {
-  // ---- the first set: one colour of the old synthesizer for each voice
+  // ---- the first set: one color of the old synthesizer for each voice
   reed: { waves: [["pulse25", 0, 1]], open: [700, 3.2], strike: 2.4, ring: 2.0, rise: 0.012, fall: 0.22, rest: 0.8, sway: 12.6 },
   strings: { waves: [["sawtooth", -8, 0.6], ["sawtooth", 8, 0.6]], open: [600, 3.0], strike: 1.6, ring: 0.8, rise: 0.035, fall: 0.3, rest: 0.85, sway: 9 },
   hollow: { waves: [["square", 0, 1]], open: [500, 2.6], strike: 2.0, ring: 1.2, rise: 0.02, fall: 0.25, rest: 0.82, sway: 7.2 },
@@ -116,13 +116,13 @@ const counted = new WeakMap();       // context -> how many voices have been mad
  * waves, each with its own rise and fall. What comes back is the voice's way of playing a note: from
  * `when` until it is let go at `off`, `loud` the level it is sounded at (as a factor), and `touch` how hard
  * it is played (1 is plain, as the reading has it). A note played harder is brighter, and one played more
- * softly is duller; a plain note has the colour the patch was made with. (The colour is not taken from the
+ * softly is duller; a plain note has the color the patch was made with. (The color is not taken from the
  * level, which also holds the page's own setting of the synthesizer and of the voice in the mix.)
  *
  * A note held for 0.4 seconds or more, on a patch with a `sway`, has a vibrato. It comes in a little after
  * the note begins and grows over half a second; its speed (4.8 to 6.2 swings a second, wavering a little),
  * where in its swing it begins, and its depth are the note's own, the depth greater the longer and the harder
- * the note is played. It moves the loudness and the colour a little as well as the pitch.
+ * the note is played. It moves the loudness and the color a little as well as the pitch.
  *
  * Playing a note gives back `end`, when it has died away, and `stop(now)`, which hushes it at once,
  * for a page that plays as the music goes and must fall silent when it is paused. The voice's own
@@ -141,8 +141,8 @@ export function voice(ctx, patch, out) {
 
   const play = (midi, when, off, loud, touch = 1) => {
     const pitch = 440 * 2 ** ((midi - 69) / 12), level = loud * trim;
-    const colour = Math.min(1.1, Math.max(0.3, 0.55 * touch ** 1.6));
-    const held = Math.min(12000, (patch.open[0] + patch.open[1] * pitch) * colour);
+    const color = Math.min(1.1, Math.max(0.3, 0.55 * touch ** 1.6));
+    const held = Math.min(12000, (patch.open[0] + patch.open[1] * pitch) * color);
     const struck = Math.min(14000, held * patch.strike);
     const ends = off + RELEASE * 5;
 
@@ -174,7 +174,7 @@ export function voice(ctx, patch, out) {
     }
 
     // The vibrato: `swing` goes from nothing to its full swing and back as the note is held and let go, and
-    // from it the pitch, the loudness and the colour.
+    // from it the pitch, the loudness and the color.
     const dur = off - when;
     if (patch.sway && dur >= 0.4) {
       const rate = 4.8 + 1.4 * random(), phase = random();

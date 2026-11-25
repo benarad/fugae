@@ -1,4 +1,4 @@
-/* Fugae browser view: score, structure timeline and playback for one analysed fugue.
+/* Fugae browser view: score, structure timeline and playback for one analyzed fugue.
  *
  * Data comes from `python -m fugae build`, which writes data/<id>.musicxml and
  * data/<id>.json. All musical time below is in quarter notes from the start.
@@ -6,7 +6,7 @@
 
 const PIECE = new URLSearchParams(location.search).get("piece");   // none: go to the list of pieces
 const SVG_NS = "http://www.w3.org/2000/svg";
-const SIZES = { small: 32, medium: 40, large: 50 };   // Verovio rendering scale, per cent
+const SIZES = { small: 32, medium: 40, large: 50 };   // Verovio rendering scale, percent
 let scoreSize = "medium";
 
 // The recorded instruments. Anything else that plays a voice is one of the synthesizer's patches (synth.js),
@@ -14,22 +14,23 @@ let scoreSize = "medium";
 // a key but several, by loudness (`grand`: piano.js, which also says how its notes are struck and gives its
 // gain: there, as here, its middle loudness is as strong as the piano the page had before).
 const INSTRUMENTS = {
-  piano: { label: "Piano", grand: true, gain: 0.193, hold: 0.98, release: 0.14 },
+  // `touch`: how far the instrument's loudness answers the player. A harpsichord's hardly does.
+  piano: { label: "Piano", grand: true, gain: 0.193, hold: 0.98, release: 0.14, touch: 1 },
 };
 // The harpsichords join it once their module is there (`plucked`: harpsichord.js): the page's own first,
 // then the others, each made of recordings by register and ending each note with the sound of its key let
 // go. Without the module there is none, and a voice that was on one is on the piano.
 function addHarpsichords() {
   for (const [key, kind] of Object.entries(plucked ? plucked.KINDS : {})) {
-    INSTRUMENTS[key] = { label: kind.label, what: kind.what, plucked: true, gain: kind.gain, hold: 0.94, release: 0.05 };
+    INSTRUMENTS[key] = { label: kind.label, what: kind.what, plucked: true, gain: kind.gain, hold: 0.94, release: 0.05, touch: 0.4 };
   }
 }
 // The harpsichords other than the page's own: offered in one menu among the presets, and by name for each voice.
 const otherHarpsichords = () => Object.keys(INSTRUMENTS).filter((key) => key.startsWith("harpsichord:"));
 // Measured: at this gain a patch's note is about as strong as the piano's in the same register over the
 // first half second, and a little weaker, since it is the brighter sound. (The clip page plays the
-// synthesizer louder and evens out the whole recording afterwards; here every voice shares one mix.)
-const SYNTH = { gain: 0.035, hold: 0.9 };
+// synthesizer louder and evens out the whole recording afterward; here every voice shares one mix.)
+const SYNTH = { gain: 0.035, hold: 0.9, touch: 1 };
 // The synthesizer, loaded beside the page (it is a module, which this script is not); null if it cannot be.
 const synthReady = import("./synth.js").catch(() => null);
 let synth = null;
@@ -39,6 +40,12 @@ let grand = null;
 // The harpsichords, likewise.
 const pluckedReady = import("./harpsichord.js").catch(() => null);
 let plucked = null;
+// The reading of a fugue by rule (reading.js) and the room the instruments are heard in (room.js), likewise:
+// the clip page shapes its playing by the same two.
+const readerReady = import("./reading.js").catch(() => null);
+let reader = null;
+const hallReady = import("./room.js").catch(() => null);
+let hall = null;
 
 // Verovio compiles in the background; hook its ready signal before anything else runs.
 const verovioReady = new Promise((ready) => { verovio.module.onRuntimeInitialized = ready; });
@@ -52,12 +59,14 @@ const el = (tag, cls, text) => {
 };
 
 let piece;          // analysis JSON
-let marks = [];     // every coloured thing: entries and countersubject occurrences
+let marks = [];     // every colored thing: entries and countersubject occurrences
 let toolkit;        // Verovio
 let scoreNotes = []; // notes in the rendered score: {id, el, on, off, staff, system}
 let currentSystem = null;
 let layoutMode = "open";    // "open": a staff for each voice; "keyboard": two staves, as in a keyboard edition
-let colourMode = "voice";   // in the keyboard layout the notes are coloured by "voice" or by "theme"
+// In the keyboard layout two switches, each on or off by itself: the notes colored by voice, and a band of its
+// theme's color behind each statement.
+const coloring = { voice: true, theme: false };
 
 // ------------------------------------------------------------------ data
 
@@ -235,7 +244,7 @@ function trackSeek(track) {
 }
 
 // What a block in the form row may say, longest first. The longest that fits is shown
-// (see fitFormLabels); a block too narrow for any of them says nothing, and its colour
+// (see fitFormLabels); a block too narrow for any of them says nothing, and its color
 // and outline still tell an entry from an episode.
 function formWordings(s, inside) {
   const head = s.label.split(":")[0];
@@ -414,7 +423,7 @@ function buildTimeline() {
     const toggle = el("button", "voice-toggle", "Keys");
     toggle.type = "button";
     toggle.title = "Show or hide the key path: each statement on the line of its key. The home key and "
-      + "its five nearest neighbours always have the same six lines, the sharper pair above and the flatter below";
+      + "its five nearest neighbors always have the same six lines, the sharper pair above and the flatter below";
     const set = (on) => {
       toggle.setAttribute("aria-pressed", String(on));
       tl.classList.toggle("no-keys", !on);
@@ -478,7 +487,7 @@ function keyAt(sharps, minor) {
 // The key path. Six lines are always there and always in the same places: the home
 // key's signature in the middle, one sharper above it and one flatter below, each as
 // a major key over its relative minor. Those six are the home key and its five
-// nearest neighbours, so the same plan draws the same shape in every fugue. A key
+// nearest neighbors, so the same plan draws the same shape in every fugue. A key
 // farther off gets a line of its own beyond a small gap. Each statement is drawn on
 // the line of its key. Only the statements have keys; the dotted lines between them
 // show the order, not the route.
@@ -623,9 +632,9 @@ function renderScore(load) {
   for (let p = 1; p <= toolkit.getPageCount(); p++) svg += toolkit.renderToSVG(p);
   host.innerHTML = svg;
   host.classList.toggle("keyboard", keyboard);
-  host.classList.toggle("colour-voice", keyboard && colourMode === "voice");
-  host.classList.toggle("colour-theme", keyboard && colourMode === "theme");
-  $("timeline").classList.toggle("voice-colours", keyboard && colourMode === "voice");
+  host.classList.toggle("color-voice", keyboard && coloring.voice);
+  host.classList.toggle("color-theme", keyboard && coloring.theme);
+  $("timeline").classList.toggle("voice-colors", keyboard && coloring.voice);
 
   toolkit.renderToMIDI();
   indexNotes(toolkit.renderToTimemap());
@@ -634,6 +643,7 @@ function renderScore(load) {
     const unit = 1 / scoreNotes[0].el.getScreenCTM().a;
     if (keyboard) {
       tagKeyboardNotes();      // the boxes and brackets assume a staff for each voice
+      drawThemeBands(unit);
     } else {
       drawMarks(unit);
       drawSequences(unit);
@@ -668,7 +678,7 @@ function indexNotes(timemap) {
 
 // In the keyboard layout two or three voices share a staff, so each note is given
 // its voice (and its theme, if it belongs to a statement) as classes, and the
-// stylesheet colours it. The voice is written into the score itself: every note
+// stylesheet colors it. The voice is written into the score itself: every note
 // and printed rest has an id that begins with it ("v1n204", "v0r17").
 function tagKeyboardNotes() {
   const voiceOf = (node) => { const m = /^v(\d+)[nr]/.exec(node.id || ""); return m ? Number(m[1]) : null; };
@@ -684,7 +694,7 @@ function tagKeyboardNotes() {
     const mark = themes.find((m) => m.voice === voice && note.on >= m.start - 1e-6 && note.on < m.end - 1e-6);
     if (mark) { node.classList.add("themed", mark.cls); note.theme = mark.cls; }
   }
-  // A beam takes the colour of its notes when they agree.
+  // A beam takes the color of its notes when they agree.
   for (const beam of document.querySelectorAll("#score g.beam")) {
     const inside = [...beam.querySelectorAll("g.note")];
     const voices = new Set(inside.map(voiceOf));
@@ -693,7 +703,7 @@ function tagKeyboardNotes() {
     if (roles.size === 1 && !roles.has(null)) beam.classList.add("themed", [...roles][0]);
   }
   // Where two voices have the same note on the same staff, one head is printed for
-  // both and only one colour shows. The voice underneath gets a ring in its own colour.
+  // both and only one color shows. The voice underneath gets a ring in its own color.
   for (const staff of document.querySelectorAll("#score g.staff")) {
     const heads = [...staff.querySelectorAll("g.note")].map((node) => {
       const box = (node.querySelector("g.notehead") || node).getBBox();
@@ -719,8 +729,8 @@ function tagKeyboardNotes() {
       }
     }
   }
-  // A disc behind each note head, shown while the note sounds: among coloured notes a
-  // change of colour is easy to miss, and a mark behind the head is not.
+  // A disc behind each note head, shown while the note sounds: among colored notes a
+  // change of color is easy to miss, and a mark behind the head is not.
   for (const n of scoreNotes) {
     const head = n.el.querySelector("g.notehead") || n.el;
     const box = head.getBBox();
@@ -731,6 +741,83 @@ function tagKeyboardNotes() {
     });
     n.system.insertBefore(halo, n.system.firstChild);
     n.halo = halo;
+  }
+}
+
+// In the keyboard layout colored by theme, the notes stay black and each statement of a theme has a band
+// of the theme's color behind it, which steps with the notes as the bars of a clip's roll do: a box behind
+// every note, from its head to the next note's, all joined into one outline. Two voices share a staff
+// here, so the band keeps close to its own voice's heads and leaves the other voice's clear. At its left
+// end a solid tab says which theme it is. (Fragments have none: in this layout they would crowd the staff.)
+function drawThemeBands(unit) {
+  const padX = 3 * unit;
+  const boxOf = (n) => {
+    if (!n.box) {
+      const head = (n.el.querySelector("g.notehead") || n.el).getBBox(), accid = n.el.querySelector("g.accid")?.getBBox();
+      n.box = { x0: accid?.width ? Math.min(head.x, accid.x) : head.x, x1: head.x + head.width, y0: head.y, y1: head.y + head.height, h: head.height, w: head.width };
+    }
+    return n.box;
+  };
+  // What is printed in a system that a tab must not cover: every note, with its stem, flag and accidental, every rest and every clef.
+  const ink = new Map(), tabs = new Map();
+  const inked = (system) => {
+    if (!ink.has(system)) ink.set(system, [...system.querySelectorAll("g.note, g.rest, g.clef")].map((node) => node.getBBox()).filter((b) => b.width));
+    return ink.get(system);
+  };
+  for (const mark of marks) {
+    if (mark.frag) continue;
+    // The statement's notes, as runs that stay in one system and on one staff: a step for each moment.
+    const runs = [];
+    for (const n of scoreNotes) {
+      if (n.voice !== mark.voice || n.on < mark.start - 1e-6 || n.on >= mark.end - 1e-6 || !n.system) continue;
+      const b = boxOf(n);
+      if (!b.w) continue;
+      const pad = 0.6 * b.h, step = { on: n.on, x0: b.x0 - padX, x1: b.x1 + padX, top: b.y0 - pad, bottom: b.y1 + pad };
+      let run = runs.at(-1);
+      if (!run || run.system !== n.system || run.staff !== n.staffEl) runs.push(run = { system: n.system, staff: n.staffEl, steps: [] });
+      const last = run.steps.at(-1);
+      if (last && Math.abs(last.on - n.on) < 1e-6) {
+        last.x0 = Math.min(last.x0, step.x0); last.x1 = Math.max(last.x1, step.x1);
+        last.top = Math.min(last.top, step.top); last.bottom = Math.max(last.bottom, step.bottom);
+      } else run.steps.push(step);
+    }
+    runs.forEach((run, k) => {
+      const steps = run.steps, last = steps.length - 1;
+      const right = (i) => (i < last ? Math.max(steps[i + 1].x0, steps[i].x0 + unit) : steps[i].x1);
+      const left = (i) => (i > 0 ? right(i - 1) : steps[0].x0);
+      let d = `M${left(0)} ${steps[0].top}`;
+      for (let i = 0; i <= last; i++) d += ` H${right(i)}` + (i < last ? ` V${steps[i + 1].top}` : "");
+      d += ` V${steps[last].bottom}`;
+      for (let i = last; i >= 0; i--) d += ` H${left(i)}` + (i > 0 ? ` V${steps[i - 1].bottom}` : "");
+      const band = svgEl("path", { class: `theme-band ${mark.cls}`, d: `${d} Z` });
+      wireMark(band, mark);
+      run.system.insertBefore(band, run.system.firstChild);
+      if (k > 0 || !mark.short) return;
+      // The tab: as tall as the first step, with the theme's short name. It goes where it covers no note:
+      // against the band's left end if that is clear, else over its first step or under it, or a little further off.
+      const first = steps[0], high = first.bottom - first.top, size = Math.min(10 * unit, 0.62 * high);
+      const tab = svgEl("g", { class: `theme-tab ${mark.cls}` });
+      const bg = svgEl("rect", { class: `mark-chip-bg ${mark.cls}`, height: high, width: 10, rx: 2.5 * unit });
+      const text = svgEl("text", { class: `mark-chip-text ${mark.cls}`, "font-size": size });
+      text.textContent = mark.short;
+      tab.append(bg, text);
+      run.system.insertBefore(tab, band.nextSibling);
+      const wide = text.getComputedTextLength() + 5 * unit, gap = unit;
+      const places = [[first.x0 - wide, first.top], [first.x0, first.top - high - gap], [first.x0, first.bottom + gap],
+                      [first.x0 - wide, first.top - high - gap], [first.x0 - wide, first.bottom + gap],
+                      [first.x0, first.top - 2 * high - gap], [first.x0, first.bottom + high + gap], [first.x0 - wide, first.top]];
+      const taken = (x, y) => [...inked(run.system), ...(tabs.get(run.system) || [])]
+        .some((b) => b.x < x + wide && b.x + b.width > x && b.y < y + high && b.y + b.height > y);
+      const [x, y] = places.find(([px, py], i) => i === places.length - 1 || !taken(px, py));
+      bg.setAttribute("x", x);
+      bg.setAttribute("y", y);
+      bg.setAttribute("width", wide);
+      text.setAttribute("x", x + 2.5 * unit);
+      text.setAttribute("y", y + high / 2 + 0.36 * size);
+      if (!tabs.has(run.system)) tabs.set(run.system, []);
+      tabs.get(run.system).push({ x, y, width: wide, height: high });
+      wireMark(bg, mark);
+    });
   }
 }
 
@@ -971,6 +1058,7 @@ function drawAltered(unit) {
 let ctx, master;
 const voiceGains = [];  // for each voice: its loudness, or nothing while it is muted
 const voicePans = [];   // for each voice: where it is placed, from left to right
+const voiceVeils = [];  // for each voice: a filter, closed a little while the voice accompanies (in a reading by rule)
 const voiceOn = [];
 const haloSends = [];   // for each voice: what it sends to the piano's other strings (all of it on the piano, else nothing)
 let halo = null;        // those strings: a convolver (piano.js `strings`)
@@ -978,7 +1066,9 @@ let pianoTouch = new Map();   // how each of the piano's notes is struck (piano.
 const banks = {};       // instrument name -> that its recordings for this fugue are ready
 let sound = [];         // for each voice: "piano", a harpsichord, or the name of a synthesizer patch
 let levels = [];        // for each voice: how much louder or softer than the others, in decibels
-let spread = false;     // the voices placed from left to right
+let room = 0;           // from 0 to 1: how far apart the voices sit from left to right, and how much of a room is heard
+let squash = null;      // what everything heard goes through last
+let roomWet = null;     // how much of the room is mixed in, once there is one
 let sung = [];          // for each voice on the synthesizer: {name, play}, its voice there (synth.js)
 let bpm = 72;
 let playing = false;
@@ -991,7 +1081,7 @@ let timer = null;
 function ensureContext() {
   if (ctx) return;
   ctx = new AudioContext();
-  const squash = ctx.createDynamicsCompressor();
+  squash = ctx.createDynamicsCompressor();
   master = ctx.createGain();
   master.gain.value = 0.8;
   master.connect(squash).connect(ctx.destination);
@@ -1003,26 +1093,60 @@ function ensureContext() {
   answer.gain.value = grand ? grand.HALO : 0;
   halo.connect(answer).connect(master);
   piece.voices.forEach((_, v) => {
-    const g = ctx.createGain(), send = ctx.createGain();
+    const g = ctx.createGain(), send = ctx.createGain(), veil = ctx.createBiquadFilter();
     g.gain.value = loudness(v);
     send.gain.value = 0;
+    veil.type = "lowpass"; veil.Q.value = 0.5; veil.frequency.value = OPEN;
+    g.connect(veil);
     if (ctx.createStereoPanner) {
       const pan = ctx.createStereoPanner();
       pan.pan.value = placing(v);
-      g.connect(pan).connect(master);
+      veil.connect(pan).connect(master);
       pan.connect(send);
       voicePans[v] = pan;
-    } else { g.connect(master); g.connect(send); }
+    } else { veil.connect(master); veil.connect(send); }
     send.connect(halo);
     voiceGains[v] = g;
+    voiceVeils[v] = veil;
     haloSends[v] = send;
   });
   tuneSynth();
+  tuneRoom();
+}
+
+// The room: the voices set apart from left to right, and what has been played heard again as a room gives
+// it back (room.js; made when a room is first asked for).
+function tuneRoom() {
+  if (!ctx) return;
+  voicePans.forEach((pan, v) => pan.pan.setTargetAtTime(placing(v), ctx.currentTime, 0.05));
+  if (room > 0 && !roomWet && hall) {
+    const walls = ctx.createConvolver();
+    walls.normalize = false;           // the echo is already scaled
+    walls.buffer = hall.echo(ctx);
+    roomWet = ctx.createGain();
+    roomWet.gain.value = 0;
+    master.connect(walls).connect(roomWet).connect(squash);
+  }
+  roomWet?.gain.setTargetAtTime(0.45 * room, ctx.currentTime, 0.05);
+}
+
+// A voice's filter while nothing veils it, and while it is open between two veilings (as in a clip).
+const OPEN = 20000, UNVEILED = 16000;
+// In a reading by rule a voice that accompanies a theme in another voice sounds a little duller for it.
+function veilVoices(q) {
+  voiceVeils.forEach((veil, v) => {
+    const mine = ruled?.voices[v];
+    const want = !mine?.veiled.length ? OPEN : mine.veiled.some(([from, to]) => from <= q && q < to - 0.1) ? mine.veil : UNVEILED;
+    if (veil.want === want) return;
+    veil.want = want;
+    veil.frequency.setTargetAtTime(want, ctx.currentTime, 0.1);
+  });
 }
 
 const loudness = (v) => (voiceOn[v] === false ? 0 : 10 ** ((levels[v] || 0) / 20));
-// As on a piano, and as in a clip: the highest voice on the right and the lowest on the left.
-const placing = (v) => (spread && piece.voices.length > 1 ? 0.6 - (1.2 * v) / (piece.voices.length - 1) : 0);
+// As on a piano, and as in a clip: the highest voice on the right and the lowest on the left, as far apart as
+// the room is wide.
+const placing = (v) => (piece.voices.length > 1 ? 0.6 * room * (1 - (2 * v) / (piece.voices.length - 1)) : 0);
 
 // Each voice that the synthesizer plays has a voice of its own there, with the patch chosen for it.
 function tuneSynth() {
@@ -1045,7 +1169,7 @@ function pianoPlan() {
   const struck = [], onPiano = (n) => INSTRUMENTS[sound[n.v]]?.grand;
   for (const n of piece.notes) {
     if (!onPiano(n)) continue;
-    const db = shaped ? liftOf(n) : 0;
+    const db = touchOf(n, INSTRUMENTS.piano).db;
     for (const midi of n.midi) struck.push({ v: n.v, on: n.on, midi, db });
     for (const midi of n.aux || []) struck.push({ v: n.v, on: n.on, midi, db, aside: true });
   }
@@ -1107,17 +1231,32 @@ function firstNoteFrom(q) {
 // The recorded instruments that some voice is played on.
 const recorded = () => [...new Set(sound.filter((name) => INSTRUMENTS[name]))];
 
+// What the shaping makes of a note on the instrument `inst`: how much louder or softer than plain it is
+// played (`db`), how much of its length it sounds (`hold`), and how many seconds early or late it is struck
+// (`nudge`). By rule, the reading says all three; after a performer, the loudness is theirs as far as the
+// instrument answers the player, and the hold theirs where they phrase the note; unshaped, the note is plain.
+function touchOf(n, inst) {
+  const read = ruled?.touch.get(n);
+  if (read) return { db: 20 * Math.log10(read.gain), hold: read.hold, nudge: read.nudge };
+  if (!shaped) return { db: 0, hold: inst.hold, nudge: 0 };
+  const phrased = holds.get(`${n.v}:${n.on}`);
+  return {
+    db: liftOf(n) * (inst.touch ?? 1),
+    hold: phrased === undefined ? inst.hold : Math.max(0.3, inst.hold + (phrased - inst.hold) * strength),
+    nudge: 0,
+  };
+}
+
 // A note is struck once, or as its ornament has it (ornaments.js), on whatever plays its voice; as long as
 // the shaping (if any) makes it, held as it says where it phrases the note, and as loud.
 function scheduleNote(n, start) {
   const inst = INSTRUMENTS[sound[n.v]], bank = inst && banks[sound[n.v]], voice = !inst && sung[n.v];
   if (!bank && !voice) return;
   const length = ((played(n.on + n.dur) - played(n.on)) * 60) / bpm;
-  let hold = inst ? inst.hold : SYNTH.hold;
-  const phrased = shaped ? holds.get(`${n.v}:${n.on}`) : undefined;
-  if (phrased !== undefined) hold = Math.max(0.3, hold + (phrased - hold) * strength);
-  const lift = shaped ? 10 ** (liftOf(n) / 20) : 1;
+  const made = touchOf(n, inst || SYNTH), hold = made.hold;
+  const lift = 10 ** (made.db / 20);
   const loud = (inst ? inst.gain : SYNTH.gain) * lift;
+  start = Math.max(ctx.currentTime, start + made.nudge);
   for (const { midi, at, sounds } of strokes(n, length, hold)) {
     const when = start + at, off = when + sounds;
     if (voice) { live.push({ when, ...voice.play(midi, when, off, loud, lift) }); continue; }     // as hard as the shaping plays it
@@ -1212,6 +1351,7 @@ function pump() {
       if (when > now - 0.03) scheduleNote(n, Math.max(when, now));
     }
     live = live.filter((x) => x.end > now);
+    veilVoices(q);
   }
   if (loop && q >= loop.end) { seek(loop.start); return; }
   // A recording plays to its end, the last chord's dying away and all.
@@ -1352,17 +1492,21 @@ function reschedule(q = position()) {
   pointer = firstNoteFrom(q + 1e-4);
 }
 
+// The tempo is typed (or stepped) as a number of quarter notes a minute, between the entry's own bounds.
 function setTempo(value) {
+  const entry = $("tempo");
+  value = Math.round(Number.isFinite(value) && value > 0 ? value : (take ? take.natural : bpm));
+  value = Math.min(Number(entry.max), Math.max(Number(entry.min), value));
   if (take) {
     // A recording is played faster or slower as a whole, at its own pitch; the tempo shown is its average.
     take.audio.playbackRate = Math.min(2, Math.max(0.5, value / take.natural));
     take.audio.preservesPitch = true;
-    $("tempo-text").textContent = `♩ ≈ ${Math.round(take.natural * take.audio.playbackRate)}`;
+    $("tempo").value = Math.round(take.natural * take.audio.playbackRate);
     return;
   }
   reschedule();
   bpm = value;
-  $("tempo-text").textContent = `♩ = ${value}`;
+  $("tempo").value = value;
   refreshPianoSoon();       // slower, a long note may outlast the short recording fetched for it
 }
 
@@ -1376,21 +1520,25 @@ function setLevel(v, db) {
   if (voiceGains[v]) voiceGains[v].gain.setTargetAtTime(loudness(v), ctx.currentTime, 0.015);
 }
 
-function setSpread(on) {
-  spread = on;
-  voicePans.forEach((pan, v) => pan.pan.setTargetAtTime(placing(v), ctx.currentTime, 0.05));
+function setRoom(value) {
+  room = value;
+  remember("fugae-room", String(Math.round(value * 100)));
+  tuneRoom();
+  showFeel();
 }
 
 // What plays each voice. A change is heard from the next note on; a recorded instrument not yet
 // loaded is loaded first, with the music paused meanwhile.
 async function setSound(list) {
+  const q = position();       // read before a reading by rule changes (it goes by the instruments)
   sound = list;
+  readByRule();
   showSound();
   if (!ctx) return;
   tuneSynth();
   const missing = recorded().filter((name) => !banks[name]);
   const more = refreshPiano();        // a voice newly on the piano has notes of its own to fetch
-  if (!missing.length && !more) { reschedule(); return; }
+  if (!missing.length && !more) { reschedule(q); return; }
   const wasPlaying = playing;
   if (wasPlaying) pause();
   setPlayLabel("Loading…");
@@ -1433,7 +1581,12 @@ function recallSound() {
   const count = piece.voices.length, own = saved.each?.[count];
   const known = (name) => Boolean(INSTRUMENTS[name] || synth?.NAMES[name]);
   sound = Array.isArray(own) && own.length === count && own.every(known) ? own : presetSound(saved.all);
-  spread = Boolean(saved.spread);
+  // The room: as set before, or 40 in a hundred where the voices were placed from left to right by the box
+  // that was here before the dial.
+  let kept = null;
+  try { kept = localStorage.getItem("fugae-room"); } catch { /* nothing remembered */ }
+  room = kept !== null && Number.isFinite(Number(kept)) ? Math.min(1, Math.max(0, Number(kept) / 100)) : saved.spread ? 0.4 : 0;
+  if (kept === null && saved.spread) remember("fugae-room", "40");
   levels = piece.voices.map(() => 0);
 }
 
@@ -1441,20 +1594,22 @@ function rememberSound() {
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem("fugae-sound")) || {}; } catch { /* start afresh */ }
   const preset = presetNow();
-  if (preset) saved = { all: preset, spread };
-  else saved = { ...saved, spread, each: { ...(saved.each || {}), [piece.voices.length]: sound } };
+  if (preset) saved = { all: preset };
+  else saved = { ...saved, each: { ...(saved.each || {}), [piece.voices.length]: sound } };
   remember("fugae-sound", JSON.stringify(saved));
 }
 
 function showSound() {
   const preset = presetNow();
-  $("sound-text").textContent = take ? take.performer
+  // The button that opens this window says "Sound"; what is playing now is in its tip.
+  const now = take ? take.performer
     : preset ? (INSTRUMENTS[preset] ? INSTRUMENTS[preset].label : SETS[preset.slice(6)] + " synth") : "Mixed sound";
+  $("sound-open").title = `Choose what plays each voice, and how (now: ${now})`;
   $("sound-made").classList.toggle("unused", Boolean(take));
   for (const input of document.querySelectorAll('input[name="take"]')) input.checked = input.value === (take ? take.name : "");
   $("sound-credit").hidden = !take;
   if (take) {
-    const credit = [take.performer, take.licence].filter(Boolean).join(", ");
+    const credit = [take.performer, take.license].filter(Boolean).join(", ");
     $("sound-credit").replaceChildren(`${credit}. The score follows the recording, lined up with it by the program; the tempo plays it faster or slower.`);
     if (take.source) {
       const link = el("a", null, "Where it comes from");
@@ -1546,7 +1701,6 @@ function buildSound() {
     list.append(row);
   });
 
-  $("sound-spread").checked = spread;
   showSound();
 }
 
@@ -1567,7 +1721,6 @@ function wireSound() {
   });
   $("sound-close").addEventListener("click", close);
   box.addEventListener("keydown", (ev) => { if (ev.key === "Escape") { ev.preventDefault(); close(); } });
-  $("sound-spread").addEventListener("change", (ev) => { setSpread(ev.target.checked); rememberSound(); });
   buildTakes();
   buildShaping();
   buildSound();
@@ -1594,8 +1747,12 @@ let shaping = null;     // as kept in styles/<piece>.json, or styles/<name>/<pie
 let performers = [];    // whom a fugue can be shaped after here, if there is a choice: { name, performer }
 let shapedAfter = "";   // the name of the one chosen: none is the page's own shaping
 let strength = 1;
-let shaped = false;     // whether the shaping is being played
-let qs = null, taus = null;     // the shaping's map: crotchets as written, and as played at the tempo set
+let shaped = false;     // whether the shaping after a performer is being played
+let way = "her";        // how the page's instruments are shaped: "her", after a performer, or by "rule" from the analysis
+const feel = { expression: 0.6, rubato: 0.5 };      // the reading by rule's dials, each from 0 to 1 (reading.js)
+let score = null;       // the fugue as the reading takes it (reading.js `read`)
+let ruled = null;       // the reading by rule: `touch`, for each note what it makes of it, and `voices`, where each is veiled
+let qs = null, taus = null;     // the shaping's map: quarter notes as written, and as played at the tempo set
 let holds = new Map();  // "voice:onset" -> how much of the note is held
 let lifts = new Map();  // "voice:onset" -> how much louder (or, below nothing, softer) it is played, in dB
 
@@ -1603,9 +1760,35 @@ let lifts = new Map();  // "voice:onset" -> how much louder (or, below nothing, 
 const played = (q) => (qs ? along(qs, taus, q) : q);
 const written = (t) => (qs ? along(taus, qs, t) : t);
 
+// The reading by rule of the fugue on the instruments its voices are now on (reading.js): none unless it is
+// the way chosen.
+function readByRule() {
+  ruled = null;
+  if (way !== "rule" || !reader) return;
+  score ||= reader.read(piece);
+  const insts = sound.map((name) => INSTRUMENTS[name] || SYNTH);
+  const made = reader.reading(piece, score, { from: 0, to: piece.end }, { expression: feel.expression, room: 0 }, insts);
+  ruled = { touch: new Map(score.notes.map((n) => [n.src, made.touch.get(n)])), voices: made.voices };
+}
+
+// By rule the tempo bends as the rubato has it (reading.js `pacing`: how many times its plain length a beat
+// lasts at each moment), added up into the same kind of map as a performer's timing.
+function ruleMap() {
+  if (!reader || !(feel.rubato > 0)) return;
+  score ||= reader.read(piece);
+  const pace = reader.pacing(piece, score, { from: 0, to: piece.end }, feel.rubato);
+  const step = 1 / 16, steps = Math.ceil(piece.end / step);
+  qs = [0]; taus = [0];
+  for (let i = 0; i < steps; i++) {
+    qs.push((i + 1) * step);
+    taus.push(taus[i] + step * pace((i + 0.5) * step));
+  }
+}
+
 function shapeMap() {
-  shaped = Boolean(shaping) && strength > 0;
+  shaped = way === "her" && Boolean(shaping) && strength > 0;
   qs = taus = null;
+  if (way === "rule") { ruleMap(); return; }
   if (!shaped) return;
   const stretch = shaping.stretch;
   qs = [...stretch.map((p) => p[0]), piece.end + 1];
@@ -1655,6 +1838,44 @@ async function loadShaping() {
   if (!given && shapedAfter) { shapedAfter = ""; given = await fetchShaping(""); }
   takeShaping(given);
   strength = Number(recall("fugae-shaping-strength", ["0", "50", "100", "150", "200"], "100")) / 100;
+  // By rule where that was chosen, or where there is no performer to shape it after.
+  way = given ? recall("fugae-shaping-way", ["her", "rule"], "her") : "rule";
+  for (const dial of ["expression", "rubato"]) {
+    let kept = null;
+    try { kept = localStorage.getItem(`fugae-${dial}`); } catch { /* nothing remembered */ }
+    if (kept !== null && Number.isFinite(Number(kept))) feel[dial] = Math.min(1, Math.max(0, Number(kept) / 100));
+  }
+}
+
+// After a change to how the playing is shaped: from where the music is (`q`, read before the change), as it is now shaped.
+function reshape(q) {
+  readByRule();
+  shapeMap();
+  showShaping();
+  refreshPiano();       // louder and softer notes are other recordings
+  reschedule(q);
+}
+
+function setWay(value) {
+  const q = position();
+  way = value;
+  remember("fugae-shaping-way", value);
+  reshape(q);
+}
+
+function setFeel(dial, value) {
+  const q = position();
+  feel[dial] = value;
+  remember(`fugae-${dial}`, String(Math.round(value * 100)));
+  reshape(q);
+}
+
+const dialText = (x) => (x ? `${Math.round(x * 100)}%` : "off");
+function showFeel() {
+  for (const [dial, value] of [["expression", feel.expression], ["rubato", feel.rubato], ["room", room]]) {
+    $(`sound-${dial}`).value = Math.round(value * 100);
+    $(`sound-${dial}-text`).textContent = dialText(value);
+  }
 }
 
 // Shape the fugue after another performer: from where the music is now, in the new timing.
@@ -1682,30 +1903,51 @@ function setStrength(value) {
 }
 
 function showStrength() {
+  if (!shaping) return;
   const said = { 0: "off", 0.5: "half", 1: `${shaping.after.split(" ").at(-1)}'s measure`, 1.5: "half as much again", 2: "double" }[strength];
   $("sound-strength-text").textContent = said || `${Math.round(strength * 100)}%`;
   $("sound-strength").value = Math.round(strength * 100);
 }
 
 function buildShaping() {
-  $("sound-shape").hidden = !shaping;
-  if (!shaping) return;
   // Whom to shape it after, where there is more than one.
   const pick = $("sound-after");
-  $("sound-after-row").hidden = performers.length < 2;
-  if (performers.length > 1) {
+  if (shaping && performers.length > 1) {
     pick.replaceChildren(...performers.map((o) => new Option(o.performer, o.name)));
     pick.value = shapedAfter;
     pick.addEventListener("change", () => setShapedAfter(pick.value));
   }
   $("sound-strength").addEventListener("input", (ev) => setStrength(Number(ev.target.value) / 100));
+  for (const input of document.querySelectorAll('input[name="shaping"]')) {
+    input.addEventListener("change", () => { if (input.checked) setWay(input.value); });
+  }
+  for (const dial of ["expression", "rubato"]) {
+    $(`sound-${dial}`).addEventListener("input", (ev) => setFeel(dial, Number(ev.target.value) / 100));
+  }
+  $("sound-room").addEventListener("input", (ev) => setRoom(Number(ev.target.value) / 100));
   showShaping();
 }
 
-// What the Sound window says of the shaping now played.
+// What the Sound window says of the shaping now played, and which of its dials apply.
 function showShaping() {
+  const rule = way === "rule";
+  $("sound-way-row").hidden = !shaping || !reader;
+  for (const input of document.querySelectorAll('input[name="shaping"]')) input.checked = input.value === way;
+  for (const row of document.querySelectorAll("#sound-shape .rule")) row.hidden = !rule || !reader;
+  for (const row of document.querySelectorAll("#sound-shape .her")) row.hidden = rule || !shaping;
+  $("sound-after-row").hidden = rule || !shaping || performers.length < 2;
+  $("sound-room-row").hidden = !hall;
+  showFeel();
+  if (shaping) $("sound-her-name").textContent = performers.length > 1 ? "After a pianist" : `After ${shaping.after}`;
+  if (rule || !shaping) {
+    $("sound-shape-note").textContent = reader
+      ? "By rule from the analysis: the voice with the subject brought out, each statement given a rise and fall, "
+        + "steps joined and leaps parted; the tempo easing into cadences, broadening at the close, a breath before an "
+        + "entry. Off plays every note alike, or keeps strict time."
+      : "";
+    return;
+  }
   const who = shaping.after.split(" ").at(-1), own = Boolean(shaping.phrasing), d = shaping.dynamics;
-  $("sound-shape-label").textContent = performers.length > 1 ? "How much" : `Shaped after ${shaping.after}`;
   // The habits are learned from the performer's fugues that have been lined up, never from this one; the
   // phrasing of the subject comes from this one, where there is a recording of it. The page's own shapings
   // (after Ishizaka, from her Book I) do not say how many fugues they were learned from.
@@ -1739,7 +1981,7 @@ function showShaping() {
 // recording the player has got. Which one was chosen is remembered, by its short name.
 
 let takes = [];         // this fugue's recordings: {name, performer, file}
-let take = null;        // the one playing: as kept, with its <audio>, `q(seconds)`, `t(crotchets)` and `natural` tempo
+let take = null;        // the one playing: as kept, with its <audio>, `q(seconds)`, `t(quarter notes)` and `natural` tempo
 
 // Read off a line through the points (xs, ys), carried on past either end by the nearest stretch of it.
 function along(xs, ys, x) {
@@ -1776,7 +2018,7 @@ async function setTake(entry) {
   remember("fugae-take", take ? take.name : "");
   // The tempo shown is the recording's own, on average, until it is moved.
   $("tempo").value = take ? Math.round(take.natural) : bpm;
-  $("tempo-text").textContent = take ? `♩ ≈ ${Math.round(take.natural)}` : `♩ = ${bpm}`;
+  $("tempo-text").textContent = take ? "♩ ≈" : "♩ =";
   showSound();
   if (wasPlaying) play();
 }
@@ -1927,7 +2169,7 @@ async function showLayout() {
     layoutMode = "open";
     document.querySelectorAll('input[name="layout"]').forEach((input) => { input.checked = input.value === "open"; });
   }
-  $("colour-tools").hidden = layoutMode !== "keyboard";
+  $("color-tools").hidden = layoutMode !== "keyboard";
   $("score-note").textContent = layoutMode === "keyboard"
     ? "Laid out on two staves by rule, not copied from an edition."
       + (touchScreen.matches ? "" : " Point at a voice's name to pick it out.")
@@ -1957,7 +2199,9 @@ function wireLayout() {
     return;
   }
   layoutMode = recall("fugae-layout", ["open", "keyboard"], "open");
-  colourMode = recall("fugae-colour", ["voice", "theme"], "voice");
+  // Each switch is remembered by itself. (Before 2026-11-25 they were one choice, kept as "fugae-colour".)
+  coloring.voice = recall("fugae-color-voice", ["on", "off"], "on") === "on";
+  coloring.theme = recall("fugae-color-theme", ["on", "off"], "off") === "on";
   document.querySelectorAll('input[name="layout"]').forEach((input) => {
     input.checked = input.value === layoutMode;
     input.addEventListener("change", () => {
@@ -1967,12 +2211,11 @@ function wireLayout() {
       showLayout();
     });
   });
-  document.querySelectorAll('input[name="colour"]').forEach((input) => {
-    input.checked = input.value === colourMode;
+  document.querySelectorAll('input[name="color"]').forEach((input) => {
+    input.checked = coloring[input.value];
     input.addEventListener("change", () => {
-      if (!input.checked) return;
-      colourMode = input.value;
-      remember("fugae-colour", colourMode);
+      coloring[input.value] = input.checked;
+      remember(`fugae-color-${input.value}`, input.checked ? "on" : "off");
       if (toolkit) renderScore(false);
     });
   });
@@ -2051,7 +2294,9 @@ function resizePanel() {
 function wireControls() {
   $("play").addEventListener("click", () => (playing ? pause() : play()));
   $("rewind").addEventListener("click", () => { seek(0); scrollTo({ top: 0, behavior: "smooth" }); });
-  $("tempo").addEventListener("input", (ev) => setTempo(Number(ev.target.value)));
+  // On `change`, not on every key: a tempo half typed ("13" on the way to "132") is not one to play at.
+  $("tempo").addEventListener("change", (ev) => setTempo(Number(ev.target.value)));
+  $("tempo").addEventListener("keydown", (ev) => ev.stopPropagation());   // the space bar and arrows are the entry's here
   $("loop").addEventListener("click", () => setLoop(loop ? null : sectionAt(Math.min(position(), piece.end - 0.01))));
   document.addEventListener("keydown", (ev) => {
     if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
@@ -2156,11 +2401,13 @@ async function boot() {
   $("meta").textContent = `${piece.voices.length} voices · ${piece.key} · ${piece.meter} · ${piece.measures.length} bars`;
   showKind();
   $("tempo").value = bpm;
-  $("tempo-text").textContent = `♩ = ${bpm}`;
-  [synth, grand, plucked] = await Promise.all([synthReady, pianoReady, pluckedReady, loadTakes(), loadShaping()]);
+  $("tempo-text").textContent = "♩ =";
+  [synth, grand, plucked, reader, hall] = await Promise.all([synthReady, pianoReady, pluckedReady, readerReady, hallReady, loadTakes(), loadShaping()]);
   addHarpsichords();
-  shapeMap();
+  if (!reader && way === "rule") way = "her";
   recallSound();
+  readByRule();
+  shapeMap();
 
   buildTimeline();
   buildTables();

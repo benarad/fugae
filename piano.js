@@ -2,7 +2,7 @@
 // recordings of a Yamaha C5, CC BY 3.0, retuned by Markus Fiedler), cut down for the web by
 // tools/salamander/build.py to six loudnesses of every third key from C1 to C7 (soundfonts/salamander).
 //
-// A softer note is a recording of a softer blow, so its colour is its own; a key between two recorded ones
+// A softer note is a recording of a softer blow, so its color is its own; a key between two recorded ones
 // is the nearer one played a little faster or slower. Three things are in the playing rather than in the
 // recordings, and both pages take them from here so that they play alike:
 //   - no two strikes alike: each note a little louder or softer, brighter or darker, by chance (the same
@@ -111,7 +111,7 @@ export const id = (v, on, midi) => `${v}:${on}:${midi}`;
 
 /**
  * How the piano's notes are struck: `struck` lists them ({ v, on, midi, db, aside }: voice, moment in
- * crotchets, pitch, how much louder than the middle loudness the playing wants it, and whether it is an
+ * quarter notes, pitch, how much louder than the middle loudness the playing wants it, and whether it is an
  * ornament's side note). For each (`id`): `db`, with the chance of the strike added (about 0.6 dB either
  * way); `shelf`, how much brighter or darker than its recording (dB above 1.5 kHz, about 1.2 either way);
  * and `lead`, how many seconds late it comes: of notes struck together, the highest is first and the others

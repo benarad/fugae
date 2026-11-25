@@ -52,14 +52,14 @@
 
       <div class="settings">
         <button id="sound-open" class="btn" type="button" aria-haspopup="dialog" aria-controls="sound" aria-expanded="false"
-                title="Choose what plays each voice, and how loud">
+                title="Choose what plays each voice, and how">
           <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2 4h6.2a2 2 0 0 1 3.6 0H14v1.6h-2.2a2 2 0 0 1-3.6 0H2zm0 6.4h2.2a2 2 0 0 1 3.6 0H14V12H7.8a2 2 0 0 1-3.6 0H2z"/></svg>
-          <span id="sound-text">Piano</span>
+          <span id="sound-text">Sound</span>
         </button>
 
         <label class="tempo">
-          <span id="tempo-text">♩ = 72</span>
-          <input id="tempo" type="range" min="30" max="120" step="1" value="72" aria-label="Tempo in beats per minute">
+          <span id="tempo-text">♩ =</span>
+          <input id="tempo" type="number" inputmode="numeric" min="20" max="300" step="1" value="72" aria-label="Tempo in beats per minute">
         </label>
       </div>
     </div>
@@ -82,9 +82,10 @@
         <label><input type="radio" name="layout" value="open" checked><span>Open score</span></label>
         <label><input type="radio" name="layout" value="keyboard"><span>Keyboard</span></label>
       </div>
-      <div class="segmented" id="colour-tools" role="radiogroup" aria-label="Colour the notes" hidden>
-        <label><input type="radio" name="colour" value="voice" checked><span>Colour by voice</span></label>
-        <label><input type="radio" name="colour" value="theme"><span>By theme</span></label>
+      <!-- Two switches, each on or off by itself. -->
+      <div class="switches" id="color-tools" role="group" aria-label="Color the score" hidden>
+        <label class="segmented" title="The notes in the color of their voice"><input type="checkbox" name="color" value="voice" checked><span>Color by voice</span></label>
+        <label class="segmented" title="A band in the color of its theme behind each statement"><input type="checkbox" name="color" value="theme"><span>Color by theme</span></label>
       </div>
       <div class="segmented" role="radiogroup" aria-label="Size of the score">
         <label><input type="radio" name="size" value="small"><span>Small</span></label>
@@ -128,24 +129,51 @@
       <div class="sound-presets" id="sound-presets"></div>
       <p class="sound-label">Each voice <span class="sound-scale">softer ⟷ louder</span></p>
       <div class="sound-voices" id="sound-voices"></div>
-      <!-- A shaping after a performer, if this fugue has one: her timing habits and her phrasing of the subject. -->
-      <div id="sound-shape" class="sound-shape" hidden>
+      <!-- How the page's instruments are shaped: by rule from the analysis, or after a performer's habits (if
+           this fugue has a shaping after one), and the room they are heard in. As on the clip page. -->
+      <div id="sound-shape" class="sound-shape">
+        <div class="sound-row" id="sound-way-row" hidden>
+          <span class="sound-group">Shaped</span>
+          <div class="segmented" role="radiogroup" aria-label="How the playing is shaped">
+            <label title="By rule from the analysis: the voice with the subject brought out, each statement given a rise and fall, the tempo easing into cadences."><input type="radio" name="shaping" value="rule"><span>By rule</span></label>
+            <label><input type="radio" name="shaping" value="her" checked><span id="sound-her-name">After the performer</span></label>
+          </div>
+        </div>
         <!-- Whom it is shaped after, where this copy of the page has more than one performer's shapings. -->
-        <div class="sound-row" id="sound-after-row" hidden>
-          <label class="sound-group" for="sound-after">Shaped after</label>
+        <div class="sound-row her" id="sound-after-row" hidden>
+          <label class="sound-group" for="sound-after">Pianist</label>
           <select id="sound-after"></select>
         </div>
-        <div class="sound-row">
-          <label class="sound-group" for="sound-strength" id="sound-shape-label">Shaped</label>
+        <div class="sound-row her" hidden>
+          <label class="sound-group" for="sound-strength">How much</label>
           <div class="sound-strength">
             <input type="range" id="sound-strength" min="0" max="200" step="50" value="100">
             <span id="sound-strength-text">her measure</span>
           </div>
         </div>
+        <div class="sound-row rule" hidden title="How far the playing is shaped: the voice with the subject brought out, each statement given a rise and fall, steps joined and leaps parted. Off plays every note alike.">
+          <label class="sound-group" for="sound-expression">Expression</label>
+          <div class="sound-strength">
+            <input type="range" id="sound-expression" min="0" max="100" step="5" value="60">
+            <span id="sound-expression-text"></span>
+          </div>
+        </div>
+        <div class="sound-row rule" hidden title="How far the tempo bends: easing into cadences, broadening at the close, a breath before an entry. Off keeps strict time.">
+          <label class="sound-group" for="sound-rubato">Rubato</label>
+          <div class="sound-strength">
+            <input type="range" id="sound-rubato" min="0" max="100" step="5" value="50">
+            <span id="sound-rubato-text"></span>
+          </div>
+        </div>
+        <div class="sound-row" id="sound-room-row" title="How far apart the voices sit from left to right, and how much of a room is heard round them. Off puts every voice in the middle, dry.">
+          <label class="sound-group" for="sound-room">Room</label>
+          <div class="sound-strength">
+            <input type="range" id="sound-room" min="0" max="100" step="5" value="0">
+            <span id="sound-room-text"></span>
+          </div>
+        </div>
         <p class="sound-note" id="sound-shape-note"></p>
       </div>
-      <label class="sound-spread"><input type="checkbox" id="sound-spread">
-        Place the voices from left to right, the highest on the right</label>
       <p class="sound-note">The piano and the harpsichords are recordings: the harpsichord is a Flemish one with both
         its registers drawn, and the others are under “Other harpsichords”. The synthesizer is made by the page, and its
         sounds come in three sets, one for each voice of a fugue; any of them can go to any voice.</p>

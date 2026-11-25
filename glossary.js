@@ -18,7 +18,7 @@ const GLOSSARY = {
   "concerto-like": "planned like a concerto movement: the exposition returns as the full band's theme does",
   "concerto type": "planned like a concerto movement: the exposition returns as the full band's theme does",
   "da capo": "the opening comes back at the end",
-  "alla breve": "two minim beats in a bar",
+  "alla breve": "two half note beats in a bar",
   "bourrée": "a quick dance in two, starting with an upbeat",
   "gigue": "a quick dance in compound time",
   "passepied": "a light, quick dance in three",
@@ -41,7 +41,7 @@ const TAG_NOTES = {
   "late voice": "one voice is held back until after the exposition",
   "verset tradition": GLOSSARY["verset"],
   "stile antico / ricercar": `${GLOSSARY["stile antico"]}; a ricercar is ${GLOSSARY["ricercar"]}`,
-  "dance": "in the metre and manner of a dance: bourrée, gigue, passepied, gavotte or minuet",
+  "dance": "in the meter and manner of a dance: bourrée, gigue, passepied, gavotte or minuet",
   "invertible counterpoint": "lines written so that any of them can be the bass",
   "chromatic": "built on a subject that moves by semitones",
   "double or triple fugue": "the commentator counts two or three subjects",
@@ -88,7 +88,6 @@ const COLLECTIONS = [
     name: "Other fugues",
     heading: "Other fugues: Bach outside the 48, and his contemporaries",
     intro: "Fugues brought in one at a time, beginning with pieces from Alan Feinberg\u2019s album Fugue State. "
-      + "The two ricercars of Bach\u2019s Musical Offering are fugues in all but name, in three voices and in six. "  // held: ricercars
       + "The Scarlatti and Buxtehude fugues were read by this program from typeset editions, notes and voices both, and "
       + "proofread against other editions; Scarlatti writes freely, and a voice here is sometimes the program\u2019s best guess.",
     credit: 'Scores: '
@@ -98,7 +97,16 @@ const COLLECTIONS = [
       + 'page builds from them; Alessandro Scarlatti\u2019s follows the 18th-century prints where they agree against Gouin. '
       + 'Buxtehude\u2019s fugue is made from Paul-Gustav Feller\u2019s typeset edition (Ritter von '
       + 'Schleyer Verlag, 2014, at IMSLP, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>).'
-      + ' The ricercars of the <i>Musical Offering</i> are Craig Stuart Sapp\u2019s Humdrum encodings (<a href="https://github.com/craigsapp/bach-musical-offering">craigsapp/bach-musical-offering</a>), after the Bach-Gesellschaft edition, with four slips corrected against it.',  // held: ricercars
+      + ' Bach\u2019s fugues BWV 949, 951 and 953 and Buxtehude\u2019s BuxWV 174 are made from the MusicXML files of <a href="https://www.tobis-notenarchiv.de">Tobis Notenarchiv</a> (Quelle: www.tobis-notenarchiv.de), which are under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>, and so are the files this page builds from them.'
+  },
+  {
+    id: "organ",
+    name: "Organ fugues",
+    heading: "Organ fugues by Bach, for harpsichord with pedals",
+    intro: "Fugues Bach wrote for the organ, played here on a harpsichord, a piano or the synthesizer, as they might "
+      + "be on a harpsichord with a pedal keyboard. The pedal\u2019s line is the bass. The voices were sorted by this "
+      + "program from the staves, stems and beams of the edition and have not been proofread note by note.",
+    credit: 'Scores: made from the MusicXML files of <a href="https://www.tobis-notenarchiv.de">Tobis Notenarchiv</a> (Quelle: www.tobis-notenarchiv.de), which are under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>, and so are the files this page builds from them. The pedal is a part of its own there; this program sorted the manuals\u2019 notes into voices.',
   },
 ];
 const collectionOf = (id) => COLLECTIONS.find((c) => c.id === (id || "wtc")) || COLLECTIONS[0];

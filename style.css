@@ -22,7 +22,7 @@
 
   --sounding: #6250d6;
 
-  /* The score is always printed on light paper, so its colours do not flip. */
+  /* The score is always printed on light paper, so its colors do not flip. */
   --paper: #fcfcfb;
   --paper-ink: #0b0b0b;
   --paper-1: #2a78d6;
@@ -92,7 +92,7 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
   border: 1px solid var(--axis); border-radius: 6px;
   background: var(--surface); color: var(--ink); font: inherit;
 }
-/* Where this fugue sits among the others: back to the list, and its neighbours. */
+/* Where this fugue sits among the others: back to the list, and its neighbors. */
 .where { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-bottom: 12px; }
 .where a { text-decoration: none; white-space: nowrap; }
 .where .step { color: var(--ink-2); }
@@ -231,11 +231,18 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .segmented input { position: absolute; opacity: 0; pointer-events: none; }
 .segmented span { display: block; padding: 0 10px; line-height: 28px; color: var(--ink-2); }
 .segmented input:checked + span { background: var(--neutral-fill); color: var(--ink); font-weight: 600; }
+/* Switches: each a box of its own, lit while it is on. */
+.switches { display: inline-flex; gap: 6px; }
+label.segmented { cursor: pointer; }
 .segmented input:focus-visible + span { outline: 2px solid var(--series-1); outline-offset: -2px; }
 
 .tempo { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .tempo input { width: 110px; accent-color: var(--ink-2); }
-#tempo-text { min-width: 4.2em; }
+.tempo input[type="number"] {
+  width: 4.4em; height: 28px; padding: 0 4px 0 8px; font: inherit; font-variant-numeric: tabular-nums; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--axis); border-radius: 6px;
+}
+.tempo input[type="number"]:focus-visible { outline: 2px solid var(--series-1); outline-offset: 1px; }
 
 .now { margin: 0; flex: 1 1 220px; min-width: 0; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .now b { color: var(--ink); font-weight: 600; }
@@ -267,14 +274,13 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 }
 .sound input[type="range"] { width: 100%; accent-color: var(--ink-2); margin: 0; }
 .sound-db { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
-.sound-spread { display: flex; gap: 8px; align-items: baseline; margin-top: 12px; color: var(--ink-2); }
 .sound-note { margin: 10px 0 0; font-size: 11.5px; color: var(--muted); line-height: 1.4; }
 .sound-shape { margin-top: 12px; }
-.sound-shape .sound-row { grid-template-columns: auto 1fr; }
 .sound-shape .sound-row + .sound-row { margin-top: 6px; }
 .sound-strength { display: flex; align-items: center; gap: 8px; }
 .sound-strength input { flex: 1; }
-#sound-strength-text { min-width: 7.5em; font-size: 12px; color: var(--ink-2); }
+.sound-strength span { min-width: 7.5em; font-size: 12px; color: var(--ink-2); }
+.sound-shape .segmented { justify-self: start; }
 .sound-take-list { display: grid; gap: 4px; }
 .sound-take { display: flex; gap: 8px; align-items: baseline; cursor: pointer; }
 .sound-credit { margin: 6px 0 0; font-size: 11.5px; color: var(--ink-2); line-height: 1.4; }
@@ -330,7 +336,7 @@ h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.01em; text
 .block.subject, .block.answer, .block.s2, .block.s3,
 .block.cs1, .block.cs2, .block.cs3, .block.cs4 { background: var(--role); }
 .block.cs2 { color: var(--on-series-4); }
-/* A fragment of a theme: the theme's colour as an outline only. */
+/* A fragment of a theme: the theme's color as an outline only. */
 .voice .block.frag { top: 5px; bottom: 5px; padding: 0; background: transparent; border: 1.5px solid var(--role); border-radius: 3px; box-shadow: none; }
 .voice .block.frag.hot { background: var(--role); box-shadow: 0 0 0 2px var(--ink); }
 .block.hot     { filter: brightness(1.12); box-shadow: 0 0 0 2px var(--ink); z-index: 2; }
@@ -425,7 +431,7 @@ tbody tr:hover td { background: var(--neutral-fill); }
 .paper g.note { cursor: pointer; }
 .paper g.note.sounding, .paper g.note.sounding * { fill: var(--sounding); stroke: var(--sounding); color: var(--sounding); }
 
-/* The keyboard layout: two staves, with each note in the colour of its voice or of its theme. */
+/* The keyboard layout: two staves, with each note in the color of its voice or of its theme. */
 .score-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 10px; }
 .score-note { flex: 1 1 260px; min-width: 0; font-size: 12.5px; color: var(--ink-2); }
 .score-tools [hidden] { display: none; }
@@ -435,25 +441,29 @@ tbody tr:hover td { background: var(--neutral-fill); }
 .v3 { --voice: var(--paper-4); --voice-ui: var(--series-4); }
 .v4 { --voice: var(--paper-5); --voice-ui: var(--series-5); }
 .v5 { --voice: var(--paper-6); --voice-ui: var(--series-6); }
-.paper.colour-voice g.note.voiced, .paper.colour-voice g.note.voiced *,
-.paper.colour-voice g.rest.voiced, .paper.colour-voice g.rest.voiced *,
-.paper.colour-voice g.beam.voiced > polygon { fill: var(--voice); stroke: var(--voice); color: var(--voice); }
-.paper.colour-theme g.note.themed, .paper.colour-theme g.note.themed *,
-.paper.colour-theme g.beam.themed > polygon { fill: var(--paper-role); stroke: var(--paper-role); color: var(--paper-role); }
-/* Two voices on one note head: a ring in the colour of the voice whose head is hidden. */
+.paper.color-voice g.note.voiced, .paper.color-voice g.note.voiced *,
+.paper.color-voice g.rest.voiced, .paper.color-voice g.rest.voiced *,
+.paper.color-voice g.beam.voiced > polygon { fill: var(--voice); stroke: var(--voice); color: var(--voice); }
+/* By theme, the notes stay black: each statement has a band of its theme's color behind it (drawThemeBands),
+   light enough for black notes and staff lines to read on it, with an outline that tells it from a band it
+   crosses, and a solid tab at its left end that names the theme. */
+.paper .theme-band { fill: var(--paper-role); color: var(--paper-role); stroke: currentColor; fill-opacity: 0.2; stroke-opacity: 0.85;
+  stroke-width: 1.25px; stroke-linejoin: round; vector-effect: non-scaling-stroke; cursor: pointer; }
+.paper .theme-band.hot { fill-opacity: 0.36; stroke-opacity: 1; }
+.paper:not(.color-theme) .theme-band, .paper:not(.color-theme) .theme-tab { display: none; }
+/* Two voices on one note head: a ring in the color of the voice whose head is hidden. */
 .paper .shared { pointer-events: none; }
-.paper:not(.colour-voice) .shared { display: none; }
+.paper:not(.color-voice) .shared { display: none; }
 .paper.keyboard.solo .shared { opacity: 0.18; }
 .paper.keyboard.solo-v0 .shared.v0, .paper.keyboard.solo-v1 .shared.v1, .paper.keyboard.solo-v2 .shared.v2,
 .paper.keyboard.solo-v3 .shared.v3, .paper.keyboard.solo-v4 .shared.v4, .paper.keyboard.solo-v5 .shared.v5 { opacity: 1; }
-/* The notes being played: each keeps its colour and gets a disc of that colour behind its head. */
+/* The notes being played: each keeps its color and gets a disc of that color behind its head. */
 .paper .halo { fill: var(--sounding); stroke: none; opacity: 0; pointer-events: none; }
-.paper.colour-voice .halo { fill: var(--voice, var(--sounding)); }
-.paper.colour-theme .halo.themed { fill: var(--paper-role); }
+.paper.color-voice .halo { fill: var(--voice, var(--sounding)); }
+.paper.color-theme:not(.color-voice) .halo.themed { fill: var(--paper-role); }
 .paper .halo.on { opacity: 0.45; }
 .paper.keyboard g.note.sounding, .paper.keyboard g.note.sounding * { fill: inherit; stroke: inherit; color: inherit; }
-.paper.keyboard.colour-voice g.note.sounding.voiced, .paper.keyboard.colour-voice g.note.sounding.voiced * { fill: var(--voice); stroke: var(--voice); color: var(--voice); }
-.paper.keyboard.colour-theme g.note.sounding.themed, .paper.keyboard.colour-theme g.note.sounding.themed * { fill: var(--paper-role); stroke: var(--paper-role); color: var(--paper-role); }
+.paper.keyboard.color-voice g.note.sounding.voiced, .paper.keyboard.color-voice g.note.sounding.voiced * { fill: var(--voice); stroke: var(--voice); color: var(--voice); }
 /* Pointing at a voice's name fades the others. */
 .paper.keyboard.solo g.note.voiced, .paper.keyboard.solo g.rest.voiced, .paper.keyboard.solo g.beam.voiced > polygon { opacity: 0.18; }
 .paper.keyboard.solo-v0 g.note.v0, .paper.keyboard.solo-v0 g.rest.v0, .paper.keyboard.solo-v0 g.beam.v0 > polygon,
@@ -462,7 +472,7 @@ tbody tr:hover td { background: var(--neutral-fill); }
 .paper.keyboard.solo-v3 g.note.v3, .paper.keyboard.solo-v3 g.rest.v3, .paper.keyboard.solo-v3 g.beam.v3 > polygon,
 .paper.keyboard.solo-v4 g.note.v4, .paper.keyboard.solo-v4 g.rest.v4, .paper.keyboard.solo-v4 g.beam.v4 > polygon,
 .paper.keyboard.solo-v5 g.note.v5, .paper.keyboard.solo-v5 g.rest.v5, .paper.keyboard.solo-v5 g.beam.v5 > polygon { opacity: 1; }
-.timeline.voice-colours .voice-toggle[aria-pressed="true"]::before { background: var(--voice-ui); border-color: var(--voice-ui); }
+.timeline.voice-colors .voice-toggle[aria-pressed="true"]::before { background: var(--voice-ui); border-color: var(--voice-ui); }
 
 .mark-rect { fill-opacity: 0.16; stroke-opacity: 0.7; stroke-width: 1px; vector-effect: non-scaling-stroke; cursor: pointer; }
 .mark-rect.hot { fill-opacity: 0.3; stroke-opacity: 1; }
@@ -511,7 +521,7 @@ tbody tr:hover td { background: var(--neutral-fill); }
   .cell { grid-column: calc(var(--line) + 1); grid-row: calc(var(--pc) + 2); flex-direction: row; gap: 6px; min-height: 30px; }
   .map .second { margin-top: 0; }
   .tl-label { padding-right: 4px; }
-  .tempo input { width: 96px; }
+  .tempo input[type="range"] { width: 96px; }
   h1 { font-size: 18px; }
   .masthead { padding-top: 14px; }
   .tip { max-width: calc(100vw - 16px); }
