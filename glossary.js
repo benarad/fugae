@@ -88,6 +88,7 @@ const COLLECTIONS = [
     name: "Other fugues",
     heading: "Other fugues: Bach outside the 48, and his contemporaries",
     intro: "Fugues brought in one at a time, beginning with pieces from Alan Feinberg\u2019s album Fugue State. "
+      + "The two ricercars of Bach\u2019s Musical Offering are fugues in all but name, in three voices and in six. "  // held: ricercars
       + "The Scarlatti and Buxtehude fugues were read by this program from typeset editions, notes and voices both, and "
       + "proofread against other editions; Scarlatti writes freely, and a voice here is sometimes the program\u2019s best guess.",
     credit: 'Scores: '
@@ -98,6 +99,7 @@ const COLLECTIONS = [
       + 'Buxtehude\u2019s fugue is made from Paul-Gustav Feller\u2019s typeset edition (Ritter von '
       + 'Schleyer Verlag, 2014, at IMSLP, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>).'
       + ' Bach\u2019s fugues BWV 949, 951 and 953 and Buxtehude\u2019s BuxWV 174 are made from the MusicXML files of <a href="https://www.tobis-notenarchiv.de">Tobis Notenarchiv</a> (Quelle: www.tobis-notenarchiv.de), which are under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>, and so are the files this page builds from them.'
+      + ' The ricercars of the <i>Musical Offering</i> are Craig Stuart Sapp\u2019s Humdrum encodings (<a href="https://github.com/craigsapp/bach-musical-offering">craigsapp/bach-musical-offering</a>), after the Bach-Gesellschaft edition, with four slips corrected against it.',  // held: ricercars
   },
   {
     id: "organ",
