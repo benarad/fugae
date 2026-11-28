@@ -8,7 +8,9 @@
  "title": "Fantasia and Fugue in C minor, BWV 537: Fugue",
  "procedures": [
   "tonal answer",
+  "2 subjects",
   "no regular countersubject",
+  "stretto",
   "pedal point"
  ],
  "character": null,
@@ -5040,7 +5042,8 @@
    "dur": 1.0,
    "midi": [
     72
-   ]
+   ],
+   "hold": true
   },
   {
    "v": 1,
@@ -7940,62 +7943,6 @@
   },
   {
    "v": 1,
-   "on": 359.0,
-   "dur": 2.0,
-   "midi": [
-    64
-   ]
-  },
-  {
-   "v": 1,
-   "on": 361.0,
-   "dur": 2.0,
-   "midi": [
-    65
-   ]
-  },
-  {
-   "v": 1,
-   "on": 363.0,
-   "dur": 2.0,
-   "midi": [
-    66
-   ]
-  },
-  {
-   "v": 1,
-   "on": 365.0,
-   "dur": 0.5,
-   "midi": [
-    67
-   ]
-  },
-  {
-   "v": 1,
-   "on": 365.5,
-   "dur": 0.5,
-   "midi": [
-    65
-   ]
-  },
-  {
-   "v": 1,
-   "on": 366.0,
-   "dur": 0.5,
-   "midi": [
-    67
-   ]
-  },
-  {
-   "v": 1,
-   "on": 366.5,
-   "dur": 0.5,
-   "midi": [
-    68
-   ]
-  },
-  {
-   "v": 1,
    "on": 367.0,
    "dur": 2.0,
    "midi": [
@@ -9169,7 +9116,8 @@
    "dur": 1.0,
    "midi": [
     72
-   ]
+   ],
+   "hold": true
   },
   {
    "v": 2,
@@ -11973,6 +11921,62 @@
   },
   {
    "v": 2,
+   "on": 359.0,
+   "dur": 2.0,
+   "midi": [
+    64
+   ]
+  },
+  {
+   "v": 2,
+   "on": 361.0,
+   "dur": 2.0,
+   "midi": [
+    65
+   ]
+  },
+  {
+   "v": 2,
+   "on": 363.0,
+   "dur": 2.0,
+   "midi": [
+    66
+   ]
+  },
+  {
+   "v": 2,
+   "on": 365.0,
+   "dur": 0.5,
+   "midi": [
+    67
+   ]
+  },
+  {
+   "v": 2,
+   "on": 365.5,
+   "dur": 0.5,
+   "midi": [
+    65
+   ]
+  },
+  {
+   "v": 2,
+   "on": 366.0,
+   "dur": 0.5,
+   "midi": [
+    67
+   ]
+  },
+  {
+   "v": 2,
+   "on": 366.5,
+   "dur": 0.5,
+   "midi": [
+    68
+   ]
+  },
+  {
+   "v": 2,
    "on": 367.0,
    "dur": 0.5,
    "midi": [
@@ -12977,7 +12981,8 @@
    "dur": 1.0,
    "midi": [
     63
-   ]
+   ],
+   "hold": true
   },
   {
    "v": 3,
@@ -14844,7 +14849,8 @@
     36,
     55,
     67
-   ]
+   ],
+   "hold": true
   }
  ],
  "subject": {
@@ -14868,7 +14874,14 @@
    "C4"
   ]
  },
- "later_subjects": [],
+ "later_subjects": [
+  {
+   "number": 2,
+   "notes": 6,
+   "measure": 57,
+   "beat": 3.0
+  }
+ ],
  "entries": [
   {
    "altered": [],
@@ -15105,6 +15118,31 @@
    "varied": false,
    "ornamented": false,
    "partial": false,
+   "key": "B♭ major",
+   "voice": 0,
+   "start": 416.0,
+   "end": 431.5,
+   "notes": 18,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 104,
+   "beat": 4.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e10",
+   "theme": 1,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
    "key": "C minor",
    "voice": 3,
    "start": 440.0,
@@ -15124,7 +15162,7 @@
    ],
    "altered_by": -1,
    "answer_at": "fifth",
-   "id": "e10",
+   "id": "e11",
    "theme": 1,
    "role": "answer",
    "tonal": true,
@@ -15149,6 +15187,358 @@
    ],
    "measure": 114,
    "beat": 4.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e12",
+   "theme": 1,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "C minor",
+   "voice": 1,
+   "start": 496.0,
+   "end": 511.5,
+   "notes": 18,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 124,
+   "beat": 4.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e13",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "inversion",
+   "complete": false,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 0,
+   "start": 151.0,
+   "end": 158.0,
+   "notes": 4,
+   "skipped": 0,
+   "deviations": [
+    1
+   ],
+   "measure": 38,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e14",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 2,
+   "start": 227.0,
+   "end": 239.0,
+   "notes": 6,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 57,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e15",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": true,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 1,
+   "start": 236.5,
+   "end": 246.0,
+   "notes": 6,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 59,
+   "beat": 4.5
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e16",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 0,
+   "start": 247.0,
+   "end": 257.5,
+   "notes": 6,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 62,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e17",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 3,
+   "start": 263.0,
+   "end": 275.0,
+   "notes": 6,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 66,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e18",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": false,
+   "exposition": false,
+   "late": false,
+   "varied": true,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 1,
+   "start": 293.0,
+   "end": 302.0,
+   "notes": 5,
+   "skipped": 1,
+   "deviations": [],
+   "measure": 74,
+   "beat": 1.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e19",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": false,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 0,
+   "start": 311.0,
+   "end": 319.0,
+   "notes": 4,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 78,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e20",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": false,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 1,
+   "start": 315.0,
+   "end": 323.0,
+   "notes": 4,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 79,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e21",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 3,
+   "start": 347.0,
+   "end": 358.0,
+   "notes": 6,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 87,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e22",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 2,
+   "start": 355.0,
+   "end": 365.5,
+   "notes": 6,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 89,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e23",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 1,
+   "start": 367.0,
+   "end": 377.5,
+   "notes": 6,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 92,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e24",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 0,
+   "start": 375.0,
+   "end": 385.5,
+   "notes": 6,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 94,
+   "beat": 3.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e25",
+   "theme": 2,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "",
+   "voice": 3,
+   "start": 387.0,
+   "end": 399.0,
+   "notes": 6,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 97,
+   "beat": 3.0
   }
  ],
  "countersubjects": [],
@@ -15236,7 +15626,7 @@
   },
   {
    "kind": "entries",
-   "label": "Subject in G minor, rhythm varied (Tenor)",
+   "label": "Combination: Subject in G minor, rhythm varied (Tenor); Subject 2, inverted (Soprano)",
    "summary": "",
    "reworks": "",
    "leads": "",
@@ -15270,7 +15660,7 @@
   {
    "kind": "link",
    "label": "Link",
-   "summary": "Reworks Episode 1 (bars 18–24), with the soprano's line in the alto, the alto's line in the tenor, the lines moved by different intervals (invertible counterpoint at the twelfth). Free counterpoint: nothing here is traced to the themes. Returns in Episode 4 (bars 53–110).",
+   "summary": "Reworks Episode 1 (bars 18–24), with the soprano's line in the alto, the alto's line in the tenor, the lines moved by different intervals (invertible counterpoint at the twelfth). Free counterpoint: nothing here is traced to the themes. Returns in Episode 4 (bars 53–57). Returns in Episode 8 (bars 81–87). Returns in Episode 11 (bars 118–124).",
    "reworks": "Episode 1",
    "leads": "Between two statements in C minor",
    "start": 194.0,
@@ -15292,12 +15682,210 @@
   {
    "kind": "episode",
    "label": "Episode 4",
-   "summary": "Reworks Link (bar 49), with the alto's line in the soprano, a step lower. Soprano: the opening of the subject and a figure from the subject, in a sequence rising by a step every bar. Alto: a figure from the subject, in a sequence rising by a step every bar. Tenor: a figure from the subject, in a sequence rising by a step every bar. Bass: a figure from the subject (3 times), in a sequence falling by a third every half bar.",
+   "summary": "Reworks Link (bar 49), with the alto's line in the soprano, a step lower. Soprano: free counterpoint. Alto: free counterpoint. Tenor: a figure from the subject. Bass: a figure from the subject. Returns in Episode 5 (bars 65–66).",
    "reworks": "Link",
-   "leads": "Between two statements in C minor; perfect cadence in G major at bar 78; perfect cadence in E♭ minor at bar 83; perfect cadence in G minor at bar 94; perfect cadence in F minor at bar 96",
+   "leads": "From C minor to B♭ major",
    "start": 211.5,
-   "end": 440.0,
+   "end": 227.0,
    "measure": 53,
+   "beat": 3.5
+  },
+  {
+   "kind": "entries",
+   "label": "Stretto: Subject 2 (Tenor); Subject 2, rhythm varied (Alto)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 227.0,
+   "end": 246.0,
+   "measure": 57,
+   "beat": 3.0
+  },
+  {
+   "kind": "link",
+   "label": "Link",
+   "summary": "Free counterpoint: nothing here is traced to the themes.",
+   "reworks": "",
+   "leads": "From C minor to B♭ major",
+   "start": 246.0,
+   "end": 247.0,
+   "measure": 62,
+   "beat": 2.0
+  },
+  {
+   "kind": "entries",
+   "label": "Subject 2 (Soprano)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 247.0,
+   "end": 257.5,
+   "measure": 62,
+   "beat": 3.0
+  },
+  {
+   "kind": "episode",
+   "label": "Episode 5",
+   "summary": "Reworks Episode 4 (bars 53–57), with the tenor's line in the alto, the lines moved by different intervals. Free counterpoint: nothing here is traced to the themes. Returns in Episode 6 (bars 69–73).",
+   "reworks": "Episode 4",
+   "leads": "From C minor to B♭ major",
+   "start": 257.5,
+   "end": 263.0,
+   "measure": 65,
+   "beat": 1.5
+  },
+  {
+   "kind": "entries",
+   "label": "Subject 2 (Bass)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 263.0,
+   "end": 275.0,
+   "measure": 66,
+   "beat": 3.0
+  },
+  {
+   "kind": "episode",
+   "label": "Episode 6",
+   "summary": "Reworks Episode 5 (bars 65–66), with soprano and alto exchanged, the lines moved by different intervals. Soprano: free counterpoint. Alto: free counterpoint. Tenor: free counterpoint, in a sequence falling by a step every bar. Bass: free counterpoint.",
+   "reworks": "Episode 5",
+   "leads": "From C minor to B♭ major",
+   "start": 275.0,
+   "end": 293.0,
+   "measure": 69,
+   "beat": 3.0
+  },
+  {
+   "kind": "entries",
+   "label": "Subject 2, rhythm varied (Alto)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 293.0,
+   "end": 302.0,
+   "measure": 74,
+   "beat": 1.0
+  },
+  {
+   "kind": "episode",
+   "label": "Episode 7",
+   "summary": "Free counterpoint: nothing here is traced to the themes.",
+   "reworks": "",
+   "leads": "From C minor to B♭ major; perfect cadence in G major at bar 78",
+   "start": 302.0,
+   "end": 311.0,
+   "measure": 76,
+   "beat": 2.0
+  },
+  {
+   "kind": "entries",
+   "label": "Subject 2 (Soprano); Subject 2 (Alto)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 311.0,
+   "end": 323.0,
+   "measure": 78,
+   "beat": 3.0
+  },
+  {
+   "kind": "episode",
+   "label": "Episode 8",
+   "summary": "Reworks Link (bar 49), in the same voices, the lines moved by different intervals (invertible counterpoint at the twelfth). Soprano: free counterpoint. Alto: free counterpoint. Tenor: free counterpoint, in a sequence falling by a third every bar.",
+   "reworks": "Link",
+   "leads": "From C minor to B♭ major; perfect cadence in E♭ minor at bar 83",
+   "start": 323.0,
+   "end": 347.0,
+   "measure": 81,
+   "beat": 3.0
+  },
+  {
+   "kind": "entries",
+   "label": "Stretto: Subject 2 (Bass); Subject 2 (Tenor)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 347.0,
+   "end": 365.5,
+   "measure": 87,
+   "beat": 3.0
+  },
+  {
+   "kind": "link",
+   "label": "Link",
+   "summary": "Free counterpoint: nothing here is traced to the themes.",
+   "reworks": "",
+   "leads": "From C minor to B♭ major",
+   "start": 365.5,
+   "end": 367.0,
+   "measure": 92,
+   "beat": 1.5
+  },
+  {
+   "kind": "entries",
+   "label": "Stretto: Subject 2 (Alto); Subject 2 (Soprano)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 367.0,
+   "end": 385.5,
+   "measure": 92,
+   "beat": 3.0
+  },
+  {
+   "kind": "link",
+   "label": "Link",
+   "summary": "Free counterpoint: nothing here is traced to the themes.",
+   "reworks": "",
+   "leads": "From C minor to B♭ major",
+   "start": 385.5,
+   "end": 387.0,
+   "measure": 97,
+   "beat": 1.5
+  },
+  {
+   "kind": "entries",
+   "label": "Subject 2 (Bass)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 387.0,
+   "end": 399.0,
+   "measure": 97,
+   "beat": 3.0
+  },
+  {
+   "kind": "episode",
+   "label": "Episode 9",
+   "summary": "Soprano: free counterpoint. Alto: free counterpoint. Tenor: free counterpoint. Bass: free counterpoint, in a sequence falling by a third every half bar.",
+   "reworks": "",
+   "leads": "From C minor to B♭ major",
+   "start": 399.0,
+   "end": 416.0,
+   "measure": 100,
+   "beat": 3.0
+  },
+  {
+   "kind": "entries",
+   "label": "Subject in B♭ major (Soprano)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 416.0,
+   "end": 431.5,
+   "measure": 104,
+   "beat": 4.0
+  },
+  {
+   "kind": "episode",
+   "label": "Episode 10",
+   "summary": "Reworks the codetta (bars 8–10) in part, in the same voices, at the same pitch. Free counterpoint: nothing here is traced to the themes.",
+   "reworks": "Codetta",
+   "leads": "From B♭ major to C minor",
+   "start": 431.5,
+   "end": 440.0,
+   "measure": 108,
    "beat": 3.5
   },
   {
@@ -15323,22 +15911,44 @@
    "beat": 4.0
   },
   {
+   "kind": "episode",
+   "label": "Episode 11",
+   "summary": "Reworks Link (bar 49), with the tenor's line in the soprano, a sixth lower. Soprano: free counterpoint, in a sequence falling by a step every two bars. Alto: free counterpoint, in a sequence falling by a step every two bars. Tenor: a figure from the subject, in a sequence falling by a step every two bars. Bass: a figure from the subject, in a sequence falling by a step every two bars.",
+   "reworks": "Link",
+   "leads": "From G minor to C minor",
+   "start": 471.5,
+   "end": 496.0,
+   "measure": 118,
+   "beat": 3.5
+  },
+  {
+   "kind": "entries",
+   "label": "Subject in C minor (Alto)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 496.0,
+   "end": 509.0,
+   "measure": 124,
+   "beat": 4.0
+  },
+  {
    "kind": "coda",
    "label": "Coda",
    "summary": "",
    "reworks": "",
-   "leads": "Perfect cadence in C minor at bar 128",
-   "start": 471.5,
+   "leads": "",
+   "start": 509.0,
    "end": 521.0,
-   "measure": 118,
-   "beat": 3.5
+   "measure": 128,
+   "beat": 1.0
   }
  ],
  "spans": [
   {
    "kind": "codetta",
    "label": "Codetta",
-   "summary": "Free counterpoint: nothing here is traced to the themes.",
+   "summary": "Free counterpoint: nothing here is traced to the themes. Returns in Episode 10 (bars 108–110).",
    "voice": null,
    "start": 31.5,
    "end": 40.0,
@@ -15486,19 +16096,6 @@
    "beat": 3.0
   },
   {
-   "voice": 0,
-   "start": 157.0,
-   "end": 161.5,
-   "source": "subject",
-   "first": 11,
-   "last": 15,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 40,
-   "beat": 1.0
-  },
-  {
    "voice": 1,
    "start": 157.5,
    "end": 163.0,
@@ -15510,6 +16107,19 @@
    "text": "a figure from the subject",
    "measure": 40,
    "beat": 1.5
+  },
+  {
+   "voice": 0,
+   "start": 158.0,
+   "end": 161.5,
+   "source": "subject",
+   "first": 11,
+   "last": 14,
+   "inverted": false,
+   "exact": true,
+   "text": "a figure from the subject",
+   "measure": 40,
+   "beat": 2.0
   },
   {
    "voice": 2,
@@ -15577,19 +16187,6 @@
    "beat": 1.0
   },
   {
-   "voice": 0,
-   "start": 416.0,
-   "end": 420.5,
-   "source": "subject",
-   "first": 1,
-   "last": 5,
-   "inverted": false,
-   "exact": false,
-   "text": "the opening of the subject",
-   "measure": 104,
-   "beat": 4.0
-  },
-  {
    "voice": 3,
    "start": 417.0,
    "end": 423.5,
@@ -15600,19 +16197,6 @@
    "exact": false,
    "text": "a figure from the subject",
    "measure": 105,
-   "beat": 1.0
-  },
-  {
-   "voice": 0,
-   "start": 421.0,
-   "end": 431.5,
-   "source": "subject",
-   "first": 6,
-   "last": 17,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 106,
    "beat": 1.0
   },
   {
@@ -15681,19 +16265,6 @@
    "beat": 3.5
   },
   {
-   "voice": 1,
-   "start": 496.0,
-   "end": 503.0,
-   "source": "subject",
-   "first": 1,
-   "last": 6,
-   "inverted": false,
-   "exact": true,
-   "text": "the opening of the subject",
-   "measure": 124,
-   "beat": 4.0
-  },
-  {
    "voice": 0,
    "start": 500.5,
    "end": 503.0,
@@ -15705,19 +16276,6 @@
    "text": "a figure from the subject",
    "measure": 125,
    "beat": 4.5
-  },
-  {
-   "voice": 1,
-   "start": 503.5,
-   "end": 511.5,
-   "source": "subject",
-   "first": 7,
-   "last": 17,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 126,
-   "beat": 3.5
   },
   {
    "voice": 3,
@@ -15801,39 +16359,6 @@
    "beat": 1.0
   },
   {
-   "voice": 1,
-   "start": 225.5,
-   "end": 239.0,
-   "period": 4.0,
-   "count": 3,
-   "step": 1,
-   "text": "a sequence rising by a step every bar",
-   "measure": 57,
-   "beat": 1.5
-  },
-  {
-   "voice": 0,
-   "start": 237.5,
-   "end": 246.0,
-   "period": 4.0,
-   "count": 2,
-   "step": 1,
-   "text": "a sequence rising by a step every bar",
-   "measure": 60,
-   "beat": 1.5
-  },
-  {
-   "voice": 2,
-   "start": 246.5,
-   "end": 254.5,
-   "period": 4.0,
-   "count": 2,
-   "step": 1,
-   "text": "a sequence rising by a step every bar",
-   "measure": 62,
-   "beat": 2.5
-  },
-  {
    "voice": 2,
    "start": 277.5,
    "end": 289.0,
@@ -15843,17 +16368,6 @@
    "text": "a sequence falling by a step every bar",
    "measure": 70,
    "beat": 1.5
-  },
-  {
-   "voice": 2,
-   "start": 317.0,
-   "end": 325.0,
-   "period": 4.0,
-   "count": 2,
-   "step": -2,
-   "text": "a sequence falling by a third every bar",
-   "measure": 80,
-   "beat": 1.0
   },
   {
    "voice": 2,
@@ -15867,28 +16381,6 @@
    "beat": 1.0
   },
   {
-   "voice": 0,
-   "start": 349.0,
-   "end": 357.0,
-   "period": 4.0,
-   "count": 2,
-   "step": 1,
-   "text": "a sequence rising by a step every bar",
-   "measure": 88,
-   "beat": 1.0
-  },
-  {
-   "voice": 0,
-   "start": 388.0,
-   "end": 396.0,
-   "period": 4.0,
-   "count": 2,
-   "step": 1,
-   "text": "a sequence rising by a step every bar",
-   "measure": 97,
-   "beat": 4.0
-  },
-  {
    "voice": 3,
    "start": 402.0,
    "end": 406.0,
@@ -15898,6 +16390,50 @@
    "text": "a sequence falling by a third every half bar",
    "measure": 101,
    "beat": 2.0
+  },
+  {
+   "voice": 3,
+   "start": 471.5,
+   "end": 487.5,
+   "period": 8.0,
+   "count": 2,
+   "step": -1,
+   "text": "a sequence falling by a step every two bars",
+   "measure": 118,
+   "beat": 3.5
+  },
+  {
+   "voice": 1,
+   "start": 472.0,
+   "end": 486.0,
+   "period": 8.0,
+   "count": 2,
+   "step": -1,
+   "text": "a sequence falling by a step every two bars",
+   "measure": 118,
+   "beat": 4.0
+  },
+  {
+   "voice": 2,
+   "start": 472.0,
+   "end": 488.0,
+   "period": 8.0,
+   "count": 2,
+   "step": -1,
+   "text": "a sequence falling by a step every two bars",
+   "measure": 118,
+   "beat": 4.0
+  },
+  {
+   "voice": 0,
+   "start": 473.5,
+   "end": 489.5,
+   "period": 8.0,
+   "count": 2,
+   "step": -1,
+   "text": "a sequence falling by a step every two bars",
+   "measure": 119,
+   "beat": 1.5
   }
  ]
 }
