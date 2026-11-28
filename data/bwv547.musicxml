@@ -19,29 +19,29 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P89d568860a4caa8f3b48dee5380693e0">
+    <score-part id="Pfd9b55bd1811816e73030fec6f380337">
       <part-name>Soprano I</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pcb1b1f588546548c648bbc581c12faa2">
+    <score-part id="P55c19eeafd3d477f0ab65a3620000890">
       <part-name>Soprano II</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pf8e8cf4115e7661bc10e8acc61a26b79">
+    <score-part id="Pc862a7ca7e5dff56834023580b1b76fb">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="Pea7800c6513b05631adcda38726356b3">
+    <score-part id="P8b1f8d91530d79891e617c55e1b31890">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="Pd68c1007f6e1e8392cf5211f4fba297b">
+    <score-part id="Paa8e45b86f0644a7748cca67b8c20106">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P89d568860a4caa8f3b48dee5380693e0">
+  <part id="Pfd9b55bd1811816e73030fec6f380337">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -6120,7 +6120,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pcb1b1f588546548c648bbc581c12faa2">
+  <part id="P55c19eeafd3d477f0ab65a3620000890">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -12387,7 +12387,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="Pf8e8cf4115e7661bc10e8acc61a26b79">
+  <part id="Pc862a7ca7e5dff56834023580b1b76fb">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -17850,7 +17850,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="Pea7800c6513b05631adcda38726356b3">
+  <part id="P8b1f8d91530d79891e617c55e1b31890">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -22717,7 +22717,7 @@
     </measure>
   </part>
   <!--=========================== Part 5 ===========================-->
-  <part id="Pd68c1007f6e1e8392cf5211f4fba297b">
+  <part id="Paa8e45b86f0644a7748cca67b8c20106">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -24076,9 +24076,11 @@
         </pitch>
         <duration>40320</duration>
         <tie type="stop" />
+        <tie type="start" />
         <type>whole</type>
         <notations>
           <tied type="stop" />
+          <tied type="start" />
         </notations>
       </note>
     </measure>
@@ -24090,9 +24092,11 @@
           <octave>2</octave>
         </pitch>
         <duration>40320</duration>
+        <tie type="stop" />
         <tie type="start" />
         <type>whole</type>
         <notations>
+          <tied type="stop" />
           <tied type="start" />
         </notations>
       </note>

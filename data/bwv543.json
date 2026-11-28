@@ -1575,8 +1575,8 @@
   },
   {
    "v": 0,
-   "on": 39.0,
-   "dur": 0.25,
+   "on": 37.5,
+   "dur": 1.75,
    "midi": [
     76
    ]
@@ -3959,8 +3959,8 @@
   },
   {
    "v": 0,
-   "on": 168.0,
-   "dur": 0.5,
+   "on": 166.5,
+   "dur": 2.0,
    "midi": [
     72
    ]
@@ -25533,7 +25533,7 @@
   {
    "kind": "codetta",
    "label": "Codetta",
-   "summary": "Soprano: a figure from the subject (3 times). Alto: a figure from the subject.",
+   "summary": "Soprano: a figure from the subject (3 times), in a sequence falling by a sixth every bar. Alto: a figure from the subject.",
    "voice": null,
    "start": 29.25,
    "end": 42.0,
@@ -26991,6 +26991,17 @@
   }
  ],
  "sequences": [
+  {
+   "voice": 0,
+   "start": 34.5,
+   "end": 40.5,
+   "period": 3.0,
+   "count": 2,
+   "step": -5,
+   "text": "a sequence falling by a sixth every bar",
+   "measure": 12,
+   "beat": 2.5
+  },
   {
    "voice": 0,
    "start": 90.75,

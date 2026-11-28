@@ -19,15 +19,15 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P5b7f96712207ae2cd342f80756aa980f">
+    <score-part id="P3965679674aac3cf889d286628ac914f">
       <part-name />
     </score-part>
-    <score-part id="P54829485837bd74a160d45a52c24f855">
+    <score-part id="Pdc625391e30b0b12721356b97566a8d5">
       <part-name />
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P5b7f96712207ae2cd342f80756aa980f">
+  <part id="P3965679674aac3cf889d286628ac914f">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -28169,7 +28169,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P54829485837bd74a160d45a52c24f855">
+  <part id="Pdc625391e30b0b12721356b97566a8d5">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -29527,9 +29527,11 @@
         </pitch>
         <duration>40320</duration>
         <tie type="stop" />
+        <tie type="start" />
         <type>whole</type>
         <notations>
           <tied type="stop" />
+          <tied type="start" />
         </notations>
       </note>
     </measure>
@@ -29541,9 +29543,11 @@
           <octave>2</octave>
         </pitch>
         <duration>40320</duration>
+        <tie type="stop" />
         <tie type="start" />
         <type>whole</type>
         <notations>
+          <tied type="stop" />
           <tied type="start" />
         </notations>
       </note>

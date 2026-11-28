@@ -19,25 +19,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P9498dee91d206a8dd046a479d8308be9">
+    <score-part id="Pdf46441aa1d82073b38a98803ba48b43">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pee0c3c98e7dc181a617c5c27e3a0a913">
+    <score-part id="P4125a6f5056e3a6681d9bc38d5799bdf">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P23dd55c9aaab9e9c2fd803df9d112ace">
+    <score-part id="P6b1abf98dc50526d585a4e9d2707a1d8">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="Pf4b4d576d9cb0c7c11e6cb7546a10cac">
+    <score-part id="P5ea23239c073c786d713337f84894efc">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P9498dee91d206a8dd046a479d8308be9">
+  <part id="Pdf46441aa1d82073b38a98803ba48b43">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -5928,7 +5928,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pee0c3c98e7dc181a617c5c27e3a0a913">
+  <part id="P4125a6f5056e3a6681d9bc38d5799bdf">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -8192,22 +8192,11 @@
     <!--========================= Measure 39 =========================-->
     <measure implicit="no" number="39">
       <note>
-        <pitch>
-          <step>F</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-      </note>
-      <note>
         <rest />
-        <duration>20160</duration>
+        <duration>35280</duration>
         <type>half</type>
-      </note>
-      <note>
-        <rest />
-        <duration>5040</duration>
-        <type>eighth</type>
+        <dot />
+        <dot />
       </note>
       <note>
         <pitch>
@@ -9494,7 +9483,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P23dd55c9aaab9e9c2fd803df9d112ace">
+  <part id="P6b1abf98dc50526d585a4e9d2707a1d8">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -12748,11 +12737,46 @@
     <!--========================= Measure 39 =========================-->
     <measure implicit="no" number="39">
       <note>
+        <pitch>
+          <step>F</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>E</step>
+          <alter>-1</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
+      <note>
         <rest />
-        <duration>35280</duration>
-        <type>half</type>
-        <dot />
-        <dot />
+        <duration>5040</duration>
+        <type>eighth</type>
       </note>
       <note>
         <pitch>
@@ -14464,7 +14488,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="Pf4b4d576d9cb0c7c11e6cb7546a10cac">
+  <part id="P5ea23239c073c786d713337f84894efc">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>

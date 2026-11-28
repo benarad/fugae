@@ -4192,6 +4192,14 @@
   },
   {
    "v": 1,
+   "on": 259.5,
+   "dur": 0.5,
+   "midi": [
+    65
+   ]
+  },
+  {
+   "v": 1,
    "on": 260.0,
    "dur": 1.0,
    "midi": [
@@ -5627,7 +5635,7 @@
    "on": 437.5,
    "dur": 0.5,
    "midi": [
-    68
+    70
    ]
   },
   {
@@ -5635,7 +5643,7 @@
    "on": 438.0,
    "dur": 0.5,
    "midi": [
-    70
+    68
    ]
   },
   {
@@ -5643,12 +5651,20 @@
    "on": 438.5,
    "dur": 0.5,
    "midi": [
-    72
+    70
    ]
   },
   {
    "v": 1,
    "on": 439.0,
+   "dur": 0.5,
+   "midi": [
+    72
+   ]
+  },
+  {
+   "v": 1,
+   "on": 439.5,
    "dur": 0.5,
    "midi": [
     68
@@ -8787,7 +8803,7 @@
   {
    "v": 2,
    "on": 464.0,
-   "dur": 3.0,
+   "dur": 3.5,
    "midi": [
     70
    ]
@@ -13964,7 +13980,7 @@
    "on": 462.0,
    "dur": 2.0,
    "midi": [
-    55
+    56
    ]
   },
   {
@@ -16646,9 +16662,7 @@
    "end": 482.0,
    "notes": 16,
    "skipped": 0,
-   "deviations": [
-    1
-   ],
+   "deviations": [],
    "measure": 116,
    "beat": 1.0
   },
@@ -17035,7 +17049,7 @@
   {
    "kind": "episode",
    "label": "Episode 4",
-   "summary": "Soprano II: a figure from countersubject 2, inverted and a figure from countersubject 1, in a sequence falling by a step every half bar. Alto: the opening of countersubject 2 and the opening of countersubject 1, inverted. Tenor: the opening of countersubject 1, inverted and a figure from countersubject 2. Bass: free counterpoint, in a sequence rising by a fifth every bar.",
+   "summary": "Soprano II: a figure from countersubject 2. Alto: the opening of countersubject 2 and the opening of countersubject 1, inverted. Tenor: the opening of countersubject 1, inverted and a figure from countersubject 2. Bass: free counterpoint, in a sequence rising by a fifth every bar.",
    "reworks": "",
    "leads": "From E♭ major to F minor",
    "start": 434.0,
@@ -18304,29 +18318,16 @@
   },
   {
    "voice": 1,
-   "start": 435.5,
-   "end": 437.5,
-   "source": "cs2",
-   "first": 5,
-   "last": 8,
-   "inverted": true,
-   "exact": true,
-   "text": "a figure from countersubject 2, inverted",
-   "measure": 109,
-   "beat": 4.5
-  },
-  {
-   "voice": 1,
-   "start": 437.5,
+   "start": 436.5,
    "end": 439.5,
-   "source": "cs1",
-   "first": 3,
-   "last": 6,
+   "source": "cs2",
+   "first": 4,
+   "last": 9,
    "inverted": false,
    "exact": true,
-   "text": "a figure from countersubject 1",
+   "text": "a figure from countersubject 2",
    "measure": 110,
-   "beat": 2.5
+   "beat": 1.5
   },
   {
    "voice": 3,
@@ -18853,17 +18854,6 @@
    "text": "a sequence falling by a step every two bars",
    "measure": 99,
    "beat": 1.5
-  },
-  {
-   "voice": 1,
-   "start": 435.0,
-   "end": 439.0,
-   "period": 2.0,
-   "count": 2,
-   "step": -1,
-   "text": "a sequence falling by a step every half bar",
-   "measure": 109,
-   "beat": 4.0
   },
   {
    "voice": 4,
