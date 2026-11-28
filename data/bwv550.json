@@ -1973,54 +1973,6 @@
   },
   {
    "v": 0,
-   "on": 186.0,
-   "dur": 1.0,
-   "midi": [
-    69
-   ]
-  },
-  {
-   "v": 0,
-   "on": 187.0,
-   "dur": 1.0,
-   "midi": [
-    66
-   ]
-  },
-  {
-   "v": 0,
-   "on": 188.0,
-   "dur": 0.5,
-   "midi": [
-    62
-   ]
-  },
-  {
-   "v": 0,
-   "on": 188.5,
-   "dur": 0.5,
-   "midi": [
-    74
-   ]
-  },
-  {
-   "v": 0,
-   "on": 189.0,
-   "dur": 0.5,
-   "midi": [
-    71
-   ]
-  },
-  {
-   "v": 0,
-   "on": 189.5,
-   "dur": 0.5,
-   "midi": [
-    74
-   ]
-  },
-  {
-   "v": 0,
    "on": 221.0,
    "dur": 1.0,
    "midi": [
@@ -6234,7 +6186,8 @@
    "dur": 1.0,
    "midi": [
     79
-   ]
+   ],
+   "hold": true
   },
   {
    "v": 1,
@@ -7882,6 +7835,54 @@
    "dur": 1.0,
    "midi": [
     66
+   ]
+  },
+  {
+   "v": 1,
+   "on": 186.0,
+   "dur": 1.0,
+   "midi": [
+    69
+   ]
+  },
+  {
+   "v": 1,
+   "on": 187.0,
+   "dur": 1.0,
+   "midi": [
+    66
+   ]
+  },
+  {
+   "v": 1,
+   "on": 188.0,
+   "dur": 0.5,
+   "midi": [
+    62
+   ]
+  },
+  {
+   "v": 1,
+   "on": 188.5,
+   "dur": 0.5,
+   "midi": [
+    74
+   ]
+  },
+  {
+   "v": 1,
+   "on": 189.0,
+   "dur": 0.5,
+   "midi": [
+    71
+   ]
+  },
+  {
+   "v": 1,
+   "on": 189.5,
+   "dur": 0.5,
+   "midi": [
+    74
    ]
   },
   {
@@ -11557,7 +11558,8 @@
     74,
     67,
     71
-   ]
+   ],
+   "hold": true
   },
   {
    "v": 2,
@@ -16502,7 +16504,8 @@
    "dur": 1.0,
    "midi": [
     62
-   ]
+   ],
+   "hold": true
   },
   {
    "v": 3,
@@ -19439,7 +19442,8 @@
    "dur": 1.0,
    "midi": [
     43
-   ]
+   ],
+   "hold": true
   }
  ],
  "subject": {
@@ -19750,6 +19754,31 @@
    "varied": false,
    "ornamented": false,
    "partial": false,
+   "key": "B minor",
+   "voice": 2,
+   "start": 329.0,
+   "end": 352.0,
+   "notes": 36,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 83,
+   "beat": 2.0
+  },
+  {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e11",
+   "theme": 1,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
    "key": "D major",
    "voice": 0,
    "start": 373.0,
@@ -19764,7 +19793,7 @@
    "altered": [],
    "altered_by": 0,
    "answer_at": "",
-   "id": "e11",
+   "id": "e12",
    "theme": 1,
    "role": "subject",
    "tonal": false,
@@ -19789,7 +19818,7 @@
    "altered": [],
    "altered_by": 0,
    "answer_at": "",
-   "id": "e12",
+   "id": "e13",
    "theme": 1,
    "role": "subject",
    "tonal": false,
@@ -19814,7 +19843,7 @@
    "altered": [],
    "altered_by": 0,
    "answer_at": "",
-   "id": "e13",
+   "id": "e14",
    "theme": 1,
    "role": "subject",
    "tonal": false,
@@ -19839,7 +19868,7 @@
    "altered": [],
    "altered_by": 0,
    "answer_at": "",
-   "id": "e14",
+   "id": "e15",
    "theme": 1,
    "role": "subject",
    "tonal": false,
@@ -20059,13 +20088,35 @@
   {
    "kind": "episode",
    "label": "Episode 5",
-   "summary": "Reworks the codetta (bars 12–14) in part, with the alto's line in the bass, the tenor's line in the soprano, the lines moved by different intervals (invertible counterpoint at the tenth). Soprano: a figure from the subject (3 times) and a figure from the subject, inverted, in a sequence falling by a step every bar. Alto: a figure from the subject (7 times), in a sequence falling by a step every bar. Tenor: the opening of the subject and a figure from the subject and a figure from the subject, inverted, in a sequence falling by a step every bar. Bass: a figure from the subject (6 times), in a sequence falling by a step every bar.",
+   "summary": "Reworks the codetta (bars 12–14) in part, with the alto's line in the bass, the tenor's line in the soprano, the lines moved by different intervals (invertible counterpoint at the tenth). Soprano: a figure from the subject (2 times), in a sequence falling by a step every bar. Alto: a figure from the subject (5 times), in a sequence falling by a step every bar. Tenor: free counterpoint. Bass: a figure from the subject (6 times), in a sequence falling by a step every bar.",
    "reworks": "Codetta",
-   "leads": "From E minor to D major; perfect cadence in B minor at bar 77; perfect cadence in D major at bar 93",
+   "leads": "From E minor to B minor; perfect cadence in B minor at bar 77",
    "start": 279.0,
-   "end": 373.0,
+   "end": 329.0,
    "measure": 70,
    "beat": 4.0
+  },
+  {
+   "kind": "entries",
+   "label": "Subject in B minor (Tenor)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 329.0,
+   "end": 352.0,
+   "measure": 83,
+   "beat": 2.0
+  },
+  {
+   "kind": "episode",
+   "label": "Episode 6",
+   "summary": "Soprano: a figure from the subject, inverted, in a sequence falling by a step every bar. Alto: a figure from the subject, in a sequence falling by a step every bar. Tenor: a figure from the subject, inverted, in a sequence falling by a step every bar.",
+   "reworks": "",
+   "leads": "From B minor to D major; perfect cadence in D major at bar 93",
+   "start": 352.0,
+   "end": 373.0,
+   "measure": 89,
+   "beat": 1.0
   },
   {
    "kind": "entries",
@@ -20080,7 +20131,7 @@
   },
   {
    "kind": "episode",
-   "label": "Episode 6",
+   "label": "Episode 7",
    "summary": "Soprano: the opening of the subject and a figure from the subject. Alto: free counterpoint. Tenor: a figure from the subject (2 times).",
    "reworks": "",
    "leads": "From D major to A minor",
@@ -20102,7 +20153,7 @@
   },
   {
    "kind": "episode",
-   "label": "Episode 7",
+   "label": "Episode 8",
    "summary": "Reworks the codetta (bars 12–14) in part, with the alto's line in the tenor, the tenor's line in the soprano, transposed. Soprano: a figure from the subject (2 times). Alto: a figure from the subject. Tenor: free counterpoint, in a sequence falling by a seventh every half bar.",
    "reworks": "Codetta",
    "leads": "From A minor to C major; perfect cadence in A minor at bar 110",
@@ -20124,7 +20175,7 @@
   },
   {
    "kind": "episode",
-   "label": "Episode 8",
+   "label": "Episode 9",
    "summary": "Reworks the codetta (bars 12–14), with the alto's line in the soprano, the tenor's line in the bass, the lines moved by different intervals (invertible counterpoint at the twelfth). Soprano: a figure from the subject (5 times), in a sequence falling by a step every half bar. Alto: a figure from the subject (3 times), in a sequence falling by a step every half bar. Tenor: a figure from the subject, in a sequence falling by a step every half bar. Bass: free counterpoint, in a sequence falling by a third every bar.",
    "reworks": "Codetta",
    "leads": "From C major to G major; perfect cadence in C major at bar 122",
@@ -20145,15 +20196,26 @@
    "beat": 2.0
   },
   {
+   "kind": "episode",
+   "label": "Episode 10",
+   "summary": "Soprano: a figure from the subject. Alto: free counterpoint. Tenor: free counterpoint. Bass: free counterpoint.",
+   "reworks": "",
+   "leads": "",
+   "start": 555.5,
+   "end": 560.0,
+   "measure": 139,
+   "beat": 4.5
+  },
+  {
    "kind": "coda",
    "label": "Coda",
    "summary": "",
    "reworks": "",
    "leads": "Perfect cadence in G major at bar 149",
-   "start": 555.5,
+   "start": 560.0,
    "end": 596.0,
-   "measure": 139,
-   "beat": 4.5
+   "measure": 141,
+   "beat": 1.0
   }
  ],
  "spans": [
@@ -20170,7 +20232,7 @@
   {
    "kind": "codetta",
    "label": "Codetta",
-   "summary": "Alto: a figure from the subject, inverted. Tenor: free counterpoint. Returns in Episode 1 (bars 34–38). Returns in Episode 3 (bars 51–56). Returns in Episode 5 (bars 70–94). Returns in Episode 7 (bars 109–115). Returns in Episode 8 (bars 120–131).",
+   "summary": "Alto: a figure from the subject, inverted. Tenor: free counterpoint. Returns in Episode 1 (bars 34–38). Returns in Episode 3 (bars 51–56). Returns in Episode 5 (bars 70–83). Returns in Episode 8 (bars 109–115). Returns in Episode 9 (bars 120–131).",
    "voice": null,
    "start": 47.5,
    "end": 53.0,
@@ -20772,19 +20834,6 @@
    "beat": 3.0
   },
   {
-   "voice": 2,
-   "start": 329.0,
-   "end": 336.0,
-   "source": "subject",
-   "first": 1,
-   "last": 11,
-   "inverted": false,
-   "exact": false,
-   "text": "the opening of the subject",
-   "measure": 83,
-   "beat": 2.0
-  },
-  {
    "voice": 0,
    "start": 329.5,
    "end": 332.0,
@@ -20806,19 +20855,6 @@
    "last": 12,
    "inverted": false,
    "exact": false,
-   "text": "a figure from the subject",
-   "measure": 85,
-   "beat": 1.0
-  },
-  {
-   "voice": 2,
-   "start": 336.0,
-   "end": 352.0,
-   "source": "subject",
-   "first": 12,
-   "last": 36,
-   "inverted": false,
-   "exact": true,
    "text": "a figure from the subject",
    "measure": 85,
    "beat": 1.0

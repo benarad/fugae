@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-24</encoding-date>
+      <encoding-date>2026-11-27</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,29 +19,29 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P8d0857200cdfa71873755680b9c7e5a5">
+    <score-part id="P89d568860a4caa8f3b48dee5380693e0">
       <part-name>Soprano I</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P7d7f40e886caf776cb436a6dc861353a">
+    <score-part id="Pcb1b1f588546548c648bbc581c12faa2">
       <part-name>Soprano II</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P9549929234857b0726969aded2a6dfe0">
+    <score-part id="Pf8e8cf4115e7661bc10e8acc61a26b79">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P7422d5af7eb00625c39a6cc2c585ea0b">
+    <score-part id="Pea7800c6513b05631adcda38726356b3">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="Pc6d3479034eacd4202fcba1c8bb43f13">
+    <score-part id="Pd68c1007f6e1e8392cf5211f4fba297b">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P8d0857200cdfa71873755680b9c7e5a5">
+  <part id="P89d568860a4caa8f3b48dee5380693e0">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -1623,69 +1623,8 @@
     <!--========================= Measure 20 =========================-->
     <measure implicit="no" number="20">
       <note>
-        <rest />
-        <duration>20160</duration>
-        <type>half</type>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>10080</duration>
-        <tie type="start" />
-        <type>quarter</type>
-        <notations>
-          <tied type="start" />
-        </notations>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <tie type="stop" />
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-        <notations>
-          <tied type="stop" />
-        </notations>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
+        <rest measure="yes" />
+        <duration>40320</duration>
       </note>
     </measure>
     <!--========================= Measure 21 =========================-->
@@ -4011,22 +3950,260 @@
     <!--========================= Measure 49 =========================-->
     <measure implicit="no" number="49">
       <note>
-        <rest measure="yes" />
-        <duration>40320</duration>
+        <rest />
+        <duration>20160</duration>
+        <type>half</type>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>10080</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <tie type="stop" />
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+        <notations>
+          <tied type="stop" />
+        </notations>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
       </note>
     </measure>
     <!--========================= Measure 50 =========================-->
     <measure implicit="no" number="50">
       <note>
-        <rest measure="yes" />
-        <duration>40320</duration>
+        <pitch>
+          <step>G</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>E</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>10080</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 51 =========================-->
     <measure implicit="no" number="51">
       <note>
-        <rest measure="yes" />
-        <duration>40320</duration>
+        <pitch>
+          <step>D</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>2520</duration>
+        <tie type="stop" />
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+        <notations>
+          <tied type="stop" />
+        </notations>
+      </note>
+      <note>
+        <pitch>
+          <step>E</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <alter>-1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>flat</accidental>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <alter>-1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
       </note>
     </measure>
     <!--========================= Measure 52 =========================-->
@@ -5917,6 +6094,9 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note>
         <chord />
@@ -5940,7 +6120,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P7d7f40e886caf776cb436a6dc861353a">
+  <part id="Pcb1b1f588546548c648bbc581c12faa2">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -7060,7 +7240,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>up</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note>
         <pitch>
@@ -7070,7 +7250,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>up</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note>
         <pitch>
@@ -7594,8 +7774,69 @@
     <!--========================= Measure 20 =========================-->
     <measure implicit="no" number="20">
       <note>
-        <rest measure="yes" />
-        <duration>40320</duration>
+        <rest />
+        <duration>20160</duration>
+        <type>half</type>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>10080</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <tie type="stop" />
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+        <notations>
+          <tied type="stop" />
+        </notations>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
       </note>
     </measure>
     <!--========================= Measure 21 =========================-->
@@ -9840,26 +10081,9 @@
         <dot />
       </note>
       <note>
-        <pitch>
-          <step>E</step>
-          <alter>-1</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <accidental>flat</accidental>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
+        <rest />
+        <duration>10080</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -10065,139 +10289,16 @@
     <!--========================= Measure 49 =========================-->
     <measure implicit="no" number="49">
       <note>
-        <rest />
-        <duration>20160</duration>
-        <type>half</type>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>10080</duration>
-        <tie type="start" />
-        <type>quarter</type>
-        <notations>
-          <tied type="start" />
-        </notations>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <tie type="stop" />
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-        <notations>
-          <tied type="stop" />
-        </notations>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>5</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
+        <rest measure="yes" />
+        <duration>40320</duration>
       </note>
     </measure>
     <!--========================= Measure 50 =========================-->
     <measure implicit="no" number="50">
       <note>
         <pitch>
-          <step>G</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-      </note>
-      <note>
-        <pitch>
           <step>E</step>
-          <octave>5</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
           <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <alter>1</alter>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <accidental>sharp</accidental>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>5</octave>
         </pitch>
         <duration>10080</duration>
         <tie type="start" />
@@ -10206,18 +10307,15 @@
           <tied type="start" />
         </notations>
       </note>
-    </measure>
-    <!--========================= Measure 51 =========================-->
-    <measure implicit="no" number="51">
       <note>
         <pitch>
-          <step>D</step>
-          <octave>5</octave>
+          <step>E</step>
+          <octave>4</octave>
         </pitch>
         <duration>2520</duration>
         <tie type="stop" />
         <type>16th</type>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
         <notations>
@@ -10226,77 +10324,55 @@
       </note>
       <note>
         <pitch>
-          <step>E</step>
-          <octave>5</octave>
+          <step>F</step>
+          <octave>4</octave>
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <stem>down</stem>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
         <beam number="1">continue</beam>
         <beam number="2">continue</beam>
       </note>
       <note>
         <pitch>
           <step>D</step>
-          <octave>5</octave>
+          <octave>4</octave>
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>5</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">end</beam>
         <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
-          <step>B</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">begin</beam>
       </note>
       <note>
         <pitch>
-          <step>D</step>
-          <octave>5</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>5</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <alter>-1</alter>
+          <step>E</step>
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <accidental>flat</accidental>
-        <stem>down</stem>
+        <stem>up</stem>
         <beam number="1">continue</beam>
       </note>
       <note>
@@ -10311,14 +10387,91 @@
       </note>
       <note>
         <pitch>
-          <step>B</step>
-          <alter>-1</alter>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
         <stem>up</stem>
         <beam number="1">end</beam>
+      </note>
+    </measure>
+    <!--========================= Measure 51 =========================-->
+    <measure implicit="no" number="51">
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
+      <note>
+        <rest />
+        <duration>5040</duration>
+        <type>eighth</type>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>7560</duration>
+        <type>eighth</type>
+        <dot />
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
       </note>
     </measure>
     <!--========================= Measure 52 =========================-->
@@ -11086,16 +11239,8 @@
       </note>
       <note>
         <rest />
-        <duration>5040</duration>
-        <type>eighth</type>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
+        <duration>10080</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -11174,13 +11319,64 @@
       </note>
       <note>
         <rest />
-        <duration>20160</duration>
-        <type>half</type>
-      </note>
-      <note>
-        <rest />
         <duration>5040</duration>
         <type>eighth</type>
+      </note>
+      <note>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>7560</duration>
+        <type>eighth</type>
+        <dot />
+        <stem>up</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <accidental>natural</accidental>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
       </note>
     </measure>
     <!--========================= Measure 61 =========================-->
@@ -12174,6 +12370,9 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note>
         <rest />
@@ -12188,7 +12387,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P9549929234857b0726969aded2a6dfe0">
+  <part id="Pf8e8cf4115e7661bc10e8acc61a26b79">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -13873,16 +14072,136 @@
         <beam number="1">end</beam>
       </note>
       <note>
-        <rest />
-        <duration>20160</duration>
-        <type>half</type>
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>10080</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <tie type="stop" />
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+        <notations>
+          <tied type="stop" />
+        </notations>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
       </note>
     </measure>
     <!--========================= Measure 24 =========================-->
     <measure implicit="no" number="24">
       <note>
-        <rest measure="yes" />
-        <duration>40320</duration>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <rest />
+        <duration>20160</duration>
+        <type>half</type>
       </note>
     </measure>
     <!--========================= Measure 25 =========================-->
@@ -15473,13 +15792,25 @@
       </note>
       <note>
         <pitch>
-          <step>A</step>
+          <step>E</step>
           <alter>-1</alter>
           <octave>4</octave>
         </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
+        <duration>5040</duration>
+        <type>eighth</type>
         <accidental>flat</accidental>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
       </note>
       <note>
         <pitch>
@@ -15805,16 +16136,182 @@
     <!--========================= Measure 50 =========================-->
     <measure implicit="no" number="50">
       <note>
+        <rest />
+        <duration>20160</duration>
+        <type>half</type>
+      </note>
+      <note>
+        <rest />
+        <duration>2520</duration>
+        <type>16th</type>
+      </note>
+      <note>
         <pitch>
-          <step>E</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
-        <duration>10080</duration>
-        <tie type="start" />
-        <type>quarter</type>
-        <notations>
-          <tied type="start" />
-        </notations>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
+      </note>
+    </measure>
+    <!--========================= Measure 51 =========================-->
+    <measure implicit="no" number="51">
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -15822,14 +16319,10 @@
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
-        <tie type="stop" />
         <type>16th</type>
         <stem>up</stem>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
-        <notations>
-          <tied type="stop" />
-        </notations>
       </note>
       <note>
         <pitch>
@@ -15869,91 +16362,6 @@
           <step>C</step>
           <octave>4</octave>
         </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
-      </note>
-    </measure>
-    <!--========================= Measure 51 =========================-->
-    <measure implicit="no" number="51">
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-      </note>
-      <note>
-        <rest />
-        <duration>5040</duration>
-        <type>eighth</type>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>7560</duration>
-        <type>eighth</type>
-        <dot />
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-        </pitch>
         <duration>2520</duration>
         <type>16th</type>
         <stem>up</stem>
@@ -15962,7 +16370,7 @@
       </note>
       <note>
         <pitch>
-          <step>E</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
@@ -15973,11 +16381,24 @@
       </note>
       <note>
         <pitch>
-          <step>D</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <alter>-1</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <accidental>flat</accidental>
         <stem>up</stem>
         <beam number="1">end</beam>
         <beam number="2">end</beam>
@@ -16582,9 +17003,21 @@
       </note>
       <note>
         <rest />
-        <duration>15120</duration>
-        <type>quarter</type>
-        <dot />
+        <duration>5040</duration>
+        <type>eighth</type>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+      </note>
+      <note>
+        <rest />
+        <duration>5040</duration>
+        <type>eighth</type>
       </note>
       <note>
         <pitch>
@@ -16604,105 +17037,8 @@
     <!--========================= Measure 60 =========================-->
     <measure implicit="no" number="60">
       <note>
-        <rest />
-        <duration>5040</duration>
-        <type>eighth</type>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>7560</duration>
-        <type>eighth</type>
-        <dot />
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>7560</duration>
-        <type>eighth</type>
-        <dot />
-        <stem>up</stem>
-        <beam number="1">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
+        <rest measure="yes" />
+        <duration>40320</duration>
       </note>
     </measure>
     <!--========================= Measure 61 =========================-->
@@ -16929,55 +17265,31 @@
         <beam number="2">end</beam>
       </note>
       <note>
-        <rest />
-        <duration>2520</duration>
-        <type>16th</type>
-      </note>
-      <note>
         <pitch>
-          <step>E</step>
-          <alter>-1</alter>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <accidental>flat</accidental>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
+        <duration>10080</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
       </note>
     </measure>
     <!--========================= Measure 64 =========================-->
     <measure implicit="no" number="64">
       <note>
         <pitch>
-          <step>A</step>
-          <octave>3</octave>
+          <step>C</step>
+          <octave>4</octave>
         </pitch>
         <duration>10080</duration>
+        <tie type="stop" />
         <type>quarter</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <rest />
@@ -17521,6 +17833,9 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note>
         <rest />
@@ -17535,7 +17850,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="P7422d5af7eb00625c39a6cc2c585ea0b">
+  <part id="Pea7800c6513b05631adcda38726356b3">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -18587,136 +18902,16 @@
     <!--========================= Measure 23 =========================-->
     <measure implicit="no" number="23">
       <note>
-        <rest />
-        <duration>20160</duration>
-        <type>half</type>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>10080</duration>
-        <tie type="start" />
-        <type>quarter</type>
-        <notations>
-          <tied type="start" />
-        </notations>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <tie type="stop" />
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-        <notations>
-          <tied type="stop" />
-        </notations>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
+        <rest measure="yes" />
+        <duration>40320</duration>
       </note>
     </measure>
     <!--========================= Measure 24 =========================-->
     <measure implicit="no" number="24">
       <note>
-        <pitch>
-          <step>G</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
+        <rest />
+        <duration>20160</duration>
+        <type>half</type>
       </note>
       <note>
         <pitch>
@@ -20420,12 +20615,19 @@
         <beam number="2">end</beam>
       </note>
       <note>
+        <rest />
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
+      <note>
         <pitch>
-          <step>G</step>
-          <octave>3</octave>
+          <step>A</step>
+          <alter>-1</alter>
+          <octave>4</octave>
         </pitch>
-        <duration>20160</duration>
-        <type>half</type>
+        <duration>10080</duration>
+        <type>quarter</type>
+        <accidental>flat</accidental>
       </note>
       <note>
         <pitch>
@@ -20745,7 +20947,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note>
         <pitch>
@@ -20755,7 +20957,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note>
         <pitch>
@@ -20900,267 +21102,20 @@
       </note>
       <note>
         <rest />
-        <duration>7560</duration>
+        <duration>20160</duration>
+        <type>half</type>
+      </note>
+      <note>
+        <rest />
+        <duration>5040</duration>
         <type>eighth</type>
-        <dot />
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
       </note>
     </measure>
     <!--========================= Measure 51 =========================-->
     <measure implicit="no" number="51">
       <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>A</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>B</step>
-          <alter>-1</alter>
-          <octave>3</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <accidental>flat</accidental>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
+        <rest measure="yes" />
+        <duration>40320</duration>
       </note>
     </measure>
     <!--========================= Measure 52 =========================-->
@@ -21829,12 +21784,52 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
       </note>
       <note>
-        <rest />
-        <duration>15120</duration>
-        <type>quarter</type>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>7560</duration>
+        <type>eighth</type>
         <dot />
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -22017,31 +22012,56 @@
         <type>quarter</type>
       </note>
       <note>
+        <rest />
+        <duration>2520</duration>
+        <type>16th</type>
+      </note>
+      <note>
         <pitch>
-          <step>C</step>
+          <step>E</step>
+          <alter>-1</alter>
           <octave>4</octave>
         </pitch>
-        <duration>10080</duration>
-        <tie type="start" />
-        <type>quarter</type>
-        <notations>
-          <tied type="start" />
-        </notations>
+        <duration>2520</duration>
+        <type>16th</type>
+        <accidental>flat</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
       </note>
     </measure>
     <!--========================= Measure 64 =========================-->
     <measure implicit="no" number="64">
       <note>
         <pitch>
-          <step>C</step>
-          <octave>4</octave>
+          <step>A</step>
+          <octave>3</octave>
         </pitch>
         <duration>10080</duration>
-        <tie type="stop" />
         <type>quarter</type>
-        <notations>
-          <tied type="stop" />
-        </notations>
       </note>
       <note>
         <rest />
@@ -22051,7 +22071,6 @@
       <note>
         <pitch>
           <step>F</step>
-          <alter>0</alter>
           <octave>3</octave>
         </pitch>
         <duration>10080</duration>
@@ -22681,6 +22700,9 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note>
         <rest />
@@ -22695,7 +22717,7 @@
     </measure>
   </part>
   <!--=========================== Part 5 ===========================-->
-  <part id="Pc6d3479034eacd4202fcba1c8bb43f13">
+  <part id="Pd68c1007f6e1e8392cf5211f4fba297b">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -23022,8 +23044,22 @@
     <!--========================= Measure 45 =========================-->
     <measure implicit="no" number="45">
       <note>
-        <rest measure="yes" />
-        <duration>40320</duration>
+        <rest />
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>20160</duration>
+        <type>half</type>
+      </note>
+      <note>
+        <rest />
+        <duration>10080</duration>
+        <type>quarter</type>
       </note>
     </measure>
     <!--========================= Measure 46 =========================-->
@@ -23229,7 +23265,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">end</beam>
       </note>
       <note>
         <pitch>
@@ -23240,7 +23276,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">continue</beam>
+        <beam number="1">begin</beam>
       </note>
       <note>
         <pitch>
@@ -23736,7 +23772,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note>
         <pitch>
@@ -23746,7 +23782,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>down</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note>
         <pitch>
@@ -23843,7 +23879,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>up</stem>
-        <beam number="1">end</beam>
+        <beam number="1">continue</beam>
       </note>
       <note>
         <pitch>
@@ -23853,7 +23889,7 @@
         <duration>5040</duration>
         <type>eighth</type>
         <stem>up</stem>
-        <beam number="1">begin</beam>
+        <beam number="1">continue</beam>
       </note>
       <note>
         <pitch>
@@ -24123,6 +24159,7 @@
         <tie type="stop" />
         <type>eighth</type>
         <notations>
+          <fermata type="inverted" />
           <tied type="stop" />
         </notations>
       </note>

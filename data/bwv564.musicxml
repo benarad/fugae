@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-24</encoding-date>
+      <encoding-date>2026-11-27</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,25 +19,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P3536e0ee3f390a3e2d396b7d5e2044b0">
+    <score-part id="Pdce098e201dcd6d5dcbe04d77f6ea0f0">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="P41a99ec1f0b01d9ca920b9678dff5ca5">
+    <score-part id="P3b0d161aac3e13ee266e8b80689b7bb0">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="Pb43223432a9a2dbfb16a59c9f24ee103">
+    <score-part id="Pdda338b39ec677d6c0e5501af5cc111d">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="Pcbfeab9a009fe6c70adc53bdbc64666d">
+    <score-part id="P19be6ed4de3f6f5ba5f89ce48eb05907">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P3536e0ee3f390a3e2d396b7d5e2044b0">
+  <part id="Pdce098e201dcd6d5dcbe04d77f6ea0f0">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -4128,7 +4128,10 @@
         <type>half</type>
       </note>
       <note>
-        <rest />
+        <pitch>
+          <step>F</step>
+          <octave>4</octave>
+        </pitch>
         <duration>5040</duration>
         <type>eighth</type>
       </note>
@@ -4136,10 +4139,70 @@
     <!--========================= Measure 58 =========================-->
     <measure implicit="no" number="58">
       <note>
-        <rest />
-        <duration>15120</duration>
-        <type>quarter</type>
-        <dot />
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>G</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <stem>up</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
       </note>
       <note>
         <pitch>
@@ -5190,10 +5253,36 @@
     <!--========================= Measure 73 =========================-->
     <measure implicit="no" number="73">
       <note>
-        <rest />
-        <duration>15120</duration>
-        <type>quarter</type>
-        <dot />
+        <pitch>
+          <step>D</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>F</step>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+      </note>
+      <note>
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
       </note>
       <note>
         <pitch>
@@ -11909,6 +11998,9 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note>
         <rest />
@@ -11926,7 +12018,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="P41a99ec1f0b01d9ca920b9678dff5ca5">
+  <part id="P3b0d161aac3e13ee266e8b80689b7bb0">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -14971,6 +15063,14 @@
     <!--========================= Measure 57 =========================-->
     <measure implicit="no" number="57">
       <note>
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+      </note>
+      <note>
         <rest />
         <duration>20160</duration>
         <type>half</type>
@@ -14980,88 +15080,12 @@
         <duration>5040</duration>
         <type>eighth</type>
       </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-      </note>
     </measure>
     <!--========================= Measure 58 =========================-->
     <measure implicit="no" number="58">
       <note>
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">begin</beam>
-        <beam number="2">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>G</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">continue</beam>
-        <beam number="2">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>2520</duration>
-        <type>16th</type>
-        <stem>up</stem>
-        <beam number="1">end</beam>
-        <beam number="2">end</beam>
-      </note>
-      <note>
-        <rest />
-        <duration>15120</duration>
-        <type>quarter</type>
-        <dot />
+        <rest measure="yes" />
+        <duration>30240</duration>
       </note>
     </measure>
     <!--========================= Measure 59 =========================-->
@@ -15533,42 +15557,8 @@
     <!--========================= Measure 73 =========================-->
     <measure implicit="no" number="73">
       <note>
-        <pitch>
-          <step>D</step>
-          <octave>5</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>down</stem>
-        <beam number="1">begin</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>F</step>
-          <octave>5</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <stem>down</stem>
-        <beam number="1">continue</beam>
-      </note>
-      <note>
-        <pitch>
-          <step>C</step>
-          <alter>1</alter>
-          <octave>5</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-        <accidental>sharp</accidental>
-        <stem>down</stem>
-        <beam number="1">end</beam>
-      </note>
-      <note>
-        <rest />
-        <duration>15120</duration>
-        <type>quarter</type>
-        <dot />
+        <rest measure="yes" />
+        <duration>30240</duration>
       </note>
     </measure>
     <!--========================= Measure 74 =========================-->
@@ -19088,6 +19078,9 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note>
         <rest />
@@ -19105,7 +19098,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="Pb43223432a9a2dbfb16a59c9f24ee103">
+  <part id="Pdda338b39ec677d6c0e5501af5cc111d">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -21779,17 +21772,14 @@
     <!--========================= Measure 57 =========================-->
     <measure implicit="no" number="57">
       <note>
-        <pitch>
-          <step>A</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>5040</duration>
-        <type>eighth</type>
-      </note>
-      <note>
         <rest />
         <duration>20160</duration>
         <type>half</type>
+      </note>
+      <note>
+        <rest />
+        <duration>5040</duration>
+        <type>eighth</type>
       </note>
       <note>
         <pitch>
@@ -26826,6 +26816,7 @@
         <tie type="stop" />
         <type>eighth</type>
         <notations>
+          <fermata type="inverted" />
           <tied type="stop" />
         </notations>
       </note>
@@ -26845,7 +26836,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="Pcbfeab9a009fe6c70adc53bdbc64666d">
+  <part id="P19be6ed4de3f6f5ba5f89ce48eb05907">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -31901,6 +31892,9 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
+        <notations>
+          <fermata type="inverted" />
+        </notations>
       </note>
       <note>
         <chord />

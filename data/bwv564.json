@@ -3620,6 +3620,62 @@
   },
   {
    "v": 0,
+   "on": 170.5,
+   "dur": 0.5,
+   "midi": [
+    65
+   ]
+  },
+  {
+   "v": 0,
+   "on": 171.0,
+   "dur": 0.25,
+   "midi": [
+    64
+   ]
+  },
+  {
+   "v": 0,
+   "on": 171.25,
+   "dur": 0.25,
+   "midi": [
+    65
+   ]
+  },
+  {
+   "v": 0,
+   "on": 171.5,
+   "dur": 0.25,
+   "midi": [
+    67
+   ]
+  },
+  {
+   "v": 0,
+   "on": 171.75,
+   "dur": 0.25,
+   "midi": [
+    65
+   ]
+  },
+  {
+   "v": 0,
+   "on": 172.0,
+   "dur": 0.25,
+   "midi": [
+    64
+   ]
+  },
+  {
+   "v": 0,
+   "on": 172.25,
+   "dur": 0.25,
+   "midi": [
+    62
+   ]
+  },
+  {
+   "v": 0,
    "on": 172.5,
    "dur": 0.25,
    "midi": [
@@ -4357,6 +4413,30 @@
   {
    "v": 0,
    "on": 215.5,
+   "dur": 0.5,
+   "midi": [
+    73
+   ]
+  },
+  {
+   "v": 0,
+   "on": 216.0,
+   "dur": 0.5,
+   "midi": [
+    74
+   ]
+  },
+  {
+   "v": 0,
+   "on": 216.5,
+   "dur": 0.5,
+   "midi": [
+    77
+   ]
+  },
+  {
+   "v": 0,
+   "on": 217.0,
    "dur": 0.5,
    "midi": [
     73
@@ -8864,7 +8944,8 @@
    "dur": 0.5,
    "midi": [
     60
-   ]
+   ],
+   "hold": true
   },
   {
    "v": 1,
@@ -10964,58 +11045,10 @@
   },
   {
    "v": 1,
-   "on": 170.5,
+   "on": 168.0,
    "dur": 0.5,
    "midi": [
-    65
-   ]
-  },
-  {
-   "v": 1,
-   "on": 171.0,
-   "dur": 0.25,
-   "midi": [
-    64
-   ]
-  },
-  {
-   "v": 1,
-   "on": 171.25,
-   "dur": 0.25,
-   "midi": [
-    65
-   ]
-  },
-  {
-   "v": 1,
-   "on": 171.5,
-   "dur": 0.25,
-   "midi": [
-    67
-   ]
-  },
-  {
-   "v": 1,
-   "on": 171.75,
-   "dur": 0.25,
-   "midi": [
-    65
-   ]
-  },
-  {
-   "v": 1,
-   "on": 172.0,
-   "dur": 0.25,
-   "midi": [
-    64
-   ]
-  },
-  {
-   "v": 1,
-   "on": 172.25,
-   "dur": 0.25,
-   "midi": [
-    62
+    57
    ]
   },
   {
@@ -11320,30 +11353,6 @@
    "dur": 0.5,
    "midi": [
     67
-   ]
-  },
-  {
-   "v": 1,
-   "on": 216.0,
-   "dur": 0.5,
-   "midi": [
-    74
-   ]
-  },
-  {
-   "v": 1,
-   "on": 216.5,
-   "dur": 0.5,
-   "midi": [
-    77
-   ]
-  },
-  {
-   "v": 1,
-   "on": 217.0,
-   "dur": 0.5,
-   "midi": [
-    73
    ]
   },
   {
@@ -13655,7 +13664,8 @@
    "dur": 0.5,
    "midi": [
     55
-   ]
+   ],
+   "hold": true
   },
   {
    "v": 2,
@@ -15447,14 +15457,6 @@
    "dur": 0.5,
    "midi": [
     55
-   ]
-  },
-  {
-   "v": 2,
-   "on": 168.0,
-   "dur": 0.5,
-   "midi": [
-    57
    ]
   },
   {
@@ -22059,7 +22061,8 @@
    "midi": [
     48,
     64
-   ]
+   ],
+   "hold": true
   }
  ],
  "subject": {
@@ -22585,6 +22588,31 @@
    "beat": 1.5
   },
   {
+   "altered": [],
+   "altered_by": 0,
+   "answer_at": "",
+   "id": "e10",
+   "theme": 1,
+   "role": "subject",
+   "tonal": false,
+   "form": "direct",
+   "complete": true,
+   "exposition": false,
+   "late": false,
+   "varied": false,
+   "ornamented": false,
+   "partial": false,
+   "key": "G major",
+   "voice": 3,
+   "start": 297.0,
+   "end": 324.5,
+   "notes": 58,
+   "skipped": 0,
+   "deviations": [],
+   "measure": 100,
+   "beat": 1.0
+  },
+  {
    "altered": [
     366.0,
     366.5,
@@ -22614,7 +22642,7 @@
    ],
    "altered_by": 1,
    "answer_at": "fourth",
-   "id": "e10",
+   "id": "e11",
    "theme": 1,
    "role": "answer",
    "tonal": true,
@@ -22670,7 +22698,7 @@
     {
      "voice": 0,
      "start": 27.0,
-     "end": 48.0,
+     "end": 44.5,
      "against": "e2",
      "score": 1.0,
      "shared": false,
@@ -22680,9 +22708,9 @@
     {
      "voice": 2,
      "start": 81.0,
-     "end": 102.0,
+     "end": 98.5,
      "against": "e4",
-     "score": 0.89,
+     "score": 1.0,
      "shared": false,
      "measure": 28,
      "beat": 1.0
@@ -22692,7 +22720,7 @@
      "start": 126.0,
      "end": 138.5,
      "against": "e5",
-     "score": 0.62,
+     "score": 0.72,
      "shared": true,
      "measure": 43,
      "beat": 1.0
@@ -22700,12 +22728,32 @@
     {
      "voice": 1,
      "start": 140.5,
-     "end": 147.0,
+     "end": 143.5,
      "against": "e5",
-     "score": 0.38,
+     "score": 0.28,
      "shared": true,
      "measure": 47,
      "beat": 3.5
+    },
+    {
+     "voice": 2,
+     "start": 300.0,
+     "end": 312.0,
+     "against": "e10",
+     "score": 0.4,
+     "shared": true,
+     "measure": 101,
+     "beat": 1.0
+    },
+    {
+     "voice": 0,
+     "start": 312.0,
+     "end": 314.5,
+     "against": "e10",
+     "score": 0.25,
+     "shared": true,
+     "measure": 105,
+     "beat": 1.0
     }
    ]
   }
@@ -22811,7 +22859,7 @@
   {
    "kind": "episode",
    "label": "Episode 1",
-   "summary": "Soprano: a figure from countersubject 1 (7 times), in a sequence rising by a step every bar. Alto: a figure from countersubject 1, in a sequence rising by a step every bar. Tenor: a figure from countersubject 1, in a sequence rising by a step every bar. Bass: a figure from the subject, inverted and a figure from countersubject 1, in a sequence rising by a step every bar.",
+   "summary": "Soprano: a figure from countersubject 1 (7 times), in a sequence rising by a step every bar. Alto: a figure from countersubject 1, in a sequence rising by a step every bar. Tenor: a figure from countersubject 1, in a sequence rising by a step every bar. Bass: a figure from the subject, inverted, in a sequence rising by a step every bar.",
    "reworks": "",
    "leads": "From G major to C major; perfect cadence in G major at bar 43",
    "start": 108.5,
@@ -22877,7 +22925,7 @@
   {
    "kind": "episode",
    "label": "Episode 2",
-   "summary": "Soprano: a figure from countersubject 1 (2 times) and a figure from countersubject 1, inverted, in a sequence falling by a step every half bar. Alto: free counterpoint. Tenor: a figure from countersubject 1 (6 times) and a figure from countersubject 1, inverted, in a sequence rising by a step every bar. Bass: a figure from the subject (3 times), in a sequence rising by a step every bar.",
+   "summary": "Soprano: a figure from countersubject 1 and a figure from countersubject 1, inverted, in a sequence rising by a step every bar. Alto: free counterpoint. Tenor: a figure from countersubject 1 (6 times), in a sequence rising by a step every bar. Bass: a figure from the subject (3 times), in a sequence rising by a step every bar.",
    "reworks": "",
    "leads": "From C major to E minor; perfect cadence in E minor at bar 78",
    "start": 213.5,
@@ -22899,7 +22947,7 @@
   {
    "kind": "link",
    "label": "Link",
-   "summary": "Soprano: a figure from countersubject 1. Alto: free counterpoint. Tenor: free counterpoint.",
+   "summary": "Free counterpoint: nothing here is traced to the themes.",
    "reworks": "",
    "leads": "Between two statements in E minor",
    "start": 257.5,
@@ -22921,13 +22969,35 @@
   {
    "kind": "episode",
    "label": "Episode 3",
-   "summary": "Soprano: a figure from countersubject 1 (17 times) and a figure from the subject (3 times) and the opening of the subject, in a sequence rising by a step every bar. Alto: a figure from countersubject 1 (2 times) and the opening of the subject, in a sequence falling by a step every half bar. Tenor: a figure from countersubject 1 (6 times), in a sequence rising by a seventh every bar. Bass: a figure from the subject (4 times), in a sequence rising by a third every two bars.",
+   "summary": "Soprano: free counterpoint. Alto: free counterpoint, in a sequence falling by a step every bar. Tenor: free counterpoint.",
    "reworks": "",
-   "leads": "From E minor to G major; perfect cadence in A minor at bar 96; perfect cadence in G major at bar 101; perfect cadence in C major at bar 121",
+   "leads": "From E minor to G major; perfect cadence in A minor at bar 96",
    "start": 284.5,
-   "end": 366.0,
+   "end": 297.0,
    "measure": 95,
    "beat": 3.5
+  },
+  {
+   "kind": "entries",
+   "label": "Subject in G major (Bass)",
+   "summary": "",
+   "reworks": "",
+   "leads": "",
+   "start": 297.0,
+   "end": 324.5,
+   "measure": 100,
+   "beat": 1.0
+  },
+  {
+   "kind": "episode",
+   "label": "Episode 4",
+   "summary": "Soprano: a figure from countersubject 1 (11 times), in a sequence rising by a step every bar. Alto: a figure from countersubject 1 (2 times), in a sequence falling by a step every half bar. Tenor: a figure from countersubject 1 (3 times), in a sequence rising by a seventh every bar. Bass: free counterpoint.",
+   "reworks": "",
+   "leads": "Between two statements in G major; perfect cadence in C major at bar 121",
+   "start": 324.5,
+   "end": 366.0,
+   "measure": 109,
+   "beat": 1.5
   },
   {
    "kind": "entries",
@@ -22936,7 +23006,7 @@
    "reworks": "",
    "leads": "",
    "start": 366.0,
-   "end": 393.5,
+   "end": 393.0,
    "measure": 123,
    "beat": 1.0
   },
@@ -22946,10 +23016,10 @@
    "summary": "",
    "reworks": "",
    "leads": "Perfect cadence in C major at bar 135",
-   "start": 393.5,
+   "start": 393.0,
    "end": 423.0,
    "measure": 132,
-   "beat": 1.5
+   "beat": 1.0
   }
  ],
  "spans": [
@@ -23057,32 +23127,6 @@
    "beat": 1.0
   },
   {
-   "voice": 0,
-   "start": 73.0,
-   "end": 75.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 25,
-   "beat": 2.0
-  },
-  {
-   "voice": 1,
-   "start": 73.0,
-   "end": 75.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 25,
-   "beat": 2.0
-  },
-  {
    "voice": 1,
    "start": 81.0,
    "end": 84.0,
@@ -23162,32 +23206,6 @@
   },
   {
    "voice": 0,
-   "start": 100.0,
-   "end": 102.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 34,
-   "beat": 2.0
-  },
-  {
-   "voice": 1,
-   "start": 100.0,
-   "end": 102.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 34,
-   "beat": 2.0
-  },
-  {
-   "voice": 0,
    "start": 103.5,
    "end": 105.5,
    "source": "subject",
@@ -23211,19 +23229,6 @@
    "text": "a figure from countersubject 1",
    "measure": 36,
    "beat": 3.5
-  },
-  {
-   "voice": 1,
-   "start": 107.75,
-   "end": 110.0,
-   "source": "cs1",
-   "first": 42,
-   "last": 45,
-   "inverted": true,
-   "exact": true,
-   "text": "a figure from countersubject 1, inverted",
-   "measure": 36,
-   "beat": 3.75
   },
   {
    "voice": 0,
@@ -23356,19 +23361,6 @@
    "beat": 2.5
   },
   {
-   "voice": 3,
-   "start": 124.0,
-   "end": 126.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 42,
-   "beat": 2.0
-  },
-  {
    "voice": 1,
    "start": 126.0,
    "end": 129.5,
@@ -23383,29 +23375,16 @@
   },
   {
    "voice": 0,
-   "start": 141.0,
-   "end": 144.0,
+   "start": 140.5,
+   "end": 143.5,
    "source": "cs1",
-   "first": 31,
-   "last": 42,
+   "first": 16,
+   "last": 26,
    "inverted": false,
-   "exact": true,
+   "exact": false,
    "text": "a figure from countersubject 1",
-   "measure": 48,
-   "beat": 1.0
-  },
-  {
-   "voice": 0,
-   "start": 145.0,
-   "end": 147.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 49,
-   "beat": 2.0
+   "measure": 47,
+   "beat": 3.5
   },
   {
    "voice": 1,
@@ -23461,68 +23440,29 @@
   },
   {
    "voice": 1,
-   "start": 164.5,
-   "end": 167.75,
+   "start": 165.0,
+   "end": 168.5,
    "source": "cs1",
-   "first": 2,
-   "last": 13,
+   "first": 17,
+   "last": 29,
    "inverted": false,
    "exact": true,
    "text": "a figure from countersubject 1",
-   "measure": 55,
-   "beat": 3.5
-  },
-  {
-   "voice": 1,
-   "start": 170.5,
-   "end": 172.5,
-   "source": "cs1",
-   "first": 30,
-   "last": 36,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 57,
-   "beat": 3.5
+   "measure": 56,
+   "beat": 1.0
   },
   {
    "voice": 0,
-   "start": 172.5,
+   "start": 171.0,
    "end": 174.5,
    "source": "cs1",
-   "first": 9,
+   "first": 3,
    "last": 15,
    "inverted": false,
    "exact": true,
    "text": "a figure from countersubject 1",
    "measure": 58,
-   "beat": 2.5
-  },
-  {
-   "voice": 0,
-   "start": 175.0,
-   "end": 177.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 59,
-   "beat": 2.0
-  },
-  {
-   "voice": 2,
-   "start": 175.0,
-   "end": 177.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 59,
-   "beat": 2.0
+   "beat": 1.0
   },
   {
    "voice": 0,
@@ -23577,19 +23517,6 @@
    "beat": 2.5
   },
   {
-   "voice": 2,
-   "start": 191.25,
-   "end": 192.5,
-   "source": "cs1",
-   "first": 40,
-   "last": 43,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 64,
-   "beat": 3.25
-  },
-  {
    "voice": 1,
    "start": 192.0,
    "end": 194.0,
@@ -23640,32 +23567,6 @@
    "text": "a figure from the subject",
    "measure": 68,
    "beat": 2.5
-  },
-  {
-   "voice": 1,
-   "start": 205.0,
-   "end": 207.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 69,
-   "beat": 2.0
-  },
-  {
-   "voice": 2,
-   "start": 205.0,
-   "end": 207.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 69,
-   "beat": 2.0
   },
   {
    "voice": 1,
@@ -23811,19 +23712,6 @@
    "beat": 3.25
   },
   {
-   "voice": 2,
-   "start": 225.5,
-   "end": 227.25,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": true,
-   "exact": true,
-   "text": "a figure from countersubject 1, inverted",
-   "measure": 76,
-   "beat": 1.5
-  },
-  {
    "voice": 3,
    "start": 225.75,
    "end": 227.5,
@@ -23835,19 +23723,6 @@
    "text": "a figure from the subject",
    "measure": 76,
    "beat": 1.75
-  },
-  {
-   "voice": 0,
-   "start": 226.0,
-   "end": 227.75,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 76,
-   "beat": 2.0
   },
   {
    "voice": 3,
@@ -23878,10 +23753,10 @@
   {
    "voice": 0,
    "start": 234.0,
-   "end": 237.25,
+   "end": 236.5,
    "source": "cs1",
-   "first": 31,
-   "last": 43,
+   "first": 3,
+   "last": 12,
    "inverted": false,
    "exact": true,
    "text": "a figure from countersubject 1",
@@ -23890,24 +23765,24 @@
   },
   {
    "voice": 0,
-   "start": 237.25,
+   "start": 237.0,
    "end": 240.0,
    "source": "cs1",
-   "first": 18,
+   "first": 17,
    "last": 28,
    "inverted": false,
    "exact": true,
    "text": "a figure from countersubject 1",
    "measure": 80,
-   "beat": 1.25
+   "beat": 1.0
   },
   {
    "voice": 0,
    "start": 240.0,
-   "end": 243.25,
+   "end": 242.5,
    "source": "cs1",
-   "first": 31,
-   "last": 43,
+   "first": 3,
+   "last": 12,
    "inverted": false,
    "exact": true,
    "text": "a figure from countersubject 1",
@@ -23916,16 +23791,16 @@
   },
   {
    "voice": 0,
-   "start": 243.25,
-   "end": 246.0,
+   "start": 243.0,
+   "end": 245.5,
    "source": "cs1",
-   "first": 32,
-   "last": 42,
+   "first": 3,
+   "last": 12,
    "inverted": false,
    "exact": true,
    "text": "a figure from countersubject 1",
    "measure": 82,
-   "beat": 1.25
+   "beat": 1.0
   },
   {
    "voice": 0,
@@ -23942,41 +23817,41 @@
   },
   {
    "voice": 0,
-   "start": 255.25,
-   "end": 256.25,
+   "start": 255.75,
+   "end": 257.0,
    "source": "cs1",
-   "first": 40,
-   "last": 43,
+   "first": 5,
+   "last": 9,
+   "inverted": false,
+   "exact": true,
+   "text": "a figure from countersubject 1",
+   "measure": 86,
+   "beat": 1.75
+  },
+  {
+   "voice": 0,
+   "start": 257.25,
+   "end": 260.25,
+   "source": "cs1",
+   "first": 17,
+   "last": 28,
    "inverted": true,
    "exact": true,
    "text": "a figure from countersubject 1, inverted",
    "measure": 86,
-   "beat": 1.25
+   "beat": 3.25
   },
   {
    "voice": 0,
-   "start": 256.25,
-   "end": 257.5,
-   "source": "subject",
-   "first": 39,
-   "last": 43,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 86,
-   "beat": 2.25
-  },
-  {
-   "voice": 0,
-   "start": 258.0,
-   "end": 261.25,
+   "start": 261.0,
+   "end": 263.75,
    "source": "cs1",
-   "first": 31,
-   "last": 43,
+   "first": 3,
+   "last": 13,
    "inverted": false,
    "exact": true,
    "text": "a figure from countersubject 1",
-   "measure": 87,
+   "measure": 88,
    "beat": 1.0
   },
   {
@@ -23991,19 +23866,6 @@
    "text": "the opening of the subject",
    "measure": 88,
    "beat": 1.0
-  },
-  {
-   "voice": 0,
-   "start": 261.25,
-   "end": 263.75,
-   "source": "cs1",
-   "first": 4,
-   "last": 13,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 88,
-   "beat": 1.25
   },
   {
    "voice": 0,
@@ -24046,19 +23908,6 @@
   },
   {
    "voice": 0,
-   "start": 273.5,
-   "end": 274.5,
-   "source": "cs1",
-   "first": 40,
-   "last": 43,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 92,
-   "beat": 1.5
-  },
-  {
-   "voice": 0,
    "start": 274.5,
    "end": 276.5,
    "source": "cs1",
@@ -24069,32 +23918,6 @@
    "text": "a figure from countersubject 1",
    "measure": 92,
    "beat": 2.5
-  },
-  {
-   "voice": 0,
-   "start": 277.0,
-   "end": 279.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 93,
-   "beat": 2.0
-  },
-  {
-   "voice": 1,
-   "start": 277.0,
-   "end": 279.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 93,
-   "beat": 2.0
   },
   {
    "voice": 0,
@@ -24123,38 +23946,12 @@
    "beat": 1.0
   },
   {
-   "voice": 3,
-   "start": 297.0,
-   "end": 303.0,
-   "source": "subject",
-   "first": 10,
-   "last": 18,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 100,
-   "beat": 1.0
-  },
-  {
    "voice": 0,
    "start": 300.0,
    "end": 302.0,
    "source": "cs1",
    "first": 3,
    "last": 9,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 101,
-   "beat": 1.0
-  },
-  {
-   "voice": 2,
-   "start": 300.0,
-   "end": 306.0,
-   "source": "cs1",
-   "first": 3,
-   "last": 16,
    "inverted": false,
    "exact": true,
    "text": "a figure from countersubject 1",
@@ -24188,32 +23985,6 @@
    "beat": 1.0
   },
   {
-   "voice": 3,
-   "start": 303.0,
-   "end": 309.5,
-   "source": "subject",
-   "first": 10,
-   "last": 19,
-   "inverted": false,
-   "exact": false,
-   "text": "a figure from the subject",
-   "measure": 102,
-   "beat": 1.0
-  },
-  {
-   "voice": 2,
-   "start": 306.0,
-   "end": 309.0,
-   "source": "cs1",
-   "first": 17,
-   "last": 28,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 103,
-   "beat": 1.0
-  },
-  {
    "voice": 0,
    "start": 309.25,
    "end": 311.75,
@@ -24227,32 +23998,6 @@
    "beat": 1.25
   },
   {
-   "voice": 3,
-   "start": 309.5,
-   "end": 315.0,
-   "source": "subject",
-   "first": 2,
-   "last": 9,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 104,
-   "beat": 1.5
-  },
-  {
-   "voice": 0,
-   "start": 312.0,
-   "end": 315.25,
-   "source": "cs1",
-   "first": 17,
-   "last": 29,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 105,
-   "beat": 1.0
-  },
-  {
    "voice": 2,
    "start": 312.0,
    "end": 314.0,
@@ -24263,19 +24008,6 @@
    "exact": true,
    "text": "a figure from countersubject 1",
    "measure": 105,
-   "beat": 1.0
-  },
-  {
-   "voice": 3,
-   "start": 315.0,
-   "end": 324.5,
-   "source": "subject",
-   "first": 28,
-   "last": 58,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 106,
    "beat": 1.0
   },
   {
@@ -24578,95 +24310,17 @@
    "beat": 1.25
   },
   {
-   "voice": 0,
-   "start": 384.0,
-   "end": 387.0,
-   "source": "cs1",
-   "first": 43,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 129,
-   "beat": 1.0
-  },
-  {
-   "voice": 1,
-   "start": 384.0,
-   "end": 387.0,
-   "source": "cs1",
-   "first": 43,
-   "last": 47,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 129,
-   "beat": 1.0
-  },
-  {
-   "voice": 2,
-   "start": 385.0,
-   "end": 387.0,
-   "source": "cs1",
-   "first": 44,
-   "last": 47,
+   "voice": 3,
+   "start": 395.5,
+   "end": 396.5,
+   "source": "subject",
+   "first": 38,
+   "last": 41,
    "inverted": true,
    "exact": true,
-   "text": "a figure from countersubject 1, inverted",
-   "measure": 129,
-   "beat": 2.0
-  },
-  {
-   "voice": 0,
-   "start": 390.25,
-   "end": 393.25,
-   "source": "cs1",
-   "first": 40,
-   "last": 44,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 131,
-   "beat": 1.25
-  },
-  {
-   "voice": 2,
-   "start": 391.75,
-   "end": 393.25,
-   "source": "cs1",
-   "first": 40,
-   "last": 43,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from countersubject 1",
-   "measure": 131,
-   "beat": 2.75
-  },
-  {
-   "voice": 3,
-   "start": 395.75,
-   "end": 397.25,
-   "source": "cs1",
-   "first": 38,
-   "last": 43,
-   "inverted": false,
-   "exact": false,
-   "text": "a figure from countersubject 1",
+   "text": "a figure from the subject, inverted",
    "measure": 132,
-   "beat": 3.75
-  },
-  {
-   "voice": 3,
-   "start": 397.25,
-   "end": 398.75,
-   "source": "cs1",
-   "first": 38,
-   "last": 43,
-   "inverted": false,
-   "exact": false,
-   "text": "a figure from countersubject 1",
-   "measure": 133,
-   "beat": 2.25
+   "beat": 3.5
   },
   {
    "voice": 0,
@@ -24843,6 +24497,17 @@
    "beat": 3.5
   },
   {
+   "voice": 0,
+   "start": 213.5,
+   "end": 219.5,
+   "period": 3.0,
+   "count": 2,
+   "step": 1,
+   "text": "a sequence rising by a step every bar",
+   "measure": 72,
+   "beat": 1.5
+  },
+  {
    "voice": 2,
    "start": 213.5,
    "end": 222.5,
@@ -24887,48 +24552,26 @@
    "beat": 3.5
   },
   {
-   "voice": 3,
-   "start": 297.0,
-   "end": 309.0,
-   "period": 6.0,
+   "voice": 1,
+   "start": 291.25,
+   "end": 297.0,
+   "period": 3.0,
    "count": 2,
-   "step": 2,
-   "text": "a sequence rising by a third every two bars",
-   "measure": 100,
-   "beat": 1.0
+   "step": -1,
+   "text": "a sequence falling by a step every bar",
+   "measure": 98,
+   "beat": 1.25
   },
   {
    "voice": 0,
-   "start": 308.75,
-   "end": 314.75,
+   "start": 324.5,
+   "end": 333.5,
    "period": 3.0,
-   "count": 2,
+   "count": 3,
    "step": 1,
    "text": "a sequence rising by a step every bar",
-   "measure": 103,
-   "beat": 3.75
-  },
-  {
-   "voice": 2,
-   "start": 319.0,
-   "end": 322.0,
-   "period": 1.5,
-   "count": 2,
-   "step": -4,
-   "text": "a sequence falling by a fifth every half bar",
-   "measure": 107,
-   "beat": 2.0
-  },
-  {
-   "voice": 0,
-   "start": 323.25,
-   "end": 335.25,
-   "period": 3.0,
-   "count": 4,
-   "step": 1,
-   "text": "a sequence rising by a step every bar",
-   "measure": 108,
-   "beat": 3.25
+   "measure": 109,
+   "beat": 1.5
   },
   {
    "voice": 2,

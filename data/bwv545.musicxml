@@ -5,7 +5,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-11-24</encoding-date>
+      <encoding-date>2026-11-27</encoding-date>
       <software>music21 v.10.5.2</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -19,25 +19,25 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Paa7b0705a066550f2c9d91be401cc0e6">
+    <score-part id="Pa21de970f4d53040d734d0488718ac30">
       <part-name>Soprano</part-name>
       <part-abbreviation>S</part-abbreviation>
     </score-part>
-    <score-part id="Pd9ff815bbca70cd0bd5578ece58f6ca8">
+    <score-part id="P28e1d1b7c242b1894179a358295b2c5e">
       <part-name>Alto</part-name>
       <part-abbreviation>A</part-abbreviation>
     </score-part>
-    <score-part id="P2f6dcd10c4b2d2250595032803b15d6d">
+    <score-part id="P392b15a2217492dd8ca8abccf65b3670">
       <part-name>Tenor</part-name>
       <part-abbreviation>T</part-abbreviation>
     </score-part>
-    <score-part id="Pe74c433760cb9fce01f2dfce471cd23d">
+    <score-part id="P66204f0bb7796a6c1f1ee996afdae309">
       <part-name>Bass</part-name>
       <part-abbreviation>B</part-abbreviation>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Paa7b0705a066550f2c9d91be401cc0e6">
+  <part id="Pa21de970f4d53040d734d0488718ac30">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -5140,7 +5140,7 @@
     </measure>
   </part>
   <!--=========================== Part 2 ===========================-->
-  <part id="Pd9ff815bbca70cd0bd5578ece58f6ca8">
+  <part id="P28e1d1b7c242b1894179a358295b2c5e">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -9950,8 +9950,26 @@
         <type>quarter</type>
       </note>
       <note>
+        <chord />
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
+      <note>
         <pitch>
           <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
+      <note>
+        <chord />
+        <pitch>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>10080</duration>
@@ -9965,12 +9983,30 @@
         <duration>10080</duration>
         <type>quarter</type>
       </note>
+      <note>
+        <chord />
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
     </measure>
     <!--======================== Measure 110 =========================-->
     <measure implicit="no" number="110">
       <note>
         <pitch>
           <step>E</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>20160</duration>
+        <type>half</type>
+      </note>
+      <note>
+        <chord />
+        <pitch>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>20160</duration>
@@ -10010,7 +10046,7 @@
     </measure>
   </part>
   <!--=========================== Part 3 ===========================-->
-  <part id="P2f6dcd10c4b2d2250595032803b15d6d">
+  <part id="P392b15a2217492dd8ca8abccf65b3670">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -15516,15 +15552,6 @@
     <measure implicit="no" number="109">
       <note>
         <pitch>
-          <step>G</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-      </note>
-      <note>
-        <chord />
-        <pitch>
           <step>E</step>
           <octave>3</octave>
         </pitch>
@@ -15533,7 +15560,7 @@
       </note>
       <note>
         <pitch>
-          <step>B</step>
+          <step>F</step>
           <octave>3</octave>
         </pitch>
         <duration>10080</duration>
@@ -15541,22 +15568,13 @@
       </note>
       <note>
         <pitch>
-          <step>C</step>
-          <octave>4</octave>
+          <step>G</step>
+          <octave>3</octave>
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
       </note>
       <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-      </note>
-      <note>
-        <chord />
         <pitch>
           <step>A</step>
           <octave>3</octave>
@@ -15568,15 +15586,6 @@
     <!--======================== Measure 110 =========================-->
     <measure implicit="no" number="110">
       <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>20160</duration>
-        <type>half</type>
-      </note>
-      <note>
-        <chord />
         <pitch>
           <step>G</step>
           <octave>3</octave>
@@ -15630,7 +15639,7 @@
     </measure>
   </part>
   <!--=========================== Part 4 ===========================-->
-  <part id="Pe74c433760cb9fce01f2dfce471cd23d">
+  <part id="P66204f0bb7796a6c1f1ee996afdae309">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
@@ -18797,17 +18806,17 @@
         <type>quarter</type>
       </note>
       <note>
+        <chord />
         <pitch>
-          <step>D</step>
+          <step>G</step>
           <octave>3</octave>
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
       </note>
       <note>
-        <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>3</octave>
         </pitch>
         <duration>10080</duration>
@@ -18825,15 +18834,6 @@
       <note>
         <pitch>
           <step>E</step>
-          <octave>3</octave>
-        </pitch>
-        <duration>10080</duration>
-        <type>quarter</type>
-      </note>
-      <note>
-        <chord />
-        <pitch>
-          <step>G</step>
           <octave>3</octave>
         </pitch>
         <duration>10080</duration>
