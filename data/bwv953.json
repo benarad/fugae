@@ -2898,7 +2898,8 @@
    "midi": [
     72,
     67
-   ]
+   ],
+   "hold": true
   },
   {
    "v": 1,
@@ -4954,6 +4955,14 @@
    "dur": 0.25,
    "midi": [
     64
+   ]
+  },
+  {
+   "v": 1,
+   "on": 122.0,
+   "dur": 0.25,
+   "midi": [
+    53
    ]
   },
   {
@@ -7102,14 +7111,6 @@
   },
   {
    "v": 2,
-   "on": 122.0,
-   "dur": 0.25,
-   "midi": [
-    53
-   ]
-  },
-  {
-   "v": 2,
    "on": 129.25,
    "dur": 0.25,
    "midi": [
@@ -7426,7 +7427,8 @@
    "dur": 2.0,
    "midi": [
     36
-   ]
+   ],
+   "hold": true
   }
  ],
  "subject": {
@@ -7916,7 +7918,7 @@
   {
    "kind": "episode",
    "label": "Episode 6",
-   "summary": "Reworks Episode 2 (bars 10–13), with the soprano's line in the alto, the bass's line in the soprano, at the same pitch level. Soprano: a figure from the subject, in a sequence falling by a step every half bar. Alto: a figure from the subject (4 times), in a sequence falling by a step every half bar. Bass: free counterpoint.",
+   "summary": "Reworks Episode 2 (bars 10–13), with the soprano's line in the alto, the bass's line in the soprano, at the same pitch level. Soprano: a figure from the subject, in a sequence falling by a step every half bar. Alto: a figure from the subject (4 times), in a sequence falling by a step every half bar.",
    "reworks": "Episode 2",
    "leads": "From G major to C major",
    "start": 120.0,
@@ -8623,10 +8625,10 @@
   {
    "voice": 1,
    "start": 120.0,
-   "end": 122.0,
+   "end": 121.5,
    "source": "subject",
    "first": 20,
-   "last": 27,
+   "last": 25,
    "inverted": false,
    "exact": true,
    "text": "a figure from the subject",
@@ -8635,21 +8637,8 @@
   },
   {
    "voice": 1,
-   "start": 122.25,
-   "end": 123.5,
-   "source": "subject",
-   "first": 21,
-   "last": 25,
-   "inverted": false,
-   "exact": true,
-   "text": "a figure from the subject",
-   "measure": 31,
-   "beat": 3.25
-  },
-  {
-   "voice": 1,
-   "start": 123.5,
-   "end": 126.0,
+   "start": 121.5,
+   "end": 124.0,
    "source": "subject",
    "first": 18,
    "last": 27,
@@ -8657,20 +8646,33 @@
    "exact": true,
    "text": "a figure from the subject",
    "measure": 31,
-   "beat": 4.5
+   "beat": 2.5
   },
   {
    "voice": 1,
-   "start": 126.0,
-   "end": 128.0,
+   "start": 124.0,
+   "end": 125.5,
    "source": "subject",
    "first": 20,
+   "last": 25,
+   "inverted": false,
+   "exact": true,
+   "text": "a figure from the subject",
+   "measure": 32,
+   "beat": 1.0
+  },
+  {
+   "voice": 1,
+   "start": 125.5,
+   "end": 128.0,
+   "source": "subject",
+   "first": 18,
    "last": 27,
    "inverted": false,
    "exact": true,
    "text": "a figure from the subject",
    "measure": 32,
-   "beat": 3.0
+   "beat": 2.5
   },
   {
    "voice": 0,
@@ -8814,14 +8816,14 @@
   },
   {
    "voice": 1,
-   "start": 122.25,
-   "end": 126.25,
+   "start": 120.0,
+   "end": 128.0,
    "period": 2.0,
-   "count": 2,
+   "count": 4,
    "step": -1,
    "text": "a sequence falling by a step every half bar",
    "measure": 31,
-   "beat": 3.25
+   "beat": 1.0
   }
  ]
 }

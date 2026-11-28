@@ -88,7 +88,7 @@ function buildMarks() {
     const role = later ? `Subject ${e.theme}` : e.role === "answer" ? "Answer" : "Subject";
     const kind = !later && e.role === "answer" ? (e.tonal ? " (tonal)" : " (real)") : "";
     const form = e.form === "direct" ? "" : `, by ${e.form}`;
-    const tag = { inversion: " inv.", augmentation: " aug.", diminution: " dim.", "inverted diminution": " inv. dim." }[e.form] || "";
+    const tag = { inversion: " inv.", augmentation: " aug.", diminution: " dim.", "inverted diminution": " inv. dim.", "inverted augmentation": " inv. aug." }[e.form] || "";
     const voice = piece.voices[e.voice];
     const changed = (e.altered || []).length;
     out.push({
@@ -1355,7 +1355,7 @@ function pump() {
   }
   if (loop && q >= loop.end) { seek(loop.start); return; }
   // A recording plays to its end, the last chord's dying away and all.
-  if (take ? take.audio.ended : q >= piece.end + 0.5) { pause(); pausedAt = 0; paint(0); }
+  if (take ? take.audio.ended : q >= piece.end + 0.5) { pause(true); pausedAt = 0; paint(0); }
 }
 
 // Repeating a section: while `loop` holds a section, playing goes round it. Moving
@@ -1455,13 +1455,15 @@ async function play() {
   requestAnimationFrame(frame);
 }
 
-function pause() {
+// At the end of the fugue the notes already struck are let ring out (`ringOut`), the last chord dying away
+// as it would, not stopped.
+function pause(ringOut = false) {
   if (!playing) return;
   pausedAt = Math.min(position(), piece.end);
   playing = false;
   clearInterval(timer);
   if (take) take.audio.pause();
-  if (ctx) silence(false);
+  if (ctx) silence(ringOut === true);
   hush?.pause();
   setPlayLabel("Play");
 }
@@ -1788,14 +1790,43 @@ function ruleMap() {
 function shapeMap() {
   shaped = way === "her" && Boolean(shaping) && strength > 0;
   qs = taus = null;
-  if (way === "rule") { ruleMap(); return; }
-  if (!shaped) return;
-  const stretch = shaping.stretch;
-  qs = [...stretch.map((p) => p[0]), piece.end + 1];
-  taus = [qs[0]];
-  for (let k = 0; k < stretch.length; k++) {
-    taus.push(taus[k] + (qs[k + 1] - qs[k]) * Math.exp(strength * stretch[k][1]));
+  if (way === "rule") ruleMap();
+  else if (shaped) {
+    const stretch = shaping.stretch;
+    qs = [...stretch.map((p) => p[0]), piece.end + 1];
+    taus = [qs[0]];
+    for (let k = 0; k < stretch.length; k++) {
+      taus.push(taus[k] + (qs[k + 1] - qs[k]) * Math.exp(strength * stretch[k][1]));
+    }
   }
+  holdFermatas();
+}
+
+// Under a fermata (a note marked `hold`) time goes slower, however the rest is shaped, so that the notes there
+// last FERMATA times as long, and a bar longer than written at the least (a last chord may be written short);
+// the last chord of most fugues has one.
+const FERMATA = 2.5;
+function holdFermatas() {
+  const spans = piece.notes.filter((n) => n.hold).map((n) => [n.on, n.on + n.dur]).sort((a, b) => a[0] - b[0]);
+  if (!spans.length) return;
+  const merged = [];
+  for (const [a, b] of spans) {
+    const last = merged.at(-1);
+    if (last && a <= last[1] + 1e-6) last[1] = Math.max(last[1], b); else merged.push([a, b]);
+  }
+  if (!qs) { qs = [0, piece.end + 1]; taus = [0, piece.end + 1]; }
+  const at = [...new Set([...qs, ...merged.flat()])].sort((a, b) => a - b);
+  const plain = at.map((q) => along(qs, taus, q));
+  const bar = piece.measures[0].length;
+  const slower = (a, b) => {
+    const span = merged.find(([x, y]) => a >= x - 1e-6 && b <= y + 1e-6);
+    return span ? Math.max(FERMATA, (span[1] - span[0] + bar) / (span[1] - span[0])) : 1;
+  };
+  const stretched = [plain[0]];
+  for (let k = 1; k < at.length; k++) {
+    stretched.push(stretched[k - 1] + (plain[k] - plain[k - 1]) * slower(at[k - 1], at[k]));
+  }
+  qs = at; taus = stretched;
 }
 
 // How much louder or softer than plain the shaping plays a note, in dB, at the strength set: the note's own
